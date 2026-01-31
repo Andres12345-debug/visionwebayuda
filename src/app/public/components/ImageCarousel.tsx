@@ -31,20 +31,20 @@ type ImageCarouselProps = {
 const DEFAULT_SLIDES: Slide[] = [
   {
     src: require("../../../assets/img/welcome/glpiWelcomeCarrucel.png"),
-    title: "Bienvenidos a la Alcaldía Mayor de Tunja",
-    caption: "Aquí encontrarás todos los servicios y trámites en línea",
+    title: "Soporte Técnico Organizado y Bajo Control",
+    caption: "Centraliza todas las solicitudes en un solo sistema, asigna casos a los técnicos y lleva historial completo de cada atención.",
     ctaText: "Saber más",
   },
   {
-    src: require("../../../assets/img/welcome/glpiWelcomeCarrucel.png"),
-    title: "Trámites Rápidos",
-    caption: "Realiza tus solicitudes de manera eficiente",
+    src: require("../../../assets/img/welcome/glpiWelcomeCarrucel2.png"),
+    title: "Control Total de tus Activos Tecnológicos",
+    caption: "Registra computadores, impresoras y dispositivos, conoce quién los usa, su estado, mantenimientos y garantías.",
     ctaText: "Iniciar trámite",
   },
   {
-    src: require("../../../assets/img/welcome/glpiWelcomeCarrucel.png"),
-    title: "Participa en la Comunidad",
-    caption: "Noticias, eventos y más",
+    src: require("../../../assets/img/welcome/glpiWelcomeCarrucel2.png"),
+    title: "Gestión TIC Medible y Profesional",
+    caption: "Obtén métricas, tiempos de respuesta, reportes y niveles de satisfacción para mejorar continuamente el servicio.",
     ctaText: "Ver eventos",
   },
 ];

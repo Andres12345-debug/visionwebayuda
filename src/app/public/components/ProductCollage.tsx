@@ -8,6 +8,8 @@ import {
   Chip,
 } from "@mui/material";
 
+import trabajadorFeliz from "../../../assets/img/welcome/TrabajadorFeliz.png";
+
 const products = [
   {
     tag: "NUEVO",
@@ -31,7 +33,7 @@ const products = [
     title: "AirPods Pro 3",
     desc1: "La mejor cancelación activa de ruido in-ear del mundo.",
     desc2: "Desde $1.279.000",
-    img: "https://mac-center.com/cdn/shop/files/AirPods_Pro_3_PDP_Image_Position_1__en-US_9cba20da-dd89-49be-b0d1-27a82db55968.webp?v=1757471246&width=235",
+    img: trabajadorFeliz,
     link: "https://mac-center.com/products/airpods-pro-3-mfhp4am-a",
   },
 ];

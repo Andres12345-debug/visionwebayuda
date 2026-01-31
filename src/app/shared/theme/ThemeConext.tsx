@@ -44,7 +44,7 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
             main: "#ff3d00", // azul personalizado
           },
           secondary: {
-            main: "#bfbb42ff", // azul personalizado BOTON
+            main: "#00d936ff", // azul personalizado BOTON
           },
           text: {
             primary: mode === "light" ? "#1a1a1a" : "#ffffff" + " !important",   // color principal del texto
