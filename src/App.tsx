@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import logo from './logo.svg';
 import { ThemeContextProvider } from './app/shared/theme/ThemeConext';
 import { BrowserRouter } from 'react-router-dom';
 import { MainRoute } from './routes/MainRoute';
