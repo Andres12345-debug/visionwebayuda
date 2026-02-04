@@ -47,11 +47,11 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
             main: "#00d936ff", // azul personalizado BOTON
           },
           text: {
-            primary: mode === "light" ? "#1a1a1a" : "#ffffff" + " !important",   // color principal del texto
-            secondary: mode === "light" ? "#322f3e" : "#fcfcfcff" + " !important", // color secundario del texto
-            disabled: mode === "light" ? "#000000ff" : "#000000ff" + " !important",  // color de texto deshabilitado
-
+            primary: mode === "light" ? "#1a1a1a" : "#ffffff",
+            secondary: mode === "light" ? "#322f3e" : "#fcfcfc",
+            disabled: mode === "light" ? "#000000" : "#000000",
           },
+
         },
         zIndex: {
           appBar: 1100,
