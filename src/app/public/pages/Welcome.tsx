@@ -1,5 +1,4 @@
-import { Box, Slider, Typography } from "@mui/material";
-import { useState } from "react";
+import { Box } from "@mui/material";
 import ImageCarousel from "../components/ImageCarousel";
 import { ProductCollage } from "../components/ProductCollage";
 import { ImageTextSection } from "../components/ImageTextSection";
