@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import ImageCarousel from "../components/ImageCarousel";
-import { ProductCollage } from "../components/ProductCollage";
 import { ImageTextSection } from "../components/ImageTextSection";
 import SectionHeader from "../components/SectionHeader";
 import SectionHeroSplit from "../components/SectionHeroSplit";
