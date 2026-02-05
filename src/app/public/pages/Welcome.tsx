@@ -18,14 +18,15 @@ const Welcome = () => {
     return (
         <Box>
             <SectionHeader />
-            <ServicesSection/>
-            <FullServiceSection/>
+            <ServicesSection/>            
             <SectionHeroSplit/>
-            <SectionHeroSplitLeft />            
-            <ImageTextSection />-
-            <StepsSection/>   
-            <FinalCTA />       
-            <BenefitsStrip /> 
+            <SectionHeroSplitLeft /> 
+            <BenefitsStrip />
+            <StepsSection/>            
+            <FullServiceSection/>           
+            <ImageTextSection />
+               
+            <FinalCTA />                  
             <FAQSection/>
             <ImageCarousel />
             <Box

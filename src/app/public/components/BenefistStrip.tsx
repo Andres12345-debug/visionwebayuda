@@ -27,7 +27,7 @@ export default function BenefitsStrip() {
       {items.map((item, i) => (
         <Box key={i}>
           <Box sx={{ color: "primary.main", fontSize: 40 }}>{item.icon}</Box>
-          <Typography fontWeight={600}>{item.text}</Typography>
+          <Typography fontWeight={800}>{item.text}</Typography>
         </Box>
       ))}
     </Box>

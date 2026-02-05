@@ -57,12 +57,11 @@ export default function SectionHeroSplit({
         </Typography>
 
         <Typography
-          variant="h2"
+          variant="h4"
           sx={{
-            fontWeight: 800,
+          fontWeight: 800,
             mt: 1,
             mb: 2,
-            fontSize: { xs: "2rem", md: "3rem" },
             lineHeight: 1.1,
           }}
         >
