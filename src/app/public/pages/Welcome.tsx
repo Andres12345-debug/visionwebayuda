@@ -6,6 +6,11 @@ import SectionHeader from "../components/SectionHeader";
 import SectionHeroSplit from "../components/SectionHeroSplit";
 import SectionHeroSplitLeft from "../components/SectionHeroSplitLeft";
 import ServicesSection from "../components/ServicesSection";
+import StepsSection from "../components/SectionSteps";
+import FinalCTA from "../components/finalCta";
+import BenefitsStrip from "../components/BenefistStrip";
+import FAQSection from "../components/SectionFaqs";
+import FullServiceSection from "../components/FullServiceSection";
 
 const Welcome = () => {
 
@@ -13,11 +18,16 @@ const Welcome = () => {
     return (
         <Box>
             <SectionHeader />
-            <ImageCarousel />
-            <SectionHeroSplit/>
-            <SectionHeroSplitLeft />
             <ServicesSection/>
-            <ImageTextSection />            
+            <FullServiceSection/>
+            <SectionHeroSplit/>
+            <SectionHeroSplitLeft />            
+            <ImageTextSection />-
+            <StepsSection/>   
+            <FinalCTA />       
+            <BenefitsStrip /> 
+            <FAQSection/>
+            <ImageCarousel />
             <Box
                 sx={{
                     backgroundColor: (theme) =>

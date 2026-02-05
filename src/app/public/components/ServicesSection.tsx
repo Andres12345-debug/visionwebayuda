@@ -53,21 +53,32 @@ export default function ServicesSection() {
         Servicios que transforman tu área TIC
       </Typography>
 
-      {/* CONTENEDOR FLEX */}
       <Box
         sx={{
           display: "flex",
-          flexWrap: "wrap",
           gap: 4,
-          justifyContent: "center",
+
+          // 📱 CARRUSEL EN MÓVIL
+          overflowX: { xs: "auto", md: "visible" },
+          scrollSnapType: { xs: "x mandatory", md: "none" },
+          WebkitOverflowScrolling: "touch",
+
+          // 💻 GRID SIMULADO EN DESKTOP
+          flexWrap: { xs: "nowrap", md: "wrap" },
+          justifyContent: { md: "center" },
+
+          // Ocultar barra de scroll
+          "&::-webkit-scrollbar": { display: "none" },
         }}
       >
         {services.map((service, index) => (
           <Box
             key={index}
             sx={{
-              flex: "1 1 300px", // responsive automático
-              maxWidth: 360,
+              flex: { xs: "0 0 85%", sm: "0 0 60%", md: "1 1 300px" },
+              maxWidth: { md: 360 },
+              scrollSnapAlign: "start",
+
               p: 4,
               borderRadius: 4,
               backgroundColor: "background.paper",
