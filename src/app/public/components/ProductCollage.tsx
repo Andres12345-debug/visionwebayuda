@@ -8,7 +8,7 @@ import {
   Chip,
 } from "@mui/material";
 
-import trabajadorFeliz from "../../../assets/img/welcome/TrabajadorFeliz.png";
+import trabajadorFeliz from "../../../assets/img/welcome/PresentacionDelServicio.png";
 
 const products = [
   {

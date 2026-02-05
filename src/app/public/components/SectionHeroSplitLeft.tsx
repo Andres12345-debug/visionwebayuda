@@ -1,7 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
-import heroImg from "../../../assets/img/welcome/ClienteFelizJuntoAIngeniero.png"; // usa tu imagen local
+import heroImg from "../../../assets/img/welcome/ClienteSubiendoIncidencia.png";
 
-type SectionHeroSplitProps = {
+type SectionHeroSplitRightProps = {
   image?: string;
   title?: string;
   subtitle?: string;
@@ -10,19 +10,19 @@ type SectionHeroSplitProps = {
   buttonLink?: string;
 };
 
-export default function SectionHeroSplit({
+export default function SectionHeroSplitLeft({
   image = heroImg,
-  subtitle = "PLATAFORMA INTELIGENTE",
-  title = "Gestiona tu mesa de ayuda como un pro",
-  description = "Controla tickets, usuarios, reportes y tiempos de respuesta desde una sola plataforma moderna.",
-  buttonText = "Comenzar ahora",
+  subtitle = "AUTOMATIZACIÓN INTELIGENTE",
+  title = "Optimiza el trabajo de tu equipo TI",
+  description = "Reduce tiempos de respuesta, automatiza asignaciones y obtén métricas claras para tomar decisiones estratégicas.",
+  buttonText = "Ver funcionalidades",
   buttonLink = "#",
-}: SectionHeroSplitProps) {
+}: SectionHeroSplitRightProps) {
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", md: "row" },
+        flexDirection: { xs: "column", md: "row" }, // 👈 texto primero
         alignItems: "center",
         justifyContent: "space-between",
         gap: 6,
@@ -32,18 +32,7 @@ export default function SectionHeroSplit({
         mx: "auto",
       }}
     >
-      <Box
-        component="img"
-        src={image}
-        alt="section visual"
-        sx={{
-          width: { xs: "100%", md: "48%" },
-          borderRadius: 4,
-          boxShadow: 4,
-          objectFit: "cover",
-        }}
-      />
-
+      {/* 📝 TEXTO IZQUIERDA */}
       <Box sx={{ width: { xs: "100%", md: "48%" } }}>
         <Typography
           variant="overline"
@@ -100,6 +89,19 @@ export default function SectionHeroSplit({
           {buttonText}
         </Button>
       </Box>
+
+      {/* 🖼 IMAGEN DERECHA */}
+      <Box
+        component="img"
+        src={image}
+        alt="section visual"
+        sx={{
+          width: { xs: "100%", md: "48%" },
+          borderRadius: 4,
+          boxShadow: 4,
+          objectFit: "cover",
+        }}
+      />
     </Box>
   );
 }

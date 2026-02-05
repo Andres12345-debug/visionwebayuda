@@ -1,16 +1,16 @@
 import { Box, Typography } from "@mui/material";
 
 type SectionHeaderProps = {
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   align?: "left" | "center" | "right";
 };
 
 export default function SectionHeader({
-  title,
-  subtitle,
-  description,
+  title = "Expertos en Implementación y Soporte de Mesa de Ayuda",
+  subtitle = "NUEVO",
+  description = "Implementamos una Mesa de Servicios profesional que centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa, permitiendo que el área TIC trabaje de forma estructurada, medible y eficiente",
   align = "center",
 }: SectionHeaderProps) {
   return (
@@ -23,7 +23,6 @@ export default function SectionHeader({
         py: { xs: 4, md: 6 },
       }}
     >
-      {/* SUBTÍTULO PEQUEÑO */}
       {subtitle && (
         <Typography
           variant="overline"
@@ -39,7 +38,6 @@ export default function SectionHeader({
         </Typography>
       )}
 
-      {/* TÍTULO PRINCIPAL */}
       <Typography
         variant="h3"
         sx={{
@@ -52,7 +50,6 @@ export default function SectionHeader({
         {title}
       </Typography>
 
-      {/* DESCRIPCIÓN */}
       {description && (
         <Typography
           variant="body1"

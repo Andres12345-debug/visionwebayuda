@@ -4,28 +4,20 @@ import { ProductCollage } from "../components/ProductCollage";
 import { ImageTextSection } from "../components/ImageTextSection";
 import SectionHeader from "../components/SectionHeader";
 import SectionHeroSplit from "../components/SectionHeroSplit";
+import SectionHeroSplitLeft from "../components/SectionHeroSplitLeft";
+import ServicesSection from "../components/ServicesSection";
 
 const Welcome = () => {
 
 
     return (
         <Box>
-            <SectionHeader
-                subtitle="NUEVO"
-                title="Expertos en Implementación y Soporte de Mesa de Ayuda"
-                description="Implementamos una Mesa de Servicios profesional que centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa, permitiendo que el área TIC trabaje de forma estructurada, medible y eficiente"
-            />
+            <SectionHeader />
             <ImageCarousel />
-            <ProductCollage />
-            <ImageTextSection />
-            <SectionHeroSplit
-                image="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-                subtitle="PLATAFORMA INTELIGENTE"
-                title="Gestiona tu mesa de ayuda como un pro"
-                description="Controla tickets, usuarios, reportes y tiempos de respuesta desde una sola plataforma moderna."
-                buttonText="Comenzar ahora"
-                buttonLink="#"
-            />
+            <SectionHeroSplit/>
+            <SectionHeroSplitLeft />
+            <ServicesSection/>
+            <ImageTextSection />            
             <Box
                 sx={{
                     backgroundColor: (theme) =>
