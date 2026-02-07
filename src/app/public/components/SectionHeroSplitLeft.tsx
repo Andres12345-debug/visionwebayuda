@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import heroImg from "../../../assets/img/welcome/ClienteSubiendoIncidencia.png";
+import heroImg from "../../../assets/img/welcome/MesaDeAyuda.png";
 
 type SectionHeroSplitRightProps = {
   image?: string;
@@ -12,9 +12,9 @@ type SectionHeroSplitRightProps = {
 
 export default function SectionHeroSplitLeft({
   image = heroImg,
-  subtitle = "AUTOMATIZACIÓN INTELIGENTE",
-  title = "Optimiza el trabajo de tu equipo TI",
-  description = "Reduce tiempos de respuesta, automatiza asignaciones y obtén métricas claras para tomar decisiones estratégicas.",
+  subtitle = "MESA DE AYUDA Y GESTIÓN DE INCIDENCIAS",
+  title = "Soporte técnico centralizado, organizado y trazable",
+  description = "Gestiona eficientemente tus solicitudes de soporte con nuestra plataforma de mesa de ayuda, centralizando la gestión de incidencias, usuarios y reportes en una interfaz moderna y fácil de usar, mejorando tiempos de respuesta y satisfacción del cliente.",
   buttonText = "Ver funcionalidades",
   buttonLink = "#",
 }: SectionHeroSplitRightProps) {

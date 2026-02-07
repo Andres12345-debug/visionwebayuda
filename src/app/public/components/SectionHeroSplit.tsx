@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
-import heroImg from "../../../assets/img/welcome/ClienteFelizJuntoAIngeniero.png"; // usa tu imagen local
+import heroImg from "../../../assets/img/welcome/GlpiAgente.png"; // usa tu imagen local
 
 type SectionHeroSplitProps = {
   image?: string;
@@ -12,9 +12,9 @@ type SectionHeroSplitProps = {
 
 export default function SectionHeroSplit({
   image = heroImg,
-  subtitle = "PLATAFORMA INTELIGENTE",
-  title = "Gestiona tu mesa de ayuda como un pro",
-  description = "Controla tickets, usuarios, reportes y tiempos de respuesta desde una sola plataforma moderna.",
+  subtitle = "PLATAFORMA INVENTARIO INTELIGENTE",
+  title = "Gestiona tú Inventario Inteligente con Agente GLPI",
+  description = "Automatiza el inventario tecnológico mediante el Agente GLPI, recolectando información de hardware y software como equipos, impresoras conectadas, pantallas, aplicaciones instaladas y licencias, manteniendo un control actualizado, centralizado y confiable de todos los activos TIC.",
   buttonText = "Comenzar ahora",
   buttonLink = "#",
 }: SectionHeroSplitProps) {
