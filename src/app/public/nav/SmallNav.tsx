@@ -21,10 +21,8 @@ import {
 import { useThemeContext } from "../../shared/theme/ThemeConext";
 
 const MENU_ITEMS = [
-  { label: "Inicio", href: "#" },
   { label: "Productos", href: "#" },
-  { label: "Servicios", href: "#" },
-  { label: "Contacto", href: "#" },
+  { label: "Servicios", href: "#" }
 ];
 
 export default function Navbar() {
@@ -35,7 +33,7 @@ export default function Navbar() {
     <>
       <AppBar
         position="fixed"
-        color="primary"
+        color="secondary"
         elevation={0}
         sx={{ top: 0, zIndex: (theme) => theme.zIndex.appBar + 2 }}
       >

@@ -10,6 +10,7 @@ import FinalCTA from "../components/finalCta";
 import BenefitsStrip from "../components/BenefistStrip";
 import FAQSection from "../components/SectionFaqs";
 import FullServiceSection from "../components/FullServiceSection";
+import InventoryAgentSection from "../components/InventaroryAgentSection";
 
 const Welcome = () => {
 
@@ -28,6 +29,7 @@ const Welcome = () => {
             <FinalCTA />                  
             <FAQSection/>
             <ImageCarousel />
+            <InventoryAgentSection />
             <Box
                 sx={{
                     backgroundColor: (theme) =>
