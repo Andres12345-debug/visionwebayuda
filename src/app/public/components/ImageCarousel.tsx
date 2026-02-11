@@ -1,16 +1,16 @@
 // src/components/ImageCarousel.tsx
 import React from "react";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MobileStepper from "@mui/material/MobileStepper";
-import Button from "@mui/material/Button";
-import { useTheme } from "@mui/material/styles";
+import {
+  Box,
+  IconButton,
+  Typography,
+  Button,
+  useTheme,
+} from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import KeyboardTab from "@mui/icons-material/KeyboardTab";
 
 type Slide = {
   src: string;
@@ -20,257 +20,165 @@ type Slide = {
   ctaHref?: string;
 };
 
-type ImageCarouselProps = {
+type Props = {
   slides?: Slide[];
-  height?: number;
   autoPlay?: boolean;
-  autoPlayInterval?: number;
-  showDots?: boolean;
+  interval?: number;
 };
 
 const DEFAULT_SLIDES: Slide[] = [
   {
     src: require("../../../assets/img/welcome/SolucionDeProblemas.png"),
-    title: "Soporte Técnico Organizado y Bajo Control",
-    caption: "Centraliza todas las solicitudes en un solo sistema, asigna casos a los técnicos y lleva historial completo de cada atención.",
+    title: "Soporte Técnico Organizado",
+    caption:
+      "Centraliza solicitudes, asigna técnicos y lleva historial completo.",
     ctaText: "Saber más",
   },
   {
     src: require("../../../assets/img/welcome/ControlDeLosActivos.png"),
-    title: "Control Total de tus Activos Tecnológicos",
-    caption: "Registra computadores, impresoras y dispositivos, conoce quién los usa, su estado, mantenimientos y garantías.",
-    ctaText: "Iniciar trámite",
+    title: "Control Total de Activos",
+    caption:
+      "Registra equipos, responsables y mantenimientos en un solo lugar.",
+    ctaText: "Iniciar",
   },
   {
     src: require("../../../assets/img/welcome/SolucionesTics.png"),
-    title: "Gestión TIC Medible y Profesional",
-    caption: "Obtén métricas, tiempos de respuesta, reportes y niveles de satisfacción para mejorar continuamente el servicio.",
-    ctaText: "Ver eventos",
+    title: "Gestión TIC Profesional",
+    caption:
+      "Métricas, tiempos de respuesta y reportes en tiempo real.",
+    ctaText: "Ver más",
   },
 ];
 
 export default function ImageCarousel({
   slides = DEFAULT_SLIDES,
-  height = 600,
   autoPlay = true,
-  autoPlayInterval = 4000,
-  showDots = true,
-}: ImageCarouselProps) {
+  interval = 4500,
+}: Props) {
   const theme = useTheme();
   const [active, setActive] = React.useState(0);
   const [playing, setPlaying] = React.useState(autoPlay);
-  const intervalRef = React.useRef<number | null>(null);
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
-  const touchStartX = React.useRef<number | null>(null);
-  const touchDelta = 40; // px threshold
+  const total = slides.length;
 
-  const slidesLength = slides.length;
+  const next = React.useCallback(() => {
+    setActive((prev) => (prev + 1) % total);
+  }, [total]);
 
-  const handleNext = React.useCallback(() => {
-    setActive((prev) => (prev + 1) % slidesLength);
-  }, [slidesLength]);
-
-  const handleBack = React.useCallback(() => {
-    setActive((prev) => (prev - 1 + slidesLength) % slidesLength);
-  }, [slidesLength]);
-
-  const goTo = (index: number) => {
-    setActive(((index % slidesLength) + slidesLength) % slidesLength);
-  };
+  const prev = React.useCallback(() => {
+    setActive((prev) => (prev - 1 + total) % total);
+  }, [total]);
 
   React.useEffect(() => {
-    if (intervalRef.current) {
-      window.clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-
-    if (playing) {
-      intervalRef.current = window.setInterval(() => {
-        setActive((prev) => (prev + 1) % slidesLength);
-      }, autoPlayInterval);
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        window.clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
-  }, [playing, autoPlayInterval, slidesLength]);
-
-  const handleMouseEnter = () => setPlaying(false);
-  const handleMouseLeave = () => autoPlay && setPlaying(true);
-  const handleFocus = () => setPlaying(false);
-  const handleBlur = () => autoPlay && setPlaying(true);
-
-  React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        setPlaying(false);
-        handleNext();
-      } else if (e.key === "ArrowLeft") {
-        setPlaying(false);
-        handleBack();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [handleNext, handleBack]);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const onTouchMove = (_e: React.TouchEvent) => {
-    // opcional: parallax en swipe
-  };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current == null) return;
-    const endX = e.changedTouches[0].clientX;
-    const delta = endX - touchStartX.current;
-    if (Math.abs(delta) > touchDelta) {
-      setPlaying(false);
-      if (delta < 0) handleNext();
-      else handleBack();
-    }
-    touchStartX.current = null;
-  };
-
-  if (!slides || slides.length === 0) return null;
-
-  const computedHeight = {
-    xs: Math.round(height * 0.55),
-    sm: Math.round(height * 0.8),
-    md: "100vh",
-  };
-
+    if (!playing) return;
+    const id = setInterval(next, interval);
+    return () => clearInterval(id);
+  }, [playing, next, interval]);
 
   return (
     <Box
-      ref={containerRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
       sx={{
-        width: "100%",
         position: "relative",
+        width: "100%",
+        height: { xs: 420, md: "100vh" },
         overflow: "hidden",
-        borderRadius: 2,
-        bgcolor: "background.default",
       }}
-      role="region"
-      aria-roledescription="carousel"
-      aria-label="Carrusel de imágenes"
     >
+      {/* SLIDES */}
       <Box
         sx={{
           display: "flex",
-          transition: "transform 600ms cubic-bezier(.2,.8,.2,1)",
+          height: "100%",
           transform: `translateX(-${active * 100}%)`,
-          height: { xs: `${computedHeight.xs}px`, sm: `${computedHeight.sm}px`, md: `${computedHeight.md}px` },
-          touchAction: "pan-y",
+          transition: "transform 900ms cubic-bezier(.22,.61,.36,1)",
         }}
       >
-        {slides.map((s, i) => (
+        {slides.map((slide, i) => (
           <Box
             key={i}
             sx={{
               minWidth: "100%",
+              height: "100%",
               position: "relative",
-              display: "flex",
-              alignItems: "stretch",
-              justifyContent: "center",
             }}
-            aria-hidden={i !== active}
           >
             <Box
               component="img"
-              src={s.src}
-              alt={s.title ?? `slide-${i + 1}`}
-              loading="lazy"
+              src={slide.src}
+              alt={slide.title}
               sx={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                display: "block",
-                filter: theme.palette.mode === "dark" ? "brightness(.9)" : "none",
+                filter:
+                  theme.palette.mode === "dark"
+                    ? "brightness(.75)"
+                    : "brightness(.9)",
+                transform: active === i ? "scale(1.05)" : "scale(1)",
+                transition: "transform 6s ease",
               }}
             />
 
+            {/* Overlay elegante */}
             <Box
               sx={{
                 position: "absolute",
                 inset: 0,
-                pointerEvents: "none",
                 background:
-                  "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 60%)",
+                  "linear-gradient(90deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.3) 40%, rgba(0,0,0,0) 80%)",
               }}
             />
 
+            {/* TEXTO */}
             <Box
               sx={{
                 position: "absolute",
-                left: { xs: 16, sm: 28 },
-                bottom: { xs: 18, sm: 28 },
-                right: { xs: 16, sm: "auto" },
-                color: "common.white",
-                pointerEvents: "auto",
-                maxWidth: { xs: "80%", sm: "60%", md: "50%" },
-                textShadow: "0 4px 18px rgba(0,0,0,0.35)",
+                top: "50%",
+                left: { xs: 20, md: 80 },
+                transform: "translateY(-50%)",
+                color: "#fff",
+                maxWidth: { xs: "85%", md: 500 },
               }}
             >
-              {s.title && (
-                <Typography
-                  component="h1"
-                  variant="h4"
-                  sx={{
-                    fontWeight: 800,
-                    mb: 1,
-                    fontSize: { xs: "1.25rem", sm: "1.75rem", md: "2.25rem" },
-                    lineHeight: 1.05,
-                  }}
-                >
-                  {s.title}
-                </Typography>
-              )}
+              <Typography
+                variant="h3"
+                fontWeight={800}
+                sx={{
+                  mb: 2,
+                  fontSize: { xs: "1.6rem", md: "2.8rem" },
+                }}
+              >
+                {slide.title}
+              </Typography>
 
-              {s.caption && (
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mb: 2,
-                    fontSize: { xs: "0.95rem", sm: "1.05rem" },
-                    lineHeight: 1.4,
-                    fontWeight: 500,
-                    color: "rgba(255,255,255,0.95)",
-                  }}
-                >
-                  {s.caption}
-                </Typography>
-              )}
+              <Typography
+                variant="body1"
+                sx={{
+                  mb: 3,
+                  opacity: 0.95,
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                }}
+              >
+                {slide.caption}
+              </Typography>
 
-              {s.ctaText && (
+              {slide.ctaText && (
                 <Button
                   variant="contained"
                   color="secondary"
-                  href={s.ctaHref}
                   sx={{
-                    color: "common.white",
+                    borderRadius: 3,
+                    px: 4,
+                    py: 1.2,
+                    fontWeight: 600,
                     textTransform: "none",
-                    fontSize: { xs: "0.95rem", sm: "1.05rem" },
-                    px: 3,
-                    py: 1,
-                    borderRadius: 2,
-                    boxShadow: 3,
-                    "&:hover": { transform: "translateY(-3px)", boxShadow: 6 },
+                    boxShadow: 4,
+                    "&:hover": {
+                      transform: "translateY(-3px)",
+                      boxShadow: 8,
+                    },
                   }}
                 >
-                  {s.ctaText}
+                  {slide.ctaText}
                 </Button>
               )}
             </Box>
@@ -278,147 +186,89 @@ export default function ImageCarousel({
         ))}
       </Box>
 
+      {/* FLECHAS */}
       <IconButton
-        aria-label="Anterior"
         onClick={() => {
           setPlaying(false);
-          handleBack();
+          prev();
         }}
         sx={{
           position: "absolute",
           top: "50%",
-          left: 12,
+          left: 20,
           transform: "translateY(-50%)",
-          bgcolor: "background.paper",
-          "&:hover": { bgcolor: "background.paper" },
-          boxShadow: 2,
-          zIndex: 10,
+          backdropFilter: "blur(10px)",
+          bgcolor: "rgba(255,255,255,.2)",
+          color: "#fff",
+          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
         }}
       >
         <KeyboardArrowLeft />
       </IconButton>
 
       <IconButton
-        aria-label="Siguiente"
         onClick={() => {
           setPlaying(false);
-          handleNext();
+          next();
         }}
         sx={{
           position: "absolute",
           top: "50%",
-          right: 12,
+          right: 20,
           transform: "translateY(-50%)",
-          bgcolor: "background.paper",
-          "&:hover": { bgcolor: "background.paper" },
-          boxShadow: 2,
-          zIndex: 10,
+          backdropFilter: "blur(10px)",
+          bgcolor: "rgba(255,255,255,.2)",
+          color: "#fff",
+          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
         }}
       >
         <KeyboardArrowRight />
       </IconButton>
 
+      {/* PLAY / PAUSE */}
       <IconButton
-        aria-label={playing ? "Pausar autoplay" : "Iniciar autoplay"}
         onClick={() => setPlaying((p) => !p)}
         sx={{
           position: "absolute",
-          top: 12,
-          right: 12,
-          bgcolor: "background.paper",
-          "&:hover": { bgcolor: "background.paper" },
-          boxShadow: 2,
-          zIndex: 11,
+          top: 20,
+          right: 20,
+          backdropFilter: "blur(10px)",
+          bgcolor: "rgba(255,255,255,.2)",
+          color: "#fff",
+          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
         }}
       >
         {playing ? <PauseIcon /> : <PlayArrowIcon />}
       </IconButton>
 
-      {/* MobileStepper: Self-closing (no children) */}
-      {showDots && (
-        <MobileStepper
-          variant="dots"
-          steps={slidesLength}
-          position="static"
-          activeStep={active}
-          nextButton={<span />}
-          backButton={<span />}
-          sx={{
-            position: "absolute",
-            bottom: 12,
-            left: 0,
-            right: 0,
-            background: "transparent",
-            justifyContent: "center",
-            pointerEvents: "none",
-            ".MuiMobileStepper-dots": { pointerEvents: "auto" },
-          }}
-        />
-      )}
-
-      {showDots && (
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: 8,
-            left: 0,
-            right: 0,
-            display: "flex",
-            justifyContent: "center",
-            gap: 1.25,
-            zIndex: 12,
-            pointerEvents: "none",
-          }}
-        >
-          {Array.from({ length: slidesLength }).map((_, i) => (
-            <Box
-              key={i}
-              onClick={() => {
-                setPlaying(false);
-                goTo(i);
-              }}
-              sx={{
-                width: active === i ? 36 : 10,
-                height: 10,
-                borderRadius: 6,
-                transition: "width 300ms ease, background-color 300ms ease",
-                bgcolor: active === i ? "secondary.main" : "grey.400",
-                cursor: "pointer",
-                boxShadow: active === i ? 3 : "none",
-                pointerEvents: "auto",
-              }}
-              role="button"
-              aria-label={`Ir a la diapositiva ${i + 1}`}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setPlaying(false);
-                  goTo(i);
-                }
-              }}
-            />
-          ))}
-        </Box>
-      )}
-
+      {/* INDICADORES PREMIUM */}
       <Box
         sx={{
           position: "absolute",
-          top: 12,
-          left: 12,
-          bgcolor: "rgba(0,0,0,0.35)",
-          px: 1,
-          py: 0.5,
-          borderRadius: 1,
-          color: "common.white",
-          display: { xs: "none", sm: "flex" },
-          gap: 0.5,
-          alignItems: "center",
-          zIndex: 11,
+          bottom: 30,
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: 1.5,
         }}
       >
-        <KeyboardTab sx={{ fontSize: 16 }} />
-        <Typography variant="caption">← → para navegar</Typography>
+        {slides.map((_, i) => (
+          <Box
+            key={i}
+            onClick={() => {
+              setPlaying(false);
+              setActive(i);
+            }}
+            sx={{
+              width: active === i ? 40 : 12,
+              height: 12,
+              borderRadius: 6,
+              bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.5)",
+              transition: "all .3s ease",
+              cursor: "pointer",
+            }}
+          />
+        ))}
       </Box>
     </Box>
   );

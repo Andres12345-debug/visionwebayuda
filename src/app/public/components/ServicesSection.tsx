@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -14,103 +15,143 @@ type Service = {
 };
 
 export default function ServicesSection() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   const services: Service[] = [
     {
       title: "Mesa de Ayuda Profesional",
-      description: "Centraliza solicitudes y controla tiempos de respuesta.",
-      icon: <SupportAgentIcon fontSize="large" />,
+      description:
+        "Centraliza solicitudes y controla tiempos de respuesta.",
+      icon: <SupportAgentIcon fontSize="medium" />,
     },
     {
       title: "Gestión de Inventario TI",
-      description: "Administra equipos y activos con trazabilidad.",
-      icon: <Inventory2Icon fontSize="large" />,
+      description:
+        "Administra equipos y activos con trazabilidad.",
+      icon: <Inventory2Icon fontSize="medium" />,
     },
     {
       title: "Documentación de Procesos",
-      description: "Manualiza configuraciones y procedimientos.",
-      icon: <DescriptionIcon fontSize="large" />,
+      description:
+        "Manualiza configuraciones y procedimientos.",
+      icon: <DescriptionIcon fontSize="medium" />,
     },
     {
       title: "Reportes y Métricas",
-      description: "Visualiza estadísticas y desempeño del área TI.",
-      icon: <BarChartIcon fontSize="large" />,
+      description:
+        "Visualiza estadísticas y desempeño del área TI.",
+      icon: <BarChartIcon fontSize="medium" />,
     },
     {
       title: "Soporte Multiplataforma",
-      description: "Hardware, software y red desde una sola plataforma.",
-      icon: <DevicesIcon fontSize="large" />,
+      description:
+        "Hardware, software y red desde una sola plataforma.",
+      icon: <DevicesIcon fontSize="medium" />,
     },
     {
       title: "Control y Seguridad",
-      description: "Gestión de accesos e historial de cambios.",
-      icon: <SecurityIcon fontSize="large" />,
+      description:
+        "Gestión de accesos e historial de cambios.",
+      icon: <SecurityIcon fontSize="medium" />,
     },
   ];
 
   return (
-    <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 8 } }}>
-      <Typography variant="h4" fontWeight={800} textAlign="center" mb={6}>
+    <Box
+      sx={{
+        py: { xs: 8, md: 14 },
+        px: { xs: 2, md: 8 },
+        background: isDark
+          ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
+          : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+      }}
+    >
+      {/* Título */}
+      <Typography
+        sx={{
+          fontWeight: 900,
+          fontSize: { xs: "1.8rem", md: "2.5rem" },
+          textAlign: "center",
+          mb: 8,
+        }}
+      >
         Servicios que transforman tu área TIC
       </Typography>
 
+      {/* Grid */}
       <Box
         sx={{
-          display: "flex",
+          display: "grid",
           gap: 4,
-
-          // 📱 CARRUSEL EN MÓVIL
-          overflowX: { xs: "auto", md: "visible" },
-          scrollSnapType: { xs: "x mandatory", md: "none" },
-          WebkitOverflowScrolling: "touch",
-
-          // 💻 GRID SIMULADO EN DESKTOP
-          flexWrap: { xs: "nowrap", md: "wrap" },
-          justifyContent: { md: "center" },
-
-          // Ocultar barra de scroll
-          "&::-webkit-scrollbar": { display: "none" },
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+          },
+          maxWidth: 1200,
+          mx: "auto",
         }}
       >
         {services.map((service, index) => (
           <Box
             key={index}
             sx={{
-              flex: { xs: "0 0 85%", sm: "0 0 60%", md: "1 1 300px" },
-              maxWidth: { md: 360 },
-              scrollSnapAlign: "start",
-
               p: 4,
               borderRadius: 4,
-              backgroundColor: "background.paper",
-              boxShadow: 3,
+              backdropFilter: "blur(8px)",
+              backgroundColor: isDark
+                ? "rgba(255,255,255,0.03)"
+                : "#ffffff",
+              border: isDark
+                ? "1px solid rgba(255,255,255,0.08)"
+                : "1px solid #eee",
               transition: "all .3s ease",
               "&:hover": {
-                transform: "translateY(-6px)",
-                boxShadow: 6,
+                transform: "translateY(-8px)",
+                boxShadow: isDark
+                  ? "0 10px 30px rgba(0,0,0,0.4)"
+                  : "0 10px 30px rgba(0,0,0,0.08)",
               },
             }}
           >
+            {/* Icono */}
             <Box
               sx={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                backgroundColor: "primary.main",
-                color: "#fff",
+                width: 55,
+                height: 55,
+                borderRadius: "16px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                mb: 2,
+                mb: 3,
+                background:
+                  "linear-gradient(135deg, #6366f1, #9333ea)",
+                color: "#fff",
               }}
             >
               {service.icon}
             </Box>
 
-            <Typography variant="h6" fontWeight={700} mb={1}>
+            {/* Título */}
+            <Typography
+              sx={{
+                fontWeight: 700,
+                mb: 1.5,
+                fontSize: "1.1rem",
+              }}
+            >
               {service.title}
             </Typography>
 
-            <Typography variant="body2" color="text.secondary">
+            {/* Descripción */}
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontSize: "0.95rem",
+                lineHeight: 1.6,
+              }}
+            >
               {service.description}
             </Typography>
           </Box>

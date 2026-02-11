@@ -4,10 +4,14 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  useTheme,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function FAQSection() {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   const faqs = [
     {
       question: "¿Qué es una mesa de ayuda?",
@@ -27,7 +31,7 @@ export default function FAQSection() {
     {
       question: "¿Se pueden generar reportes?",
       answer:
-        "Claro. Puedes visualizar métricas de tiempos de respuesta, tickets atendidos, rendimiento del área TI y más.",
+        "Claro. Puedes visualizar métricas de tiempos de respuesta, tickets atendidos y rendimiento del área TI.",
     },
     {
       question: "¿Ofrecen soporte después de la implementación?",
@@ -37,27 +41,74 @@ export default function FAQSection() {
   ];
 
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, px: { xs: 2, md: 8 }, maxWidth: 900, mx: "auto" }}>
-      <Typography variant="h4" fontWeight={800} textAlign="center" mb={6}>
+    <Box
+      sx={{
+        py: { xs: 6, md: 8 },
+        px: { xs: 2, md: 6 },
+        background: isDark
+          ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
+          : "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+      }}
+    >
+      <Typography
+        fontWeight={900}
+        textAlign="center"
+        sx={{
+          fontSize: { xs: "1.7rem", md: "2.2rem" },
+          mb: 4,
+        }}
+      >
         Preguntas Frecuentes
       </Typography>
 
       {faqs.map((faq, index) => (
         <Accordion
           key={index}
+          disableGutters
           sx={{
             mb: 2,
             borderRadius: 3,
-            boxShadow: 2,
+            overflow: "hidden",
+            background: isDark
+              ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
+              : "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+
+            boxShadow: "0 6px 18px rgba(28,66,174,0.08)",
+            border: "1px solid",
+            borderColor: isDark ? "rgba(255,255,255,0.08)" : "#e3e8f5",
+            transition: "0.3s",
+            "&:hover": {
+              boxShadow: "0 10px 25px rgba(28,66,174,0.15)",
+              transform: "translateY(-2px)",
+            },
             "&:before": { display: "none" },
           }}
         >
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography fontWeight={600}>{faq.question}</Typography>
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon sx={{ color: "#1c42ae" }} />
+            }
+          >
+            <Typography
+              fontWeight={700}
+              sx={{
+                fontSize: "1rem",
+              }}
+            >
+              {faq.question}
+            </Typography>
           </AccordionSummary>
 
           <AccordionDetails>
-            <Typography color="text.secondary">{faq.answer}</Typography>
+            <Typography
+              sx={{
+                color: theme.palette.text.secondary,
+                fontSize: "0.95rem",
+                lineHeight: 1.6,
+              }}
+            >
+              {faq.answer}
+            </Typography>
           </AccordionDetails>
         </Accordion>
       ))}

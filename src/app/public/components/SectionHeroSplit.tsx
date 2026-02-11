@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
-import heroImg from "../../../assets/img/welcome/GlpiAgente.png"; // usa tu imagen local
+import { useTheme } from "@mui/material/styles";
+import heroImg from "../../../assets/img/welcome/GlpiAgente.png";
 
 type SectionHeroSplitProps = {
   image?: string;
@@ -12,92 +13,114 @@ type SectionHeroSplitProps = {
 
 export default function SectionHeroSplit({
   image = heroImg,
-  subtitle = "PLATAFORMA INVENTARIO INTELIGENTE",
-  title = "Gestiona tú Inventario Inteligente con Agente GLPI",
-  description = "Automatiza el inventario tecnológico mediante el Agente GLPI, recolectando información de hardware y software como equipos, impresoras conectadas, pantallas, aplicaciones instaladas y licencias, manteniendo un control actualizado, centralizado y confiable de todos los activos TIC.",
-  buttonText = "Comenzar ahora",
+  subtitle = "Inventario Inteligente",
+  title = "Control total de tus activos tecnológicos con GLPI Agent",
+  description = "Automatiza la recolección de hardware y software, mantén trazabilidad completa y obtén visibilidad en tiempo real de todos los activos TIC desde una sola plataforma centralizada.",
+  buttonText = "Solicitar demostración",
   buttonLink = "#",
 }: SectionHeroSplitProps) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" },
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: 6,
-        px: { xs: 2, md: 8 },
-        py: { xs: 6, md: 10 },
-        maxWidth: 1400,
-        mx: "auto",
+        py: { xs: 10, md: 16 },
+        px: 2,
+        background: isDark ? "#0f172a" : "#f8fafc",
       }}
     >
       <Box
-        component="img"
-        src={image}
-        alt="section visual"
         sx={{
-          width: { xs: "100%", md: "48%" },
-          borderRadius: 4,
-          boxShadow: 4,
-          objectFit: "cover",
+          maxWidth: 1300,
+          mx: "auto",
+          background: isDark ? "#111827" : "#ffffff",
+          borderRadius: 6,
+          p: { xs: 4, md: 8 },
+          boxShadow: isDark
+            ? "0 20px 60px rgba(0,0,0,0.6)"
+            : "0 20px 60px rgba(0,0,0,0.08)",
         }}
-      />
-
-      <Box sx={{ width: { xs: "100%", md: "48%" } }}>
-        <Typography
-          variant="overline"
+      >
+        <Box
           sx={{
-            color: "primary.main",
-            fontWeight: 700,
-            letterSpacing: 2,
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1.1fr" },
+            gap: { xs: 6, md: 10 },
+            alignItems: "center",
           }}
         >
-          {subtitle}
-        </Typography>
+          {/* TEXTO IZQUIERDA */}
+          <Box>
+            <Typography
+              sx={{
+                fontSize: "0.8rem",
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                textTransform: "uppercase",
+                color: "primary.main",
+                mb: 2,
+              }}
+            >
+              {subtitle}
+            </Typography>
 
-        <Typography
-          variant="h4"
-          sx={{
-          fontWeight: 800,
-            mt: 1,
-            mb: 2,
-            lineHeight: 1.1,
-          }}
-        >
-          {title}
-        </Typography>
+            <Typography
+              sx={{
+                fontWeight: 900,
+                fontSize: { xs: "1.9rem", md: "2.6rem" },
+                lineHeight: 1.2,
+                mb: 3,
+                color: "text.primary",
+              }}
+            >
+              {title}
+            </Typography>
 
-        <Typography
-          variant="body1"
-          sx={{
-            color: "text.secondary",
-            fontSize: "1.1rem",
-            mb: 3,
-          }}
-        >
-          {description}
-        </Typography>
+            <Typography
+              sx={{
+                color: "text.secondary",
+                fontSize: "1.1rem",
+                lineHeight: 1.7,
+                mb: 4,
+              }}
+            >
+              {description}
+            </Typography>
 
-        <Button
-          variant="contained"
-          size="large"
-          href={buttonLink}
-          sx={{
-            borderRadius: 3,
-            px: 4,
-            py: 1.5,
-            textTransform: "none",
-            fontWeight: 600,
-            boxShadow: 3,
-            "&:hover": {
-              transform: "translateY(-3px)",
-              boxShadow: 6,
-            },
-          }}
-        >
-          {buttonText}
-        </Button>
+            <Button
+              variant="contained"
+              size="large"
+              href={buttonLink}
+              sx={{
+                px: 5,
+                py: 1.6,
+                borderRadius: "14px",
+                fontWeight: 600,
+                textTransform: "none",
+                background: "linear-gradient(90deg, #6366f1, #9333ea)",
+                boxShadow: "0 10px 30px rgba(99,102,241,0.4)",
+                "&:hover": {
+                  transform: "translateY(-3px)",
+                },
+                transition: "all .3s ease",
+              }}
+            >
+              {buttonText}
+            </Button>
+          </Box>
+
+          {/* IMAGEN DERECHA */}
+          <Box
+            component="img"
+            src={image}
+            alt="Inventario GLPI"
+            sx={{
+              width: "100%",
+              borderRadius: 5,
+            }}
+          />
+        </Box>
       </Box>
     </Box>
   );

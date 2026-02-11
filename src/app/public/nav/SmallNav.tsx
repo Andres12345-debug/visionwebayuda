@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,8 +8,9 @@ import {
   Typography,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
+  Divider,
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import {
@@ -22,47 +23,92 @@ import { useThemeContext } from "../../shared/theme/ThemeConext";
 
 const MENU_ITEMS = [
   { label: "Productos", href: "#" },
-  { label: "Servicios", href: "#" }
+  { label: "Servicios", href: "#" },
 ];
 
 export default function Navbar() {
   const { mode, toggleTheme } = useThemeContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detectar scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       <AppBar
         position="fixed"
-        color="secondary"
-        elevation={0}
-        sx={{ top: 0, zIndex: (theme) => theme.zIndex.appBar + 2 }}
+        elevation={scrolled ? 4 : 0}
+        sx={{
+          transition: "all 0.3s ease",
+          backdropFilter: "blur(12px)",
+          background: mode === "light"
+            ? "linear-gradient(90deg, rgba(255,255,255,0.9), rgba(240,240,255,0.9))"
+            : "linear-gradient(90deg, rgba(18,18,18,0.9), rgba(30,30,40,0.9))",
+          color: mode === "light" ? "#000" : "#fff",
+          boxShadow: scrolled
+            ? "0 4px 20px rgba(0,0,0,0.08)"
+            : "none",
+        }}
       >
-        <Toolbar variant="dense" sx={{ minHeight: 56 }}>
+        <Toolbar
+          sx={{
+            minHeight: scrolled ? 56 : 72,
+            transition: "all 0.3s ease",
+          }}
+        >
           {/* Logo */}
-          <Box>
-            <Typography
-              variant="h6"
-              sx={{ display: { xs: "none", sm: "block" }, fontWeight: 700 }}
-            >
-              ViSionWeb
-            </Typography>
-          </Box>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 900,
+              letterSpacing: 1,
+              cursor: "pointer",
+              transition: "0.3s",
+            }}
+          >
+            ViSion<span style={{ color: "#6366f1" }}>Web</span>
+          </Typography>
 
-          {/* Menu Items (desktop) */}
+          {/* Menu Desktop */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
               alignItems: "center",
-              gap: 2,
-              ml: 4,
+              gap: 4,
+              ml: 8,
             }}
           >
             {MENU_ITEMS.map((item, i) => (
               <Button
                 key={i}
-                color="inherit"
                 href={item.href}
-                sx={{ textTransform: "none" }}
+                sx={{
+                  textTransform: "none",
+                  fontWeight: 500,
+                  color: "inherit",
+                  position: "relative",
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    width: 0,
+                    height: "2px",
+                    bottom: 0,
+                    left: 0,
+                    backgroundColor: "#6366f1",
+                    transition: "width 0.3s ease",
+                  },
+                  "&:hover::after": {
+                    width: "100%",
+                  },
+                }}
               >
                 {item.label}
               </Button>
@@ -70,13 +116,22 @@ export default function Navbar() {
           </Box>
 
           {/* Right Actions */}
-          <Box sx={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              marginLeft: "auto",
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
             {/* Idioma */}
             <Button
               variant="outlined"
               startIcon={<LanguageIcon />}
-              sx={{ color: "#fff", borderColor: "#fff" }}
-              onClick={() => alert("Cambiar idioma")}
+              sx={{
+                textTransform: "none",
+                borderRadius: 3,
+              }}
             >
               ES
             </Button>
@@ -86,11 +141,11 @@ export default function Navbar() {
               {mode === "light" ? <DarkMode /> : <LightMode />}
             </IconButton>
 
-            {/* Menú hamburguesa (móvil) */}
+            {/* Mobile Menu */}
             <IconButton
               onClick={() => setDrawerOpen(true)}
-              color="inherit"
               sx={{ display: { xs: "flex", md: "none" } }}
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -98,29 +153,37 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer móvil */}
+      {/* Drawer Mobile */}
       <Drawer
         anchor="right"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <Box sx={{ width: 250, p: 2 }}>
-          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Box sx={{ width: 260 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              p: 1,
+            }}
+          >
             <IconButton onClick={() => setDrawerOpen(false)}>
               <CloseIcon />
             </IconButton>
           </Box>
+
+          <Divider />
+
           <List>
             {MENU_ITEMS.map((item, i) => (
-              <ListItem
-                
+              <ListItemButton
                 key={i}
                 component="a"
                 href={item.href}
                 onClick={() => setDrawerOpen(false)}
               >
                 <ListItemText primary={item.label} />
-              </ListItem>
+              </ListItemButton>
             ))}
           </List>
         </Box>
