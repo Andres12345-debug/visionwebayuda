@@ -21,6 +21,7 @@ const Welcome = () => {
             <ServicesSection/>            
             <SectionHeroSplit/>
             <SectionHeroSplitLeft /> 
+            <ImageCarousel />
             <BenefitsStrip />
             <StepsSection/>            
             <FullServiceSection/>           
@@ -28,7 +29,7 @@ const Welcome = () => {
                
             <FinalCTA />                  
             <FAQSection/>
-            <ImageCarousel />
+            
             <InventoryAgentSection />
             <Box
                 sx={{
