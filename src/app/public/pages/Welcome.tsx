@@ -20,7 +20,7 @@ const Welcome = () => {
             <ImageCarousel />
             <StepsSection/> 
             <InventoryAgentSection />
-            <FAQSection/>           
+            <FAQSection/>          
             
             
             
