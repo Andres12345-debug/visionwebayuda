@@ -41,7 +41,7 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
         palette: {
           mode,
           primary: {
-            main: "#ff3d00", // azul personalizado
+            main: "#6366f1", // azul personalizado
           },
           secondary: {
             main: "rgb(255, 255, 255)", // azul personalizado BOTON

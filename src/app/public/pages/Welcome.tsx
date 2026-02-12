@@ -20,11 +20,8 @@ const Welcome = () => {
             <ImageCarousel />
             <StepsSection/> 
             <InventoryAgentSection />
-            <FAQSection/>          
-            
-            
-            
-            <Box
+            <FAQSection/>
+             <Box
                 sx={{
                     backgroundColor: (theme) =>
                         theme.palette.mode === "light"

@@ -51,16 +51,23 @@ export default function FAQSection() {
       }}
     >
       <Typography
-        fontWeight={900}
-        textAlign="center"
         sx={{
-          fontSize: { xs: "1.7rem", md: "2.2rem" },
-          mb: 4,
+          fontWeight: 900,
+          fontSize: { xs: "1.8rem", md: "2.5rem" },
+          textAlign: "center"
         }}
       >
-        Preguntas Frecuentes
+        Preguntas{" "}
+        <Box
+          component="span"
+          sx={{
+            background: "linear-gradient(90deg, #6366f1, #9333ea)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}>
+          Frecuentes
+        </Box>
       </Typography>
-
       {faqs.map((faq, index) => (
         <Accordion
           key={index}

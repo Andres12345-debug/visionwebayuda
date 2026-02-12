@@ -60,13 +60,12 @@ export default function ServicesSection() {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 14 },
+        py: { xs: 6, md: 10 },
         px: { xs: 2, md: 8 },
         background: isDark
           ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
           : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
-      }}
-    >
+      }}>      
       {/* Título */}
       <Typography
         sx={{

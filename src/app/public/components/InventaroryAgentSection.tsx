@@ -46,24 +46,21 @@ export default function InventoryAgentSection() {
       {/* TÍTULO */}
       <Box sx={{ textAlign: "center", mb: 5 }}>
         <Typography
-          fontWeight={900}
           sx={{
-            fontSize: { xs: "1.7rem", md: "2.2rem" },
-            mb: 2,
+            fontWeight: 900,
+            fontSize: { xs: "1.8rem", md: "2.5rem" },
+            textAlign: "center"
           }}
-        >
-          Inventario Automático de Activos TI
-        </Typography>
-
-        <Typography
-          sx={{
-            maxWidth: 700,
-            mx: "auto",
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Con el agente GLPI, cada equipo se escanea automáticamente para
-          mantener un inventario preciso, actualizado y centralizado.
+        >Inventario {""}
+          <Box
+            component="span"
+            sx={{
+              background: "linear-gradient(90deg, #6366f1, #9333ea)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>
+            Automático de Activos TI
+          </Box>
         </Typography>
       </Box>
 
