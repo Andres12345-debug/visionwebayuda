@@ -104,7 +104,8 @@ export default function StepsSection() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "linear-gradient(135deg,#6366f1,#8b5cf6)",
+                background:
+                  "linear-gradient(135deg, #6366f1, #9333ea)",
                 color: "#fff",
                 boxShadow: "0 10px 25px rgba(99,102,241,0.35)",
               }}

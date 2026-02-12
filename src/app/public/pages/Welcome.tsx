@@ -7,6 +7,7 @@ import ServicesSection from "../components/ServicesSection";
 import StepsSection from "../components/SectionSteps";
 import FAQSection from "../components/SectionFaqs";
 import InventoryAgentSection from "../components/InventaroryAgentSection";
+import HelpdeskVideoSection from "../components/HelpDeskVideoSection";
 
 const Welcome = () => {
 
@@ -14,14 +15,15 @@ const Welcome = () => {
     return (
         <Box>
             <SectionHeader />
-            <ServicesSection/>            
-            <SectionHeroSplit/>
-            <SectionHeroSplitLeft /> 
+            <ServicesSection />
+            <SectionHeroSplit />
+            <SectionHeroSplitLeft />
             <ImageCarousel />
-            <StepsSection/> 
+            <StepsSection />
             <InventoryAgentSection />
-            <FAQSection/>
-             <Box
+            <HelpdeskVideoSection />
+            <FAQSection />
+            <Box
                 sx={{
                     backgroundColor: (theme) =>
                         theme.palette.mode === "light"
