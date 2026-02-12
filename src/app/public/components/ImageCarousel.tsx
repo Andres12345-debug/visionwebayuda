@@ -35,7 +35,7 @@ const DEFAULT_SLIDES: Slide[] = [
     ctaText: "Saber más",
   },
   {
-    src: require("../../../assets/img/welcome/ControlDeLosActivos.png"),
+    src: require("../../../assets/img/welcome/PresentacionDelServicio.png"),
     title: "Control Total de Activos",
     caption:
       "Registra equipos, responsables y mantenimientos en un solo lugar.",
@@ -81,6 +81,7 @@ export default function ImageCarousel({
         width: "100%",
         height: { xs: 420, md: "100vh" },
         overflow: "hidden",
+        borderRadius: 3,        
       }}
     >
       {/* SLIDES */}
