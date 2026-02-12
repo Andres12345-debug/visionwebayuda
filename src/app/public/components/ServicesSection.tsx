@@ -76,7 +76,16 @@ export default function ServicesSection() {
           mb: 8,
         }}
       >
-        Servicios que transforman tu área TIC
+        Servicios que transforman{" "}
+        <Box
+         component="span"
+          sx={{
+            background: "linear-gradient(90deg, #6366f1, #9333ea)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >tu área TIC
+        </Box>{" "}
       </Typography>
 
       {/* Grid */}

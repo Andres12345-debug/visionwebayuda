@@ -1,15 +1,11 @@
 import { Box } from "@mui/material";
 import ImageCarousel from "../components/ImageCarousel";
-import { ImageTextSection } from "../components/ImageTextSection";
 import SectionHeader from "../components/SectionHeader";
 import SectionHeroSplit from "../components/SectionHeroSplit";
 import SectionHeroSplitLeft from "../components/SectionHeroSplitLeft";
 import ServicesSection from "../components/ServicesSection";
 import StepsSection from "../components/SectionSteps";
-import FinalCTA from "../components/finalCta";
-import BenefitsStrip from "../components/BenefistStrip";
 import FAQSection from "../components/SectionFaqs";
-import FullServiceSection from "../components/FullServiceSection";
 import InventoryAgentSection from "../components/InventaroryAgentSection";
 
 const Welcome = () => {
@@ -22,15 +18,12 @@ const Welcome = () => {
             <SectionHeroSplit/>
             <SectionHeroSplitLeft /> 
             <ImageCarousel />
-            <BenefitsStrip />
-            <StepsSection/>            
-            <FullServiceSection/>           
-            <ImageTextSection />
-               
-            <FinalCTA />                  
-            <FAQSection/>
-            
+            <StepsSection/> 
             <InventoryAgentSection />
+            <FAQSection/>           
+            
+            
+            
             <Box
                 sx={{
                     backgroundColor: (theme) =>
