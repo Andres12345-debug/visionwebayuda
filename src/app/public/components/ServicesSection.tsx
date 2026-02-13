@@ -7,6 +7,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import DevicesIcon from "@mui/icons-material/Devices";
 import SecurityIcon from "@mui/icons-material/Security";
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 type Service = {
   title: string;
@@ -17,6 +18,7 @@ type Service = {
 export default function ServicesSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t, i18n } = useTranslation();
 
   const services: Service[] = [
     {
@@ -75,7 +77,8 @@ export default function ServicesSection() {
           mb: 8,
         }}
       >
-        Servicios que transforman{" "}
+         {t("Servicios que transforman")}     
+        {" "}
         <Box
          component="span"
           sx={{
@@ -83,7 +86,7 @@ export default function ServicesSection() {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
-        >tu área TIC
+        > {t("tu área TIC")}               
         </Box>{" "}
       </Typography>
 
