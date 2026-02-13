@@ -33,7 +33,7 @@ console.log("Idioma actual:", i18n.language);
             fontSize: "0.8rem",
           }}
         >
-          {t("welcome")}
+          {t("LLEVA TU EMPRESA AL SIGUIENTE NIVEL")}
         </Typography>
 
         {/* Título */}
@@ -46,7 +46,7 @@ console.log("Idioma actual:", i18n.language);
             color: "text.primary",
           }}
         >
-          Transformamos tu{" "}
+          {t("Transformamos tu")}{" "}
           <Box
             component="span"
             sx={{
@@ -55,9 +55,10 @@ console.log("Idioma actual:", i18n.language);
               WebkitTextFillColor: "transparent",
             }}
           >
-            Mesa de Ayuda
+            {t("Mesa de Ayuda")}            
           </Box>{" "}
-          en un sistema profesional
+          {t("en un sistema profesional")} 
+         
         </Typography>
 
         {/* Descripción */}
@@ -70,10 +71,7 @@ console.log("Idioma actual:", i18n.language);
             mx: "auto",
             lineHeight: 1.7,
           }}
-        >
-          Centraliza, organiza y controla todo el soporte técnico y los activos
-          tecnológicos de tu empresa con una solución estructurada, medible y
-          eficiente.
+        >{t("Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.")}           
         </Typography>
 
         {/* Botones */}
@@ -93,7 +91,7 @@ console.log("Idioma actual:", i18n.language);
               background: "linear-gradient(90deg, #6366f1, #9333ea)",
             }}
           >
-            Solicitar asesoría
+            {t("Solicitar asesoría")}             
           </Button>
 
           <Button
@@ -106,7 +104,8 @@ console.log("Idioma actual:", i18n.language);
               fontWeight: 600,
             }}
           >
-            Ver más información
+             {t("Ver más información")}     
+            
           </Button>
         </Stack>
       </Box>
