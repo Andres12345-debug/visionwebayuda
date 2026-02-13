@@ -1,9 +1,13 @@
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+ const { t, i18n } = useTranslation();
+console.log("Idioma actual:", i18n.language);
+
 
   return (
     <Box
@@ -29,7 +33,7 @@ export default function HeroSection() {
             fontSize: "0.8rem",
           }}
         >
-          NUEVA SOLUCIÓN EMPRESARIAL
+          {t("welcome")}
         </Typography>
 
         {/* Título */}

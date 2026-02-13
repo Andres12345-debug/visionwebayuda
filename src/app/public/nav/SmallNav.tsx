@@ -20,6 +20,8 @@ import {
   Close as CloseIcon,
 } from "@mui/icons-material";
 import { useThemeContext } from "../../shared/theme/ThemeConext";
+import { useTranslation } from "react-i18next";
+
 
 const MENU_ITEMS = [
   { label: "Productos", href: "#" },
@@ -30,6 +32,14 @@ export default function Navbar() {
   const { mode, toggleTheme } = useThemeContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+  const newLang = i18n.language === "es" ? "en" : "es";
+  i18n.changeLanguage(newLang);
+};
+
+
 
   // Detectar scroll
   useEffect(() => {
@@ -109,6 +119,7 @@ export default function Navbar() {
                     width: "100%",
                   },
                 }}
+                onClick={() => i18n.changeLanguage("es")}
               >
                 {item.label}
               </Button>
@@ -124,16 +135,13 @@ export default function Navbar() {
               gap: 1,
             }}
           >
-            {/* Idioma */}
             <Button
               variant="outlined"
               startIcon={<LanguageIcon />}
-              sx={{
-                textTransform: "none",
-                borderRadius: 3,
-              }}
+              sx={{ textTransform: "none", borderRadius: 3 }}
+              onClick={toggleLanguage}
             >
-              ES
+              {i18n.language === "es" ? "EN" : "ES"}
             </Button>
 
             {/* Tema */}
