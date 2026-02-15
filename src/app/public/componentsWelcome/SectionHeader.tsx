@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
- const { t, i18n } = useTranslation();
-console.log("Idioma actual:", i18n.language);
+  const { t, i18n } = useTranslation();
 
 
   return (
@@ -51,10 +49,10 @@ console.log("Idioma actual:", i18n.language);
               WebkitTextFillColor: "transparent",
             }}
           >
-            {t("Mesa de Ayuda")}            
+            {t("Mesa de Ayuda")}
           </Box>{" "}
-          {t("en un sistema profesional")} 
-         
+          {t("en un sistema profesional")}
+
         </Typography>
 
         {/* Descripción */}
@@ -67,7 +65,7 @@ console.log("Idioma actual:", i18n.language);
             mx: "auto",
             lineHeight: 1.7,
           }}
-        >{t("Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.")}           
+        >{t("Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.")}
         </Typography>
 
         {/* Botones */}
@@ -87,7 +85,7 @@ console.log("Idioma actual:", i18n.language);
               background: "linear-gradient(90deg, #6366f1, #9333ea)",
             }}
           >
-            {t("Solicitar asesoría")}             
+            {t("Solicitar asesoría")}
           </Button>
 
           <Button
@@ -100,8 +98,8 @@ console.log("Idioma actual:", i18n.language);
               fontWeight: 600,
             }}
           >
-             {t("Ver más información")}     
-            
+            {t("Ver más información")}
+
           </Button>
         </Stack>
       </Box>

@@ -18,7 +18,7 @@ type Service = {
 export default function ServicesSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const services: Service[] = [
     {
