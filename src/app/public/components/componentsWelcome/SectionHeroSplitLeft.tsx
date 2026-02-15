@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import heroImg from "../../../assets/img/welcome/MesaDeAyuda.png";
+import heroImg from "../../../../assets/img/welcome/MesaDeAyuda.png";
 
 type SectionHeroSplitRightProps = {
   image?: string;

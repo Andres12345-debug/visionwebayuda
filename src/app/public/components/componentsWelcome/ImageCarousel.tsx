@@ -28,21 +28,21 @@ type Props = {
 
 const DEFAULT_SLIDES: Slide[] = [
   {
-    src: require("../../../assets/img/welcome/SolucionDeProblemas.png"),
+    src: require("../../../../assets/img/welcome/SolucionDeProblemas.png"),
     title: "Soporte Técnico Organizado",
     caption:
       "Centraliza solicitudes, asigna técnicos y lleva historial completo.",
     ctaText: "Saber más",
   },
   {
-    src: require("../../../assets/img/welcome/PresentacionDelServicio.png"),
+    src: require("../../../../assets/img/welcome/PresentacionDelServicio.png"),
     title: "Control Total de Activos",
     caption:
       "Registra equipos, responsables y mantenimientos en un solo lugar.",
     ctaText: "Iniciar",
   },
   {
-    src: require("../../../assets/img/welcome/SolucionesTics.png"),
+    src: require("../../../../assets/img/welcome/SolucionesTics.png"),
     title: "Gestión TIC Profesional",
     caption:
       "Métricas, tiempos de respuesta y reportes en tiempo real.",

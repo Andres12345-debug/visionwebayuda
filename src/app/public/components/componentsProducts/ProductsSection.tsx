@@ -96,11 +96,13 @@ const EnterpriseSoftwareSection = () => {
     sx={{ py: { xs: 8, md: 12 }}}>
       <Container maxWidth="lg">
         <Typography
-          variant="h3"
           sx={{
-            fontWeight: 700,
+            fontWeight: 900,
+            fontSize: { xs: "2.2rem", md: "3.5rem" },
+            lineHeight: 1.1,
+            mb: 3,
+            color: "text.primary",
             textAlign: "center",
-            mb: 2,
           }}
         >
           Implementación de Software Empresarial Open Source

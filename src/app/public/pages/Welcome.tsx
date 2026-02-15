@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
-import ImageCarousel from "../componentsWelcome/ImageCarousel";
-import SectionHeader from "../componentsWelcome/SectionHeader";
-import SectionHeroSplit from "../componentsWelcome/SectionHeroSplit";
-import SectionHeroSplitLeft from "../componentsWelcome/SectionHeroSplitLeft";
-import ServicesSection from "../componentsWelcome/ServicesSection";
-import StepsSection from "../componentsWelcome/SectionSteps";
-import FAQSection from "../componentsWelcome/SectionFaqs";
-import InventoryAgentSection from "../componentsWelcome/InventaroryAgentSection";
-import HelpdeskVideoSection from "../componentsWelcome/HelpDeskVideoSection";
+import ImageCarousel from "../components/componentsWelcome/ImageCarousel";
+import SectionHeader from "../components/componentsWelcome/SectionHeader";
+import SectionHeroSplit from "../components/componentsWelcome/SectionHeroSplit";
+import SectionHeroSplitLeft from "../components/componentsWelcome/SectionHeroSplitLeft";
+import ServicesSection from "../components/componentsWelcome/ServicesSection";
+import StepsSection from "../components/componentsWelcome/SectionSteps";
+import FAQSection from "../components/componentsWelcome/SectionFaqs";
+import InventoryAgentSection from "../components/componentsWelcome/InventaroryAgentSection";
+import HelpdeskVideoSection from "../components/componentsWelcome/HelpDeskVideoSection";
 
 const Welcome = () => {
 

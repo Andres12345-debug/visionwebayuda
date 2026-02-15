@@ -1,8 +1,11 @@
 import { Box, Typography, Button, Stack } from "@mui/material";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ContactModal } from "../modals/ContactModal";
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
 
 
   return (
@@ -82,9 +85,15 @@ export default function HeroSection() {
               fontWeight: 600,
               background: "linear-gradient(90deg, #6366f1, #9333ea)",
             }}
+            onClick={() => setOpen(true)}
           >
             {t("Solicitar asesoría")}
           </Button>
+
+          <ContactModal
+            open={open}
+            onClose={() => setOpen(false)}
+          />
 
           <Button
             variant="outlined"

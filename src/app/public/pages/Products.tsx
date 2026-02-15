@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ProductsSection from "../componentsProducts/ProductsSection";
+import ProductsSection from "../components/componentsProducts/ProductsSection";
 
 const Products = () => {
 
