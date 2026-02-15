@@ -3,8 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
-  const theme = useTheme();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
 
   return (
