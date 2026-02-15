@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 
 const MENU_ITEMS = [
   { label: "Productos", href: "/products" },
-  { label: "Servicios", href: "#" },
+  { label: "Servicios", href: "/" },
 ];
 
 export default function Navbar() {
@@ -76,6 +76,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Typography
+            
             variant="h6"
             sx={{
               fontWeight: 900,

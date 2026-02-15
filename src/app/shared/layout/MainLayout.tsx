@@ -8,17 +8,13 @@ export const MainLayout = () => {
   return (
     <Box>
       <SmallNav />
-
       {/* Espacio para que no quede debajo del AppBar */}
-
       <Toolbar />
-
       {/* 👇 AQUÍ se renderizan las rutas */}
       <Box sx={{ p: 3 }}>        
         <Outlet />
         <Footer />
         <FloatingWhatsApp />
-
       </Box>
     </Box>
   );

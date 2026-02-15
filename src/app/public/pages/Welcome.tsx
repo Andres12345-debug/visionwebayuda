@@ -23,8 +23,6 @@ const Welcome = () => {
             <InventoryAgentSection />
             <HelpdeskVideoSection />
             <FAQSection />
-
-  
         </Box>
     );
 };

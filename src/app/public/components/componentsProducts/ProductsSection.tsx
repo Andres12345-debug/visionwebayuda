@@ -16,6 +16,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import BackupIcon from "@mui/icons-material/Backup";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import ShieldIcon from "@mui/icons-material/Shield";
+import { useTranslation } from "react-i18next";
 
 interface Software {
   id: number;
@@ -91,9 +92,10 @@ const softwareList: Software[] = [
 ];
 
 const EnterpriseSoftwareSection = () => {
+  const { t } = useTranslation();
   return (
-    <Box 
-    sx={{ py: { xs: 8, md: 12 }}}>
+    <Box
+      sx={{ py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
         <Typography
           sx={{
@@ -105,7 +107,19 @@ const EnterpriseSoftwareSection = () => {
             textAlign: "center",
           }}
         >
-          Implementación de Software Empresarial Open Source
+          {t("Implementación de Software")}{" "}
+          <Box
+            component="span"
+            sx={{
+              background: "linear-gradient(90deg, #6366f1, #9333ea)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            {t("Empresarial Open Source")}
+
+          </Box>{" "}
+
         </Typography>
 
         <Typography
@@ -118,8 +132,7 @@ const EnterpriseSoftwareSection = () => {
             mb: 8,
           }}
         >
-          Instalamos, configuramos y optimizamos soluciones empresariales
-          para mejorar la seguridad, gestión y productividad de tu organización.
+          {t("Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.")}
         </Typography>
 
         {/* FLEX CONTAINER */}
