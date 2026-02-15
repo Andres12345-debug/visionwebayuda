@@ -23,15 +23,7 @@ const Welcome = () => {
             <InventoryAgentSection />
             <HelpdeskVideoSection />
             <FAQSection />
-            <Box
-                sx={{
-                    backgroundColor: (theme) =>
-                        theme.palette.mode === "light"
-                            ? "#e7e7e7b5"
-                            : "#0d1117",
-                    transition: "background-color .3s ease",
-                }}
-            ></Box>
+  
         </Box>
     );
 };

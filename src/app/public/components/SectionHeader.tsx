@@ -16,10 +16,6 @@ console.log("Idioma actual:", i18n.language);
         pb: { xs: 10, md: 16 },
         px: 2,
         textAlign: "center",
-        background: isDark
-          ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
-          : "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
-        transition: "all 0.3s ease",
       }}
     >
       <Box sx={{ maxWidth: 900, mx: "auto" }}>

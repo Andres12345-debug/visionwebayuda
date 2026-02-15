@@ -64,6 +64,7 @@ export default function ServicesSection() {
       sx={{
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 8 },
+        borderRadius: 4,
         background: isDark
           ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
           : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
