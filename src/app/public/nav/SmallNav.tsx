@@ -24,7 +24,7 @@ import { useTranslation } from "react-i18next";
 
 
 const MENU_ITEMS = [
-  { label: "Productos", href: "#" },
+  { label: "Productos", href: "/products" },
   { label: "Servicios", href: "#" },
 ];
 
