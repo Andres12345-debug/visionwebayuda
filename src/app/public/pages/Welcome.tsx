@@ -8,7 +8,6 @@ import StepsSection from "../components/componentsWelcome/SectionSteps";
 import FAQSection from "../components/componentsWelcome/SectionFaqs";
 import InventoryAgentSection from "../components/componentsWelcome/InventaroryAgentSection";
 import HelpdeskVideoSection from "../components/componentsWelcome/HelpDeskVideoSection";
-import { FloatingWhatsApp } from "../components/ui/FloatingWhatsApp";
 
 const Welcome = () => {
 
@@ -24,7 +23,6 @@ const Welcome = () => {
             <InventoryAgentSection />
             <HelpdeskVideoSection />
             <FAQSection />
-            <FloatingWhatsApp />
 
   
         </Box>

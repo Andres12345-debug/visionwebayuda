@@ -95,19 +95,7 @@ export default function HeroSection() {
             onClose={() => setOpen(false)}
           />
 
-          <Button
-            variant="outlined"
-            size="large"
-            sx={{
-              px: 4,
-              py: 1.5,
-              borderRadius: "12px",
-              fontWeight: 600,
-            }}
-          >
-            {t("Ver más información")}
-
-          </Button>
+          
         </Stack>
       </Box>
     </Box>
