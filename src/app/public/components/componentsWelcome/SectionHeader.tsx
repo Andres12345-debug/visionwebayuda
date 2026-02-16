@@ -1,11 +1,15 @@
 import { Box, Typography, Button, Stack } from "@mui/material";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ContactModal } from "../modals/ContactModal";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 export default function HeroSection() {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
+  const phoneNumber = "573007538453"; // 👉 SIN +, SIN espacios
+  const message = encodeURIComponent(
+    "Hola, quiero solicitar asesoría sobre soluciones TIC para mi empresa."
+  );
+
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
 
   return (
@@ -78,24 +82,25 @@ export default function HeroSection() {
           <Button
             variant="contained"
             size="large"
+            startIcon={<WhatsAppIcon />}
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               px: 4,
               py: 1.5,
               borderRadius: "12px",
               fontWeight: 600,
-              background: "linear-gradient(90deg, #6366f1, #9333ea)",
+background: "linear-gradient(90deg, #6366f1, #9333ea)",              "&:hover": {
+                background: "linear-gradient(90deg, #20c75a, #0f7a6d)",
+              },
             }}
-            onClick={() => setOpen(true)}
           >
             {t("Solicitar asesoría")}
           </Button>
 
-          <ContactModal
-            open={open}
-            onClose={() => setOpen(false)}
-          />
 
-          
+
         </Stack>
       </Box>
     </Box>

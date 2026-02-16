@@ -51,12 +51,12 @@ export const ContactModal = ({ open, onClose }: ContactModalProps) => {
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <EmailIcon color="primary" />
-            <Typography>contacto@tuempresa.com</Typography>
+            <Typography>vision.code24@gmail.com</Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <PhoneIcon color="primary" />
-            <Typography>+52 55 0000 0000</Typography>
+            <Typography>+57 3007538453</Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
