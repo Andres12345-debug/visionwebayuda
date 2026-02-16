@@ -28,9 +28,6 @@ export default function SectionHeroSplitLeft({
         pt: { xs: 0, md: 2 },   // 👈 casi nada arriba
         pb: { xs: 8, md: 12 },
         px: 2,
-        background: isDark
-          ? "#0f172a"
-          : "#f8fafc",
       }}
     >
       <Box

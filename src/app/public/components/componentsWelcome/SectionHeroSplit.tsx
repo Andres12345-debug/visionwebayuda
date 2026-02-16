@@ -26,7 +26,6 @@ export default function SectionHeroSplit({
     <Box
       sx={{
         px: 2,
-        background: isDark ? "#0f172a" : "#f8fafc",
       }}
     >
       <Box

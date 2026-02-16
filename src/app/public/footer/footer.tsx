@@ -126,7 +126,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography variant="body2" color="text.secondary">
-                        © {new Date().getFullYear()} TuEmpresa IT. Todos los derechos reservados.
+                        © {new Date().getFullYear()} Vision Code. Todos los derechos reservados.
                     </Typography>
                 </Box>
             </Container>
