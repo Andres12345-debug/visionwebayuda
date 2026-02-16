@@ -39,7 +39,7 @@ const Footer = () => {
                     {/* Empresa */}
                     <Box sx={{ flex: "1 1 250px", maxWidth: 300 }}>
                         <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                            TuEmpresa IT
+                            viSion Code
                         </Typography>
 
                         <Typography variant="body2" >
@@ -53,23 +53,15 @@ const Footer = () => {
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
                             Enlaces
                         </Typography>
-
                         <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                             <Link href="/" underline="none" color="inherit">
                                 Inicio
                             </Link>
-                            <Link href="/productos" underline="none" color="inherit">
+                            <Link href="/products" underline="none" color="inherit">
                                 Productos
-                            </Link>
-                            <Link href="/servicios" underline="none" color="inherit">
-                                Servicios
-                            </Link>
-                            <Link href="/contacto" underline="none" color="inherit">
-                                Contacto
                             </Link>
                         </Box>
                     </Box>
-
                     {/* Servicios */}
                     <Box sx={{ flex: "1 1 200px" }}>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
@@ -99,11 +91,11 @@ const Footer = () => {
                         </Typography>
 
                         <Typography variant="body2" sx={{ mb: 1 }}>
-                            contacto@tuempresa.com
+                            Vision.code24@gmail.com
                         </Typography>
 
                         <Typography variant="body2" sx={{ mb: 2 }}>
-                            +52 55 0000 0000
+                            +57 3007538453
                         </Typography>
 
                         {/* Redes */}
