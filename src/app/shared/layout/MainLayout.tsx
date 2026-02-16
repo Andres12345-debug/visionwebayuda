@@ -2,7 +2,8 @@ import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
 import SmallNav from "../../public/nav/SmallNav";
 import { FloatingWhatsApp } from "../../public/components/ui/FloatingWhatsApp";
-import Footer from "../../public/footer/Footer";
+import Footer from "../../public/footer/footer";
+
 
 export const MainLayout = () => {
   return (
