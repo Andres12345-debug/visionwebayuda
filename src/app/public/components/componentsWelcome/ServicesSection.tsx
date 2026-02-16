@@ -68,7 +68,8 @@ export default function ServicesSection() {
         background: isDark
           ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
           : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
-      }}>      
+      }}
+    >
       {/* Título */}
       <Typography
         sx={{
@@ -78,37 +79,48 @@ export default function ServicesSection() {
           mb: 8,
         }}
       >
-         {t("Servicios que transforman")}     
-        {" "}
+        {t("Servicios que transforman")}{" "}
         <Box
-         component="span"
+          component="span"
           sx={{
             background: "linear-gradient(90deg, #6366f1, #9333ea)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
-        > {t("tu área TIC")}               
-        </Box>{" "}
+        >
+          {t("tu área TIC")}
+        </Box>
       </Typography>
 
-      {/* Grid */}
+      {/* CONTENEDOR RESPONSIVE */}
       <Box
         sx={{
-          display: "grid",
+          display: { xs: "flex", md: "grid" },
           gap: 4,
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
-          },
           maxWidth: 1200,
           mx: "auto",
+
+          // GRID en desktop
+          gridTemplateColumns: {
+            md: "repeat(3, 1fr)",
+          },
+
+          // SLIDER en mobile
+          overflowX: { xs: "auto", md: "unset" },
+          scrollSnapType: { xs: "x mandatory", md: "none" },
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
         }}
       >
         {services.map((service, index) => (
           <Box
             key={index}
             sx={{
+              minWidth: { xs: "85%", sm: "60%", md: "unset" },
+              flexShrink: 0,
+              scrollSnapAlign: { xs: "center", md: "unset" },
+
               p: 4,
               borderRadius: 4,
               backdropFilter: "blur(8px)",
