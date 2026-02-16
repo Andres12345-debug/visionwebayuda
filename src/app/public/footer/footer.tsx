@@ -3,8 +3,7 @@ import {
     Container,
     Typography,
     IconButton,
-    Link,
-    useTheme,
+    Link
 } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
