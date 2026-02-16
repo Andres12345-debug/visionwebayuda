@@ -21,11 +21,13 @@ import {
 } from "@mui/icons-material";
 import { useThemeContext } from "../../shared/theme/ThemeConext";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
 
 
 const MENU_ITEMS = [
   { label: "Productos", href: "/products" },
-  { label: "Servicios", href: "/" },
+  //{ label: "Servicios", href: "/" },
 ];
 
 export default function Navbar() {
@@ -35,9 +37,9 @@ export default function Navbar() {
   const { i18n } = useTranslation();
 
   const toggleLanguage = () => {
-  const newLang = i18n.language === "es" ? "en" : "es";
-  i18n.changeLanguage(newLang);
-};
+    const newLang = i18n.language === "es" ? "en" : "es";
+    i18n.changeLanguage(newLang);
+  };
 
 
 
@@ -76,17 +78,24 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Typography
-            
+            component={Link}
+            to="/"
             variant="h6"
             sx={{
               fontWeight: 900,
               letterSpacing: 1,
               cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
               transition: "0.3s",
+              "&:hover": {
+                opacity: 0.8,
+              },
             }}
           >
             ViSion<span style={{ color: "#6366f1" }}>Web</span>
           </Typography>
+
 
           {/* Menu Desktop */}
           <Box
@@ -97,35 +106,34 @@ export default function Navbar() {
               ml: 8,
             }}
           >
-            {MENU_ITEMS.map((item, i) => (
-              <Button
-                key={i}
-                href={item.href}
-                sx={{
-                  textTransform: "none",
-                  fontWeight: 500,
-                  color: "inherit",
-                  position: "relative",
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 0,
-                    height: "2px",
-                    bottom: 0,
-                    left: 0,
-                    backgroundColor: "#6366f1",
-                    transition: "width 0.3s ease",
-                  },
-                  "&:hover::after": {
-                    width: "100%",
-                  },
-                }}
-                onClick={() => i18n.changeLanguage("es")}
-              >
-                {item.label}
-              </Button>
-            ))}
+            <Typography
+              component={Link}
+              to="/products"
+              sx={{
+                textDecoration: "none",
+                textTransform: "none",
+                fontWeight: 500,
+                color: "inherit",
+                position: "relative",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  width: 0,
+                  height: "2px",
+                  bottom: 0,
+                  left: 0,
+                  backgroundColor: "#6366f1",
+                  transition: "width 0.3s ease",
+                },
+                "&:hover::after": {
+                  width: "100%",
+                },
+              }}
+            >
+              Productos
+            </Typography>
           </Box>
+
 
           {/* Right Actions */}
           <Box
