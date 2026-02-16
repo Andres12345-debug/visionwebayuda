@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
 import SmallNav from "../../public/nav/SmallNav";
-import Footer from "../../public/footer/footer";
 import { FloatingWhatsApp } from "../../public/components/ui/FloatingWhatsApp";
+import Footer from "../../public/footer/Footer";
 
 export const MainLayout = () => {
   return (
@@ -13,8 +13,8 @@ export const MainLayout = () => {
       {/* 👇 AQUÍ se renderizan las rutas */}
       <Box sx={{ p: 3 }}>        
         <Outlet />
-        <Footer />
         <FloatingWhatsApp />
+        <Footer/>
       </Box>
     </Box>
   );

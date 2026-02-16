@@ -39,6 +39,7 @@ export default function InventoryAgentSection() {
       sx={{
         py: { xs: 6, md: 8 },
         px: { xs: 2, md: 6 },
+        borderRadius: 4,
         background: isDark
           ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
           : "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",

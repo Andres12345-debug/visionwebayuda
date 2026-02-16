@@ -13,19 +13,17 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 
 const Footer = () => {
-    const theme = useTheme();
-    const isDark = theme.palette.mode === "dark";
+   
     return (
         <Box
             sx={{
                 py: { xs: 6, md: 10 },
                 px: { xs: 2, md: 8 },
                 borderRadius: 4,
-                background: isDark
-                    ? "linear-gradient(180deg, #0f172a 0%, #111827 100%)"
-                    : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+                transition: "all 0.3s ease",
+                backdropFilter: "blur(12px)"
             }}>
-    
+
             <Container maxWidth="lg">
                 {/* CONTENIDO PRINCIPAL */}
                 <Box
@@ -39,7 +37,7 @@ const Footer = () => {
                     {/* Empresa */}
                     <Box sx={{ flex: "1 1 250px", maxWidth: 300 }}>
                         <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                            viSion Code
+                            ViSion Code
                         </Typography>
 
                         <Typography variant="body2" >
