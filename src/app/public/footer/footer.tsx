@@ -2,8 +2,10 @@ import {
     Box,
     Container,
     Typography,
+    Link,
+    Stack,
+    Divider,
     IconButton,
-    Link
 } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -12,120 +14,92 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 
 const Footer = () => {
-   
     return (
         <Box
+            component="footer"
             sx={{
-                py: { xs: 6, md: 10 },
-                px: { xs: 2, md: 8 },
-                borderRadius: 4,
-                transition: "all 0.3s ease",
-                backdropFilter: "blur(12px)"
-            }}>
-
+                mt: 14,
+                py: 8,
+                borderTop: "1px solid",
+                borderColor: "divider",
+                backgroundColor: "background.paper",
+            }}
+        >
             <Container maxWidth="lg">
-                {/* CONTENIDO PRINCIPAL */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 6,
-                        justifyContent: "space-between",
-                    }}
+                <Stack
+                    direction={{ xs: "column", md: "row" }}
+                    spacing={6}
+                    justifyContent="space-between"
                 >
-                    {/* Empresa */}
-                    <Box sx={{ flex: "1 1 250px", maxWidth: 300 }}>
-                        <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                            ViSion Code
+                    {/* Marca */}
+                    <Box maxWidth={300}>
+                        <Typography variant="h6" fontWeight={600} gutterBottom>
+                            Vision Code
                         </Typography>
 
-                        <Typography variant="body2" >
-                            Implementamos soluciones empresariales Open Source para
-                            modernizar la infraestructura tecnológica de tu organización.
+                        <Typography variant="body2" color="text.secondary" lineHeight={1.8}>
+                            Soluciones tecnológicas Open Source enfocadas en eficiencia,
+                            estabilidad y crecimiento empresarial.
                         </Typography>
                     </Box>
 
-                    {/* Enlaces */}
-                    <Box sx={{ flex: "1 1 180px" }}>
-                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
-                            Enlaces
+                    {/* Navegación */}
+                    <Box>
+                        <Typography variant="subtitle2" fontWeight={600} gutterBottom>
+                            Navegación
                         </Typography>
-                        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                            <Link href="/" underline="none" color="inherit">
+
+                        <Stack spacing={1}>
+                            <Link href="/" underline="hover" color="text.secondary">
                                 Inicio
                             </Link>
-                            <Link href="/products" underline="none" color="inherit">
+                            <Link href="/products" underline="hover" color="text.secondary">
                                 Productos
                             </Link>
-                        </Box>
-                    </Box>
-                    {/* Servicios */}
-                    <Box sx={{ flex: "1 1 200px" }}>
-                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
-                            Soluciones
-                        </Typography>
-
-                        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                            <Typography variant="body2">
-                                Mesa de Ayuda (GLPI)
-                            </Typography>
-                            <Typography variant="body2">
-                                Monitoreo (Zabbix)
-                            </Typography>
-                            <Typography variant="body2">
-                                Backup Empresarial
-                            </Typography>
-                            <Typography variant="body2">
-                                Seguridad IT
-                            </Typography>
-                        </Box>
+                        </Stack>
                     </Box>
 
                     {/* Contacto */}
-                    <Box sx={{ flex: "1 1 220px" }}>
-                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
+                    <Box>
+                        <Typography variant="subtitle2" fontWeight={600} gutterBottom>
                             Contacto
                         </Typography>
 
-                        <Typography variant="body2" sx={{ mb: 1 }}>
+                        <Typography variant="body2" color="text.secondary">
                             Vision.code24@gmail.com
                         </Typography>
 
-                        <Typography variant="body2" sx={{ mb: 2 }}>
-                            +57 3007538453
+                        <Typography variant="body2" color="text.secondary" mb={2}>
+                            +57 300 753 8453
                         </Typography>
 
-                        {/* Redes */}
-                        <Box>
-                            <IconButton sx={{ color: "#098bfc" }}>
-                                <FacebookIcon />
+                        <Stack direction="row" spacing={1}>
+                            <IconButton size="small" color="inherit">
+                                <FacebookIcon fontSize="small" />
                             </IconButton>
-                            <IconButton sx={{ color: "#098bfc" }}>
-                                <LinkedInIcon />
+                            <IconButton size="small" color="inherit">
+                                <LinkedInIcon fontSize="small" />
                             </IconButton>
-                            <IconButton sx={{ color: "#09fc5e" }}>
-                                <WhatsAppIcon />
+                            <IconButton size="small" color="inherit">
+                                <WhatsAppIcon fontSize="small" />
                             </IconButton>
-                            <IconButton sx={{ color: "#fc6209" }}>
-                                <EmailIcon />
+                            <IconButton size="small" color="inherit">
+                                <EmailIcon fontSize="small" />
                             </IconButton>
-                        </Box>
+                        </Stack>
                     </Box>
-                </Box>
+                </Stack>
 
-                {/* Línea divisoria */}
-                <Box
-                    sx={{
-                        borderTop: "1px solid #1e293b",
-                        mt: 6,
-                        pt: 3,
-                        textAlign: "center",
-                    }}
+                <Divider sx={{ my: 6 }} />
+
+                <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    display="block"
+                    textAlign="center"
                 >
-                    <Typography variant="body2" color="text.secondary">
-                        © {new Date().getFullYear()} Vision Code. Todos los derechos reservados.
-                    </Typography>
-                </Box>
+                    © {new Date().getFullYear()} Vision Code. Todos los derechos reservados.
+                </Typography>
             </Container>
         </Box>
     );

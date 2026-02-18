@@ -1,217 +1,165 @@
+import React, { useState } from "react";
 import {
   Box,
   Container,
   Typography,
-  Card,
-  CardContent,
-  Button,
+  Grid,
+  TextField,
+  InputAdornment,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import SecurityIcon from "@mui/icons-material/Security";
-import StorageIcon from "@mui/icons-material/Storage";
-import CloudIcon from "@mui/icons-material/Cloud";
+import { SoftwareCard, SoftwareItem } from "./SoftwareCard";
+import { ProductModal } from "./ProductModal";
+
+// Íconos
+import InventoryIcon from "@mui/icons-material/Inventory";
 import BusinessIcon from "@mui/icons-material/Business";
-import DescriptionIcon from "@mui/icons-material/Description";
-import BackupIcon from "@mui/icons-material/Backup";
-import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
-import ShieldIcon from "@mui/icons-material/Shield";
-import { useTranslation } from "react-i18next";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
-interface Software {
-  id: number;
-  name: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const softwareList: Software[] = [
+const softwareList: SoftwareItem[] = [
   {
     id: 1,
-    name: "GLPI - Mesa de Ayuda",
-    description:
-      "Gestión de tickets, inventario IT y administración de activos empresariales.",
-    icon: <SupportAgentIcon sx={{ fontSize: 50 }} />,
+    name: "GPLI Inventario",
+    description: "Control avanzado de stock, almacenes y movimientos.",
+    category: "Inventario",
+    icon: <InventoryIcon fontSize="large" />,
   },
   {
     id: 2,
-    name: "ClamAV / ClamWin",
-    description:
-      "Protección antivirus Open Source para estaciones y servidores.",
-    icon: <SecurityIcon sx={{ fontSize: 50 }} />,
+    name: "GPLI Empresarial",
+    description: "Gestión integral de procesos administrativos y contables.",
+    category: "Empresarial",
+    icon: <BusinessIcon fontSize="large" />,
   },
   {
     id: 3,
-    name: "Zabbix - Monitoreo",
-    description:
-      "Supervisión avanzada de servidores, red y servicios críticos.",
-    icon: <MonitorHeartIcon sx={{ fontSize: 50 }} />,
+    name: "GPLI Logística",
+    description: "Optimización de envíos, rutas y distribución.",
+    category: "Logística",
+    icon: <LocalShippingIcon fontSize="large" />,
   },
   {
     id: 4,
-    name: "Nextcloud",
+    name: "GPLI Reportes",
     description:
-      "Servidor privado de archivos y colaboración empresarial.",
-    icon: <CloudIcon sx={{ fontSize: 50 }} />,
+      "Análisis y métricas en tiempo real para decisiones estratégicas.",
+    category: "Analytics",
+    icon: <AssessmentIcon fontSize="large" />,
   },
   {
     id: 5,
-    name: "Odoo Community",
-    description:
-      "ERP Open Source para gestión administrativa y empresarial.",
-    icon: <BusinessIcon sx={{ fontSize: 50 }} />,
+    name: "GPLI Comercial",
+    description: "Ventas, facturación electrónica y gestión de clientes.",
+    category: "Comercial",
+    icon: <StorefrontIcon fontSize="large" />,
   },
   {
     id: 6,
-    name: "LibreOffice",
-    description:
-      "Suite ofimática profesional para entornos corporativos.",
-    icon: <DescriptionIcon sx={{ fontSize: 50 }} />,
-  },
-  {
-    id: 7,
-    name: "UrBackup",
-    description:
-      "Copias de seguridad automáticas para servidores y estaciones.",
-    icon: <BackupIcon sx={{ fontSize: 50 }} />,
-  },
-  {
-    id: 8,
-    name: "Bacula / Bareos",
-    description:
-      "Plataforma avanzada de backup empresarial y recuperación.",
-    icon: <StorageIcon sx={{ fontSize: 50 }} />,
-  },
-  {
-    id: 9,
-    name: "Wazuh - Seguridad",
-    description:
-      "SIEM y monitoreo de seguridad para infraestructura empresarial.",
-    icon: <ShieldIcon sx={{ fontSize: 50 }} />,
+    name: "GPLI Soporte",
+    description: "Gestión de tickets y atención al cliente.",
+    category: "Soporte",
+    icon: <SupportAgentIcon fontSize="large" />,
   },
 ];
 
-const EnterpriseSoftwareSection = () => {
-  const { t } = useTranslation();
+const ProductsSection = () => {
+  const [search, setSearch] = useState("");
+  const [selectedProduct, setSelectedProduct] =
+    useState<SoftwareItem | null>(null);
+  const [open, setOpen] = useState(false);
+
+  const filteredProducts = softwareList.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const handleOpen = (product: SoftwareItem) => {
+    setSelectedProduct(product);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
-    <Box
-      sx={{ py: { xs: 8, md: 12 } }}>
-      <Container maxWidth="lg">
-        <Typography
-          sx={{
-            fontWeight: 900,
-            fontSize: { xs: "2.2rem", md: "3.5rem" },
-            lineHeight: 1.1,
-            mb: 3,
-            color: "text.primary",
-            textAlign: "center",
-          }}
-        >
-          {t("Implementación de Software")}{" "}
-          <Box
-            component="span"
-            sx={{
-              background: "linear-gradient(90deg, #6366f1, #9333ea)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {t("Empresarial Open Source")}
+    <>
+      <Box
+        sx={{
+          py: { xs: 10, md: 14 },
+          background: (theme) =>
+            theme.palette.mode === "dark"
+              ? "linear-gradient(180deg, #0f0f13, #0a0a0d)"
+              : "linear-gradient(180deg, #f8fafc, #ffffff)",
+        }}
+      >
+        <Container maxWidth="xl">
+          {/* Título */}
+          <Box textAlign="center" mb={6}>
+            <Typography
+              variant="h3"
+              fontWeight={800}
+              sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, mb: 2 }}
+            >
+              Soluciones GPLI
+            </Typography>
 
-          </Box>{" "}
-
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: "center",
-            color: "text.secondary",
-            maxWidth: 800,
-            mx: "auto",
-            mb: 8,
-          }}
-        >
-          {t("Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.")}
-        </Typography>
-
-        {/* FLEX CONTAINER */}
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 4,
-            justifyContent: "center",
-          }}
-        >
-          {softwareList.map((software) => (
-            <Box
-              key={software.id}
+            <Typography
+              variant="body1"
               sx={{
-                flex: "1 1 300px",
-                maxWidth: "340px",
+                maxWidth: 700,
+                mx: "auto",
+                color: "text.secondary",
               }}
             >
-              <Card
-                elevation={0}
-                sx={{
-                  height: "100%",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  p: 4,
-                  textAlign: "center",
-                  transition: "0.3s",
-                  "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-                  },
-                }}
-              >
-                <CardContent>
-                  {/* ICONO */}
-                  <Box
-                    sx={{
-                      color: "primary.main",
-                      mb: 3,
-                    }}
-                  >
-                    {software.icon}
-                  </Box>
+              Plataforma integral para la gestión empresarial moderna.
+            </Typography>
+          </Box>
 
-                  <Typography
-                    variant="h6"
-                    sx={{ fontWeight: 600, mb: 2 }}
-                  >
-                    {software.name}
-                  </Typography>
+          {/* Buscador */}
+          <Box display="flex" justifyContent="center" mb={6}>
+            <TextField
+              placeholder="Buscar producto..."
+              variant="outlined"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              sx={{ width: { xs: "100%", sm: 400 } }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
 
-                  <Typography
-                    variant="body2"
-                    sx={{ color: "text.secondary", mb: 3 }}
-                  >
-                    {software.description}
-                  </Typography>
+          {/* Grid */}
+          <Grid container spacing={4}>
+            {filteredProducts.map((item) => (
+              <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                <SoftwareCard
+                  item={item}
+                  onClick={() => handleOpen(item)}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
 
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                      borderRadius: "10px",
-                      fontWeight: 600,
-                      background:
-                        "linear-gradient(90deg, #6366f1, #9333ea)",
-                    }}
-                  >
-                    Solicitar implementación
-                  </Button>
-                </CardContent>
-              </Card>
-            </Box>
-          ))}
-        </Box>
-      </Container>
-    </Box>
+      {/* Modal */}
+      <ProductModal
+        open={open}
+        onClose={handleClose}
+        product={selectedProduct}
+      />
+    </>
   );
 };
 
-export default EnterpriseSoftwareSection;
+export default ProductsSection;
