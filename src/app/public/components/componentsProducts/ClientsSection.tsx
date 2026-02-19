@@ -18,7 +18,6 @@ const ClientsSection = () => {
         <Box
             sx={{
                 py: 10,
-                // Fondo dinámico para que el texto sea legible, pero sin afectar imágenes
                 backgroundColor: isDarkMode ? "background.default" : "#f5f5f5",
                 overflow: "hidden",
                 width: "100%"

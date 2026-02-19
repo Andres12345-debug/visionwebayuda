@@ -1,6 +1,4 @@
-import { Box, Container, Typography, useTheme } from "@mui/material";
-import Grid from "@mui/material/Grid";
-
+import { Box, Container, Typography, useTheme, Grid} from "@mui/material";
 import { useEffect, useState } from "react";
 
 const metrics = [
@@ -15,7 +13,7 @@ const Counter = ({ end, suffix }: { end: number; suffix: string }) => {
 
     useEffect(() => {
         let start = 0;
-        const duration = 1500;
+        const duration = 2000; // Un poco más lento para que sea más elegante
         const increment = end / (duration / 16);
 
         const timer = setInterval(() => {
@@ -32,34 +30,49 @@ const Counter = ({ end, suffix }: { end: number; suffix: string }) => {
     }, [end]);
 
     return (
-        <Typography variant="h3" fontWeight={800}>
-            {count}
-            {suffix}
+        <Typography
+            variant="h3"
+            fontWeight={800}
+            sx={{
+                // Color destacado que brilla un poco más en dark mode
+                color: (theme) => theme.palette.mode === 'dark' ? 'primary.light' : 'primary.main'
+            }}
+        >
+            {count}{suffix}
         </Typography>
     );
 };
 
 const MetricsSection = () => {
     const theme = useTheme();
+    const isDark = theme.palette.mode === "dark";
 
     return (
         <Box
+            component="section"
             sx={{
                 py: 10,
-                backgroundColor:
-                    theme.palette.mode === "dark"
-                        ? "background.default"
-                        : "common.white",
+                // Aplicamos la lógica de gradientes que pediste
+                background: isDark
+                    ? "linear-gradient(180deg, #000000 0%, #0f172a 100%)"
+                    : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+                color: "text.primary",
+                transition: "all 0.4s ease",
             }}
         >
             <Container maxWidth="lg">
                 <Box textAlign="center" mb={8}>
-                    <Typography variant="h5" fontWeight={700} gutterBottom>
+                    <Typography
+                        variant="h4"
+                        fontWeight={700}
+                        gutterBottom
+                        sx={{ color: isDark ? "#f1f5f9" : "inherit" }}
+                    >
                         Resultados que nos respaldan
                     </Typography>
 
                     <Typography
-                        variant="body2"
+                        variant="body1"
                         color="text.secondary"
                         maxWidth={600}
                         mx="auto"
@@ -69,33 +82,47 @@ const MetricsSection = () => {
                     </Typography>
                 </Box>
 
-                <Grid container spacing={6}>
+                <Grid container spacing={4}>
                     {metrics.map((metric, index) => (
                         <Grid key={index} size={{ xs: 6, md: 3 }}>
-                            <Box textAlign="center">
+                            <Box
+                                textAlign="center"
+                                sx={{
+                                    p: 3,
+                                    borderRadius: 4,
+                                    // Agregamos un ligero borde de cristal en dark mode
+                                    bgcolor: isDark ? "rgba(255, 255, 255, 0.03)" : "transparent",
+                                    border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
+                                }}
+                            >
                                 <Counter end={metric.value} suffix={metric.suffix} />
 
                                 <Box
                                     sx={{
                                         width: 40,
-                                        height: 2,
+                                        height: 3,
                                         mx: "auto",
                                         my: 2,
-                                        backgroundColor:
-                                            theme.palette.mode === "dark"
-                                                ? "rgba(255,255,255,0.2)"
-                                                : "rgba(0,0,0,0.1)",
+                                        borderRadius: 2,
+                                        // Color de la barrita decorativa
+                                        backgroundColor: isDark
+                                            ? "primary.main"
+                                            : "primary.light",
+                                        opacity: 0.8
                                     }}
                                 />
 
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography
+                                    variant="subtitle1"
+                                    fontWeight={500}
+                                    sx={{ color: "text.secondary" }}
+                                >
                                     {metric.label}
                                 </Typography>
                             </Box>
                         </Grid>
                     ))}
                 </Grid>
-
             </Container>
         </Box>
     );

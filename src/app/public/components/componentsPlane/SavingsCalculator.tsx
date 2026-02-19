@@ -87,7 +87,7 @@ Me gustaría que me contaran más sobre cómo funcionan sus servicios y cómo po
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    backgroundColor: isDark ? '#1e3a8a' : '#eff6ff',
+                    backgroundColor: isDark ? '#ffffff' : '#eff6ff',
                     color: colors.primary,
                     padding: '6px 16px',
                     borderRadius: '20px',

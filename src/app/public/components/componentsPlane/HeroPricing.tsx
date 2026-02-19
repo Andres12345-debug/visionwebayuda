@@ -24,7 +24,7 @@ const HeroPricing = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                backgroundColor: isDark ? '#1e293b' : '#fff',
+                backgroundColor: isDark ? '#ffffff' : '#fff',
                 color: '#6366f1',
                 padding: '8px 16px',
                 borderRadius: '100px',

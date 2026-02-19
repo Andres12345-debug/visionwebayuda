@@ -2,10 +2,11 @@ import {
     Box,
     Container,
     Typography,
-    Grid,
     Paper,
     Avatar,
     Rating,
+    useTheme,
+    Grid
 } from "@mui/material";
 
 const testimonials = [
@@ -36,12 +37,31 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+    const theme = useTheme();
+    const isDark = theme.palette.mode === "dark";
+
     return (
-        <Box sx={{ py: 12, backgroundColor: "background.default" }}>
+        <Box
+            component="section"
+            sx={{
+                py: 12,
+                // Aplicamos tu gradiente dinámico
+                background: isDark
+                    ? "linear-gradient(180deg, #000000 0%, #000000 100%)"
+                    : "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+                color: "text.primary",
+                transition: "all 0.4s ease",
+            }}
+        >
             <Container maxWidth="lg">
                 {/* Encabezado */}
                 <Box textAlign="center" mb={8}>
-                    <Typography variant="h4" fontWeight={700} gutterBottom>
+                    <Typography
+                        variant="h4"
+                        fontWeight={700}
+                        gutterBottom
+                        sx={{ color: isDark ? "#f1f5f9" : "inherit" }}
+                    >
                         Lo que dicen nuestros clientes
                     </Typography>
 
@@ -56,47 +76,67 @@ const Testimonials = () => {
                     </Typography>
                 </Box>
 
-                {/* Cards */}
+                {/* Cards Grid */}
                 <Grid container spacing={4}>
                     {testimonials.map((item, index) => (
                         <Grid key={index} size={{ xs: 12, md: 4 }}>
                             <Paper
-                                elevation={0}
+                                elevation={isDark ? 0 : 2}
                                 sx={{
                                     p: 4,
                                     height: "100%",
-                                    borderRadius: 3,
+                                    borderRadius: 4,
                                     border: "1px solid",
-                                    borderColor: "divider",
-                                    transition: "0.3s",
+                                    // Borde sutil adaptable
+                                    borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "divider",
+                                    // Fondo de la tarjeta adaptable
+                                    bgcolor: isDark ? "rgba(30, 41, 59, 0.7)" : "background.paper",
+                                    // Efecto de desenfoque solo en dark mode para estilo moderno
+                                    backdropFilter: isDark ? "blur(10px)" : "none",
+                                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
                                     "&:hover": {
-                                        transform: "translateY(-6px)",
-                                        boxShadow: 4,
+                                        transform: "translateY(-8px)",
+                                        boxShadow: isDark
+                                            ? "0px 10px 30px rgba(0,0,0,0.5)"
+                                            : "0px 10px 20px rgba(0,0,0,0.1)",
                                     },
                                 }}
                             >
-                                <Rating value={item.rating} readOnly sx={{ mb: 2 }} />
+                                <Rating
+                                    value={item.rating}
+                                    readOnly
+                                    sx={{ mb: 2, color: isDark ? "#fbbf24" : "#faaf00" }}
+                                />
 
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
                                     lineHeight={1.8}
                                     mb={3}
+                                    sx={{ fontStyle: "italic" }}
                                 >
                                     “{item.feedback}”
                                 </Typography>
 
                                 <Box display="flex" alignItems="center" gap={2}>
-                                    <Avatar>
+                                    <Avatar
+                                        sx={{
+                                            bgcolor: isDark ? "primary.light" : "primary.main",
+                                            color: "primary.contrastText",
+                                            width: 48,
+                                            height: 48,
+                                            fontWeight: "bold"
+                                        }}
+                                    >
                                         {item.name.charAt(0)}
                                     </Avatar>
 
                                     <Box>
-                                        <Typography variant="subtitle2" fontWeight={600}>
+                                        <Typography variant="subtitle1" fontWeight={600}>
                                             {item.name}
                                         </Typography>
                                         <Typography variant="caption" color="text.secondary">
-                                            {item.role} · {item.company}
+                                            {item.role} • {item.company}
                                         </Typography>
                                     </Box>
                                 </Box>
