@@ -73,7 +73,7 @@ export default function HelpdeskVideoSection() {
                 >
                     <Box
                         component="iframe"
-                        src="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
+                        src="https://www.youtube.com/embed/kbjUsKkUeHE"
                         title="Mesa de Ayuda GLPI"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
