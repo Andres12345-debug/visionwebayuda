@@ -30,7 +30,7 @@ export default function SectionHeroSplitLeft({
         px: 2,
       }}
     >
-      <Box
+      <Box 
         sx={{
           maxWidth: 1300,
           mx: "auto",

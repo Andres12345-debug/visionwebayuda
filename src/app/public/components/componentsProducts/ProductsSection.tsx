@@ -91,10 +91,9 @@ const ProductsSection = () => {
       <Box
         sx={{
           py: { xs: 10, md: 14 },
-          background: (theme) =>
-            theme.palette.mode === "dark"
-              ? "linear-gradient(180deg, #0f0f13, #0a0a0d)"
-              : "linear-gradient(180deg, #f8fafc, #ffffff)",
+          backgroundColor: (theme) =>
+            theme.palette.mode === "dark" ? "#000000" : "#f8fafc",
+          transition: "background-color 0.3s ease",
         }}
       >
         <Container maxWidth="xl">

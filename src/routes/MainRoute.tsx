@@ -5,6 +5,8 @@ import { lazy } from "react";
 const LazyError = lazy(() => import("../app/shared/Error"));
 const LazyWelcome = lazy(() => import("../app/public/pages/Welcome"));
 const LazyProducts = lazy(() => import("../app/public/pages/Products"));
+const LazyPlane = lazy(() => import("../app/public/pages/Plane"));
+
 
 export const MainRoute = () => {
   return (
@@ -12,6 +14,7 @@ export const MainRoute = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<LazyWelcome />} />
         <Route path="products" element={<LazyProducts />} />
+        <Route path="Plane" element={<LazyPlane />} />
       </Route>
       <Route path="*" element={<LazyError />} />
     </Routes>

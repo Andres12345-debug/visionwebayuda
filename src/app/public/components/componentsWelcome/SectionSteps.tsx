@@ -39,8 +39,8 @@ export default function StepsSection() {
         py: { xs: 8, md: 10 },
         px: { xs: 2, md: 6 },
         background: isDark
-          ? "linear-gradient(180deg,#0b1220,#0f172a)"
-          : "linear-gradient(180deg,#ffffff,#f8fafc)",
+          ? "linear-gradient(180deg, #000000, #000000)"
+          : "linear-gradient(180deg, #ffffff, #f8fafc)",
       }}
     >
       {/* TÍTULO */}
@@ -107,17 +107,15 @@ export default function StepsSection() {
               p: 3,
               borderRadius: 3,
               transition: "all .3s ease",
-              background: isDark
-                ? "rgba(255,255,255,0.03)"
-                : "#ffffff",
+              background: isDark ? "#111827" : "#ffffff",
               border: isDark
                 ? "1px solid rgba(255,255,255,0.05)"
                 : "1px solid #f1f5f9",
               "&:hover": {
                 transform: "translateY(-8px)",
                 boxShadow: isDark
-                  ? "0 15px 35px rgba(0,0,0,0.4)"
-                  : "0 15px 35px rgba(0,0,0,0.08)",
+                  ? "0 20px 60px rgba(0,0,0,0.6)"
+                  : "0 20px 60px rgba(0,0,0,0.08)",
               },
             }}
           >
@@ -183,8 +181,8 @@ export default function StepsSection() {
               width: 8,
               height: 8,
               borderRadius: "50%",
-              bgcolor: isDark 
-                ? "rgba(255,255,255,0.25)" 
+              bgcolor: isDark
+                ? "rgba(255,255,255,0.25)"
                 : "rgba(99,102,241,0.25)",
               transition: "all 0.3s ease",
             }}
