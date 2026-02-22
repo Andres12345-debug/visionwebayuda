@@ -4,7 +4,6 @@ import WhyChooseUs from "../components/componentsProducts/WhyChooseUs";
 import Testimonials from "../components/componentsProducts/Testimonials";
 import ClientsSection from "../components/componentsProducts/ClientsSection";
 import MetricsSection from "../components/componentsProducts/MetricsSection";
-import SavingsCalculator from "../components/componentsPlane/SavingsCalculator";
 
 const Products = () => {
 
