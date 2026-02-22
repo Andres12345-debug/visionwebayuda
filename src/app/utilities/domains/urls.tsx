@@ -1,7 +1,7 @@
 export const URLS = {
-    URL_BASE: "https://visionbot-backend-visionweb.t0y4lz.easypanel.host",
-    INICIAR_SESION: "/public/accesos/signin",
-    REGISTRO: "/public/registros/user",
+    URL_BASE: "http://localhost:3550",
+    INICIAR_SESION: "/publico/accesos/signin", 
+    REGISTRO: "/publico/registros/user",
 
     /****SERVICIOS PRIVADOS ************ */
     LISTAR_USUARIOS: "/privado/usuarios/todos",

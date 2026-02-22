@@ -1,5 +1,5 @@
 import { Acceso } from "../models/Acess";
-import { URLS } from "../utilities/domains/urls"
+import { URLS } from "../utilities/domains/urls";
 
 export class AccesoService {
     public static async iniciarSesion(objAcceso: Acceso): Promise<any> {
