@@ -70,11 +70,22 @@ const Sesion = () => {
       navegacion("/dash");
 
     } catch (error: any) {
-      console.error(error);
-      crearMensaje(
-        "error",
-        error?.message || "Error al iniciar sesión"
-      );
+      console.error("Error en login:", error);
+
+      // Si el backend envía mensaje específico
+      const mensaje = error?.message;
+
+      if (mensaje) {
+        if (mensaje.toLowerCase().includes("clave")) {
+          crearMensaje("error", "Contraseña incorrecta");
+        } else if (mensaje.toLowerCase().includes("usuario")) {
+          crearMensaje("error", "El usuario no existe");
+        } else {
+          crearMensaje("error", mensaje);
+        }
+      } else {
+        crearMensaje("error", "Error al iniciar sesión");
+      }
     } finally {
       setEnProceso(false);
     }

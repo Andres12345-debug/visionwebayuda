@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { ThemeContextProvider } from './app/shared/theme/ThemeConext';
 import { BrowserRouter } from 'react-router-dom';
 import { MainRoute } from './routes/MainRoute';
+import { ToastContainer } from 'react-toastify';
 
 const CargarComponente = () => (
   <div className="d-flex justify-content-center">
@@ -18,6 +19,7 @@ function App() {
   return (
     <ThemeContextProvider>
       <BrowserRouter>
+      <ToastContainer />
         <Suspense fallback={<CargarComponente />}>
           <MainRoute />
         </Suspense>
