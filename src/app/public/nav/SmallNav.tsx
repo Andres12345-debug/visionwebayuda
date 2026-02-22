@@ -23,6 +23,7 @@ import {
 import { useLocation, Link } from "react-router-dom";
 import { useThemeContext } from "../../shared/theme/ThemeConext";
 import { useTranslation } from "react-i18next";
+import LoginIcon from "@mui/icons-material/Login";
 
 // 1. Agregamos "Inicio" apuntando a /welcome
 const MENU_ITEMS = [
@@ -123,6 +124,33 @@ export default function Navbar() {
 
           {/* Acciones Derecha */}
           <Box sx={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 1 }}>
+            <Button
+              component={Link}
+              to="/login"
+              startIcon={<LoginIcon />}
+              sx={{
+                textTransform: "none",
+                borderRadius: 3,
+                fontWeight: 600,
+                px: 2,
+                display: { xs: "none", sm: "inline-flex" },
+                background: "linear-gradient(90deg, #6366f1, #9333ea)",
+                color: "#fff",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #5558e6, #7e22ce)",
+                },
+              }}
+            >
+              Iniciar sesión
+            </Button>
+            <IconButton
+              component={Link}
+              to="/login"
+              sx={{ display: { xs: "flex", sm: "none" } }}
+              color="inherit"
+            >
+              <LoginIcon />
+            </IconButton>
             <Button
               variant="outlined"
               startIcon={<LanguageIcon />}
