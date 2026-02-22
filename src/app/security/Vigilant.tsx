@@ -9,8 +9,7 @@ export const Vigilante = ({children}: rutasVigilante) =>{
             jwtDecode(token);
         }catch(error){
             return <Navigate to="/login"></Navigate>
-        }
-        
+        }       
 
     }else{
         return <Navigate to="/login"/>
