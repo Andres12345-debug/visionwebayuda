@@ -2,13 +2,13 @@ import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
 // Importamos Suspense de React
 import { Suspense } from "react";
-import SmallNav from "../../public/nav/SmallNav";
 import Footer from "../../public/footer/footer";
+import UserMenu from "../../public/nav/UserMenu";
 
 export const Boardboard = () => {
   return (
     <Box>
-      <SmallNav />
+      <UserMenu />
       {/* Espacio para que el contenido no empiece detrás de la Navbar fija */}
       <Toolbar />
 

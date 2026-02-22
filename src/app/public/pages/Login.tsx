@@ -40,7 +40,6 @@ const Sesion = () => {
     setEnProceso(true);
 
     try {
-      // 🔥 Enviar datos directamente sin mutar el objeto global
       const respuesta = await AccesoService.iniciarSesion({
         nombreAcceso,
         claveAcceso,
@@ -177,14 +176,15 @@ const Sesion = () => {
         </Box>
 
         <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-          ¿No tienes una cuenta?{" "}
+         {/*¿No tienes una cuenta?{" "}*/} 
+         Usuario para pruebas: Admin | Contraseña: admin123
           <MuiLink
             component={Link}
             to="/register"
             underline="hover"
             fontWeight="bold"
           >
-            Crear cuenta
+             {/*¿Crear cuenta*/} 
           </MuiLink>
         </Typography>
       </Paper>
