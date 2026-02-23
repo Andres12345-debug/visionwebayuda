@@ -41,7 +41,6 @@ export default function HelpdeskVideoSection() {
                 <Typography
                     variant="body1"
                     sx={{
-                        color: isDark ? "#94a3b8" : "#64748b",
                         mt: 2,
                         maxWidth: "700px",
                         mx: "auto"

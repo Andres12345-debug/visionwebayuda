@@ -64,27 +64,6 @@ export class ServicioGet {
         }
     }
 
-    // 🏠 Nuevo método para obtener solo casas
-    public static async obtenerCasas(urlServicio: string): Promise<any> {
-        try {
-            const datos = await this.peticionGet(urlServicio);
-            return datos.filter((vivienda: any) => vivienda.tipo === "Casa");
-        } catch (error) {
-            console.error("Error al obtener casas:", error);
-            throw error;
-        }
-    }
-
-    // ServicioGet.ts
-    public static async buscarPublicacionesPorTitulo(urlServicio: string, titulo: string): Promise<any[]> {
-        const url = urlServicio.replace(':titulo', encodeURIComponent(titulo));
-        try {
-            const resultado = await this.peticionGetPublica(url);
-            return Array.isArray(resultado) ? resultado : [];
-        } catch (error) {
-            console.error("Error al buscar publicaciones:", error);
-            throw error;
-        }
-    }
-
+  
+   
 }
