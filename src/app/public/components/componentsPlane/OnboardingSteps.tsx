@@ -114,7 +114,7 @@ const OnboardingSteps = () => {
                                     fontSize: '5rem',
                                     fontWeight: 900,
                                     opacity: 0.05,
-                                    color: isDark ? '#fff' : '#000',
+                                    color: isDark ? '#ffffff' : '#000000',
                                     userSelect: 'none'
                                 }}>
                                     {index + 1}

@@ -83,7 +83,7 @@ Me gustaría que me contaran más sobre cómo funcionan sus servicios y cómo po
 
             {/* CABECERA / PASO 1 */}
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-                <div style={{
+                {/* <div style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -96,7 +96,7 @@ Me gustaría que me contaran más sobre cómo funcionan sus servicios y cómo po
                     marginBottom: '16px'
                 }}>
                     <InventoryIcon sx={{ fontSize: 16 }} /> CALCULADORA DE COSTOS
-                </div>
+                </div> */}
                 <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '10px' }}>¿Cuántos equipos vamos a administrar?</h2>
                 <p style={{ color: colors.subtext }}>Ajusta la cantidad para ver tu ahorro inmediato.</p>
 

@@ -19,24 +19,6 @@ const HeroPricing = () => {
             transition: 'all 0.3s ease'
         }}>
 
-            {/* Badge Superior */}
-            <Box sx={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                backgroundColor: isDark ? '#ffffff' : '#fff',
-                color: '#6366f1',
-                padding: '8px 16px',
-                borderRadius: '100px',
-                boxShadow: isDark ? '0 4px 15px rgba(0,0,0,0.3)' : '0 4px 10px rgba(0,0,0,0.05)',
-                marginBottom: '24px',
-                fontSize: '14px',
-                fontWeight: 600,
-                border: isDark ? '1px solid #334155' : 'none'
-            }}>
-                <StarIcon sx={{ fontSize: 16 }} /> Servicio Premium de Gestión IT
-            </Box>
-
             <Typography variant="h1" sx={{
                 fontSize: 'clamp(32px, 5vw, 56px)',
                 fontWeight: 900,

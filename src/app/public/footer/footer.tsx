@@ -35,7 +35,7 @@ const Footer = () => {
                 // Gradiente para cerrar con broche de oro la página
                 background: isDark
                     ? "linear-gradient(180deg, #000000 0%, #0a133a 100%)"
-                    : "linear-gradient(180deg, #7b7b7b 0%, #f1f5f9 100%)",
+                    : "linear-gradient(180deg, #ffffff 0%, #ffffff 100%)",
                 borderTop: "1px solid",
                 borderColor: isDark ? "rgba(255,255,255,0.05)" : "divider",
             }}
@@ -57,8 +57,8 @@ const Footer = () => {
                             sx={{
                                 letterSpacing: "-0.5px",
                                 background: isDark
-                                    ? "linear-gradient(90deg, #fff 0%, #94a3b8 100%)"
-                                    : "linear-gradient(90deg, #0f172a 0%, #475569 100%)",
+                                    ? "linear-gradient(90deg, #fff 0%, #b8ae94 100%)"
+                                    : "linear-gradient(90deg, #0f172a 0%, #696247 100%)",
                                 WebkitBackgroundClip: "text",
                                 WebkitTextFillColor: "transparent",
                             }}
@@ -88,7 +88,7 @@ const Footer = () => {
                                     key={index}
                                     href={social.link}
                                     sx={{
-                                        bgcolor: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)",
+                                        bgcolor: isDark ? "rgba(201, 21, 21, 0.03)" : "rgba(0,0,0,0.03)",
                                         color: "text.secondary",
                                         transition: "0.3s",
                                         "&:hover": {

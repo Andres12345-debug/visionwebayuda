@@ -16,7 +16,7 @@ const products = [
     title: "iPhone 17 Pro",
     desc1: "Disponible desde $268.708",
     desc2: "en 24 meses sin intereses.",
-    img: "https://mac-center.com/cdn/shop/files/iPhone_17_Pro_Cosmic_Orange_2-up_Screen__USEN_49b87fe2-b008-4718-8f64-351e2a4df443.webp?v=1757462602&width=362",
+    img: "  ",
     link: "https://mac-center.com/products/iphone-17-pro-mg8h4lz-a",
     large: true,
   },
