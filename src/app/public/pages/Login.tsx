@@ -177,7 +177,7 @@ const Sesion = () => {
 
         <Typography variant="body2" align="center" sx={{ mt: 3 }}>
          {/*¿No tienes una cuenta?{" "}*/} 
-         Usuario para pruebas: Admin | Contraseña: admin123
+         Usuario para pruebas: administrador | Contraseña: admin123
           <MuiLink
             component={Link}
             to="/register"
