@@ -17,8 +17,7 @@ import EmailIcon from "@mui/icons-material/Email";
 const menuItems = [
     { text: "Inicio", path: "/" },
     { text: "Productos", path: "/products" },
-    { text: "Planes", path: "/plane" }, // Coincide con tu ruta en MainRoute
-    // { text: "Nosotros", path: "/about" },
+    { text: "Planes", path: "/plane" },
 ];
 
 const Footer = () => {
@@ -30,14 +29,15 @@ const Footer = () => {
             component="footer"
             sx={{
                 mt: 14,
-                py: 10,
+                py: { xs: 6, md: 10 },
                 position: "relative",
-                // Gradiente para cerrar con broche de oro la página
                 background: isDark
                     ? "linear-gradient(180deg, #000000 0%, #0a133a 100%)"
                     : "linear-gradient(180deg, #ffffff 0%, #ffffff 100%)",
                 borderTop: "1px solid",
-                borderColor: isDark ? "rgba(255,255,255,0.05)" : "divider",
+                borderColor: isDark
+                    ? "rgba(255,255,255,0.05)"
+                    : "rgba(0,0,0,0.06)",
             }}
         >
             <Container maxWidth="lg">
@@ -48,7 +48,7 @@ const Footer = () => {
                     alignItems={{ xs: "center", md: "flex-start" }}
                     textAlign={{ xs: "center", md: "left" }}
                 >
-                    {/* Sección Marca y Social */}
+                    {/* Marca */}
                     <Box sx={{ maxWidth: 350 }}>
                         <Typography
                             variant="h5"
@@ -65,6 +65,7 @@ const Footer = () => {
                         >
                             Vision Code
                         </Typography>
+
                         <Typography
                             variant="body2"
                             color="text.secondary"
@@ -104,48 +105,55 @@ const Footer = () => {
                         </Stack>
                     </Box>
 
-                    {/* Enlaces Rápidos con diseño vertical limpio */}
+                    {/* Enlaces */}
                     <Box>
                         <Typography variant="subtitle1" fontWeight={700} mb={3}>
                             Explorar
                         </Typography>
+
                         <Stack spacing={2}>
-                            {["Inicio", "Productos", "Planes", "Nosotros"].map((item) => (
+                            {menuItems.map((item) => (
                                 <Link
-                                    key={item}
-                                    href={menuItems.find(menu => menu.text === item)?.path || "#"}
+                                    key={item.text}
+                                    href={item.path}
                                     underline="none"
                                     sx={{
                                         color: "text.secondary",
                                         fontSize: "0.95rem",
                                         transition: "0.2s",
-                                        "&:hover": { color: "primary.main", pl: 1 }
+                                        "&:hover": {
+                                            color: "primary.main",
+                                            pl: 1
+                                        }
                                     }}
                                 >
-                                    {item}
+                                    {item.text}
                                 </Link>
                             ))}
                         </Stack>
                     </Box>
 
-                    {/* Newsletter o Info de contacto rápida */}
+                    {/* Contacto */}
                     <Box sx={{ minWidth: 250 }}>
                         <Typography variant="subtitle1" fontWeight={700} mb={3}>
                             Contacto Directo
                         </Typography>
-                        <Typography variant="body2" color="text.primary" fontWeight={500}>
+
+                        <Typography variant="body2" fontWeight={500}>
                             Tunja, Boyacá, Colombia
                         </Typography>
+
                         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                             Vision.code24@gmail.com
                         </Typography>
+
                         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
                             +57 300 753 8453
                         </Typography>
                     </Box>
                 </Stack>
 
-                <Divider sx={{ my: 8, opacity: isDark ? 0.1 : 1 }} />
+                <Divider sx={{ my: 6, opacity: isDark ? 0.1 : 1 }} />
 
                 <Stack
                     direction={{ xs: "column", sm: "row" }}
@@ -156,6 +164,7 @@ const Footer = () => {
                     <Typography variant="caption" color="text.secondary">
                         © {new Date().getFullYear()} Vision Code. Todos los derechos reservados.
                     </Typography>
+
                     <Stack direction="row" spacing={3}>
                         <Link href="#" variant="caption" color="text.secondary" underline="hover">
                             Privacidad

@@ -8,6 +8,7 @@ import StepsSection from "../components/componentsWelcome/SectionSteps";
 import FAQSection from "../components/componentsWelcome/SectionFaqs";
 import InventoryAgentSection from "../components/componentsWelcome/InventaroryAgentSection";
 import HelpdeskVideoSection from "../components/componentsWelcome/HelpDeskVideoSection";
+import FormularioContacto from "../components/componentsWelcome/ContactForm";
 
 const Welcome = () => {
 
@@ -23,6 +24,7 @@ const Welcome = () => {
             <InventoryAgentSection />
             <HelpdeskVideoSection />
             <FAQSection />
+            <FormularioContacto />
         </Box>
     );
 };
