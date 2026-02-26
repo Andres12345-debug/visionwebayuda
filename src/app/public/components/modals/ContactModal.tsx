@@ -6,7 +6,7 @@ import {
   Typography,
   Button,
   Box,
-  IconButton,
+  IconButton, 
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";

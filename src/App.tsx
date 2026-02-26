@@ -1,25 +1,26 @@
-import React, { Suspense } from 'react';
-import { ThemeContextProvider } from './app/shared/theme/ThemeConext';
-import { BrowserRouter } from 'react-router-dom';
-import { MainRoute } from './routes/MainRoute';
-import { ToastContainer } from 'react-toastify';
+import React, { Suspense } from "react";
+import { ThemeContextProvider } from "./app/shared/theme/ThemeConext";
+import { BrowserRouter } from "react-router-dom";
+import { MainRoute } from "./routes/MainRoute";
+import { ToastContainer } from "react-toastify";
 
 const CargarComponente = () => (
   <div className="d-flex justify-content-center">
     <div className="mt-3">
       <span className="spinner-grow-sm fs-4 fw-bold text-danger"></span>
       <br />
-      <span className="text-center fst-italic fs-3 text-primary">Cargando ...</span>
+      <span className="text-center fst-italic fs-3 text-primary">
+        Cargando ...
+      </span>
     </div>
   </div>
 );
-
 
 function App() {
   return (
     <ThemeContextProvider>
       <BrowserRouter>
-      <ToastContainer />
+        <ToastContainer />
         <Suspense fallback={<CargarComponente />}>
           <MainRoute />
         </Suspense>
