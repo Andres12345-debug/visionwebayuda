@@ -1,6 +1,7 @@
 // services/correoService.tsx
 
 import { HttpClient } from "../core/HttpClient";
+import { ServicioPost } from "../email/ServicePostEmail";
 import { URLS } from "../../utilities/domains/urls";
 import { Correo } from "../../models/Email";
 
@@ -23,7 +24,9 @@ export class CorreoService {
         item.nombre,
         item.email,
         item.mensaje,
-        item.fecha
+        item.fecha,
+                item.respondido
+
       ));
 
     } catch (error) {
@@ -53,12 +56,47 @@ export class CorreoService {
         item.nombre,
         item.email,
         item.mensaje,
-        item.fecha
+        item.fecha,
+        item.respondido
       );
 
     } catch (error) {
 
       console.error(`Error obteniendo correo ${id}:`, error);
+      throw error;
+
+    }
+
+  }
+
+
+  /**
+   * Responder correo
+   */
+  public static async responderCorreo(
+    id: number,
+    email: string,
+    asunto: string,
+    mensaje: string
+  ): Promise<any> {
+
+    try {
+
+      const resp = await ServicioPost.peticionPost(
+        URLS.URL_BASE + URLS.RESPONDER_CORREO,
+        {
+          id,
+          email,
+          asunto,
+          mensaje
+        }
+      );
+
+      return resp;
+
+    } catch (error) {
+
+      console.error("Error respondiendo correo:", error);
       throw error;
 
     }
