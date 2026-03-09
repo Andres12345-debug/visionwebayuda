@@ -7,7 +7,7 @@ import { Boardboard } from "../app/private/pages/Boardboard";
 // Corrección de typos y organización
 const LazyError = lazy(() => import("../app/shared/Error"));
 const LazyProfile = lazy(() => import("../app/private/pages/Profile"));
-const LazyDashboard = lazy(() => import("../app/private/pages/dashborad")); // Corregido 'dashboard'
+const LazyDashboard = lazy(() => import("../app/private/pages/EmailDashBoard")); // Corregido 'dashboard'
 
 // Loader profesional para el Suspense
 const PageLoader = () => (

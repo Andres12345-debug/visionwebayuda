@@ -1,12 +1,17 @@
 export const URLS = {
     //produccion
-    URL_BASE: "https://visionbot-visionweb-backend.t0y4lz.easypanel.host",      
+    //URL_BASE: "https://visionbot-visionweb-backend.t0y4lz.easypanel.host",      
     //desarrollo
-    //URL_BASE: "http://localhost:3550",
+    URL_BASE: "http://localhost:3550",
     
     INICIAR_SESION: "/publico/accesos/signin", 
     REGISTRO: "/publico/registros/user",
     CONTACTO: "/publico/correo/contacto",
+
+    /*** CORREOS ***/
+    LISTAR_CORREOS: "/publico/correos",
+    OBTENER_CORREO: "/publico/correos",
+
 
     /****SERVICIOS PRIVADOS ************ */
     LISTAR_USUARIOS: "/privado/usuarios/todos",
@@ -23,6 +28,4 @@ export const URLS = {
     CREAR_ROLES: "/privado/roles/agregar",
     ACTUALIZAR_ROLES: "/privado/roles/update",
     ELIMINAR_ROLES: "/privado/roles/delete"
-
-    
 }
