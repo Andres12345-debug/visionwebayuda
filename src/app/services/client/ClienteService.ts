@@ -1,112 +1,62 @@
 import { HttpClient } from "../core/HttpClient";
-import { ServicioPostUsuario } from "../client/ServicePostUsuario";
 import { URLS } from "../../utilities/domains/urls";
+import { Cliente } from "../../models/Client";
 
 export class ClienteService {
 
   /**
-   * Obtener todos los clientes
+   * LISTAR CLIENTES
    */
-  public static async listarClientes(): Promise<any[]> {
+  public static async listarClientes(): Promise<Cliente[]> {
 
-    try {
-
-      const data = await HttpClient.get<any[]>(
-        URLS.URL_BASE + URLS.LISTAR_CLIENTES,
-        true
-      );
-
-      return data;
-
-    } catch (error) {
-
-      console.error("Error obteniendo clientes:", error);
-      throw error;
-
-    }
+    return await HttpClient.get<Cliente[]>(
+      URLS.URL_BASE + URLS.LISTAR_CLIENTES,
+      true
+    );
 
   }
 
   /**
-   * Crear cliente
+   * CREAR CLIENTE
    */
-  public static async crearCliente(datos: any): Promise<any> {
+  public static async crearCliente(cliente: Cliente): Promise<Cliente> {
 
-    try {
-
-      return ServicioPostUsuario.peticionPost(
-        URLS.URL_BASE + URLS.CREAR_CLIENTES,
-        datos
-      );
-
-    } catch (error) {
-
-      console.error("Error creando cliente:", error);
-      throw error;
-
-    }
+    return await HttpClient.post<Cliente>(
+      URLS.URL_BASE + URLS.CREAR_CLIENTES,
+      cliente,
+      true
+    );
 
   }
 
   /**
-   * Actualizar cliente
+   * ACTUALIZAR CLIENTE
    */
-  public static async actualizarCliente(id: number, datos: any): Promise<any> {
+  public static async actualizarCliente(id: number, cliente: Cliente): Promise<Cliente> {
 
-    try {
+    const url = URLS.URL_BASE +
+      URLS.ACTUALIZAR_CLIENTES.replace(":id", id.toString());
 
-      const token = localStorage.getItem("TOKEN_AUTORIZACION") as string;
-
-      const res = await fetch(
-        URLS.URL_BASE + URLS.ACTUALIZAR_CLIENTES + `/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: token
-          },
-          body: JSON.stringify(datos)
-        }
-      );
-
-      return await res.json();
-
-    } catch (error) {
-
-      console.error("Error actualizando cliente:", error);
-      throw error;
-
-    }
+    return await HttpClient.put<Cliente>(
+      url,
+      cliente,
+      true
+    );
 
   }
 
   /**
-   * Eliminar cliente
+   * ELIMINAR CLIENTE
    */
   public static async eliminarCliente(id: number): Promise<any> {
 
-    try {
+    const url = URLS.URL_BASE +
+      URLS.ELIMINAR_CLIENTES.replace(":id", id.toString());
 
-      const token = localStorage.getItem("TOKEN_AUTORIZACION") as string;
-
-      const res = await fetch(
-        URLS.URL_BASE + URLS.ELIMINAR_CLIENTES + `/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            authorization: token
-          }
-        }
-      );
-
-      return await res.json();
-
-    } catch (error) {
-
-      console.error("Error eliminando cliente:", error);
-      throw error;
-
-    }
+    return await HttpClient.delete(
+      url,
+      true
+    );
 
   }
 

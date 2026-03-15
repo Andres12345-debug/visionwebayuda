@@ -8,7 +8,7 @@ import { Boardboard } from "../app/private/pages/Boardboard";
 const LazyError = lazy(() => import("../app/shared/Error"));
 const LazyProfile = lazy(() => import("../app/private/pages/Profile"));
 const LazyDashboard = lazy(() => import("../app/private/pages/EmailDashBoard")); // Corregido 'dashboard'
-const LazyClients = lazy(() => import("../app/private/pages/UsersDashboard")); // Corregido 'dashboard'
+const LazyClients = lazy(() => import("../app/private/pages/ClientDashboard")); // Corregido 'dashboard'
 
 
 // Loader profesional para el Suspense
