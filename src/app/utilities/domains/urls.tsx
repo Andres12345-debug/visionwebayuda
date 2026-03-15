@@ -19,8 +19,11 @@ export const URLS = {
     CREAR_USUARIO: "/privado/usuarios/agregar",
     ACTUALIZAR_USUARIO: "/privado/usuarios/update",
     ELIMINAR_USUARIO: "/privado/usuarios/delete",
-        
-    
+    LISTAR_CLIENTES: "/privado/clientes/todos",
+    CREAR_CLIENTES: "/privado/clientes/agregar",    
+    ACTUALIZAR_CLIENTES: "/privado/clientes/actualizar/:id",
+    ELIMINAR_CLIENTES: "/privado/clientes/eliminar/:id",
+
     /****SERVICIOS PRIVADOS PARA EL PERFIL ************ */
     LISTAR_PERFIL: "/privado/usuarios/perfil",
     ACTUALIZAR_PERFIL: "/privado/usuarios/perfil/actualizar",
