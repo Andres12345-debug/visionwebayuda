@@ -25,7 +25,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
   const [loading, setLoading] = useState(false);
 
-  const [form, setForm] = useState<Cliente>({
+  const [form, setForm] = useState({
     nombreCliente: "",
     apellidoCliente: "",
     nitCliente: "",
@@ -33,7 +33,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
     correoCliente: "",
     telefonoCliente: "",
     telefonoSecundarioCliente: "",
-    estadoCliente: "",
+    estadoCliente: "Activo",
     ciudadCliente: "",
     empresaCliente: "",
     caracteristicaCliente: "",
@@ -44,7 +44,20 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
     if (cliente) {
 
-      setForm(cliente);
+      setForm({
+        nombreCliente: cliente.nombreCliente ?? "",
+        apellidoCliente: cliente.apellidoCliente ?? "",
+        nitCliente: cliente.nitCliente ?? "",
+        direccionCliente: cliente.direccionCliente ?? "",
+        correoCliente: cliente.correoCliente ?? "",
+        telefonoCliente: cliente.telefonoCliente ?? "",
+        telefonoSecundarioCliente: cliente.telefonoSecundarioCliente ?? "",
+        estadoCliente: cliente.estadoCliente ?? "Activo",
+        ciudadCliente: cliente.ciudadCliente ?? "",
+        empresaCliente: cliente.empresaCliente ?? "",
+        caracteristicaCliente: cliente.caracteristicaCliente ?? "",
+        generoUsuario: cliente.generoUsuario ?? 1
+      });
 
     } else {
 
@@ -56,7 +69,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
         correoCliente: "",
         telefonoCliente: "",
         telefonoSecundarioCliente: "",
-        estadoCliente: "",
+        estadoCliente: "Activo",
         ciudadCliente: "",
         empresaCliente: "",
         caracteristicaCliente: "",
@@ -67,7 +80,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
   }, [cliente]);
 
-  const handleChange = (campo: keyof Cliente, valor: any) => {
+  const handleChange = (campo: string, valor: any) => {
 
     setForm({
       ...form,
@@ -82,13 +95,21 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
       setLoading(true);
 
-      if (cliente && cliente.id) {
+      const data: Cliente = {
+        ...form,
+        generoUsuario: Number(form.generoUsuario)
+      };
 
-        await ClienteService.actualizarCliente(cliente.id, form);
+      if (cliente && (cliente as any).id) {
+
+        await ClienteService.actualizarCliente(
+          (cliente as any).id,
+          data
+        );
 
       } else {
 
-        await ClienteService.crearCliente(form);
+        await ClienteService.crearCliente(data);
 
       }
 
@@ -97,7 +118,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
     } catch (error) {
 
-      console.error(error);
+      console.error("Error guardando cliente:", error);
       alert("Error guardando cliente");
 
     } finally {
@@ -142,7 +163,15 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
           />
 
           <TextField
+            label="Dirección"
+            value={form.direccionCliente}
+            onChange={(e) => handleChange("direccionCliente", e.target.value)}
+            fullWidth
+          />
+
+          <TextField
             label="Correo"
+            type="email"
             value={form.correoCliente}
             onChange={(e) => handleChange("correoCliente", e.target.value)}
             fullWidth
@@ -159,13 +188,6 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
             label="Teléfono Secundario"
             value={form.telefonoSecundarioCliente}
             onChange={(e) => handleChange("telefonoSecundarioCliente", e.target.value)}
-            fullWidth
-          />
-
-          <TextField
-            label="Dirección"
-            value={form.direccionCliente}
-            onChange={(e) => handleChange("direccionCliente", e.target.value)}
             fullWidth
           />
 
@@ -195,6 +217,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
             label="Estado"
             value={form.estadoCliente}
             onChange={(e) => handleChange("estadoCliente", e.target.value)}
+            fullWidth
           >
             <MenuItem value="Activo">Activo</MenuItem>
             <MenuItem value="Inactivo">Inactivo</MenuItem>
@@ -205,6 +228,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
             label="Género"
             value={form.generoUsuario}
             onChange={(e) => handleChange("generoUsuario", Number(e.target.value))}
+            fullWidth
           >
             <MenuItem value={1}>Masculino</MenuItem>
             <MenuItem value={2}>Femenino</MenuItem>
@@ -225,11 +249,7 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
           onClick={guardar}
           disabled={loading}
         >
-
-          {loading
-            ? <CircularProgress size={20} />
-            : "Guardar"}
-
+          {loading ? <CircularProgress size={20}/> : "Guardar"}
         </Button>
 
       </DialogActions>
