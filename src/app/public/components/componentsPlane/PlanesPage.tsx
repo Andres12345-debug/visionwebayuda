@@ -1,7 +1,4 @@
 import React from 'react';
-import HeroPricing from './HeroPricing'; // Asegúrate de que sea el específico de Planes
-import ComparativaTabla from './ComparativaTabla';
-import SavingsCaculator from './SavingsCalculator';
 import OnboardingSteps from './OnboardingSteps';
 import { useThemeContext } from "../../../shared/theme/ThemeConext";
 import TechDifferentiator from './TechDifferentiator';
@@ -17,14 +14,17 @@ const PlanesPage = () => {
             transition: 'background-color 0.3s ease',
             color: isDark ? '#fff' : '#000'
         }}>
-            <HeroPricing />
+            {/*
+    <HeroPricing />
 
-            <section style={{ marginTop: '-40px' }}>
-                <SavingsCaculator />
-            </section>
+    <section style={{ marginTop: '-40px' }}>
+        <SavingsCaculator />
+    </section>
 
+    
+    <ComparativaTabla />
+*/}
             <OnboardingSteps />
-            <ComparativaTabla />
             <TechDifferentiator />
 
         </div>
