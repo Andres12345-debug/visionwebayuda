@@ -9,12 +9,16 @@ import {
   useTheme,
   Container,
   Stack,
+  Tooltip,
+  LinearProgress,
 } from "@mui/material";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import BusinessIcon from "@mui/icons-material/Business";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import InfoIcon from "@mui/icons-material/Info";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 // CONFIGURACIÓN DE NEGOCIO (Fácil de editar)
 const CONFIG = {
@@ -108,36 +112,73 @@ Me gustaría recibir más información.`;
         </Stack>
 
         {/* SELECTOR DE CANTIDAD */}
-        <Box sx={{ maxWidth: 600, mx: "auto", mb: 8, textAlign: "center" }}>
-          <Slider
-            value={cantidad}
-            min={5}
-            max={300}
-            step={5}
-            onChange={(_, val) => setCantidad(val as number)}
-            sx={{ mb: 2 }}
-          />
-          <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="baseline"
-            spacing={1}
-          >
-            <Typography
-              variant="h2"
-              sx={{ fontWeight: 900, color: "primary.main" }}
-            >
-              {cantidad}
-            </Typography>
-            <Typography
-              variant="h6"
-              color="text.secondary"
-              sx={{ fontWeight: 700 }}
-            >
-              EQUIPOS
-            </Typography>
-          </Stack>
-        </Box>
+         <Box sx={{ maxWidth: 600, mx: "auto", mb: 8, textAlign: "center" }}>
+           <Stack spacing={2}>
+             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+               <Stack direction="row" spacing={1} alignItems="center">
+                 <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                   Cantidad de equipos
+                 </Typography>
+                 <Tooltip title="Arrastra el control deslizante para ajustar la cantidad de equipos que necesitas administrar">
+                   <InfoIcon sx={{ fontSize: 18, color: "text.secondary" }} />
+                 </Tooltip>
+               </Stack>
+               <Typography variant="body2" color="text.secondary">
+                 {cantidad > 50 ? "✓ Descuento de escala aplicado" : ""}
+               </Typography>
+             </Box>
+             <Slider
+               value={cantidad}
+               min={5}
+               max={300}
+               step={5}
+               onChange={(_, val) => setCantidad(val as number)}
+               valueLabelDisplay="auto"
+               sx={{ 
+                 mb: 2,
+                 "& .MuiSlider-thumb": {
+                   transition: "all 0.3s ease"
+                 }
+               }}
+             />
+             <Stack
+               direction="row"
+               justifyContent="center"
+               alignItems="baseline"
+               spacing={1}
+             >
+               <Typography
+                 variant="h2"
+                 sx={{ fontWeight: 900, color: "primary.main" }}
+               >
+                 {cantidad}
+               </Typography>
+               <Typography
+                 variant="h6"
+                 color="text.secondary"
+                 sx={{ fontWeight: 700 }}
+               >
+                 EQUIPOS
+               </Typography>
+             </Stack>
+             {/* Barra de progreso visual */}
+             <Box>
+               <LinearProgress 
+                 variant="determinate" 
+                 value={(cantidad / 300) * 100}
+                 sx={{
+                   height: 6,
+                   borderRadius: 3,
+                   backgroundColor: "rgba(99, 102, 241, 0.1)",
+                   "& .MuiLinearProgress-bar": {
+                     borderRadius: 3,
+                     background: "linear-gradient(90deg, #6366f1, #9333ea)"
+                   }
+                 }}
+               />
+             </Box>
+           </Stack>
+         </Box>
 
         {/* REJILLA DE COMPARACIÓN (MUI v7 Grid2) */}
         <Grid container spacing={3} alignItems="stretch">
@@ -164,36 +205,39 @@ Me gustaría recibir más información.`;
                   GESTIÓN ACTUAL
                 </Typography>
               </Stack>
-              <Box sx={{ flexGrow: 1 }}>
-                <Typography
-                  variant="body2"
-                  component="div"
-                  sx={{ lineHeight: 2.5, color: "text.secondary" }}
-                >
-                  • Costos de personal técnico
-                  <br />
-                  • Tiempo muerto por fallos
-                  <br />• Riesgos de ciberseguridad
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  mt: 4,
-                  pt: 2,
-                  borderTop: "1px solid",
-                  borderColor: "divider",
-                }}
-              >
-                <Typography
-                  variant="caption"
-                  sx={{ fontWeight: 700, color: "text.disabled" }}
-                >
-                  COSTO ESTIMADO
-                </Typography>
-                <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.6 }}>
-                  {formatoCOP(totalInterno)}
-                </Typography>
-              </Box>
+               <Box sx={{ flexGrow: 1 }}>
+                 <Typography
+                   variant="body2"
+                   component="div"
+                   sx={{ lineHeight: 2.5, color: "text.secondary" }}
+                 >
+                   • Costos de personal técnico
+                   <br />
+                   • Tiempo muerto por fallos
+                   <br />• Riesgos de ciberseguridad
+                 </Typography>
+               </Box>
+               <Box
+                 sx={{
+                   mt: 4,
+                   pt: 2,
+                   borderTop: "1px solid",
+                   borderColor: "divider",
+                 }}
+               >
+                 <Typography
+                   variant="caption"
+                   sx={{ fontWeight: 700, color: "text.disabled" }}
+                 >
+                   COSTO ESTIMADO
+                 </Typography>
+                 <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.6 }}>
+                   {formatoCOP(totalInterno)}
+                 </Typography>
+                 <Typography variant="caption" sx={{ color: "text.disabled", display: "block", mt: 1 }}>
+                   {cantidad > 50 ? `(-${Math.round((1 - 0.8) * 100)}% por economía de escala)` : ""}
+                 </Typography>
+               </Box>
             </Paper>
           </Grid>
 
@@ -224,23 +268,28 @@ Me gustaría recibir más información.`;
                   CON VISIONWEB
                 </Typography>
               </Stack>
-              <Box sx={{ flexGrow: 1 }}>
-                <Typography
-                  variant="body2"
-                  component="div"
-                  sx={{ lineHeight: 2.5 }}
-                >
-                  • Soporte profesional ilimitado
-                  <br />
-                  • Mantenimiento preventivo
-                  <br />
-                  •{" "}
-                  <AssessmentIcon
-                    sx={{ fontSize: 14, verticalAlign: "middle" }}
-                  />{" "}
-                  Inventario digital real
-                </Typography>
-              </Box>
+               <Box sx={{ flexGrow: 1 }}>
+                 <Typography
+                   variant="body2"
+                   component="div"
+                   sx={{ lineHeight: 2.5 }}
+                 >
+                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                     <CheckCircleIcon sx={{ fontSize: 18 }} />
+                     Soporte profesional ilimitado
+                   </Box>
+                   <br />
+                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                     <CheckCircleIcon sx={{ fontSize: 18 }} />
+                     Mantenimiento preventivo
+                   </Box>
+                   <br />
+                   <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                     <CheckCircleIcon sx={{ fontSize: 18 }} />
+                     Inventario digital real
+                   </Box>
+                 </Typography>
+               </Box>
               <Box
                 sx={{
                   mt: 4,
@@ -329,30 +378,35 @@ Me gustaría recibir más información.`;
           </Grid>
         </Grid>
 
-        {/* BOTÓN DE ACCIÓN */}
-        <Box sx={{ mt: 8, textAlign: "center" }}>
-          <Button
-            variant="contained"
-            size="large"
-            onClick={enviarWhatsApp}
-            startIcon={<TrendingUpIcon />}
-            sx={{
-              py: 2,
-              px: 6,
-              borderRadius: 4,
-              fontWeight: 900,
-              fontSize: "1.1rem",
-              boxShadow: theme.shadows[10],
-              "&:hover": {
-                transform: "translateY(-3px)",
-                boxShadow: theme.shadows[15],
-              },
-              transition: "all 0.3s",
-            }}
-          >
-            ME INTERESA ESTE PRECIO
-          </Button>
-        </Box>
+         {/* BOTÓN DE ACCIÓN */}
+         <Box sx={{ mt: 8, textAlign: "center" }}>
+           <Stack spacing={2} alignItems="center">
+             <Button
+               variant="contained"
+               size="large"
+               onClick={enviarWhatsApp}
+               startIcon={<TrendingUpIcon />}
+               sx={{
+                 py: 2,
+                 px: 6,
+                 borderRadius: 4,
+                 fontWeight: 900,
+                 fontSize: "1.1rem",
+                 boxShadow: theme.shadows[10],
+                 "&:hover": {
+                   transform: "translateY(-3px)",
+                   boxShadow: theme.shadows[15],
+                 },
+                 transition: "all 0.3s",
+               }}
+             >
+               ME INTERESA ESTE PRECIO
+             </Button>
+             <Typography variant="caption" color="text.secondary" sx={{ fontStyle: "italic" }}>
+               Envía tus datos por WhatsApp y recibe una propuesta personalizada en menos de 1 hora.
+             </Typography>
+           </Stack>
+         </Box>
       </Paper>
     </Container>
   );

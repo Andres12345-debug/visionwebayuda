@@ -33,7 +33,7 @@ const TechDifferentiator = () => {
                     </Typography>
 
                     <Typography variant="body1" sx={{ color: isDark ? '#94a3b8' : '#475569', mb: 4, fontSize: '1.1rem', lineHeight: 1.7 }}>
-                        A diferencia del soporte tradicional que solo aparece cuando algo se rompe, nuestro ecosistema **GLPI + Agente** nos permite auditar su empresa en tiempo real, garantizando que sus operaciones nunca se detengan por un fallo técnico previsible.
+                        A diferencia del soporte tradicional que solo aparece cuando algo se rompe, nuestro ecosistema de **Agente Profesional** nos permite auditar su empresa en tiempo real, garantizando que sus operaciones nunca se detengan por un fallo técnico previsible.
                     </Typography>
 
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -45,7 +45,7 @@ const TechDifferentiator = () => {
                             },
                             {
                                 icon: <StorageIcon sx={{ fontSize: 28 }} />,
-                                title: "Central de Soluciones (GLPI)",
+                                title: "Centro de Gestión Profesional",
                                 desc: "Un historial clínico completo de cada dispositivo. Menos tiempo de diagnóstico, soluciones más rápidas."
                             },
                             {

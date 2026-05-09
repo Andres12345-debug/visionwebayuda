@@ -49,21 +49,21 @@ export const Boardboard = () => {
             >
               V
             </Box>
-            <Box
-              sx={{
-                display: { xs: "none", sm: "block" },
-                fontWeight: 800,
-                fontSize: "1.2rem",
-                color: "text.primary",
-              }}
-            >
-              VisionWeb{" "}
-              <span
-                style={{ fontWeight: 400, color: theme.palette.text.secondary }}
-              >
-                GLPI
-              </span>
-            </Box>
+             <Box
+               sx={{
+                 display: { xs: "none", sm: "block" },
+                 fontWeight: 800,
+                 fontSize: "1.2rem",
+                 color: "text.primary",
+               }}
+             >
+               VisionWeb{" "}
+               <span
+                 style={{ fontWeight: 400, color: theme.palette.text.secondary }}
+               >
+                 Profesional
+               </span>
+             </Box>
           </Box>
 
           {/* El Menú de Usuario con el Avatar y Switch */}
@@ -155,7 +155,7 @@ export const Boardboard = () => {
           }}
         >
           <Typography variant="caption" sx={{ opacity: 0.8 }}>
-            © 2026 <strong>VisionWeb System</strong> | Panel de Gestión GLPI
+            © 2026 <strong>VisionWeb System</strong> | Panel de Gestión Profesional
             v1.0
           </Typography>
         </Box>

@@ -6,11 +6,14 @@ import {
   Typography,
   Button,
   useTheme,
+  Chip,
+  Tooltip,
 } from "@mui/material";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 type Slide = {
   src: string;
@@ -73,6 +76,20 @@ export default function ImageCarousel({
     const id = setInterval(next, interval);
     return () => clearInterval(id);
   }, [playing, next, interval]);
+
+  // Manejo de teclado para accesibilidad
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === " ") {
+        e.preventDefault();
+        setPlaying((p) => !p);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [prev, next]);
 
   return (
     <Box
@@ -188,59 +205,99 @@ export default function ImageCarousel({
       </Box>
 
       {/* FLECHAS */}
-      <IconButton
-        onClick={() => {
-          setPlaying(false);
-          prev();
-        }}
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: 20,
-          transform: "translateY(-50%)",
-          backdropFilter: "blur(10px)",
-          bgcolor: "rgba(255,255,255,.2)",
-          color: "#fff",
-          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
-        }}
-      >
-        <KeyboardArrowLeft />
-      </IconButton>
+       <Tooltip title="Anterior (← o flecha izquierda)">
+         <IconButton
+           onClick={() => {
+             setPlaying(false);
+             prev();
+           }}
+           sx={{
+             position: "absolute",
+             top: "50%",
+             left: 20,
+             transform: "translateY(-50%)",
+             backdropFilter: "blur(10px)",
+             bgcolor: "rgba(255,255,255,.2)",
+             color: "#fff",
+             transition: "all 0.3s ease",
+             "&:hover": { 
+               bgcolor: "rgba(255,255,255,.35)",
+               transform: "translateY(-50%) scale(1.1)"
+             },
+           }}
+           aria-label="Slide anterior"
+         >
+           <KeyboardArrowLeft />
+         </IconButton>
+       </Tooltip>
 
-      <IconButton
-        onClick={() => {
-          setPlaying(false);
-          next();
-        }}
-        sx={{
-          position: "absolute",
-          top: "50%",
-          right: 20,
-          transform: "translateY(-50%)",
-          backdropFilter: "blur(10px)",
-          bgcolor: "rgba(255,255,255,.2)",
-          color: "#fff",
-          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
-        }}
-      >
-        <KeyboardArrowRight />
-      </IconButton>
+       <Tooltip title="Siguiente (→ o flecha derecha)">
+         <IconButton
+           onClick={() => {
+             setPlaying(false);
+             next();
+           }}
+           sx={{
+             position: "absolute",
+             top: "50%",
+             right: 20,
+             transform: "translateY(-50%)",
+             backdropFilter: "blur(10px)",
+             bgcolor: "rgba(255,255,255,.2)",
+             color: "#fff",
+             transition: "all 0.3s ease",
+             "&:hover": { 
+               bgcolor: "rgba(255,255,255,.35)",
+               transform: "translateY(-50%) scale(1.1)"
+             },
+           }}
+           aria-label="Siguiente slide"
+         >
+           <KeyboardArrowRight />
+         </IconButton>
+       </Tooltip>
 
       {/* PLAY / PAUSE */}
-      <IconButton
-        onClick={() => setPlaying((p) => !p)}
-        sx={{
-          position: "absolute",
-          top: 20,
-          right: 20,
-          backdropFilter: "blur(10px)",
-          bgcolor: "rgba(255,255,255,.2)",
-          color: "#fff",
-          "&:hover": { bgcolor: "rgba(255,255,255,.35)" },
-        }}
-      >
-        {playing ? <PauseIcon /> : <PlayArrowIcon />}
-      </IconButton>
+       <Tooltip title={playing ? "Pausar (espacio)" : "Reproducir (espacio)"}>
+         <IconButton
+           onClick={() => setPlaying((p) => !p)}
+           sx={{
+             position: "absolute",
+             top: 20,
+             right: 20,
+             backdropFilter: "blur(10px)",
+             bgcolor: "rgba(255,255,255,.2)",
+             color: "#fff",
+             transition: "all 0.3s ease",
+             "&:hover": { 
+               bgcolor: "rgba(255,255,255,.35)",
+               transform: "scale(1.1)"
+             },
+           }}
+           aria-label={playing ? "Pausar presentación" : "Reproducir presentación"}
+         >
+           {playing ? <PauseIcon /> : <PlayArrowIcon />}
+         </IconButton>
+       </Tooltip>
+
+       {/* CONTADOR DE SLIDES */}
+       <Box
+         sx={{
+           position: "absolute",
+           top: 20,
+           left: 20,
+           backdropFilter: "blur(10px)",
+           bgcolor: "rgba(255,255,255,.15)",
+           color: "#fff",
+           px: 2,
+           py: 1,
+           borderRadius: 3,
+           fontSize: "0.9rem",
+           fontWeight: 600,
+         }}
+       >
+         {active + 1} / {total}
+       </Box>
 
       {/* INDICADORES PREMIUM */}
       <Box
@@ -253,23 +310,31 @@ export default function ImageCarousel({
           gap: 1.5,
         }}
       >
-        {slides.map((_, i) => (
-          <Box
-            key={i}
-            onClick={() => {
-              setPlaying(false);
-              setActive(i);
-            }}
-            sx={{
-              width: active === i ? 40 : 12,
-              height: 12,
-              borderRadius: 6,
-              bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.5)",
-              transition: "all .3s ease",
-              cursor: "pointer",
-            }}
-          />
-        ))}
+       {slides.map((_, i) => (
+           <Tooltip key={i} title={`Ir al slide ${i + 1}`}>
+             <Box
+               onClick={() => {
+                 setPlaying(false);
+                 setActive(i);
+               }}
+               sx={{
+                 width: active === i ? 40 : 12,
+                 height: 12,
+                 borderRadius: 6,
+                 bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.5)",
+                 transition: "all .3s ease",
+                 cursor: "pointer",
+                 "&:hover": {
+                   bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.8)",
+                 }
+               }}
+               role="button"
+               tabIndex={0}
+               aria-current={active === i}
+               aria-label={`Slide ${i + 1}`}
+             />
+           </Tooltip>
+         ))}
       </Box>
     </Box>
   );

@@ -52,7 +52,7 @@ const Dashboard = () => {
       <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
         <Box>
           <Typography variant="h4" fontWeight={900} color="text.primary">
-            Servicio GLPI
+            Panel Profesional de Gestión
           </Typography>
           <Typography variant="body1" color="text.secondary">
             Gestión de infraestructura en tiempo real.

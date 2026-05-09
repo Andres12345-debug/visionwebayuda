@@ -34,7 +34,7 @@ export default function HelpdeskVideoSection() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            mesa de Ayuda
+            mesa de ayuda Profesional
           </Box>{" "}
           en acción
         </Typography>
@@ -76,7 +76,7 @@ export default function HelpdeskVideoSection() {
           <Box
             component="iframe"
             src="https://www.youtube.com/embed/Dq2FAU9vh9w"
-            title="Mesa de Ayuda GLPI"
+            title="mesa de ayuda Profesional"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             sx={{

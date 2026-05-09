@@ -10,7 +10,7 @@ const features = [
   {
     icon: <ComputerIcon sx={{ fontSize: 36 }} />,
     title: "Escaneo automático del equipo",
-    text: "El agente GLPI analiza cada computador y detecta hardware como procesador, memoria, discos y red sin intervención manual.",
+    text: "El agente Profesional analiza cada computador y detecta hardware como procesador, memoria, discos y red sin intervención manual.",
   },
   {
     icon: <AppsIcon sx={{ fontSize: 36 }} />,
@@ -20,12 +20,12 @@ const features = [
   {
     icon: <MemoryIcon sx={{ fontSize: 36 }} />,
     title: "Información siempre actualizada",
-    text: "Cada cambio en el equipo se sincroniza con GLPI, manteniendo el inventario actualizado en tiempo real.",
+    text: "Cada cambio en el equipo se sincroniza con nuestra plataforma, manteniendo el inventario actualizado en tiempo real.",
   },
   {
     icon: <SyncIcon sx={{ fontSize: 36 }} />,
-    title: "Integración directa con GLPI",
-    text: "Toda la información recolectada se centraliza en GLPI para facilitar reportes y decisiones.",
+    title: "Integración directa con la plataforma",
+    text: "Toda la información recolectada se centraliza en tu plataforma de gestión para facilitar reportes y decisiones.",
   },
 ];
 

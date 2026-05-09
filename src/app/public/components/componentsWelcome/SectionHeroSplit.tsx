@@ -14,7 +14,7 @@ type SectionHeroSplitProps = {
 export default function SectionHeroSplit({
   image = heroImg,
   subtitle = "Inventario Inteligente",
-  title = "Control total de tus activos tecnológicos con GLPI Agent",
+  title = "Control total de tus activos tecnológicos con Agente Profesional",
   description = "Automatiza la recolección de hardware y software, mantén trazabilidad completa y obtén visibilidad en tiempo real de todos los activos TIC desde una sola plataforma centralizada.",
   buttonText = "Solicitar demostración",
   buttonLink = "#",
@@ -112,7 +112,7 @@ export default function SectionHeroSplit({
           <Box
             component="img"
             src={image}
-            alt="Inventario GLPI"
+            alt="Inventario Profesional"
             sx={{
               width: "100%",
               borderRadius: 5,

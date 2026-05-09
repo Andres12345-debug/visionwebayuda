@@ -18,7 +18,7 @@ const PLANES = [
         title: "Plan Básico",
         price: "$25.000",
         period: "/equipo/mes",
-        features: ["Soporte Remoto 8/5", "Gestión de Inventario", "Monitoreo de Red", "Soporte GLPI Básico"],
+        features: ["Soporte Remoto 8/5", "Gestión de Inventario", "Monitoreo de Red", "Soporte Profesional Básico"],
         recommended: false,
         btnText: "Empezar ahora"
     },

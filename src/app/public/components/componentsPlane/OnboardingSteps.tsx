@@ -22,7 +22,7 @@ const STEPS = [
     {
         icon: <SettingsSuggestIcon sx={{ fontSize: 30 }} />,
         title: "2. Implementación",
-        desc: "Instalamos nuestros agentes de monitoreo proactivo y configuramos el acceso a tu portal de soporte GLPI.",
+        desc: "Instalamos nuestros agentes de monitoreo proactivo y configuramos el acceso a tu portal de soporte profesional.",
         color: "#8b5cf6"
     },
     {
