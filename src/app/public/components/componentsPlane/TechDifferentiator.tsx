@@ -108,7 +108,7 @@ const TechDifferentiator = () => {
                             <Box
                                 component="img"
                                 src={solucionProblemasImg}
-                                alt="Panel de Control ViSionWeb"
+                                alt="Panel de control VisionWeb - Gestión profesional de infraestructura TI"
                                 sx={{
                                     width: '100%',
                                     borderRadius: '24px',

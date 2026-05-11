@@ -112,7 +112,7 @@ export default function SectionHeroSplit({
           <Box
             component="img"
             src={image}
-            alt="Inventario Profesional"
+            alt="Inventario Profesional - Software de gestión de activos TI VisionWeb"
             sx={{
               width: "100%",
               borderRadius: 5,

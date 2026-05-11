@@ -3,6 +3,7 @@ import { ThemeContextProvider } from "./app/shared/theme/ThemeConext";
 import { BrowserRouter } from "react-router-dom";
 import { MainRoute } from "./routes/MainRoute";
 import { ToastContainer } from "react-toastify";
+import { HelmetProvider } from "react-helmet-async";
 
 const CargarComponente = () => (
   <div className="d-flex justify-content-center">
@@ -18,14 +19,16 @@ const CargarComponente = () => (
 
 function App() {
   return (
-    <ThemeContextProvider>
-      <BrowserRouter>
-        <ToastContainer />
-        <Suspense fallback={<CargarComponente />}>
-          <MainRoute />
-        </Suspense>
-      </BrowserRouter>
-    </ThemeContextProvider>
+    <HelmetProvider>
+      <ThemeContextProvider>
+        <BrowserRouter>
+          <ToastContainer />
+          <Suspense fallback={<CargarComponente />}>
+            <MainRoute />
+          </Suspense>
+        </BrowserRouter>
+      </ThemeContextProvider>
+    </HelmetProvider>
   );
 }
 

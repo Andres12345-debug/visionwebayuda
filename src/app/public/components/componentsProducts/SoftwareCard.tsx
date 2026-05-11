@@ -34,7 +34,6 @@ export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
                 flexDirection: "column",
                 cursor: "pointer",
                 transition: "transform 0.25s ease, box-shadow 0.25s ease",
-
                 backgroundColor: (theme) =>
                     theme.palette.mode === "dark"
                         ? "rgba(18,18,23,0.9)"
@@ -49,18 +48,19 @@ export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
                 },
             }}
         >
-            <CardContent
+            <Box
                 sx={{
-                    flexGrow: 1,
-                    textAlign: "center",
                     p: 4,
+                    display: "flex",
+                    flexDirection: "column",
+                    flexGrow: 1,
                 }}
             >
-                {/* Icono */}
+                {/* Icono - margen inferior uniforme */}
                 <Box
                     sx={{
                         color: "primary.main",
-                        mb: 2,
+                        mb: 3,
                         display: "flex",
                         justifyContent: "center",
                     }}
@@ -68,35 +68,36 @@ export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
                     {item.icon}
                 </Box>
 
-                {/* Nombre */}
+                {/* Nombre - margen inferior uniforme */}
                 <Typography
                     variant="h6"
-                    sx={{ fontWeight: 700, mb: 1 }}
+                    sx={{ fontWeight: 700, mb: 2, textAlign: "center" }}
                 >
                     {item.name}
                 </Typography>
 
-                {/* Descripción */}
+                {/* Descripción - margen inferior uniforme */}
                 <Typography
                     variant="body2"
-                    sx={{ color: "text.secondary" }}
+                    sx={{ color: "text.secondary", textAlign: "center", mb: 0 }}
                 >
                     {item.description}
                 </Typography>
-            </CardContent>
+            </Box>
 
-            {/* Botón */}
-            <Box sx={{ p: 3, pt: 0 }}>
+            {/* Botón con margen uniforme */}
+            <Box sx={{ px: 4, pb: 4 }}>
                 <Button
                     variant="contained"
                     fullWidth
                     onClick={(e) => {
-                        e.stopPropagation(); // 👈 evita que el botón dispare el modal si quieres acción distinta
+                        e.stopPropagation();
                     }}
                     sx={{
                         borderRadius: 2,
                         textTransform: "none",
                         fontWeight: 700,
+                        py: 1.5,
                         background: "linear-gradient(90deg, #6366f1, #9333ea)",
                         "&:hover": {
                             background: "linear-gradient(90deg, #4f46e5, #7e22ce)",

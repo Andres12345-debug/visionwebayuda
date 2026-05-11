@@ -28,7 +28,7 @@ export const ProductModal: React.FC<Props> = ({
     const features = [
         "Automatización inteligente",
         "Reportes en tiempo real",
-        "Integración con módulos GPLI",
+        "Integración con módulos profesionales",
         "Escalable y seguro",
         "Soporte especializado 24/7",
     ];
@@ -75,7 +75,7 @@ export const ProductModal: React.FC<Props> = ({
                 </Typography>
 
                 <Typography variant="body2" sx={{ opacity: 0.9, mt: 1 }}>
-                    Solución profesional GPLI
+                    Solución profesional VisionWeb
                 </Typography>
             </Box>
 

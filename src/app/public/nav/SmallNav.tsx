@@ -28,8 +28,8 @@ import LoginIcon from "@mui/icons-material/Login";
 // 1. Agregamos "Inicio" apuntando a /welcome
 const MENU_ITEMS = [
   { label: "Inicio", href: "/" },
-  { label: "Productos", href: "/products" },
-  { label: "Planes de Gestión IT", href: "/Plane" },
+  { label: "Productos", href: "/productos" },
+  { label: "Planes de Gestión IT", href: "/plan-de-gestion-it" },
 ];
 
 export default function Navbar() {

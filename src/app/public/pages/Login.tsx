@@ -10,7 +10,7 @@ import {
   useTheme,
   IconButton,
   alpha,
-  Grid, // Estándar MUI v7
+  Grid,
 } from "@mui/material";
 import {
   PersonOutline as UserIcon,
@@ -22,14 +22,13 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import SEO from "../../shared/SEO";
 
-// === IMPORTS CRÍTICOS QUE FALTABAN ===
 import { Acceso } from "../../models/Acess";
 import { AccesoService } from "../../services/AcessService";
 import { useFormulario } from "../../utilities/hoks/useForm";
 import { crearMensaje } from "../../utilities/functions/messge";
 
-// Definición de la interfaz para el Token
 interface TokenPayload {
   id: number;
   nombre: string;
@@ -44,12 +43,10 @@ const Sesion = () => {
   const theme = useTheme();
   const navegacion = useNavigate();
 
-  // Inicialización del formulario
   const { nombreAcceso, claveAcceso, dobleEnlace } = useFormulario<Acceso>(
     new Acceso(0, "", ""),
   );
 
-  // Validación básica
   const formularioValido =
     nombreAcceso.trim().length > 0 && claveAcceso.trim().length > 0;
 
@@ -72,12 +69,10 @@ const Sesion = () => {
 
       const datosToken = jwtDecode<TokenPayload>(token);
 
-      // Persistencia del token
       localStorage.setItem("TOKEN_AUTORIZACION", token);
 
       crearMensaje("success", `¡Bienvenido, ${datosToken.nombre}!`);
 
-      // Redirección limpia
       navegacion("/dash", { replace: true });
     } catch (error: any) {
       console.error("Login Error:", error);
@@ -89,7 +84,12 @@ const Sesion = () => {
 
   return (
     <Grid container sx={{ minHeight: "100vh" }}>
-      {/* PANEL IZQUIERDO (Informativo) */}
+      <SEO
+        title="Iniciar Sesión - Panel de Gestión | VisionWeb System"
+        description="Accede al panel de gestión VisionWeb para administrar tu infraestructura TI, tickets de soporte y activos tecnológicos."
+        keywords="iniciar sesión, panel de gestión, administración TI, soporte técnico, login VisionWeb"
+        ogUrl="/login"
+      />
       <Grid
         size={{ xs: 0, md: 7 }}
         sx={{

@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import SEO from "../../shared/SEO";
 import ImageCarousel from "../components/componentsWelcome/ImageCarousel";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
 import SectionHeroSplit from "../components/componentsWelcome/SectionHeroSplit";
@@ -15,6 +16,12 @@ const Welcome = () => {
 
     return (
         <Box>
+            <SEO
+                title="VisionWeb System - Mesa de Ayuda y Gestión TI Profesional"
+                description="Centraliza el soporte técnico, gestiona activos tecnológicos y optimiza tu infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario."
+                keywords="mesa de ayuda, gestión TI, soporte técnico, inventario tecnológico, help desk, activos TI, VisionWeb"
+                ogUrl="/"
+            />
             <SectionHeader />
             <ServicesSection />
             <SectionHeroSplit />

@@ -6,13 +6,15 @@ import {
   Grid,
   TextField,
   InputAdornment,
+  Stack,
+  Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 
 import { SoftwareCard, SoftwareItem } from "./SoftwareCard";
 import { ProductModal } from "./ProductModal";
 
-// Íconos
 import InventoryIcon from "@mui/icons-material/Inventory";
 import BusinessIcon from "@mui/icons-material/Business";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -23,44 +25,44 @@ import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 const softwareList: SoftwareItem[] = [
   {
     id: 1,
-    name: "GPLI Inventario",
-    description: "Control avanzado de stock, almacenes y movimientos.",
+    name: "Inventario Profesional",
+    description: "Control avanzado de stock, almacenes y movimientos de activos TI.",
     category: "Inventario",
     icon: <InventoryIcon fontSize="large" />,
   },
   {
     id: 2,
-    name: "GPLI Empresarial",
-    description: "Gestión integral de procesos administrativos y contables.",
+    name: "Gestión Empresarial",
+    description: "Administración integral de procesos, finanzas y recursos empresariales.",
     category: "Empresarial",
     icon: <BusinessIcon fontSize="large" />,
   },
   {
     id: 3,
-    name: "GPLI Logística",
-    description: "Optimización de envíos, rutas y distribución.",
+    name: "Logística Inteligente",
+    description: "Optimización de envíos, rutas y distribución con trazabilidad completa.",
     category: "Logística",
     icon: <LocalShippingIcon fontSize="large" />,
   },
   {
     id: 4,
-    name: "GPLI Reportes",
+    name: "Analytics y Reportes",
     description:
-      "Análisis y métricas en tiempo real para decisiones estratégicas.",
+      "Métricas en tiempo real y paneles interactivos para decisiones estratégicas.",
     category: "Analytics",
     icon: <AssessmentIcon fontSize="large" />,
   },
   {
     id: 5,
-    name: "GPLI Comercial",
-    description: "Ventas, facturación electrónica y gestión de clientes.",
+    name: "Comercial y Facturación",
+    description: "Ventas, facturación electrónica y gestión integral de clientes.",
     category: "Comercial",
     icon: <StorefrontIcon fontSize="large" />,
   },
   {
     id: 6,
-    name: "GPLI Soporte",
-    description: "Gestión de tickets y atención al cliente.",
+    name: "Soporte y Mesa de Ayuda",
+    description: "Gestión de tickets, incidencias y atención al cliente centralizada.",
     category: "Soporte",
     icon: <SupportAgentIcon fontSize="large" />,
   },
@@ -71,6 +73,7 @@ const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] =
     useState<SoftwareItem | null>(null);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const filteredProducts = softwareList.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
@@ -104,7 +107,7 @@ const ProductsSection = () => {
               fontWeight={800}
               sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, mb: 2 }}
             >
-              Soluciones GPLI
+              Soluciones Profesionales
             </Typography>
 
             <Typography
@@ -148,6 +151,32 @@ const ProductsSection = () => {
               </Grid>
             ))}
           </Grid>
+
+          {/* Enlace interno a planes de gestión */}
+          <Stack spacing={2} alignItems="center" sx={{ mt: 8, mb: 4 }}>
+            <Typography variant="h6" fontWeight={700} color="text.secondary" textAlign="center">
+              ¿Listo para llevar tu gestión al siguiente nivel?
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => navigate("/plan-de-gestion-it")}
+              sx={{
+                py: 1.8,
+                px: 5,
+                borderRadius: 3,
+                fontWeight: 700,
+                textTransform: "none",
+                fontSize: "1.1rem",
+                background: "linear-gradient(90deg, #6366f1, #9333ea)",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #4f46e5, #7e22ce)",
+                },
+              }}
+            >
+              Ver planes de gestión IT
+            </Button>
+          </Stack>
         </Container>
       </Box>
 

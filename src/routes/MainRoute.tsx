@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "../app/shared/layout/MainLayout";
 import { lazy, Suspense } from "react";
 import ScrollToTop from "../app/public/components/ScrollToTop";
@@ -22,9 +22,13 @@ export const MainRoute = () => {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<LazyWelcome />} />
+            <Route path="productos" element={<LazyProducts />} />
             <Route path="products" element={<LazyProducts />} />
+            <Route path="plan-de-gestion-it" element={<LazyPlane />} />
             <Route path="Plane" element={<LazyPlane />} />
+            <Route path="plane" element={<LazyPlane />} />
             <Route path="login" element={<LazyLogin />} />
+            <Route path="ingresar" element={<LazyLogin />} />
           </Route>
           <Route element={<Vigilante />}>
             <Route path="/dash/*" element={<InternalRoute />} />

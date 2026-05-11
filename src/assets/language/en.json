@@ -11,5 +11,18 @@
   "Mesa de Ayuda Profesional": "Professional Help Desk",
   "Implementación de Software": "Software Implementation",
   "Empresarial Open Source": "Enterprise Open Source",
-  "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.": "We install, configure, and optimize enterprise solutions to improve the security, management, and productivity of your organization."
+  "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.": "We install, configure, and optimize enterprise solutions to improve the security, management, and productivity of your organization.",
+  "button": {
+    "request": "Request advice"
+  },
+  "meta": {
+    "homeTitle": "VisionWeb System - Professional Help Desk & IT Management",
+    "homeDescription": "Centralize technical support, manage IT assets, and optimize your infrastructure with VisionWeb. Professional help desk and inventory platform.",
+    "productsTitle": "Products - GPLI Solutions | VisionWeb System",
+    "productsDescription": "Discover our GPLI solution suite: inventory, logistics, reports, commercial, and support. Comprehensive enterprise management.",
+    "planesTitle": "IT Management Plans | VisionWeb System",
+    "planesDescription": "IT infrastructure management plans. Professional technical support, automated inventory, and 24/7 monitoring for your business.",
+    "loginTitle": "Sign In - Management Panel | VisionWeb System",
+    "loginDescription": "Access the VisionWeb management panel to manage your IT infrastructure, support tickets, and technology assets."
+  }
 }

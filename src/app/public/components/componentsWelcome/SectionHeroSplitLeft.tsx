@@ -54,7 +54,7 @@ export default function SectionHeroSplitLeft({
           <Box
             component="img"
             src={image}
-            alt="Mesa de ayuda"
+            alt="Mesa de ayuda profesional - Plataforma de soporte técnico VisionWeb"
             sx={{
               width: "100%",
               borderRadius: 5,

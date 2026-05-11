@@ -4,7 +4,25 @@
   "Mesa de Ayuda": "Mesa de ayuda Profesional",
   "en un sistema profesional": "en un sistema profesional",
   "Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente." : "Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.",
+  "Solicitar asesoría": "Solicitar asesoría",
+  "Ver más información": "Ver más información",
+  "Servicios que transforman": "Servicios que transforman",
+  "tu área TIC": "tu área TIC",
+  "Mesa de Ayuda Profesional": "Mesa de Ayuda Profesional",
+  "Implementación de Software": "Implementación de Software",
+  "Empresarial Open Source": "Empresarial Open Source",
+  "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.": "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.",
   "button": {
     "request": "Solicitar asesoría"
+  },
+  "meta": {
+    "homeTitle": "VisionWeb System - Mesa de Ayuda y Gestión TI Profesional",
+    "homeDescription": "Centraliza el soporte técnico, gestiona activos tecnológicos y optimiza tu infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario.",
+    "productsTitle": "Productos - Soluciones GPLI | VisionWeb System",
+    "productsDescription": "Suite de soluciones GPLI: inventario, logística, reportes, comercial y soporte. Gestión empresarial integral con tecnología profesional.",
+    "planesTitle": "Planes de Gestión IT | VisionWeb System",
+    "planesDescription": "Planes de gestión de infraestructura TI. Soporte técnico profesional, inventario automatizado y monitoreo 24/7 para tu empresa.",
+    "loginTitle": "Iniciar Sesión - Panel de Gestión | VisionWeb System",
+    "loginDescription": "Accede al panel de gestión VisionWeb para administrar tu infraestructura TI, tickets de soporte y activos tecnológicos."
   }
 }

@@ -56,7 +56,7 @@ const ClientsSection = () => {
                             key={index}
                             component="img"
                             src={logo?.src || logo}
-                            alt={`Logo Cliente ${index}`}
+                             alt={`Logo de empresa cliente - ${index < logos.length ? "Empresa confiando en VisionWeb" : ""}`}
                             sx={{
                                 height: 60,
                                 width: "auto",
