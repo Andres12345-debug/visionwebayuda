@@ -25,18 +25,17 @@ import { useThemeContext } from "../../shared/theme/ThemeConext";
 import { useTranslation } from "react-i18next";
 import LoginIcon from "@mui/icons-material/Login";
 
-// 1. Agregamos "Inicio" apuntando a /welcome
-const MENU_ITEMS = [
-  { label: "Inicio", href: "/" },
-  { label: "Productos", href: "/productos" },
-  { label: "Planes de Gestión IT", href: "/plan-de-gestion-it" },
-];
-
 export default function Navbar() {
   const { mode, toggleTheme } = useThemeContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const MENU_ITEMS = [
+    { label: t("menu.inicio"), href: "/" },
+    { label: t("menu.productos"), href: "/productos" },
+    { label: t("menu.planes"), href: "/plan-de-gestion-it" },
+  ];
 
   // 2. Hook para saber la ruta actual (Evita errores de "pestaña desconocida")
   const location = useLocation();
@@ -141,7 +140,7 @@ export default function Navbar() {
                 },
               }}
             >
-              Iniciar sesión
+              {t("nav.iniciarSesion")}
             </Button>
             <IconButton
               component={Link}

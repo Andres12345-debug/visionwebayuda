@@ -22,39 +22,39 @@ export default function ServicesSection() {
 
   const services: Service[] = [
     {
-      title: "Mesa de Ayuda Profesional",
+      title: t("servicesSection.mesaDeAyudaProfesional"),
       description:
-        "Centraliza solicitudes y controla tiempos de respuesta.",
+        t("servicesSection.mesaAyudaDesc"),
       icon: <SupportAgentIcon fontSize="medium" />,
     },
     {
-      title: "Gestión de Inventario TI",
+      title: t("Gestión de Inventario TI"),
       description:
-        "Administra equipos y activos con trazabilidad.",
+        t("Administra equipos y activos con trazabilidad."),
       icon: <Inventory2Icon fontSize="medium" />,
     },
     {
-      title: "Documentación de Procesos",
+      title: t("Documentación de Procesos"),
       description:
-        "Manualiza configuraciones y procedimientos.",
+        t("Manualiza configuraciones y procedimientos."),
       icon: <DescriptionIcon fontSize="medium" />,
     },
     {
-      title: "Reportes y Métricas",
+      title: t("Reportes y Métricas"),
       description:
-        "Visualiza estadísticas y desempeño del área TI.",
+        t("Visualiza estadísticas y desempeño del área TI."),
       icon: <BarChartIcon fontSize="medium" />,
     },
     {
-      title: "Soporte Multiplataforma",
+      title: t("Soporte Multiplataforma"),
       description:
-        "Hardware, software y red desde una sola plataforma.",
+        t("Hardware, software y red desde una sola plataforma."),
       icon: <DevicesIcon fontSize="medium" />,
     },
     {
-      title: "Control y Seguridad",
+      title: t("Control y Seguridad"),
       description:
-        "Gestión de accesos e historial de cambios.",
+        t("Gestión de accesos e historial de cambios."),
       icon: <SecurityIcon fontSize="medium" />,
     },
   ];
@@ -80,7 +80,7 @@ export default function ServicesSection() {
           mb: 8,
         }}
       >
-        {t("Servicios que transforman")}{" "}
+        {t("servicesSection.titulo")}{" "}
         <Box
           component="span"
           sx={{
@@ -89,7 +89,7 @@ export default function ServicesSection() {
             WebkitTextFillColor: "transparent",
           }}
         >
-          {t("tu área TIC")}
+          {t("servicesSection.tuAreaTIC")}
         </Box>
       </Typography>
 

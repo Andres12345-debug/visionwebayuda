@@ -6,6 +6,7 @@ import {
     Button,
     Box,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export interface SoftwareItem {
     id: number;
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
+    const { t } = useTranslation();
     return (
         <Card
             elevation={0}
@@ -104,7 +106,7 @@ export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
                         },
                     }}
                 >
-                    Solicitar
+                    {t("products.solicitarBtn")}
                 </Button>
             </Box>
         </Card>

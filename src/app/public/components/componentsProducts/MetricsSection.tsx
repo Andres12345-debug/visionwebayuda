@@ -1,12 +1,6 @@
 import { Box, Container, Typography, useTheme, Grid} from "@mui/material";
 import { useEffect, useState } from "react";
-
-const metrics = [
-    { value: 150, suffix: "+", label: "Proyectos entregados" },
-    { value: 98, suffix: "%", label: "Satisfacción del cliente" },
-    { value: 12, suffix: "+", label: "Años de experiencia" },
-    { value: 24, suffix: "/7", label: "Soporte técnico" },
-];
+import { useTranslation } from "react-i18next";
 
 const Counter = ({ end, suffix }: { end: number; suffix: string }) => {
     const [count, setCount] = useState(0);
@@ -44,8 +38,16 @@ const Counter = ({ end, suffix }: { end: number; suffix: string }) => {
 };
 
 const MetricsSection = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
+
+    const metrics = [
+        { value: 150, suffix: "+", label: t("metrics.m1") },
+        { value: 98, suffix: "%", label: t("metrics.m2") },
+        { value: 12, suffix: "+", label: t("metrics.m3") },
+        { value: 24, suffix: "/7", label: t("metrics.m4") },
+    ];
 
     return (
         <Box
@@ -68,7 +70,7 @@ const MetricsSection = () => {
                         gutterBottom
                         sx={{ color: isDark ? "#f1f5f9" : "inherit" }}
                     >
-                        Resultados que nos respaldan
+                        {t("metrics.titulo")}
                     </Typography>
 
                     <Typography
@@ -77,8 +79,7 @@ const MetricsSection = () => {
                         maxWidth={600}
                         mx="auto"
                     >
-                        Nuestra experiencia se refleja en números reales que generan
-                        confianza y crecimiento para nuestros clientes.
+                        {t("metrics.descripcion")}
                     </Typography>
                 </Box>
 

@@ -8,21 +8,23 @@ import {
     IconButton,
     useTheme,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 
-const menuItems = [
-    { text: "Inicio", path: "/" },
-    { text: "Productos", path: "/products" },
-    { text: "Planes", path: "/plane" },
-];
-
 const Footer = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
+
+    const menuItems = [
+        { text: t("footer.inicio"), path: "/" },
+        { text: t("footer.productos"), path: "/products" },
+        { text: t("footer.planes"), path: "/plane" },
+    ];
 
     return (
         <Box
@@ -63,7 +65,7 @@ const Footer = () => {
                                 WebkitTextFillColor: "transparent",
                             }}
                         >
-                            Vision Code
+                            {t("footer.visionCode")}
                         </Typography>
 
                         <Typography
@@ -71,7 +73,7 @@ const Footer = () => {
                             color="text.secondary"
                             sx={{ mb: 4, lineHeight: 1.8, fontSize: "1rem" }}
                         >
-                            Elevando estándares tecnológicos mediante soluciones Open Source de alto rendimiento.
+                            {t("footer.descripcion")}
                         </Typography>
 
                         <Stack
@@ -108,7 +110,7 @@ const Footer = () => {
                     {/* Enlaces */}
                     <Box>
                         <Typography variant="subtitle1" fontWeight={700} mb={3}>
-                            Explorar
+                            {t("footer.explorar")}
                         </Typography>
 
                         <Stack spacing={2}>
@@ -136,11 +138,11 @@ const Footer = () => {
                     {/* Contacto */}
                     <Box sx={{ minWidth: 250 }}>
                         <Typography variant="subtitle1" fontWeight={700} mb={3}>
-                            Contacto Directo
+                            {t("footer.contactoDirecto")}
                         </Typography>
 
                         <Typography variant="body2" fontWeight={500}>
-                            Tunja, Boyacá, Colombia
+                            {t("footer.direccion")}
                         </Typography>
 
                         <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
@@ -162,15 +164,15 @@ const Footer = () => {
                     spacing={2}
                 >
                     <Typography variant="caption" color="text.secondary">
-                        © {new Date().getFullYear()} Vision Code. Todos los derechos reservados.
+                        © {new Date().getFullYear()} {t("footer.visionCode")}. {t("footer.derechos")}
                     </Typography>
 
                     <Stack direction="row" spacing={3}>
                         <Link href="#" variant="caption" color="text.secondary" underline="hover">
-                            Privacidad
+                            {t("footer.privacidad")}
                         </Link>
                         <Link href="#" variant="caption" color="text.secondary" underline="hover">
-                            Términos
+                            {t("footer.terminos")}
                         </Link>
                     </Stack>
                 </Stack>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import OnboardingSteps from './OnboardingSteps';
 import { useThemeContext } from "../../../shared/theme/ThemeConext";
 import TechDifferentiator from './TechDifferentiator';
 
 const PlanesPage = () => {
+    const { t } = useTranslation();
     const { mode } = useThemeContext();
     const isDark = mode === 'dark';
 

@@ -10,32 +10,34 @@ import Grid from '@mui/material/Grid';
 import SearchIcon from '@mui/icons-material/Search';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import ShieldMoonIcon from '@mui/icons-material/ShieldMoon';
+import { useTranslation } from "react-i18next";
 import { useThemeContext } from "../../../shared/theme/ThemeConext";
 
-const STEPS = [
-    {
-        icon: <SearchIcon sx={{ fontSize: 30 }} />,
-        title: "1. Diagnóstico Gratuito",
-        desc: "Realizamos un escaneo de tu red y equipos para identificar vulnerabilidades y puntos de mejora inmediata.",
-        color: "#6366f1"
-    },
-    {
-        icon: <SettingsSuggestIcon sx={{ fontSize: 30 }} />,
-        title: "2. Implementación",
-        desc: "Instalamos nuestros agentes de monitoreo proactivo y configuramos el acceso a tu portal de soporte profesional.",
-        color: "#8b5cf6"
-    },
-    {
-        icon: <ShieldMoonIcon sx={{ fontSize: 30 }} />,
-        title: "3. Gestión Total",
-        desc: "¡Listo! Tu empresa queda bajo nuestra vigilancia 24/7. Nosotros nos encargamos de que la tecnología nunca falle.",
-        color: "#10b981"
-    }
-];
-
 const OnboardingSteps = () => {
+    const { t } = useTranslation();
     const { mode } = useThemeContext();
     const isDark = mode === 'dark';
+
+    const STEPS = [
+        {
+            icon: <SearchIcon sx={{ fontSize: 30 }} />,
+            title: t("onboarding.step1Title"),
+            desc: t("onboarding.step1Desc"),
+            color: "#6366f1"
+        },
+        {
+            icon: <SettingsSuggestIcon sx={{ fontSize: 30 }} />,
+            title: t("onboarding.step2Title"),
+            desc: t("onboarding.step2Desc"),
+            color: "#8b5cf6"
+        },
+        {
+            icon: <ShieldMoonIcon sx={{ fontSize: 30 }} />,
+            title: t("onboarding.step3Title"),
+            desc: t("onboarding.step3Desc"),
+            color: "#10b981"
+        }
+    ];
 
     return (
         <Box sx={{ py: 10, px: 2, backgroundColor: isDark ? 'transparent' : '#f8fafc' }}>
@@ -43,7 +45,7 @@ const OnboardingSteps = () => {
 
                 <Box sx={{ textAlign: 'center', mb: 8 }}>
                     <Typography variant="overline" sx={{ color: '#6366f1', fontWeight: 800, letterSpacing: 2 }}>
-                        PROCESO DE ACTIVACIÓN
+                        {t("onboarding.badge")}
                     </Typography>
                     <Typography variant="h3" sx={{
                         fontWeight: 900,
@@ -51,7 +53,7 @@ const OnboardingSteps = () => {
                         color: isDark ? '#fff' : '#1e293b',
                         fontSize: { xs: '2rem', md: '2.8rem' }
                     }}>
-                        ¿Cómo empezamos a trabajar?
+                        {t("onboarding.titulo")}
                     </Typography>
                 </Box>
 
@@ -126,7 +128,7 @@ const OnboardingSteps = () => {
 
                 <Box sx={{ textAlign: 'center', mt: 6 }}>
                     <Typography variant="body2" sx={{ color: isDark ? '#64748b' : '#94a3b8', fontStyle: 'italic' }}>
-                        * Implementación rápida: tu infraestructura lista en menos de 48 horas.
+                        {t("onboarding.footer")}
                     </Typography>
                 </Box>
             </Box>

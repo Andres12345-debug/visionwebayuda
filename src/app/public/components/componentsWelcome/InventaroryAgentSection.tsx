@@ -5,34 +5,36 @@ import MemoryIcon from "@mui/icons-material/Memory";
 import AppsIcon from "@mui/icons-material/Apps";
 import SyncIcon from "@mui/icons-material/Sync";
 import { useRef } from "react";
-
-const features = [
-  {
-    icon: <ComputerIcon sx={{ fontSize: 36 }} />,
-    title: "Escaneo automático del equipo",
-    text: "El agente Profesional analiza cada computador y detecta hardware como procesador, memoria, discos y red sin intervención manual.",
-  },
-  {
-    icon: <AppsIcon sx={{ fontSize: 36 }} />,
-    title: "Inventario de software",
-    text: "Registra automáticamente programas instalados, versiones y sistemas operativos para un control total.",
-  },
-  {
-    icon: <MemoryIcon sx={{ fontSize: 36 }} />,
-    title: "Información siempre actualizada",
-    text: "Cada cambio en el equipo se sincroniza con nuestra plataforma, manteniendo el inventario actualizado en tiempo real.",
-  },
-  {
-    icon: <SyncIcon sx={{ fontSize: 36 }} />,
-    title: "Integración directa con la plataforma",
-    text: "Toda la información recolectada se centraliza en tu plataforma de gestión para facilitar reportes y decisiones.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function InventoryAgentSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: <ComputerIcon sx={{ fontSize: 36 }} />,
+      title: t("inventoryAgent.card1Title"),
+      text: t("inventoryAgent.card1Text"),
+    },
+    {
+      icon: <AppsIcon sx={{ fontSize: 36 }} />,
+      title: t("inventoryAgent.card2Title"),
+      text: t("inventoryAgent.card2Text"),
+    },
+    {
+      icon: <MemoryIcon sx={{ fontSize: 36 }} />,
+      title: t("inventoryAgent.card3Title"),
+      text: t("inventoryAgent.card3Text"),
+    },
+    {
+      icon: <SyncIcon sx={{ fontSize: 36 }} />,
+      title: t("inventoryAgent.card4Title"),
+      text: t("inventoryAgent.card4Text"),
+    },
+  ];
 
   return (
     <Box
@@ -54,7 +56,7 @@ export default function InventoryAgentSection() {
             textAlign: "center"
           }}
         >
-          Inventario{" "}
+          {t("inventoryAgent.titulo")}{" "}
           <Box
             component="span"
             sx={{
@@ -63,7 +65,7 @@ export default function InventoryAgentSection() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Automático de Activos TI
+            {t("inventoryAgent.tituloGradient")}
           </Box>
         </Typography>
       </Box>
@@ -174,7 +176,7 @@ export default function InventoryAgentSection() {
       {/* MENSAJE FINAL */}
       <Box sx={{ textAlign: "center", mt: 5 }}>
         <Typography fontWeight={700}>
-          Menos trabajo manual. Más control sobre tu infraestructura TI.
+          {t("inventoryAgent.mensajeFinal")}
         </Typography>
       </Box>
     </Box>

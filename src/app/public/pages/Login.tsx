@@ -21,6 +21,7 @@ import {
   CloudDoneOutlined as CloudIcon,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { jwtDecode } from "jwt-decode";
 import SEO from "../../shared/SEO";
 
@@ -38,6 +39,7 @@ interface TokenPayload {
 }
 
 const Sesion = () => {
+  const { t } = useTranslation();
   const [enProceso, setEnProceso] = useState(false);
   const [mostrarClave, setMostrarClave] = useState(false);
   const theme = useTheme();
@@ -85,9 +87,9 @@ const Sesion = () => {
   return (
     <Grid container sx={{ minHeight: "100vh" }}>
       <SEO
-        title="Iniciar Sesión - Panel de Gestión | VisionWeb System"
-        description="Accede al panel de gestión VisionWeb para administrar tu infraestructura TI, tickets de soporte y activos tecnológicos."
-        keywords="iniciar sesión, panel de gestión, administración TI, soporte técnico, login VisionWeb"
+        title={t("seo.loginTitle")}
+        description={t("seo.loginDescription")}
+        keywords={t("seo.keywords")}
         ogUrl="/login"
       />
       <Grid
@@ -112,24 +114,24 @@ const Sesion = () => {
             fontWeight={900}
             sx={{ lineHeight: 1, letterSpacing: -2 }}
           >
-            VisionWeb <br />
+            {t("login.visionWeb")}<br />
             <Box component="span" sx={{ opacity: 0.7 }}>
-              Ayuda.
+              {t("login.ayuda")}
             </Box>
           </Typography>
           <Typography variant="h6" sx={{ opacity: 0.9, fontWeight: 300 }}>
-            Gestión eficiente de servicios y usuarios en una sola plataforma.
+            {t("login.descripcion")}
           </Typography>
 
           <Stack spacing={3}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <ShieldIcon sx={{ fontSize: 28 }} />
-              <Typography variant="body1">Cifrado de datos AES-256</Typography>
+              <Typography variant="body1">{t("login.cifrado")}</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <CloudIcon sx={{ fontSize: 28 }} />
               <Typography variant="body1">
-                Infraestructura de alta disponibilidad
+                {t("login.infraestructura")}
               </Typography>
             </Box>
           </Stack>
@@ -157,17 +159,17 @@ const Sesion = () => {
               fontWeight={900}
               sx={{ letterSpacing: -1, mb: 1 }}
             >
-              Ingresar
+              {t("login.ingresar")}
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Bienvenido de nuevo.
+              {t("login.bienvenido")}
             </Typography>
           </Box>
 
           <Box component="form" onSubmit={enviarFormulario} noValidate>
             <Stack spacing={3}>
               <TextField
-                label="Usuario"
+                label={t("login.usuarioLabel")}
                 name="nombreAcceso"
                 variant="filled"
                 value={nombreAcceso}
@@ -185,7 +187,7 @@ const Sesion = () => {
               />
 
               <TextField
-                label="Contraseña"
+                label={t("login.contrasenaLabel")}
                 name="claveAcceso"
                 variant="filled"
                 type={mostrarClave ? "text" : "password"}
@@ -225,7 +227,7 @@ const Sesion = () => {
                   boxShadow: `0 12px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
                 }}
               >
-                {enProceso ? "Autenticando..." : "Entrar al Panel"}
+                {enProceso ? t("login.autenticando") : t("login.entrarBtn")}
               </Button>
             </Stack>
           </Box>

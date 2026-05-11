@@ -1,8 +1,10 @@
 import { Box, Typography, Button, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function FinalCTA() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -34,7 +36,7 @@ export default function FinalCTA() {
             mb: 1.5,
           }}
         >
-          Lleva tu área TIC al siguiente nivel
+          {t("finalCta.titulo")}
         </Typography>
 
         <Typography
@@ -44,7 +46,7 @@ export default function FinalCTA() {
             fontSize: "1rem",
           }}
         >
-          Implementa una mesa de ayuda profesional hoy mismo.
+          {t("finalCta.descripcion")}
         </Typography>
 
         <Button
@@ -66,7 +68,7 @@ export default function FinalCTA() {
             },
           }}
         >
-          Solicitar asesoría
+          {t("finalCta.boton")}
         </Button>
       </Box>
     </Box>

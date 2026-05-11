@@ -1,28 +1,318 @@
 {
-  "LLEVA TU EMPRESA AL SIGUIENTE NIVEL": "TAKE YOUR BUSINESS TO THE NEXT LEVEL",
-  "Transformamos tu": "We transform your",
-  "Mesa de Ayuda": "Help Desk",
-  "en un sistema profesional": "into a professional system",
-  "Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.": "Centralize, organize, and control all your company's technical support and technological assets with a structured, measurable, and efficient solution.",
-  "Solicitar asesoría" : "Request advice",  
-  "Ver más información": "See more information",
-  "Servicios que transforman": "Services that transform",
-  "tu área TIC": "your IT area",
-  "Mesa de Ayuda Profesional": "Professional Help Desk",
-  "Implementación de Software": "Software Implementation",
-  "Empresarial Open Source": "Enterprise Open Source",
-  "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.": "We install, configure, and optimize enterprise solutions to improve the security, management, and productivity of your organization.",
-  "button": {
-    "request": "Request advice"
+  "nav": {
+    "inicio": "Home",
+    "productos": "Products",
+    "planes": "IT Management Plans",
+    "iniciarSesion": "Sign In",
+    "visionWeb": "ViSion",
+    "web": "Web"
   },
-  "meta": {
+  "sectionHeader": {
+    "badge": "TAKE YOUR BUSINESS TO THE NEXT LEVEL",
+    "transformamos": "We transform your",
+    "mesaDeAyuda": "Professional Help Desk",
+    "enUnSistema": "into a professional system",
+    "descripcion": "Centralize, organize, and control all your company's technical support and technological assets with a structured, measurable, and efficient solution.",
+    "solicitarAsesoria": "Request advice"
+  },
+  "servicesSection": {
+    "titulo": "Services that transform",
+    "tuAreaTIC": "your IT area",
+    "mesaDeAyudaProfesional": "Professional Help Desk",
+    "implementacionSoftware": "Software Implementation",
+    "empresarialOS": "Enterprise Open Source",
+    "mesaAyudaDesc": "Centralized management of technical support requests with full traceability and optimized response times.",
+    "implementacionDesc": "We install, configure, and optimize enterprise solutions to improve the security, management, and productivity of your organization.",
+    "empresarialDesc": "We integrate open source tools for efficient management of resources, processes, and technology equipment.",
+    "verMas": "See more information"
+  },
+  "heroSplit": {
+    "subtitle": "Smart Inventory",
+    "title": "Full control of your technology assets with Professional Agent",
+    "description": "Automate hardware and software collection, maintain complete traceability and get real-time visibility of all ICT assets from a single centralized platform.",
+    "buttonText": "Request a demo"
+  },
+  "heroSplitLeft": {
+    "subtitle": "HELP DESK AND INCIDENT MANAGEMENT",
+    "title": "Centralized, organized and traceable technical support",
+    "description": "Efficiently manage your support requests with our help desk platform, centralizing incident, user and report management in a modern, easy-to-use interface, improving response times and customer satisfaction.",
+    "buttonText": "View features"
+  },
+  "imageCarousel": {
+    "slide1Title": "Organized Technical Support",
+    "slide1Caption": "Centralize requests, assign technicians and keep full history.",
+    "slide1Cta": "Learn more",
+    "slide2Title": "Total Asset Control",
+    "slide2Caption": "Register equipment, stakeholders and maintenance in one place.",
+    "slide2Cta": "Start",
+    "slide3Title": "Professional IT Management",
+    "slide3Caption": "Metrics, response times and reports in real time.",
+    "slide3Cta": "See more",
+    "anterior": "Previous (← or left arrow)",
+    "siguiente": "Next (→ or right arrow)",
+    "pausar": "Pause (space)",
+    "reproducir": "Play (space)",
+    "irSlide": "Go to slide {n}"
+  },
+  "sectionSteps": {
+    "titulo": "How does it work?",
+    "step1Title": "Diagnosis",
+    "step1Desc": "We assess your current infrastructure to identify improvement opportunities.",
+    "step2Title": "Implementation",
+    "step2Desc": "We configure the platform and monitoring agents on your equipment.",
+    "step3Title": "Monitoring",
+    "step3Desc": "We monitor 24/7 the performance and health of your technology assets.",
+    "step4Title": "Reports",
+    "step4Desc": "You receive detailed reports with metrics and strategic recommendations."
+  },
+  "inventoryAgent": {
+    "titulo": "Inventory",
+    "tituloGradient": "Automatic IT Asset",
+    "card1Title": "Automatic equipment scanning",
+    "card1Text": "The Professional Agent analyzes each computer and detects hardware such as processor, memory, disks and network without manual intervention.",
+    "card2Title": "Software inventory",
+    "card2Text": "Automatically records installed programs, versions and operating systems for total control.",
+    "card3Title": "Always up-to-date information",
+    "card3Text": "Every change on the equipment syncs with our platform, keeping the inventory updated in real time.",
+    "card4Title": "Direct platform integration",
+    "card4Text": "All collected information is centralized in your management platform to facilitate reports and decisions.",
+    "mensajeFinal": "Less manual work. More control over your IT infrastructure."
+  },
+  "helpDeskVideo": {
+    "titulo": "See our",
+    "tituloGradient": "Professional Help Desk",
+    "enAccion": "in action",
+    "descripcion": "Discover how we centralize technical support and asset management with our proactive platform.",
+    "videoTitle": "Professional Help Desk"
+  },
+  "faqs": {
+    "titulo": "Frequently",
+    "tituloGradient": "Asked Questions",
+    "q1": "What is a help desk?",
+    "a1": "It is a system that centralizes all technical support requests, allowing them to be organized, assigned and tracked efficiently.",
+    "q2": "Does the platform work in the cloud?",
+    "a2": "Yes, it can be implemented in the cloud or on local servers according to your company's needs.",
+    "q3": "Can I manage equipment inventory?",
+    "a3": "Yes. The platform allows you to register equipment, licenses, responsible parties, maintenance history and more.",
+    "q4": "Can reports be generated?",
+    "a4": "Of course. You can view metrics on response times, tickets attended and IT area performance.",
+    "q5": "Do you offer support after implementation?",
+    "a5": "Yes, we offer continuous support, technical assistance and improvements as your operation grows."
+  },
+  "contactForm": {
+    "titulo": "Let's talk",
+    "descripcion": "Tell us what you need and our team will get back to you soon.",
+    "nombreLabel": "Full name",
+    "emailLabel": "Email address",
+    "mensajeLabel": "Message",
+    "enviarBtn": "Send message",
+    "errorCampos": "All fields are required.",
+    "errorEnvio": "Error sending the message. Please try again.",
+    "enviando": "Sending..."
+  },
+  "benefitsStrip": {
+    "rapida": "Quick implementation",
+    "productividad": "Greater productivity",
+    "colaboracion": "Better collaboration",
+    "seguros": "Secure data"
+  },
+  "finalCta": {
+    "titulo": "Take your IT area to the next level",
+    "descripcion": "Implement a professional help desk today.",
+    "boton": "Request advice"
+  },
+  "products": {
+    "titulo": "Professional Solutions",
+    "subtitulo": "Comprehensive platform for modern business management.",
+    "buscarPlaceholder": "Search product...",
+    "productos": [
+      { "name": "Professional Inventory", "desc": "Advanced stock, warehouse and IT asset movement control." },
+      { "name": "Business Management", "desc": "Comprehensive management of processes, finances and business resources." },
+      { "name": "Smart Logistics", "desc": "Optimization of shipments, routes and distribution with full traceability." },
+      { "name": "Analytics & Reports", "desc": "Real-time metrics and interactive dashboards for strategic decisions." },
+      { "name": "Sales & Invoicing", "desc": "Sales, electronic invoicing and comprehensive customer management." },
+      { "name": "Support & Help Desk", "desc": "Ticket, incident and customer service management centralized." }
+    ],
+    "solicitarBtn": "Request",
+    "ctaTitulo": "Ready to take your management to the next level?",
+    "ctaBoton": "View IT management plans"
+  },
+  "productModal": {
+    "solucion": "VisionWeb professional solution",
+    "caracteristicas": "Key features",
+    "feature1": "Smart automation",
+    "feature2": "Real-time reports",
+    "feature3": "Integration with professional modules",
+    "feature4": "Scalable and secure",
+    "feature5": "Specialized 24/7 support",
+    "cerrar": "Close",
+    "solicitarDemo": "Request Demo"
+  },
+  "whyChooseUs": {
+    "titulo": "Why choose us?",
+    "descripcion": "More than implementing tools, we build solid technological solutions that drive efficiency and business growth.",
+    "card1Title": "Enterprise Security",
+    "card1Desc": "We implement secure and reliable solutions to protect your organization's critical information.",
+    "card2Title": "Continuous Support",
+    "card2Desc": "Permanent technical support to ensure stability and quick resolution of incidents.",
+    "card3Title": "Professional Implementation",
+    "card3Desc": "Optimized configurations adapted to the real needs of your infrastructure.",
+    "card4Title": "Scalability",
+    "card4Desc": "Solutions prepared to grow with your company without losing performance."
+  },
+  "testimonials": {
+    "titulo": "What our clients say",
+    "descripcion": "Companies that trusted our solutions and today have more efficient and secure infrastructures.",
+    "t1Name": "Carlos Martínez",
+    "t1Role": "IT Manager",
+    "t1Company": "Logistics Company",
+    "t1Feedback": "The implementation was flawless. We improved our response times and significantly reduced incidents.",
+    "t2Name": "Laura Gómez",
+    "t2Role": "Administrative Director",
+    "t2Company": "Educational Institution",
+    "t2Feedback": "The technical support has been constant and professional. The system stability is excellent.",
+    "t3Name": "Andrés Ramírez",
+    "t3Role": "Technology Chief",
+    "t3Company": "Commercial SME",
+    "t3Feedback": "The implemented solutions optimized our internal processes and improved operational control."
+  },
+  "metrics": {
+    "titulo": "Results that support us",
+    "descripcion": "Our experience is reflected in real numbers that generate trust and growth for our clients.",
+    "m1": "Projects delivered",
+    "m2": "Customer satisfaction",
+    "m3": "Years of experience",
+    "m4": "Technical support"
+  },
+  "clients": {
+    "titulo": "Companies that trust us",
+    "descripcion": "Organizations that have optimized their technological infrastructure with our solutions.",
+    "logoAlt": "Client company logo that trusts VisionWeb"
+  },
+  "onboarding": {
+    "badge": "ACTIVATION PROCESS",
+    "titulo": "How do we start working?",
+    "step1Title": "1. Free Diagnosis",
+    "step1Desc": "We scan your network and equipment to identify vulnerabilities and areas for immediate improvement.",
+    "step2Title": "2. Implementation",
+    "step2Desc": "We install our proactive monitoring agents and configure access to your professional support portal.",
+    "step3Title": "3. Total Management",
+    "step3Desc": "Done! Your company is under our 24/7 surveillance. We make sure technology never fails.",
+    "footer": "* Quick implementation: your infrastructure ready in less than 48 hours."
+  },
+  "techDifferentiator": {
+    "badge": "OUR DIFFERENTIAL",
+    "titulo": "Technology that ",
+    "tituloGradient": "predicts",
+    "tituloResto": " problems before they happen",
+    "descripcion": "Unlike traditional support that only shows up when something breaks, our **Professional Agent** ecosystem allows us to audit your company in real time, ensuring your operations never stop due to a foreseeable technical failure.",
+    "item1Title": "Real-time Audit",
+    "item1Desc": "We monitor disk health, temperature and memory. If a device is going to fail, we know before the user does.",
+    "item2Title": "Professional Management Center",
+    "item2Desc": "A complete clinical history of each device. Less diagnosis time, faster solutions.",
+    "item3Title": "Data-driven Decisions",
+    "item3Desc": "We deliver obsolescence reports so your technology investment is smart and planned.",
+    "imgAlt": "VisionWeb control panel - Professional IT infrastructure management"
+  },
+  "comparativaTabla": {
+    "titulo": "Select the ideal plan for your ",
+    "tituloGradient": "business",
+    "plan1Title": "Basic Plan",
+    "plan1Price": "$25.000",
+    "plan1Period": "/equipment/month",
+    "plan1Features": ["Remote Support 8/5", "Inventory Management", "Network Monitoring", "Basic Professional Support"],
+    "plan1Btn": "Start now",
+    "plan2Title": "Pro Plan",
+    "plan2Price": "$45.000",
+    "plan2Period": "/equipment/month",
+    "plan2Features": ["Everything in Basic", "24/7 Proactive Support", "Preventive Maintenance", "Managed Security"],
+    "plan2Btn": "Most chosen",
+    "plan3Title": "Enterprise",
+    "plan3Price": "Custom",
+    "plan3Period": "Contact us",
+    "plan3Features": ["Everything in Pro Plan", "On-site Support", "Systems Audit", "Strategic Consulting"],
+    "plan3Btn": "Talk to sales"
+  },
+  "savingsCalculator": {
+    "badge": "COST CALCULATOR",
+    "titulo": "How many devices will we manage?",
+    "descripcion": "Slide to calculate your investment and projected savings.",
+    "cantidadLabel": "Number of devices",
+    "cantidadTooltip": "Drag the slider to adjust the number of devices you need to manage",
+    "descuentoEscala": "✓ Volume discount applied",
+    "equipos": "DEVICES",
+    "gestionActual": "CURRENT MANAGEMENT",
+    "costosPersonal": "• Technical staff costs",
+    "tiempoMuerto": "• Downtime from failures",
+    "riesgos": "• Cybersecurity risks",
+    "costoEstimado": "ESTIMATED COST",
+    "conVisionWeb": "WITH VISIONWEB",
+    "soporteIlimitado": "Unlimited professional support",
+    "mantenimiento": "Preventive maintenance",
+    "inventarioDigital": "Digital real inventory",
+    "inversionMensual": "MONTHLY INVESTMENT",
+    "tuAhorro": "YOUR SAVINGS",
+    "ahorroMensual": "MONTHLY SAVINGS",
+    "ahorroAnual": "ANNUAL SAVINGS",
+    "boton": "I'M INTERESTED IN THIS PRICE",
+    "botonSubtexto": "Send your details via WhatsApp and receive a personalized proposal in less than 1 hour."
+  },
+  "login": {
+    "visionWeb": "VisionWeb ",
+    "ayuda": "Help.",
+    "descripcion": "Efficient management of services and users in a single platform.",
+    "cifrado": "AES-256 data encryption",
+    "infraestructura": "High availability infrastructure",
+    "ingresar": "Sign In",
+    "bienvenido": "Welcome back.",
+    "usuarioLabel": "Username",
+    "contrasenaLabel": "Password",
+    "entrarBtn": "Enter Dashboard",
+    "autenticando": "Authenticating..."
+  },
+  "errorPage": {
+    "titulo": "Page not found",
+    "descripcion": "The route you are trying to access does not exist or has been moved. Check the address or return to the home page.",
+    "boton": "Back to home"
+  },
+  "footer": {
+    "visionCode": "Vision Code",
+    "descripcion": "Raising technology standards through high-performance Open Source solutions.",
+    "explorar": "Explore",
+    "contactoDirecto": "Direct Contact",
+    "direccion": "Tunja, Boyacá, Colombia",
+    "derechos": "All rights reserved.",
+    "privacidad": "Privacy",
+    "terminos": "Terms",
+    "inicio": "Home",
+    "productos": "Products",
+    "planes": "Plans"
+  },
+  "floatingWhatsApp": {
+    "mensaje": "Hello, I would like advice on enterprise Open Source software."
+  },
+  "contactModal": {
+    "titulo": "Contact us",
+    "descripcion": "We are ready to help you implement Open Source enterprise solutions in your organization.",
+    "whatsApp": "Business WhatsApp",
+    "cerrar": "Close"
+  },
+  "seo": {
     "homeTitle": "VisionWeb System - Professional Help Desk & IT Management",
     "homeDescription": "Centralize technical support, manage IT assets, and optimize your infrastructure with VisionWeb. Professional help desk and inventory platform.",
-    "productsTitle": "Products - GPLI Solutions | VisionWeb System",
-    "productsDescription": "Discover our GPLI solution suite: inventory, logistics, reports, commercial, and support. Comprehensive enterprise management.",
+    "productsTitle": "Products - Professional Solutions | VisionWeb System",
+    "productsDescription": "Discover our suite of professional solutions: inventory, logistics, reports, commercial, and support. Comprehensive enterprise management.",
     "planesTitle": "IT Management Plans | VisionWeb System",
     "planesDescription": "IT infrastructure management plans. Professional technical support, automated inventory, and 24/7 monitoring for your business.",
     "loginTitle": "Sign In - Management Panel | VisionWeb System",
-    "loginDescription": "Access the VisionWeb management panel to manage your IT infrastructure, support tickets, and technology assets."
+    "loginDescription": "Access the VisionWeb management panel to manage your IT infrastructure, support tickets, and technology assets.",
+    "errorTitle": "Page not found - 404 | VisionWeb System",
+    "errorDescription": "The page you are looking for does not exist. Return to VisionWeb home to find what you need.",
+    "keywords": "help desk, technical support, IT asset management, technology inventory, professional help desk, VisionWeb, infrastructure management"
+  },
+  "menu": {
+    "inicio": "Home",
+    "productos": "Products",
+    "planes": "IT Management Plans"
   }
 }

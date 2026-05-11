@@ -8,37 +8,36 @@ import {
     useTheme,
     Grid
 } from "@mui/material";
-
-const testimonials = [
-    {
-        name: "Carlos Martínez",
-        role: "Gerente IT",
-        company: "Empresa Logística",
-        feedback:
-            "La implementación fue impecable. Mejoramos nuestros tiempos de respuesta y redujimos incidentes significativamente.",
-        rating: 5,
-    },
-    {
-        name: "Laura Gómez",
-        role: "Directora Administrativa",
-        company: "Institución Educativa",
-        feedback:
-            "El acompañamiento técnico ha sido constante y profesional. La estabilidad del sistema es excelente.",
-        rating: 5,
-    },
-    {
-        name: "Andrés Ramírez",
-        role: "Jefe de Tecnología",
-        company: "PYME Comercial",
-        feedback:
-            "Las soluciones implementadas optimizaron nuestros procesos internos y mejoraron el control operativo.",
-        rating: 4,
-    },
-];
+import { useTranslation } from "react-i18next";
 
 const Testimonials = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
+
+    const testimonials = [
+        {
+            name: t("testimonials.t1Name"),
+            role: t("testimonials.t1Role"),
+            company: t("testimonials.t1Company"),
+            feedback: t("testimonials.t1Feedback"),
+            rating: 5,
+        },
+        {
+            name: t("testimonials.t2Name"),
+            role: t("testimonials.t2Role"),
+            company: t("testimonials.t2Company"),
+            feedback: t("testimonials.t2Feedback"),
+            rating: 5,
+        },
+        {
+            name: t("testimonials.t3Name"),
+            role: t("testimonials.t3Role"),
+            company: t("testimonials.t3Company"),
+            feedback: t("testimonials.t3Feedback"),
+            rating: 4,
+        },
+    ];
 
     return (
         <Box
@@ -62,7 +61,7 @@ const Testimonials = () => {
                         gutterBottom
                         sx={{ color: isDark ? "#f1f5f9" : "inherit" }}
                     >
-                        Lo que dicen nuestros clientes
+                        {t("testimonials.titulo")}
                     </Typography>
 
                     <Typography
@@ -71,8 +70,7 @@ const Testimonials = () => {
                         maxWidth={600}
                         mx="auto"
                     >
-                        Empresas que confiaron en nuestras soluciones y hoy cuentan con
-                        infraestructuras más eficientes y seguras.
+                        {t("testimonials.descripcion")}
                     </Typography>
                 </Box>
 

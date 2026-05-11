@@ -11,6 +11,7 @@ import {
     InputAdornment,
     useTheme,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import MessageIcon from "@mui/icons-material/Message";
@@ -19,6 +20,7 @@ import { URLS } from "../../../utilities/domains/urls";
 import { ServicioPostPublica } from "../../../services/ServicioPostPublica";
 
 export default function FormularioContacto() {
+    const { t } = useTranslation();
 
     const [form, setForm] = useState({
         nombre: "",
@@ -41,7 +43,7 @@ export default function FormularioContacto() {
 
     const enviarFormulario = async () => {
         if (!form.nombre || !form.email || !form.mensaje) {
-            setError("Todos los campos son obligatorios.");
+            setError(t("contactForm.errorCampos"));
             return;
         }
 
@@ -57,7 +59,7 @@ export default function FormularioContacto() {
             setForm({ nombre: "", email: "", mensaje: "" });
 
         } catch (err) {
-            setError("Error enviando el mensaje. Intenta nuevamente.");
+            setError(t("contactForm.errorEnvio"));
         } finally {
             setLoading(false);
         }
@@ -91,7 +93,7 @@ export default function FormularioContacto() {
                         color: isDark ? "#ffffff" : "#1e293b",
                     }}
                 >
-                    Hablemos
+                    {t("contactForm.titulo")}
                 </Typography>
 
                 <Typography
@@ -103,14 +105,14 @@ export default function FormularioContacto() {
                         textAlign: "center",
                     }}
                 >
-                    Cuéntanos qué necesitas y nuestro equipo te responderá pronto.
+                    {t("contactForm.descripcion")}
                 </Typography>
 
                 <Stack spacing={3} mt={4}>
 
                     <TextField
 
-                        label="Nombre completo"
+                        label={t("contactForm.nombreLabel")}
                         name="nombre"
                         value={form.nombre}
                         onChange={manejarCambio}
@@ -127,7 +129,7 @@ export default function FormularioContacto() {
                     />
 
                     <TextField
-                        label="Correo electrónico"
+                        label={t("contactForm.emailLabel")}
                         name="email"
                         type="email"
                         value={form.email}
@@ -144,7 +146,7 @@ export default function FormularioContacto() {
                     />
 
                     <TextField
-                        label="Mensaje"
+                        label={t("contactForm.mensajeLabel")}
                         name="mensaje"
                         value={form.mensaje}
                         onChange={manejarCambio}
@@ -181,7 +183,7 @@ export default function FormularioContacto() {
                             transition: "all .3s ease",
                         }}
                     >
-                        {loading ? <CircularProgress size={24} color="inherit" /> : "Enviar mensaje"}
+                        {loading ? <CircularProgress size={24} color="inherit" /> : t("contactForm.enviarBtn")}
                     </Button>
 
                     {respuesta && (

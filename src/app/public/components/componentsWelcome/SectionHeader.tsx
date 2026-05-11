@@ -6,7 +6,7 @@ export default function HeroSection() {
   const { t } = useTranslation();
   const phoneNumber = "573007538453"; // 👉 SIN +, SIN espacios
   const message = encodeURIComponent(
-    "Hola, quiero solicitar asesoría sobre soluciones TIC para mi empresa."
+    t("sectionHeader.solicitarAsesoria")
   );
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -32,7 +32,7 @@ export default function HeroSection() {
             fontSize: "0.8rem",
           }}
         >
-          {t("LLEVA TU EMPRESA AL SIGUIENTE NIVEL")}
+          {t("sectionHeader.badge")}
         </Typography>
 
         {/* Título */}
@@ -45,7 +45,7 @@ export default function HeroSection() {
             color: "text.primary",
           }}
         >
-          {t("Transformamos tu")}{" "}
+          {t("sectionHeader.transformamos")}{" "}
           <Box
             component="span"
             sx={{
@@ -54,9 +54,9 @@ export default function HeroSection() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            {t("Mesa de Ayuda")}
+            {t("sectionHeader.mesaDeAyuda")}
           </Box>{" "}
-          {t("en un sistema profesional")}
+          {t("sectionHeader.enUnSistema")}
 
         </Typography>
 
@@ -70,7 +70,7 @@ export default function HeroSection() {
             mx: "auto",
             lineHeight: 1.7,
           }}
-        >{t("Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.")}
+        >{t("sectionHeader.descripcion")}
         </Typography>
 
         {/* Botones */}
@@ -96,7 +96,7 @@ background: "linear-gradient(90deg, #6366f1, #9333ea)",              "&:hover": 
               },
             }}
           >
-            {t("Solicitar asesoría")}
+            {t("sectionHeader.solicitarAsesoria")}
           </Button>
 
 

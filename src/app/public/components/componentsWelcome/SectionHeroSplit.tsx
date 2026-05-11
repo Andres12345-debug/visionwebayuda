@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import heroImg from "../../../../assets/img/welcome/GlpiAgente.png";
 
 type SectionHeroSplitProps = {
@@ -13,14 +14,20 @@ type SectionHeroSplitProps = {
 
 export default function SectionHeroSplit({
   image = heroImg,
-  subtitle = "Inventario Inteligente",
-  title = "Control total de tus activos tecnológicos con Agente Profesional",
-  description = "Automatiza la recolección de hardware y software, mantén trazabilidad completa y obtén visibilidad en tiempo real de todos los activos TIC desde una sola plataforma centralizada.",
-  buttonText = "Solicitar demostración",
+  subtitle,
+  title,
+  description,
+  buttonText,
   buttonLink = "#",
 }: SectionHeroSplitProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
+
+  subtitle = subtitle ?? t("heroSplit.subtitle");
+  title = title ?? t("heroSplit.title");
+  description = description ?? t("heroSplit.description");
+  buttonText = buttonText ?? t("heroSplit.buttonText");
 
   return (
     <Box
@@ -112,7 +119,7 @@ export default function SectionHeroSplit({
           <Box
             component="img"
             src={image}
-            alt="Inventario Profesional - Software de gestión de activos TI VisionWeb"
+            alt={t("Inventario Profesional - Software de gestión de activos TI VisionWeb")}
             sx={{
               width: "100%",
               borderRadius: 5,

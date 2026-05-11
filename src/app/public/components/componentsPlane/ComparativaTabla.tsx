@@ -11,38 +11,55 @@ import {
     ListItemText
 } from "@mui/material";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useTranslation } from "react-i18next";
 import { useThemeContext } from "../../../shared/theme/ThemeConext";
 
-const PLANES = [
-    {
-        title: "Plan Básico",
-        price: "$25.000",
-        period: "/equipo/mes",
-        features: ["Soporte Remoto 8/5", "Gestión de Inventario", "Monitoreo de Red", "Soporte Profesional Básico"],
-        recommended: false,
-        btnText: "Empezar ahora"
-    },
-    {
-        title: "Plan Pro",
-        price: "$45.000",
-        period: "/equipo/mes",
-        features: ["Todo lo del Básico", "Soporte Proactivo 24/7", "Mantenimiento Preventivo", "Seguridad Administrada"],
-        recommended: true,
-        btnText: "El más elegido"
-    },
-    {
-        title: "Enterprise",
-        price: "Custom",
-        period: "Contactar",
-        features: ["Todo lo del Plan Pro", "Soporte Presencial", "Auditoría de Sistemas", "Consultoría Estratégica"],
-        recommended: false,
-        btnText: "Hablar con ventas"
-    }
-];
-
 const PricingCards = () => {
+    const { t } = useTranslation();
     const { mode } = useThemeContext();
     const isDark = mode === 'dark';
+
+    const PLANES = [
+        {
+            title: t("comparativaTabla.plan1Title"),
+            price: t("comparativaTabla.plan1Price"),
+            period: t("comparativaTabla.plan1Period"),
+            features: [
+                t("comparativaTabla.plan1Features.0"),
+                t("comparativaTabla.plan1Features.1"),
+                t("comparativaTabla.plan1Features.2"),
+                t("comparativaTabla.plan1Features.3"),
+            ],
+            recommended: false,
+            btnText: t("comparativaTabla.plan1Btn")
+        },
+        {
+            title: t("comparativaTabla.plan2Title"),
+            price: t("comparativaTabla.plan2Price"),
+            period: t("comparativaTabla.plan2Period"),
+            features: [
+                t("comparativaTabla.plan2Features.0"),
+                t("comparativaTabla.plan2Features.1"),
+                t("comparativaTabla.plan2Features.2"),
+                t("comparativaTabla.plan2Features.3"),
+            ],
+            recommended: true,
+            btnText: t("comparativaTabla.plan2Btn")
+        },
+        {
+            title: t("comparativaTabla.plan3Title"),
+            price: t("comparativaTabla.plan3Price"),
+            period: t("comparativaTabla.plan3Period"),
+            features: [
+                t("comparativaTabla.plan3Features.0"),
+                t("comparativaTabla.plan3Features.1"),
+                t("comparativaTabla.plan3Features.2"),
+                t("comparativaTabla.plan3Features.3"),
+            ],
+            recommended: false,
+            btnText: t("comparativaTabla.plan3Btn")
+        }
+    ];
 
     // Función para manejar el clic y enviar a WhatsApp
     const handlePlanSelection = (planTitle: string) => {
@@ -65,7 +82,7 @@ const PricingCards = () => {
                     fontSize: { xs: '1.8rem', md: '2.5rem' }
                 }}
             >
-                Selecciona el plan ideal para tu <span style={{ color: '#6366f1' }}>negocio</span>
+                {t("comparativaTabla.titulo")}<span style={{ color: '#6366f1' }}>{t("comparativaTabla.tituloGradient")}</span>
             </Typography>
 
             {/* Usamos size en lugar de item/xs para cumplir con MUI 7 */}

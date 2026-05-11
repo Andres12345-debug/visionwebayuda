@@ -7,43 +7,42 @@ import {
   useTheme,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useTranslation } from "react-i18next";
 
 export default function FAQSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
 
   const faqs = [
     {
-      question: "¿Qué es una mesa de ayuda?",
-      answer:
-        "Es un sistema que centraliza todas las solicitudes de soporte técnico, permitiendo organizarlas, asignarlas y darles seguimiento de manera eficiente.",
+      question: t("faqs.q1"),
+      answer: t("faqs.a1"),
     },
     {
-      question: "¿La plataforma funciona en la nube?",
-      answer:
-        "Sí, puede implementarse en la nube o en servidores locales según las necesidades de tu empresa.",
+      question: t("faqs.q2"),
+      answer: t("faqs.a2"),
     },
     {
-      question: "¿Puedo gestionar inventario de equipos?",
-      answer:
-        "Sí. La plataforma permite registrar equipos, licencias, responsables, historial de mantenimiento y más.",
+      question: t("faqs.q3"),
+      answer: t("faqs.a3"),
     },
     {
-      question: "¿Se pueden generar reportes?",
-      answer:
-        "Claro. Puedes visualizar métricas de tiempos de respuesta, tickets atendidos y rendimiento del área TI.",
+      question: t("faqs.q4"),
+      answer: t("faqs.a4"),
     },
     {
-      question: "¿Ofrecen soporte después de la implementación?",
-      answer:
-        "Sí, ofrecemos acompañamiento continuo, soporte técnico y mejoras según el crecimiento de tu operación.",
+      question: t("faqs.q5"),
+      answer: t("faqs.a5"),
     },
   ];
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        mt: { xs: 4, md: 6 },
+        mb: { xs: 4, md: 6 },
+        py: { xs: 8, md: 12 },
         px: { xs: 2, md: 6 },
         borderRadius: 4,
         background: isDark
@@ -55,10 +54,11 @@ export default function FAQSection() {
         sx={{
           fontWeight: 900,
           fontSize: { xs: "1.8rem", md: "2.5rem" },
-          textAlign: "center"
+          textAlign: "center",
+          mb: { xs: 4, md: 6 },
         }}
       >
-        Preguntas{" "}
+        {t("faqs.titulo")}{" "}
         <Box
           component="span"
           sx={{
@@ -66,7 +66,7 @@ export default function FAQSection() {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}>
-          Frecuentes
+          {t("faqs.tituloGradient")}
         </Box>
       </Typography>
       {faqs.map((faq, index) => (
@@ -74,7 +74,7 @@ export default function FAQSection() {
           key={index}
           disableGutters
           sx={{
-            mb: 2,
+            mb: 3,
             borderRadius: 3,
             overflow: "hidden",
             background: isDark

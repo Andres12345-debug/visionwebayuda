@@ -3,16 +3,18 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import GroupsIcon from "@mui/icons-material/Groups";
 import SecurityIcon from "@mui/icons-material/Security";
+import { useTranslation } from "react-i18next";
 
 export default function BenefitsStrip() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
 
   const items = [
-    { icon: <SpeedIcon fontSize="large" />, text: "Implementación rápida" },
-    { icon: <TrendingUpIcon fontSize="large" />, text: "Mayor productividad" },
-    { icon: <GroupsIcon fontSize="large" />, text: "Mejor colaboración" },
-    { icon: <SecurityIcon fontSize="large" />, text: "Datos seguros" },
+    { icon: <SpeedIcon fontSize="large" />, text: t("benefitsStrip.rapida") },
+    { icon: <TrendingUpIcon fontSize="large" />, text: t("benefitsStrip.productividad") },
+    { icon: <GroupsIcon fontSize="large" />, text: t("benefitsStrip.colaboracion") },
+    { icon: <SecurityIcon fontSize="large" />, text: t("benefitsStrip.seguros") },
   ];
 
   return (

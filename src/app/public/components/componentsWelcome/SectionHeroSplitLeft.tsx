@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import heroImg from "../../../../assets/img/welcome/MesaDeAyuda.png";
 
 type SectionHeroSplitRightProps = {
@@ -13,14 +14,20 @@ type SectionHeroSplitRightProps = {
 
 export default function SectionHeroSplitLeft({
   image = heroImg,
-  subtitle = "MESA DE AYUDA Y GESTIÓN DE INCIDENCIAS",
-  title = "Soporte técnico centralizado, organizado y trazable",
-  description = "Gestiona eficientemente tus solicitudes de soporte con nuestra plataforma de mesa de ayuda, centralizando la gestión de incidencias, usuarios y reportes en una interfaz moderna y fácil de usar, mejorando tiempos de respuesta y satisfacción del cliente.",
-  buttonText = "Ver funcionalidades",
+  subtitle,
+  title,
+  description,
+  buttonText,
   buttonLink = "#",
 }: SectionHeroSplitRightProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
+
+  subtitle = subtitle ?? t("heroSplitLeft.subtitle");
+  title = title ?? t("heroSplitLeft.title");
+  description = description ?? t("heroSplitLeft.description");
+  buttonText = buttonText ?? t("heroSplitLeft.buttonText");
 
   return (
     <Box
@@ -54,7 +61,7 @@ export default function SectionHeroSplitLeft({
           <Box
             component="img"
             src={image}
-            alt="Mesa de ayuda profesional - Plataforma de soporte técnico VisionWeb"
+            alt={t("Mesa de ayuda profesional - Plataforma de soporte técnico VisionWeb")}
             sx={{
               width: "100%",
               borderRadius: 5,

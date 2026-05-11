@@ -5,10 +5,12 @@ import Grid from '@mui/material/Grid';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import StorageIcon from '@mui/icons-material/Storage';
 import AssessmentIcon from '@mui/icons-material/Assessment';
+import { useTranslation } from "react-i18next";
 import { useThemeContext } from "../../../shared/theme/ThemeConext";
 import solucionProblemasImg from "../../../../assets/img/welcome/SolucionDeProblemas.png";
 
 const TechDifferentiator = () => {
+    const { t } = useTranslation();
     const { mode } = useThemeContext();
     const isDark = mode === 'dark';
 
@@ -19,7 +21,7 @@ const TechDifferentiator = () => {
                 {/* LADO IZQUIERDO: LA PROPUESTA DE VALOR */}
                 <Grid size={{ xs: 12, md: 6 }}>
                     <Typography variant="overline" sx={{ color: '#6366f1', fontWeight: 800, letterSpacing: 2 }}>
-                        NUESTRO DIFERENCIAL
+                        {t("techDifferentiator.badge")}
                     </Typography>
                     <Typography variant="h3" sx={{
                         fontWeight: 900,
@@ -29,29 +31,29 @@ const TechDifferentiator = () => {
                         lineHeight: 1.1,
                         fontSize: { xs: '2rem', md: '2.8rem' }
                     }}>
-                        Tecnología que <span style={{ color: '#6366f1' }}>predice</span> problemas antes de que ocurran
+                        {t("techDifferentiator.titulo")}<span style={{ color: '#6366f1' }}>{t("techDifferentiator.tituloGradient")}</span>{t("techDifferentiator.tituloResto")}
                     </Typography>
 
                     <Typography variant="body1" sx={{ color: isDark ? '#94a3b8' : '#475569', mb: 4, fontSize: '1.1rem', lineHeight: 1.7 }}>
-                        A diferencia del soporte tradicional que solo aparece cuando algo se rompe, nuestro ecosistema de **Agente Profesional** nos permite auditar su empresa en tiempo real, garantizando que sus operaciones nunca se detengan por un fallo técnico previsible.
+                        {t("techDifferentiator.descripcion")}
                     </Typography>
 
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                         {[
                             {
                                 icon: <TerminalIcon sx={{ fontSize: 28 }} />,
-                                title: "Auditoría en Tiempo Real",
-                                desc: "Monitoreamos salud de discos, temperatura y memoria. Si un equipo va a fallar, lo sabemos antes que el usuario."
+                                title: t("techDifferentiator.item1Title"),
+                                desc: t("techDifferentiator.item1Desc")
                             },
                             {
                                 icon: <StorageIcon sx={{ fontSize: 28 }} />,
-                                title: "Centro de Gestión Profesional",
-                                desc: "Un historial clínico completo de cada dispositivo. Menos tiempo de diagnóstico, soluciones más rápidas."
+                                title: t("techDifferentiator.item2Title"),
+                                desc: t("techDifferentiator.item2Desc")
                             },
                             {
                                 icon: <AssessmentIcon sx={{ fontSize: 28 }} />,
-                                title: "Decisiones Basadas en Datos",
-                                desc: "Le entregamos reportes de obsolescencia para que su inversión en tecnología sea inteligente y planificada."
+                                title: t("techDifferentiator.item3Title"),
+                                desc: t("techDifferentiator.item3Desc")
                             }
                         ].map((item, i) => (
                             <Box key={i} sx={{ display: 'flex', gap: 2.5 }}>
@@ -108,7 +110,7 @@ const TechDifferentiator = () => {
                             <Box
                                 component="img"
                                 src={solucionProblemasImg}
-                                alt="Panel de control VisionWeb - Gestión profesional de infraestructura TI"
+                                alt={t("techDifferentiator.imgAlt")}
                                 sx={{
                                     width: '100%',
                                     borderRadius: '24px',

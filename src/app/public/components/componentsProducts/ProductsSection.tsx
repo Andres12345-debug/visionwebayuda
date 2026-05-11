@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { SoftwareCard, SoftwareItem } from "./SoftwareCard";
 import { ProductModal } from "./ProductModal";
@@ -22,58 +23,58 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
-const softwareList: SoftwareItem[] = [
-  {
-    id: 1,
-    name: "Inventario Profesional",
-    description: "Control avanzado de stock, almacenes y movimientos de activos TI.",
-    category: "Inventario",
-    icon: <InventoryIcon fontSize="large" />,
-  },
-  {
-    id: 2,
-    name: "Gestión Empresarial",
-    description: "Administración integral de procesos, finanzas y recursos empresariales.",
-    category: "Empresarial",
-    icon: <BusinessIcon fontSize="large" />,
-  },
-  {
-    id: 3,
-    name: "Logística Inteligente",
-    description: "Optimización de envíos, rutas y distribución con trazabilidad completa.",
-    category: "Logística",
-    icon: <LocalShippingIcon fontSize="large" />,
-  },
-  {
-    id: 4,
-    name: "Analytics y Reportes",
-    description:
-      "Métricas en tiempo real y paneles interactivos para decisiones estratégicas.",
-    category: "Analytics",
-    icon: <AssessmentIcon fontSize="large" />,
-  },
-  {
-    id: 5,
-    name: "Comercial y Facturación",
-    description: "Ventas, facturación electrónica y gestión integral de clientes.",
-    category: "Comercial",
-    icon: <StorefrontIcon fontSize="large" />,
-  },
-  {
-    id: 6,
-    name: "Soporte y Mesa de Ayuda",
-    description: "Gestión de tickets, incidencias y atención al cliente centralizada.",
-    category: "Soporte",
-    icon: <SupportAgentIcon fontSize="large" />,
-  },
-];
-
 const ProductsSection = () => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState("");
   const [selectedProduct, setSelectedProduct] =
     useState<SoftwareItem | null>(null);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  const softwareList: SoftwareItem[] = [
+    {
+      id: 1,
+      name: t("products.productos.0.name"),
+      description: t("products.productos.0.desc"),
+      category: "Inventario",
+      icon: <InventoryIcon fontSize="large" />,
+    },
+    {
+      id: 2,
+      name: t("products.productos.1.name"),
+      description: t("products.productos.1.desc"),
+      category: "Empresarial",
+      icon: <BusinessIcon fontSize="large" />,
+    },
+    {
+      id: 3,
+      name: t("products.productos.2.name"),
+      description: t("products.productos.2.desc"),
+      category: "Logística",
+      icon: <LocalShippingIcon fontSize="large" />,
+    },
+    {
+      id: 4,
+      name: t("products.productos.3.name"),
+      description: t("products.productos.3.desc"),
+      category: "Analytics",
+      icon: <AssessmentIcon fontSize="large" />,
+    },
+    {
+      id: 5,
+      name: t("products.productos.4.name"),
+      description: t("products.productos.4.desc"),
+      category: "Comercial",
+      icon: <StorefrontIcon fontSize="large" />,
+    },
+    {
+      id: 6,
+      name: t("products.productos.5.name"),
+      description: t("products.productos.5.desc"),
+      category: "Soporte",
+      icon: <SupportAgentIcon fontSize="large" />,
+    },
+  ];
 
   const filteredProducts = softwareList.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
@@ -107,7 +108,7 @@ const ProductsSection = () => {
               fontWeight={800}
               sx={{ fontSize: { xs: "2.2rem", md: "3rem" }, mb: 2 }}
             >
-              Soluciones Profesionales
+              {t("products.titulo")}
             </Typography>
 
             <Typography
@@ -118,14 +119,14 @@ const ProductsSection = () => {
                 color: "text.secondary",
               }}
             >
-              Plataforma integral para la gestión empresarial moderna.
+              {t("products.subtitulo")}
             </Typography>
           </Box>
 
           {/* Buscador */}
           <Box display="flex" justifyContent="center" mb={6}>
             <TextField
-              placeholder="Buscar producto..."
+              placeholder={t("products.buscarPlaceholder")}
               variant="outlined"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -155,7 +156,7 @@ const ProductsSection = () => {
           {/* Enlace interno a planes de gestión */}
           <Stack spacing={2} alignItems="center" sx={{ mt: 8, mb: 4 }}>
             <Typography variant="h6" fontWeight={700} color="text.secondary" textAlign="center">
-              ¿Listo para llevar tu gestión al siguiente nivel?
+              {t("products.ctaTitulo")}
             </Typography>
             <Button
               variant="contained"
@@ -174,7 +175,7 @@ const ProductsSection = () => {
                 },
               }}
             >
-              Ver planes de gestión IT
+              {t("products.ctaBoton")}
             </Button>
           </Stack>
         </Container>

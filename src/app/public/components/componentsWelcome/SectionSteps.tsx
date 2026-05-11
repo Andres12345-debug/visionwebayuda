@@ -4,32 +4,34 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function StepsSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   const steps = [
     {
       icon: <SecurityIcon fontSize="large" />,
-      title: "Seguridad y control",
-      desc: "Protegemos la información del área TIC con accesos controlados, registros auditables y trazabilidad completa.",
+      title: t("sectionSteps.step1Title"),
+      desc: t("sectionSteps.step1Desc"),
     },
     {
       icon: <SpeedIcon fontSize="large" />,
-      title: "Optimización del tiempo",
-      desc: "Reducimos los tiempos de atención centralizando solicitudes, automatizando procesos y priorizando incidencias.",
+      title: t("sectionSteps.step2Title"),
+      desc: t("sectionSteps.step2Desc"),
     },
     {
       icon: <VisibilityIcon fontSize="large" />,
-      title: "Trazabilidad total",
-      desc: "Cada ticket, activo y cambio queda documentado, permitiendo seguimiento histórico y control en tiempo real.",
+      title: t("sectionSteps.step3Title"),
+      desc: t("sectionSteps.step3Desc"),
     },
     {
       icon: <TrendingUpIcon fontSize="large" />,
-      title: "Mejora continua",
-      desc: "Analizamos métricas y reportes para optimizar el rendimiento del soporte técnico y la gestión TIC.",
+      title: t("sectionSteps.step4Title"),
+      desc: t("sectionSteps.step4Desc"),
     },
   ];
 
@@ -50,17 +52,7 @@ export default function StepsSection() {
         mb={{ xs: 6, md: 8 }}
         sx={{ fontSize: { xs: "1.8rem", md: "2.3rem" } }}
       >
-        <Box
-          component="span"
-          sx={{
-            background: "linear-gradient(90deg, #6366f1, #9333ea)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Beneficios{" "}
-        </Box>
-        clave para tu área TIC
+          {t("sectionSteps.titulo")}
       </Typography>
 
       {/* CONTENEDOR RESPONSIVE */}

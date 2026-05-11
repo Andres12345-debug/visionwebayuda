@@ -10,6 +10,7 @@ import {
     Chip,
     Stack,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { SoftwareItem } from "./SoftwareCard";
 
 interface Props {
@@ -23,14 +24,15 @@ export const ProductModal: React.FC<Props> = ({
     onClose,
     product,
 }) => {
+    const { t } = useTranslation();
     if (!product) return null;
 
     const features = [
-        "Automatización inteligente",
-        "Reportes en tiempo real",
-        "Integración con módulos profesionales",
-        "Escalable y seguro",
-        "Soporte especializado 24/7",
+        t("productModal.feature1"),
+        t("productModal.feature2"),
+        t("productModal.feature3"),
+        t("productModal.feature4"),
+        t("productModal.feature5"),
     ];
 
     return (
@@ -75,7 +77,7 @@ export const ProductModal: React.FC<Props> = ({
                 </Typography>
 
                 <Typography variant="body2" sx={{ opacity: 0.9, mt: 1 }}>
-                    Solución profesional VisionWeb
+                    {t("productModal.solucion")}
                 </Typography>
             </Box>
 
@@ -88,7 +90,7 @@ export const ProductModal: React.FC<Props> = ({
                 <Divider sx={{ mb: 3 }} />
 
                 <Typography variant="h6" fontWeight={600} mb={2}>
-                    Características principales
+                    {t("productModal.caracteristicas")}
                 </Typography>
 
                 <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -112,7 +114,7 @@ export const ProductModal: React.FC<Props> = ({
                     color="inherit"
                     sx={{ textTransform: "none" }}
                 >
-                    Cerrar
+                    {t("productModal.cerrar")}
                 </Button>
 
                 <Button
@@ -129,7 +131,7 @@ export const ProductModal: React.FC<Props> = ({
                         },
                     }}
                 >
-                    Solicitar Demo
+                    {t("productModal.solicitarDemo")}
                 </Button>
             </DialogActions>
         </Dialog>

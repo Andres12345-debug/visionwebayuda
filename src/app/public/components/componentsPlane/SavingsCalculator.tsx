@@ -12,6 +12,7 @@ import {
   Tooltip,
   LinearProgress,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import BusinessIcon from "@mui/icons-material/Business";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -28,6 +29,7 @@ const CONFIG = {
 };
 
 const CalculadoraAdministracionIT = () => {
+  const { t } = useTranslation();
   const [cantidad, setCantidad] = useState(15);
   const theme = useTheme();
 
@@ -48,7 +50,7 @@ const CalculadoraAdministracionIT = () => {
     }).format(valor);
   };
 
-  const enviarWhatsApp = () => {
+    const enviarWhatsApp = () => {
     const mensaje = `Hola VisionWeb! 
 Estuve revisando su calculadora:
 - Equipos: ${cantidad}
@@ -97,17 +99,17 @@ Me gustaría recibir más información.`;
               variant="caption"
               sx={{ fontWeight: 800, letterSpacing: 1 }}
             >
-              CALCULADORA DE COSTOS
+              {t("savingsCalculator.badge")}
             </Typography>
           </Box>
           <Typography
             variant="h3"
             sx={{ fontWeight: 900, color: "text.primary" }}
           >
-            ¿Cuántos equipos vamos a administrar?
+            {t("savingsCalculator.titulo")}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Desliza para calcular tu inversión y ahorro proyectado.
+            {t("savingsCalculator.descripcion")}
           </Typography>
         </Stack>
 
@@ -117,14 +119,14 @@ Me gustaría recibir más información.`;
              <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
                <Stack direction="row" spacing={1} alignItems="center">
                  <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                   Cantidad de equipos
+                   {t("savingsCalculator.cantidadLabel")}
                  </Typography>
-                 <Tooltip title="Arrastra el control deslizante para ajustar la cantidad de equipos que necesitas administrar">
+                  <Tooltip title={t("savingsCalculator.cantidadTooltip")}>
                    <InfoIcon sx={{ fontSize: 18, color: "text.secondary" }} />
                  </Tooltip>
                </Stack>
                <Typography variant="body2" color="text.secondary">
-                 {cantidad > 50 ? "✓ Descuento de escala aplicado" : ""}
+                  {cantidad > 50 ? t("savingsCalculator.descuentoEscala") : ""}
                </Typography>
              </Box>
              <Slider
@@ -158,7 +160,7 @@ Me gustaría recibir más información.`;
                  color="text.secondary"
                  sx={{ fontWeight: 700 }}
                >
-                 EQUIPOS
+                  {t("savingsCalculator.equipos")}
                </Typography>
              </Stack>
              {/* Barra de progreso visual */}
@@ -202,7 +204,7 @@ Me gustaría recibir más información.`;
               >
                 <BusinessIcon />
                 <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-                  GESTIÓN ACTUAL
+                  {t("savingsCalculator.gestionActual")}
                 </Typography>
               </Stack>
                <Box sx={{ flexGrow: 1 }}>
@@ -211,10 +213,10 @@ Me gustaría recibir más información.`;
                    component="div"
                    sx={{ lineHeight: 2.5, color: "text.secondary" }}
                  >
-                   • Costos de personal técnico
-                   <br />
-                   • Tiempo muerto por fallos
-                   <br />• Riesgos de ciberseguridad
+                    {t("savingsCalculator.costosPersonal")}
+                    <br />
+                    {t("savingsCalculator.tiempoMuerto")}
+                    <br />{t("savingsCalculator.riesgos")}
                  </Typography>
                </Box>
                <Box
@@ -229,7 +231,7 @@ Me gustaría recibir más información.`;
                    variant="caption"
                    sx={{ fontWeight: 700, color: "text.disabled" }}
                  >
-                   COSTO ESTIMADO
+                    {t("savingsCalculator.costoEstimado")}
                  </Typography>
                  <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.6 }}>
                    {formatoCOP(totalInterno)}
@@ -265,7 +267,7 @@ Me gustaría recibir más información.`;
               >
                 <SupportAgentIcon />
                 <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-                  CON VISIONWEB
+                   {t("savingsCalculator.conVisionWeb")}
                 </Typography>
               </Stack>
                <Box sx={{ flexGrow: 1 }}>
@@ -276,17 +278,17 @@ Me gustaría recibir más información.`;
                  >
                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                      <CheckCircleIcon sx={{ fontSize: 18 }} />
-                     Soporte profesional ilimitado
+                     {t("savingsCalculator.soporteIlimitado")}
                    </Box>
                    <br />
                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                      <CheckCircleIcon sx={{ fontSize: 18 }} />
-                     Mantenimiento preventivo
+                      {t("savingsCalculator.mantenimiento")}
                    </Box>
                    <br />
                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                      <CheckCircleIcon sx={{ fontSize: 18 }} />
-                     Inventario digital real
+                      {t("savingsCalculator.inventarioDigital")}
                    </Box>
                  </Typography>
                </Box>
@@ -301,7 +303,7 @@ Me gustaría recibir más información.`;
                   variant="caption"
                   sx={{ fontWeight: 700, opacity: 0.9 }}
                 >
-                  INVERSIÓN MENSUAL
+                   {t("savingsCalculator.inversionMensual")}
                 </Typography>
                 <Typography variant="h4" sx={{ fontWeight: 900 }}>
                   {formatoCOP(totalNosotros)}
@@ -331,7 +333,7 @@ Me gustaría recibir más información.`;
                 color="success.main"
                 sx={{ fontWeight: 900, mb: 3 }}
               >
-                TU AHORRO
+                 {t("savingsCalculator.tuAhorro")}
               </Typography>
               <Stack spacing={2}>
                 <Box
@@ -348,7 +350,7 @@ Me gustaría recibir más información.`;
                     color="text.secondary"
                     sx={{ fontWeight: 700 }}
                   >
-                    AHORRO MENSUAL
+                     {t("savingsCalculator.ahorroMensual")}
                   </Typography>
                   <Typography
                     variant="h5"
@@ -367,7 +369,7 @@ Me gustaría recibir más información.`;
                   }}
                 >
                   <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                    AHORRO ANUAL
+                     {t("savingsCalculator.ahorroAnual")}
                   </Typography>
                   <Typography variant="h5" sx={{ fontWeight: 900 }}>
                     {formatoCOP(ahorroMensual * 12)}
@@ -400,10 +402,10 @@ Me gustaría recibir más información.`;
                  transition: "all 0.3s",
                }}
              >
-               ME INTERESA ESTE PRECIO
+                {t("savingsCalculator.boton")}
              </Button>
              <Typography variant="caption" color="text.secondary" sx={{ fontStyle: "italic" }}>
-               Envía tus datos por WhatsApp y recibe una propuesta personalizada en menos de 1 hora.
+                {t("savingsCalculator.botonSubtexto")}
              </Typography>
            </Stack>
          </Box>

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 type SEOProps = {
   title?: string;
@@ -11,27 +12,31 @@ type SEOProps = {
 };
 
 export default function SEO({
-  title = "VisionWeb System - Soluciones TIC Profesionales",
-  description = "Centraliza, organiza y controla el soporte técnico y los activos tecnológicos de tu empresa con VisionWeb. Mesa de ayuda, inventario TI y gestión de infraestructura.",
-  keywords = "mesa de ayuda, soporte técnico, gestión de activos TI, inventario tecnológico, help desk profesional, VisionWeb, gestión de infraestructura",
+  title,
+  description,
+  keywords,
   ogTitle,
   ogDescription,
   ogImage = "/logo192.png",
   ogUrl,
 }: SEOProps) {
+  const { t } = useTranslation();
+  const defaultTitle = title || t("seo.homeTitle");
+  const defaultDescription = description || t("seo.homeDescription");
+  const defaultKeywords = keywords || t("seo.keywords");
   return (
     <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta property="og:title" content={ogTitle || title} />
-      <meta property="og:description" content={ogDescription || description} />
+      <title>{defaultTitle}</title>
+      <meta name="description" content={defaultDescription} />
+      <meta name="keywords" content={defaultKeywords} />
+      <meta property="og:title" content={ogTitle || defaultTitle} />
+      <meta property="og:description" content={ogDescription || defaultDescription} />
       <meta property="og:image" content={ogImage} />
       {ogUrl && <meta property="og:url" content={ogUrl} />}
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={ogTitle || title} />
-      <meta name="twitter:description" content={ogDescription || description} />
+      <meta name="twitter:title" content={ogTitle || defaultTitle} />
+      <meta name="twitter:description" content={ogDescription || defaultDescription} />
     </Helmet>
   );
 }

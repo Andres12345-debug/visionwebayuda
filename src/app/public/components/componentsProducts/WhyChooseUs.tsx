@@ -7,38 +7,40 @@ import {
 // Importación directa de Grid2 para evitar errores de tipos en MUI 7
 import Grid from '@mui/material/Grid';
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 import SecurityIcon from "@mui/icons-material/Security";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
-const items = [
-    {
-        icon: <SecurityIcon fontSize="large" />,
-        title: "Seguridad Empresarial",
-        description: "Implementamos soluciones seguras y confiables para proteger la información crítica de tu organización.",
-    },
-    {
-        icon: <SupportAgentIcon fontSize="large" />,
-        title: "Soporte Continuo",
-        description: "Acompañamiento técnico permanente para garantizar estabilidad y resolución rápida de incidentes.",
-    },
-    {
-        icon: <SettingsSuggestIcon fontSize="large" />,
-        title: "Implementación Profesional",
-        description: "Configuraciones optimizadas y adaptadas a las necesidades reales de tu infraestructura.",
-    },
-    {
-        icon: <TrendingUpIcon fontSize="large" />,
-        title: "Escalabilidad",
-        description: "Soluciones preparadas para crecer junto con tu empresa sin perder rendimiento.",
-    },
-];
-
 const WhyChooseUs = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
+
+    const items = [
+        {
+            icon: <SecurityIcon fontSize="large" />,
+            title: t("whyChooseUs.card1Title"),
+            description: t("whyChooseUs.card1Desc"),
+        },
+        {
+            icon: <SupportAgentIcon fontSize="large" />,
+            title: t("whyChooseUs.card2Title"),
+            description: t("whyChooseUs.card2Desc"),
+        },
+        {
+            icon: <SettingsSuggestIcon fontSize="large" />,
+            title: t("whyChooseUs.card3Title"),
+            description: t("whyChooseUs.card3Desc"),
+        },
+        {
+            icon: <TrendingUpIcon fontSize="large" />,
+            title: t("whyChooseUs.card4Title"),
+            description: t("whyChooseUs.card4Desc"),
+        },
+    ];
 
     return (
         <Box
@@ -58,7 +60,7 @@ const WhyChooseUs = () => {
                         gutterBottom
                         sx={{ color: isDark ? "#ffffff" : "#1e293b", fontSize: { xs: '2rem', md: '2.5rem' } }}
                     >
-                        ¿Por qué elegirnos?
+                        {t("whyChooseUs.titulo")}
                     </Typography>
 
                     <Typography
@@ -67,8 +69,7 @@ const WhyChooseUs = () => {
                         mx="auto"
                         sx={{ color: isDark ? "#94a3b8" : "#475569", fontSize: '1.1rem' }}
                     >
-                        Más que implementar herramientas, construimos soluciones tecnológicas
-                        sólidas que impulsan la eficiencia y el crecimiento empresarial.
+                        {t("whyChooseUs.descripcion")}
                     </Typography>
                 </Box>
 

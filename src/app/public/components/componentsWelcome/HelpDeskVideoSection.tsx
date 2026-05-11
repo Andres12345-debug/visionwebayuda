@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 
 export default function HelpdeskVideoSection() {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -25,7 +27,7 @@ export default function HelpdeskVideoSection() {
             color: isDark ? "#ffffff" : "#1e293b",
           }}
         >
-          Conoce nuestra{" "}
+          {t("helpDeskVideo.titulo")}{" "}
           <Box
             component="span"
             sx={{
@@ -34,9 +36,9 @@ export default function HelpdeskVideoSection() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            mesa de ayuda Profesional
+            {t("helpDeskVideo.tituloGradient")}
           </Box>{" "}
-          en acción
+          {t("helpDeskVideo.enAccion")}
         </Typography>
         <Typography
           variant="body1"
@@ -46,8 +48,7 @@ export default function HelpdeskVideoSection() {
             mx: "auto",
           }}
         >
-          Descubre cómo centralizamos el soporte técnico y la gestión de activos
-          con nuestra plataforma proactiva.
+          {t("helpDeskVideo.descripcion")}
         </Typography>
       </Box>
 
@@ -76,7 +77,7 @@ export default function HelpdeskVideoSection() {
           <Box
             component="iframe"
             src="https://www.youtube.com/embed/Dq2FAU9vh9w"
-            title="mesa de ayuda Profesional"
+            title={t("helpDeskVideo.videoTitle")}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             sx={{

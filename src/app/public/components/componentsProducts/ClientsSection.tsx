@@ -1,4 +1,5 @@
 import { Box, Container, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 // 1. Importaciones de tus logos (Rutas confirmadas)
 import logo1 from "../../logos/logo1.png";
@@ -11,6 +12,7 @@ import logo6 from "../../logos/logo6.png";
 const logos: any[] = [logo1, logo2, logo3, logo4, logo5, logo6];
 
 const ClientsSection = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === "dark";
 
@@ -26,10 +28,10 @@ const ClientsSection = () => {
             <Container maxWidth="lg">
                 <Box textAlign="center" mb={6}>
                     <Typography variant="h5" fontWeight={700} gutterBottom color="text.primary">
-                        Empresas que confían en nosotros
+                        {t("clients.titulo")}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Organizaciones que han optimizado su infraestructura tecnológica con nuestras soluciones.
+                        {t("clients.descripcion")}
                     </Typography>
                 </Box>
 
@@ -56,7 +58,7 @@ const ClientsSection = () => {
                             key={index}
                             component="img"
                             src={logo?.src || logo}
-                             alt={`Logo de empresa cliente - ${index < logos.length ? "Empresa confiando en VisionWeb" : ""}`}
+                             alt={`Logo de empresa cliente - ${index < logos.length ? t("clients.logoAlt") : ""}`}
                             sx={{
                                 height: 60,
                                 width: "auto",

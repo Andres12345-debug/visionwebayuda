@@ -9,6 +9,7 @@ import {
   Chip,
   Tooltip,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -29,38 +30,38 @@ type Props = {
   interval?: number;
 };
 
-const DEFAULT_SLIDES: Slide[] = [
-  {
-    src: require("../../../../assets/img/welcome/SolucionDeProblemas.png"),
-    title: "Soporte Técnico Organizado",
-    caption:
-      "Centraliza solicitudes, asigna técnicos y lleva historial completo.",
-    ctaText: "Saber más",
-  },
-  {
-    src: require("../../../../assets/img/welcome/PresentacionDelServicio.png"),
-    title: "Control Total de Activos",
-    caption:
-      "Registra equipos, responsables y mantenimientos en un solo lugar.",
-    ctaText: "Iniciar",
-  },
-  {
-    src: require("../../../../assets/img/welcome/SolucionesTics.png"),
-    title: "Gestión TIC Profesional",
-    caption:
-      "Métricas, tiempos de respuesta y reportes en tiempo real.",
-    ctaText: "Ver más",
-  },
-];
-
 export default function ImageCarousel({
-  slides = DEFAULT_SLIDES,
+  slides: externalSlides,
   autoPlay = true,
   interval = 4500,
 }: Props) {
   const theme = useTheme();
+  const { t } = useTranslation();
   const [active, setActive] = React.useState(0);
   const [playing, setPlaying] = React.useState(autoPlay);
+
+  const DEFAULT_SLIDES: Slide[] = [
+    {
+      src: require("../../../../assets/img/welcome/SolucionDeProblemas.png"),
+      title: t("imageCarousel.slide1Title"),
+      caption: t("imageCarousel.slide1Caption"),
+      ctaText: t("imageCarousel.slide1Cta"),
+    },
+    {
+      src: require("../../../../assets/img/welcome/PresentacionDelServicio.png"),
+      title: t("imageCarousel.slide2Title"),
+      caption: t("imageCarousel.slide2Caption"),
+      ctaText: t("imageCarousel.slide2Cta"),
+    },
+    {
+      src: require("../../../../assets/img/welcome/SolucionesTics.png"),
+      title: t("imageCarousel.slide3Title"),
+      caption: t("imageCarousel.slide3Caption"),
+      ctaText: t("imageCarousel.slide3Cta"),
+    },
+  ];
+
+  const slides = externalSlides ?? DEFAULT_SLIDES;
   const total = slides.length;
 
   const next = React.useCallback(() => {
@@ -205,7 +206,7 @@ export default function ImageCarousel({
       </Box>
 
       {/* FLECHAS */}
-       <Tooltip title="Anterior (← o flecha izquierda)">
+       <Tooltip title={t("imageCarousel.anterior")}>
          <IconButton
            onClick={() => {
              setPlaying(false);
@@ -225,13 +226,13 @@ export default function ImageCarousel({
                transform: "translateY(-50%) scale(1.1)"
              },
            }}
-           aria-label="Slide anterior"
+           aria-label={t("imageCarousel.anterior")}
          >
            <KeyboardArrowLeft />
          </IconButton>
        </Tooltip>
 
-       <Tooltip title="Siguiente (→ o flecha derecha)">
+       <Tooltip title={t("imageCarousel.siguiente")}>
          <IconButton
            onClick={() => {
              setPlaying(false);
@@ -251,14 +252,14 @@ export default function ImageCarousel({
                transform: "translateY(-50%) scale(1.1)"
              },
            }}
-           aria-label="Siguiente slide"
+           aria-label={t("imageCarousel.siguiente")}
          >
            <KeyboardArrowRight />
          </IconButton>
        </Tooltip>
 
       {/* PLAY / PAUSE */}
-       <Tooltip title={playing ? "Pausar (espacio)" : "Reproducir (espacio)"}>
+       <Tooltip title={playing ? t("imageCarousel.pausar") : t("imageCarousel.reproducir")}>
          <IconButton
            onClick={() => setPlaying((p) => !p)}
            sx={{
@@ -274,7 +275,7 @@ export default function ImageCarousel({
                transform: "scale(1.1)"
              },
            }}
-           aria-label={playing ? "Pausar presentación" : "Reproducir presentación"}
+           aria-label={playing ? t("imageCarousel.pausar") : t("imageCarousel.reproducir")}
          >
            {playing ? <PauseIcon /> : <PlayArrowIcon />}
          </IconButton>
@@ -310,31 +311,31 @@ export default function ImageCarousel({
           gap: 1.5,
         }}
       >
-       {slides.map((_, i) => (
-           <Tooltip key={i} title={`Ir al slide ${i + 1}`}>
-             <Box
-               onClick={() => {
-                 setPlaying(false);
-                 setActive(i);
-               }}
-               sx={{
-                 width: active === i ? 40 : 12,
-                 height: 12,
-                 borderRadius: 6,
-                 bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.5)",
-                 transition: "all .3s ease",
-                 cursor: "pointer",
-                 "&:hover": {
-                   bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.8)",
-                 }
-               }}
-               role="button"
-               tabIndex={0}
-               aria-current={active === i}
-               aria-label={`Slide ${i + 1}`}
-             />
-           </Tooltip>
-         ))}
+        {slides.map((_, i) => (
+            <Tooltip key={i} title={t("imageCarousel.irSlide", { n: i + 1 })}>
+              <Box
+                onClick={() => {
+                  setPlaying(false);
+                  setActive(i);
+                }}
+                sx={{
+                  width: active === i ? 40 : 12,
+                  height: 12,
+                  borderRadius: 6,
+                  bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.5)",
+                  transition: "all .3s ease",
+                  cursor: "pointer",
+                  "&:hover": {
+                    bgcolor: active === i ? "secondary.main" : "rgba(255,255,255,.8)",
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-current={active === i}
+                aria-label={t("imageCarousel.irSlide", { n: i + 1 })}
+              />
+            </Tooltip>
+          ))}
       </Box>
     </Box>
   );
