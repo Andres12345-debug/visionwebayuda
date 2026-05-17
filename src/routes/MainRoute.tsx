@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { MainLayout } from "../app/shared/layout/MainLayout";
 import { lazy, Suspense } from "react";
 import ScrollToTop from "../app/public/components/ScrollToTop";

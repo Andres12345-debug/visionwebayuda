@@ -5,7 +5,6 @@ import { useThemeContext } from "../../../shared/theme/ThemeConext";
 import TechDifferentiator from './TechDifferentiator';
 
 const PlanesPage = () => {
-    const { t } = useTranslation();
     const { mode } = useThemeContext();
     const isDark = mode === 'dark';
 
