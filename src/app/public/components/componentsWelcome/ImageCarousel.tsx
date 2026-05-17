@@ -6,7 +6,6 @@ import {
   Typography,
   Button,
   useTheme,
-  Chip,
   Tooltip,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -14,7 +13,6 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 type Slide = {
   src: string;
