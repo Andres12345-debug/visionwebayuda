@@ -32,13 +32,12 @@ export default function SectionHeroSplit({
   return (
     <Box
       sx={{
-        px: 2,
+         py: { xs: 6, md: 10 }
       }}
     >
       <Box
         sx={{
-          maxWidth: 1300,
-          mx: "auto",
+          maxWidth: 1200, mx: "auto" ,
           background: isDark ? "#111827" : "#ffffff",
           borderRadius: 6,
           p: { xs: 4, md: 8 },

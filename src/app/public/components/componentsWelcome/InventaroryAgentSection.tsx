@@ -1,183 +1,101 @@
 // InventoryAgentSection.tsx
-import { Box, Typography, useTheme } from "@mui/material";
-import ComputerIcon from "@mui/icons-material/Computer";
-import MemoryIcon from "@mui/icons-material/Memory";
-import AppsIcon from "@mui/icons-material/Apps";
-import SyncIcon from "@mui/icons-material/Sync";
-import { useRef } from "react";
-import { useTranslation } from "react-i18next";
+
+import { Box, Typography } from "@mui/material";
+import ServiceCard from "../shared/ServiceCards";
+
+import Inventory2Icon from "@mui/icons-material/Inventory2";
+import StorageIcon from "@mui/icons-material/Storage";
+import SecurityIcon from "@mui/icons-material/Security";
+import AssessmentIcon from "@mui/icons-material/Assessment";
 
 export default function InventoryAgentSection() {
-  const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
-
-  const features = [
+  const services = [
     {
-      icon: <ComputerIcon sx={{ fontSize: 36 }} />,
-      title: t("inventoryAgent.card1Title"),
-      text: t("inventoryAgent.card1Text"),
+      icon: <Inventory2Icon />,
+      title: "Control de Inventario",
+      description: "Gestión centralizada de equipos y activos TI.",
     },
     {
-      icon: <AppsIcon sx={{ fontSize: 36 }} />,
-      title: t("inventoryAgent.card2Title"),
-      text: t("inventoryAgent.card2Text"),
+      icon: <StorageIcon />,
+      title: "Base de Datos",
+      description: "Organiza y consulta información en tiempo real.",
     },
     {
-      icon: <MemoryIcon sx={{ fontSize: 36 }} />,
-      title: t("inventoryAgent.card3Title"),
-      text: t("inventoryAgent.card3Text"),
+      icon: <SecurityIcon />,
+      title: "Seguridad",
+      description: "Control de accesos y trazabilidad de cambios.",
     },
     {
-      icon: <SyncIcon sx={{ fontSize: 36 }} />,
-      title: t("inventoryAgent.card4Title"),
-      text: t("inventoryAgent.card4Text"),
+      icon: <AssessmentIcon />,
+      title: "Reportes",
+      description: "Análisis y métricas del inventario en tiempo real.",
     },
   ];
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        py: { xs: 6, md: 10 },
         px: { xs: 2, md: 6 },
-        borderRadius: 4,
-        background: isDark
-          ? "linear-gradient(180deg, #000000, #000000)"
-          : "linear-gradient(180deg, #ffffff, #f8fafc)",
+        maxWidth: 1200,
+        mx: "auto",
       }}
     >
-      {/* TÍTULO */}
-      <Box sx={{ textAlign: "center", mb: 5 }}>
+      {/* TITULO SECCIÓN */}
+      <Box sx={{ textAlign: "center", mb: 6 }}>
         <Typography
+          variant="h3"
           sx={{
             fontWeight: 900,
-            fontSize: { xs: "1.8rem", md: "2.5rem" },
-            textAlign: "center"
+            letterSpacing: "-0.03em",
+            mb: 2,
           }}
         >
-          {t("inventoryAgent.titulo")}{" "}
+          Agente de Inventario{" "}
           <Box
             component="span"
             sx={{
-              background: "linear-gradient(90deg, #6366f1, #9333ea)",
+              background: `linear-gradient(90deg, #3b82f6, #8b5cf6)`,
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              filter: "saturate(1.4) contrast(1.1)",
             }}
           >
-            {t("inventoryAgent.tituloGradient")}
+            Inteligente
           </Box>
+        </Typography>
+
+        <Typography
+          variant="body1"
+          color="text.secondary"
+          sx={{ maxWidth: 700, mx: "auto" }}
+        >
+          Controla, administra y analiza tu inventario TI en tiempo real con una
+          solución centralizada y escalable.
         </Typography>
       </Box>
 
-      {/* CONTENEDOR DE CARDS */}
+      {/* GRID */}
       <Box
-        ref={scrollContainerRef}
         sx={{
-          // Desktop: Grid normal
-          display: { xs: "flex", md: "grid" },
-          gridTemplateColumns: { md: "repeat(4, 1fr)" },
+          display: "grid",
           gap: 3,
-          maxWidth: 1200,
-          mx: { xs: -2, md: "auto" },
-
-          // Mobile: Scroll horizontal
-          overflowX: { xs: "auto", md: "visible" },
-          scrollSnapType: { xs: "x mandatory", md: "none" },
-          scrollBehavior: "smooth",
-          WebkitOverflowScrolling: "touch",
-
-          // Ocultar scrollbar pero mantener funcionalidad
-          "&::-webkit-scrollbar": {
-            display: "none",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
           },
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-
-          // Padding para que la primera y última card tengan espacio
-          px: { xs: 2, md: 0 },
         }}
       >
-        {features.map((item, index) => (
-          <Box
-            key={index}
-            sx={{
-              // Mobile: Cards con ancho fijo
-              minWidth: { xs: "280px", sm: "320px", md: "auto" },
-              scrollSnapAlign: { xs: "center", md: "none" },
-              scrollSnapStop: { xs: "always", md: "normal" },
-
-              p: 3,
-              borderRadius: 3,
-              background: isDark
-                ? "rgba(255,255,255,0.06)"
-                : "#ffffff",
-              border: "1px solid",
-              borderColor: isDark
-                ? "rgba(255,255,255,0.08)"
-                : "#dbe3ff",
-              boxShadow: "0 8px 25px rgba(28,66,174,0.08)",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-6px)",
-                boxShadow: "0 12px 30px rgba(28,66,174,0.18)",
-              },
-            }}
-          >
-            <Box
-              sx={{
-                mb: 2,
-                color: "#1c42ae",
-              }}
-            >
-              {item.icon}
-            </Box>
-
-            <Typography fontWeight={700} mb={1}>
-              {item.title}
-            </Typography>
-
-            <Typography
-              variant="body2"
-              sx={{
-                color: theme.palette.text.secondary,
-                lineHeight: 1.6,
-              }}
-            >
-              {item.text}
-            </Typography>
+        {services.map((item, index) => (
+          <Box key={index} sx={{ display: "flex" }}>
+            <ServiceCard
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+            />
           </Box>
         ))}
-      </Box>
-
-      {/* INDICADOR DE DESLIZAMIENTO (solo mobile) */}
-      <Box
-        sx={{
-          display: { xs: "flex", md: "none" },
-          justifyContent: "center",
-          gap: 1,
-          mt: 3,
-        }}
-      >
-        {features.map((_, index) => (
-          <Box
-            key={index}
-            sx={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              bgcolor: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.2)",
-              transition: "all 0.3s ease",
-            }}
-          />
-        ))}
-      </Box>
-
-      {/* MENSAJE FINAL */}
-      <Box sx={{ textAlign: "center", mt: 5 }}>
-        <Typography fontWeight={700}>
-          {t("inventoryAgent.mensajeFinal")}
-        </Typography>
       </Box>
     </Box>
   );

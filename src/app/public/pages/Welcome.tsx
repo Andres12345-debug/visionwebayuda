@@ -25,13 +25,13 @@ const Welcome = () => {
             <SectionHeader />
             <ServicesSection />
             <SectionHeroSplit />
-            <SectionHeroSplitLeft />
-            <ImageCarousel />
+            <SectionHeroSplitLeft />            
+            <InventoryAgentSection />            
             <StepsSection />
-            <InventoryAgentSection />
             <HelpdeskVideoSection />
             <FAQSection />
             <FormularioContacto />
+            <ImageCarousel />
         </Box>
     );
 };

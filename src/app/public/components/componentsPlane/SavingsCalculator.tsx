@@ -17,7 +17,6 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import BusinessIcon from "@mui/icons-material/Business";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import AssessmentIcon from "@mui/icons-material/Assessment";
 import InfoIcon from "@mui/icons-material/Info";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
