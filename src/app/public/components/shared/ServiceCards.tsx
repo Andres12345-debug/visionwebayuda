@@ -5,12 +5,14 @@ type ServiceCardProps = {
   icon: ReactNode;
   title: string;
   description: string;
+  minHeight?: number | string;
 };
 
 export default function ServiceCard({
   icon,
   title,
   description,
+  minHeight = 280,
 }: ServiceCardProps) {
   const theme = useTheme();
 
@@ -18,20 +20,26 @@ export default function ServiceCard({
     <Card
       elevation={2}
       sx={{
+        width: "100%",
         height: "100%",
-        borderRadius: 3,
+        minHeight,
+
+        flexShrink: 0,
+
+        borderRadius: 4,
         border: `1px solid ${theme.palette.divider}`,
+
         position: "relative",
         overflow: "hidden",
+
         backgroundColor: theme.palette.background.paper,
 
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
 
-        transition: "transform 0.25s ease, box-shadow 0.25s ease",
+        transition:
+          "transform 0.25s ease, box-shadow 0.25s ease",
 
-        // UX móvil
         WebkitTapHighlightColor: "transparent",
         userSelect: "none",
 
@@ -39,15 +47,14 @@ export default function ServiceCard({
           transform: "scale(0.98)",
         },
 
-        // Hover solo en dispositivos con mouse
         "@media (hover: hover)": {
           "&:hover": {
             transform: "translateY(-6px)",
-            boxShadow: theme.shadows[8],
+            boxShadow: theme.shadows[10],
           },
         },
 
-        // barra superior degradada
+        // TOP GRADIENT
         "&::before": {
           content: '""',
           position: "absolute",
@@ -55,6 +62,7 @@ export default function ServiceCard({
           left: 0,
           width: "100%",
           height: "4px",
+
           background: `
             linear-gradient(
               90deg,
@@ -66,49 +74,57 @@ export default function ServiceCard({
         },
       }}
     >
-      <CardContent sx={{ p: { xs: 2, md: 4 } }}>
-        {/* ICONO */}
+      <CardContent
+        sx={{
+          p: { xs: 3, md: 4 },
+          textAlign: "center",
+        }}
+      >
+        {/* ICON */}
         <Box
           sx={{
-            width: 60,
-            height: 60,
+            width: 68,
+            height: 68,
+
+            borderRadius: "50%",
+
+            mx: "auto",
             mb: 3,
-            borderRadius: 3,
-            display: "inline-flex",
+
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
 
-            background: `
-              linear-gradient(135deg, #3b82f6, #8b5cf6)
-            `,
+            background:
+              "linear-gradient(135deg, #6366f1, #9333ea)",
 
-            filter: "saturate(1.4) contrast(1.1)",
             color: "#fff",
 
-            boxShadow: "0 18px 30px -20px rgba(59,130,246,0.8)",
+            boxShadow:
+              "0 12px 28px rgba(99,102,241,0.35)",
           }}
         >
           {icon}
         </Box>
 
-        {/* TITULO */}
+        {/* TITLE */}
         <Typography
           variant="h6"
           sx={{
             fontWeight: 800,
-            mb: 1.2,
+            mb: 1.5,
             lineHeight: 1.2,
           }}
         >
           {title}
         </Typography>
 
-        {/* DESCRIPCION */}
+        {/* DESCRIPTION */}
         <Typography
           variant="body2"
           color="text.secondary"
           sx={{
-            lineHeight: 1.75,
+            lineHeight: 1.7,
           }}
         >
           {description}

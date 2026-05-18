@@ -37,12 +37,14 @@ export default function ServicesSection() {
     },
     {
       title: t("Soporte Multiplataforma"),
-      description: t("Hardware, software y red desde una sola plataforma."),
+      description:
+        t("Hardware, software y red desde una sola plataforma."),
       icon: <DevicesIcon fontSize="medium" />,
     },
     {
       title: t("Control y Seguridad"),
-      description: t("Gestión de accesos e historial de cambios."),
+      description:
+        t("Gestión de accesos e historial de cambios."),
       icon: <SecurityIcon fontSize="medium" />,
     },
   ];
@@ -53,44 +55,118 @@ export default function ServicesSection() {
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 6 },
         borderRadius: 4,
+
         backgroundColor:
           theme.palette.mode === "dark"
             ? theme.palette.background.default
             : theme.palette.grey[50],
       }}
     >
-      <Box sx={{ maxWidth: 1200, mx: "auto" }}>
+      <Box
+        sx={{
+          maxWidth: 1200,
+          mx: "auto",
+        }}
+      >
         {/* HEADER */}
-        <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography variant="h3" sx={{ fontWeight: 900, mb: 2 }}>
+        <Box
+          sx={{
+            mb: { xs: 5, md: 7 },
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 900,
+              mb: 2,
+              fontSize: {
+                xs: "2rem",
+                md: "3rem",
+              },
+              lineHeight: 1.1,
+              letterSpacing: "-0.03em",
+            }}
+          >
             {t("servicesSection.titulo")}{" "}
             <Box
               component="span"
               sx={{
-                background: `linear-gradient(90deg, #3b82f6, #a855f7)`,
+                background:
+                  "linear-gradient(90deg, #3b82f6, #a855f7)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+
+                filter: "saturate(1.4) contrast(1.1)",
               }}
             >
               {t("servicesSection.tuAreaTIC")}
             </Box>
           </Typography>
+
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{
+              maxWidth: 700,
+              mx: "auto",
+              lineHeight: 1.8,
+            }}
+          >
+            Potenciamos tu área tecnológica con herramientas
+            modernas, soporte eficiente y control inteligente.
+          </Typography>
         </Box>
 
-        {/* GRID */}
+        {/* SERVICES */}
         <Box
           sx={{
-            display: "grid",
+            display: "flex",
             gap: 3,
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, minmax(0, 1fr))",
-              md: "repeat(3, minmax(0, 1fr))",
+
+            // MOBILE SWIPE
+            flexWrap: {
+              xs: "nowrap",
+              md: "wrap",
+            },
+
+            overflowX: {
+              xs: "auto",
+              md: "visible",
+            },
+
+            scrollSnapType: {
+              xs: "x mandatory",
+              md: "none",
+            },
+
+            WebkitOverflowScrolling: "touch",
+
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+
+            scrollbarWidth: "none",
+
+            px: {
+              xs: 1,
+              md: 0,
             },
           }}
         >
           {services.map((service, index) => (
-            <Box key={index} sx={{ display: "flex" }}>
+            <Box
+              key={index}
+              sx={{
+                flex: {
+                  xs: "0 0 85%",
+                  sm: "0 0 60%",
+                  md: "1 1 calc(33.33% - 16px)",
+                },
+
+                scrollSnapAlign: "center",
+              }}
+            >
               <ServiceCard
                 icon={service.icon}
                 title={service.title}
