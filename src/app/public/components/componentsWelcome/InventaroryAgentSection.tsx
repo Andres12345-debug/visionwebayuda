@@ -1,6 +1,6 @@
 // InventoryAgentSection.tsx
 
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import ServiceCard from "../shared/ServiceCards";
@@ -9,15 +9,9 @@ import Inventory2Icon from "@mui/icons-material/Inventory2";
 import StorageIcon from "@mui/icons-material/Storage";
 import SecurityIcon from "@mui/icons-material/Security";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-import BackupIcon from "@mui/icons-material/Backup";
-import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
-import SchoolIcon from "@mui/icons-material/School";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
-import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import FolderIcon from "@mui/icons-material/Folder";
+// Removed unused icon imports
 
 export default function InventoryAgentSection() {
-  const theme = useTheme();
   const { t } = useTranslation();
 
   const services = [

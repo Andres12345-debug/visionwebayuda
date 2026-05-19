@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -11,7 +11,6 @@ import SecurityIcon from "@mui/icons-material/Security";
 import ServiceCard from "../shared/ServiceCards";
 
 export default function ServicesSection() {
-  const theme = useTheme();
   const { t } = useTranslation();
 
   const services = [

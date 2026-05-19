@@ -1,14 +1,13 @@
 import { Box, useTheme } from "@mui/material";
 import SEO from "../../shared/SEO";
-import ImageCarousel from "../components/componentsWelcome/ImageCarousel";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
 import SectionHeroSplit from "../components/componentsWelcome/SectionHeroSplit";
 import SectionHeroSplitLeft from "../components/componentsWelcome/SectionHeroSplitLeft";
 import ServicesSection from "../components/componentsWelcome/ServicesSection";
-import StepsSection from "../components/componentsWelcome/SectionSteps";
+// Removed unused imports: ImageCarousel, StepsSection, HelpdeskVideoSection
 import FAQSection from "../components/componentsWelcome/SectionFaqs";
 import InventoryAgentSection from "../components/componentsWelcome/InventaroryAgentSection";
-import HelpdeskVideoSection from "../components/componentsWelcome/HelpDeskVideoSection";
+// HelpdeskVideoSection removed (not used in this page)
 import FormularioContacto from "../components/componentsWelcome/ContactForm";
 
 const Welcome = () => {
