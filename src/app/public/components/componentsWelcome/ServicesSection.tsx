@@ -21,30 +21,28 @@ export default function ServicesSection() {
       icon: <SupportAgentIcon fontSize="medium" />,
     },
     {
-      title: t("Gestión de Inventario TI"),
-      description: t("Administra equipos y activos con trazabilidad."),
+      title: t("servicesSection.gestionInventarioTitle"),
+      description: t("servicesSection.gestionInventarioDesc"),
       icon: <Inventory2Icon fontSize="medium" />,
     },
     {
-      title: t("Documentación de Procesos"),
-      description: t("Manualiza configuraciones y procedimientos."),
+      title: t("servicesSection.documentacionTitle"),
+      description: t("servicesSection.documentacionDesc"),
       icon: <DescriptionIcon fontSize="medium" />,
     },
     {
-      title: t("Reportes y Métricas"),
-      description: t("Visualiza estadísticas y desempeño del área TI."),
+      title: t("servicesSection.reportesTitle"),
+      description: t("servicesSection.reportesDesc"),
       icon: <BarChartIcon fontSize="medium" />,
     },
     {
-      title: t("Soporte Multiplataforma"),
-      description:
-        t("Hardware, software y red desde una sola plataforma."),
+      title: t("servicesSection.soporteMultiplataformaTitle"),
+      description: t("servicesSection.soporteMultiplataformaDesc"),
       icon: <DevicesIcon fontSize="medium" />,
     },
     {
-      title: t("Control y Seguridad"),
-      description:
-        t("Gestión de accesos e historial de cambios."),
+      title: t("servicesSection.controlSeguridadTitle"),
+      description: t("servicesSection.controlSeguridadDesc"),
       icon: <SecurityIcon fontSize="medium" />,
     },
   ];
@@ -55,11 +53,6 @@ export default function ServicesSection() {
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 6 },
         borderRadius: 4,
-
-        backgroundColor:
-          theme.palette.mode === "dark"
-            ? theme.palette.background.default
-            : theme.palette.grey[50],
       }}
     >
       <Box
@@ -113,8 +106,10 @@ export default function ServicesSection() {
               lineHeight: 1.8,
             }}
           >
-            Potenciamos tu área tecnológica con herramientas
-            modernas, soporte eficiente y control inteligente.
+            {t(
+              "servicesSection.descripcion",
+              "Potenciamos tu área tecnológica con herramientas modernas, soporte eficiente y control inteligente."
+            )}
           </Typography>
         </Box>
 

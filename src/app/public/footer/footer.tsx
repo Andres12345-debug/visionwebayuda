@@ -22,20 +22,18 @@ const Footer = () => {
 
     const menuItems = [
         { text: t("footer.inicio"), path: "/" },
-        { text: t("footer.productos"), path: "/products" },
-        { text: t("footer.planes"), path: "/plane" },
+        { text: t("footer.planes"), path: "/planDeGestion" },
     ];
 
     return (
         <Box
             component="footer"
             sx={{
-                mt: 14,
                 py: { xs: 6, md: 10 },
                 position: "relative",
-                background: isDark
-                    ? "linear-gradient(180deg, #000000 0%, #0a133a 100%)"
-                    : "linear-gradient(180deg, #ffffff 0%, #ffffff 100%)",
+               background: isDark
+          ? "linear-gradient(180deg, #000000 0%, #020617 100%)"
+          : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
                 borderTop: "1px solid",
                 borderColor: isDark
                     ? "rgba(255,255,255,0.05)"

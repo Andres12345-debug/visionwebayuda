@@ -42,11 +42,7 @@ export default function StepsSection() {
     <Box
       sx={{
         py: { xs: 8, md: 10 },
-        px: { xs: 2, md: 6 },
-
-        background: isDark
-          ? "linear-gradient(180deg, #000000, #000000)"
-          : "linear-gradient(180deg, #ffffff, #f8fafc)",
+        px: { xs: 2, md: 6 }
       }}
     >
       {/* TITLE */}

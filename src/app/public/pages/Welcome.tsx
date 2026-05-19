@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import SEO from "../../shared/SEO";
 import ImageCarousel from "../components/componentsWelcome/ImageCarousel";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
@@ -12,10 +12,17 @@ import HelpdeskVideoSection from "../components/componentsWelcome/HelpDeskVideoS
 import FormularioContacto from "../components/componentsWelcome/ContactForm";
 
 const Welcome = () => {
+        const theme = useTheme();    
+        const isDark = theme.palette.mode === "dark";
 
 
     return (
-        <Box>
+        <Box
+        sx={{
+             background: isDark
+          ? "linear-gradient(180deg, #000000 0%, #020617 100%)"
+          : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)"
+        }}>
             <SEO
                 title="VisionWeb System - Mesa de Ayuda y Gestión TI Profesional"
                 description="Centraliza el soporte técnico, gestiona activos tecnológicos y optimiza tu infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario."
@@ -27,11 +34,9 @@ const Welcome = () => {
             <SectionHeroSplit />
             <SectionHeroSplitLeft />            
             <InventoryAgentSection />            
-            <StepsSection />
-            <HelpdeskVideoSection />
+            {/* <StepsSection /> */}
             <FAQSection />
             <FormularioContacto />
-            <ImageCarousel />
         </Box>
     );
 };

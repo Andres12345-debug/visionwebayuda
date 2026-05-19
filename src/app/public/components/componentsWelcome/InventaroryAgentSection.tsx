@@ -1,6 +1,7 @@
 // InventoryAgentSection.tsx
 
 import { Box, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import ServiceCard from "../shared/ServiceCards";
 
@@ -8,47 +9,45 @@ import Inventory2Icon from "@mui/icons-material/Inventory2";
 import StorageIcon from "@mui/icons-material/Storage";
 import SecurityIcon from "@mui/icons-material/Security";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import BackupIcon from "@mui/icons-material/Backup";
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import SchoolIcon from "@mui/icons-material/School";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import FolderIcon from "@mui/icons-material/Folder";
 
 export default function InventoryAgentSection() {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const services = [
     {
       icon: <Inventory2Icon />,
-      title: "Control de Inventario",
-      description:
-        "Gestión centralizada de equipos y activos TI.",
+      title: t("inventoryAgent.card1Title"),
+      description: t("inventoryAgent.card1Text"),
     },
     {
       icon: <StorageIcon />,
-      title: "Base de Datos",
-      description:
-        "Organiza y consulta información en tiempo real.",
+      title: t("inventoryAgent.card2Title"),
+      description: t("inventoryAgent.card2Text"),
     },
     {
       icon: <SecurityIcon />,
-      title: "Seguridad",
-      description:
-        "Control de accesos y trazabilidad de cambios.",
+      title: t("inventoryAgent.card3Title"),
+      description: t("inventoryAgent.card3Text"),
     },
     {
       icon: <AssessmentIcon />,
-      title: "Reportes",
-      description:
-        "Análisis y métricas del inventario en tiempo real.",
-    },
+      title: t("inventoryAgent.card4Title"),
+      description: t("inventoryAgent.card4Text"),
+    }
   ];
 
   return (
     <Box
       sx={{
         py: { xs: 6, md: 10 },
-        px: { xs: 2, md: 6 },
-
-        background:
-          theme.palette.mode === "dark"
-            ? theme.palette.background.default
-            : theme.palette.grey[50],
+        px: { xs: 2, md: 6 }
       }}
     >
       <Box
@@ -79,7 +78,7 @@ export default function InventoryAgentSection() {
               lineHeight: 1.1,
             }}
           >
-            Agente de Inventario{" "}
+            {t("inventoryAgent.titulo")} {" "}
             <Box
               component="span"
               sx={{
@@ -93,7 +92,7 @@ export default function InventoryAgentSection() {
                   "saturate(1.4) contrast(1.1)",
               }}
             >
-              Inteligente
+              {t("inventoryAgent.tituloGradient")}
             </Box>
           </Typography>
 
@@ -106,9 +105,10 @@ export default function InventoryAgentSection() {
               lineHeight: 1.8,
             }}
           >
-            Controla, administra y analiza tu inventario
-            TI en tiempo real con una solución
-            centralizada, moderna y escalable.
+            {t(
+              "inventoryAgent.lead",
+              "Controla, administra y analiza tu inventario TI en tiempo real con una solución centralizada, moderna y escalable."
+            )}
           </Typography>
         </Box>
 

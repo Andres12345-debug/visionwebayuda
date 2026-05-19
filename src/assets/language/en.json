@@ -24,6 +24,17 @@
     "mesaAyudaDesc": "Centralized management of technical support requests with full traceability and optimized response times.",
     "implementacionDesc": "We install, configure, and optimize enterprise solutions to improve the security, management, and productivity of your organization.",
     "empresarialDesc": "We integrate open source tools for efficient management of resources, processes, and technology equipment.",
+    "descripcion": "We empower your technology area with modern tools, efficient support and intelligent control.",
+    "gestionInventarioTitle": "IT Inventory Management",
+    "gestionInventarioDesc": "Manage devices and assets with traceability, location and maintenance status.",
+    "documentacionTitle": "Process Documentation",
+    "documentacionDesc": "We standardize procedures, manuals and configurations for operational continuity.",
+    "reportesTitle": "Reports & Metrics",
+    "reportesDesc": "View statistics, SLAs and IT performance to make data-driven decisions.",
+    "soporteMultiplataformaTitle": "Cross-platform Support",
+    "soporteMultiplataformaDesc": "We handle hardware, software and network from a single integrated platform.",
+    "controlSeguridadTitle": "Control & Security",
+    "controlSeguridadDesc": "Manage access, roles and change logs for compliance and traceability.",
     "verMas": "See more information"
   },
   "heroSplit": {
@@ -76,6 +87,19 @@
     "card3Text": "Every change on the equipment syncs with our platform, keeping the inventory updated in real time.",
     "card4Title": "Direct platform integration",
     "card4Text": "All collected information is centralized in your management platform to facilitate reports and decisions.",
+    "lead": "Control, manage and analyze your IT inventory in real time with a centralized, modern and scalable solution.",
+    "installationTitle": "Help desk installation and setup",
+    "installationText": "We perform a preliminary analysis and handle help desk installation and configuration: we adjust workflows, migrate data, configure plugins and integrations (LDAP/AD), email templates, SLAs and roles, and validate the operation with the client.",
+    "backupTitle": "Weekly backups",
+    "backupText": "We generate biweekly database backups, document the restoration process and deliver the backup files to the client for custody.",
+    "trainingTitle": "Staff training",
+    "trainingText": "We train your staff on the help desk: ticket management, roles, workflows, inventory administration and operational best practices.",
+    "demoTitle": "Free demo",
+    "demoText": "We offer a free demo where we showcase ticket workflows, technician collaboration, report generation and how the system adapts to your processes.",
+    "agentInstallTitle": "Agent installation",
+    "agentInstallText": "We assist with installation and deployment of the inventory agent across devices (batch installs supported), verifying scans and connectivity to the platform.",
+    "inventoryOrganizationTitle": "Inventory organization",
+    "inventoryOrganizationText": "We review and structure categories, locations, owners and policies for a consistent inventory, with recommendations for labeling and maintenance cycles.",
     "mensajeFinal": "Less manual work. More control over your IT infrastructure."
   },
   "helpDeskVideo": {
@@ -98,6 +122,10 @@
     "a4": "Of course. You can view metrics on response times, tickets attended and IT area performance.",
     "q5": "Do you offer support after implementation?",
     "a5": "Yes, we offer continuous support, technical assistance and improvements as your operation grows."
+    ,"q6": "Do you install the help desk?",
+    "a6": "Yes. We install and configure the help desk, tailoring it to your processes, migrating data and validating the operation with the client.",
+    "q7": "Do you create backups and help with inventory?",
+    "a7": "We create periodic backups of the database, deliver the copies and help organize the asset inventory and responsible roles."
   },
   "contactForm": {
     "titulo": "Let's talk",
@@ -191,14 +219,14 @@
   },
   "onboarding": {
     "badge": "ACTIVATION PROCESS",
-    "titulo": "How do we start working?",
-    "step1Title": "1. Free Diagnosis",
-    "step1Desc": "We scan your network and equipment to identify vulnerabilities and areas for immediate improvement.",
-    "step2Title": "2. Implementation",
-    "step2Desc": "We install our proactive monitoring agents and configure access to your professional support portal.",
-    "step3Title": "3. Total Management",
-    "step3Desc": "Done! Your company is under our 24/7 surveillance. We make sure technology never fails.",
-    "footer": "* Quick implementation: your infrastructure ready in less than 48 hours."
+    "titulo": "How we work with your company",
+    "step1Title": "1. Analysis & Diagnosis",
+    "step1Desc": "We analyze your company, processes and architecture: network and device scans, workflow review and risk detection to design the best implementation.",
+    "step2Title": "2. Demo & Validation",
+    "step2Desc": "We run a free demo where we showcase ticket workflows, report generation and the inventory agent to validate how it fits your processes.",
+    "step3Title": "3. Installation & Handover",
+    "step3Desc": "We install the help desk and the inventory agent, configure access/keys and integrations (LDAP/AD), schedule biweekly backups and train your staff.",
+    "footer": "* We coordinate migration, testing and handover with support during rollout."
   },
   "techDifferentiator": {
     "badge": "OUR DIFFERENTIAL",

@@ -24,7 +24,7 @@ export const MainRoute = () => {
             <Route index element={<LazyWelcome />} />
             <Route path="productos" element={<LazyProducts />} />
             <Route path="products" element={<LazyProducts />} />
-            <Route path="plan-de-gestion-it" element={<LazyPlane />} />
+            <Route path="planDeGestion" element={<LazyPlane />} />
             <Route path="Plane" element={<LazyPlane />} />
             <Route path="plane" element={<LazyPlane />} />
             <Route path="login" element={<LazyLogin />} />

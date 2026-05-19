@@ -91,16 +91,13 @@ export default function HeroSection() {
               py: 1.5,
               borderRadius: "12px",
               fontWeight: 600,
-background: "linear-gradient(90deg, #6366f1, #9333ea)",              "&:hover": {
+              background: "linear-gradient(90deg, #6366f1, #9333ea)", "&:hover": {
                 background: "linear-gradient(90deg, #20c75a, #0f7a6d)",
               },
             }}
           >
             {t("sectionHeader.solicitarAsesoria")}
           </Button>
-
-
-
         </Stack>
       </Box>
     </Box>

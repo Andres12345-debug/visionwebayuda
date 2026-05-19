@@ -33,8 +33,7 @@ export default function Navbar() {
 
   const MENU_ITEMS = [
     { label: t("menu.inicio"), href: "/" },
-    { label: t("menu.productos"), href: "/productos" },
-    { label: t("menu.planes"), href: "/plan-de-gestion-it" },
+    { label: t("menu.planes"), href: "/planDeGestion" },
   ];
 
   // 2. Hook para saber la ruta actual (Evita errores de "pestaña desconocida")

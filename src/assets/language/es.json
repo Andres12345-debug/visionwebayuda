@@ -8,34 +8,45 @@
     "web": "Web"
   },
   "sectionHeader": {
-    "badge": "LLEVA TU EMPRESA AL SIGUIENTE NIVEL",
-    "transformamos": "Transformamos tu",
+    "badge": "LLEVE SU EMPRESA AL SIGUIENTE NIVEL",
+    "transformamos": "Transformamos su",
     "mesaDeAyuda": "Mesa de ayuda Profesional",
     "enUnSistema": "en un sistema profesional",
-    "descripcion": "Centraliza, organiza y controla todo el soporte técnico y los activos tecnológicos de tu empresa con una solución estructurada, medible y eficiente.",
+    "descripcion": "Centralice, organice y controle todo el soporte técnico y los activos tecnológicos de su empresa con una solución estructurada, medible y eficiente.",
     "solicitarAsesoria": "Solicitar asesoría"
   },
   "servicesSection": {
     "titulo": "Servicios que transforman",
-    "tuAreaTIC": "tu área TIC",
+    "tuAreaTIC": "su área TIC",
     "mesaDeAyudaProfesional": "Mesa de Ayuda Profesional",
     "implementacionSoftware": "Implementación de Software",
     "empresarialOS": "Empresarial Open Source",
     "mesaAyudaDesc": "Gestión centralizada de solicitudes de soporte técnico con trazabilidad completa y tiempos de respuesta optimizados.",
-    "implementacionDesc": "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de tu organización.",
+    "implementacionDesc": "Instalamos, configuramos y optimizamos soluciones empresariales para mejorar la seguridad, gestión y productividad de su organización.",
     "empresarialDesc": "Integramos herramientas de código abierto para la administración eficiente de recursos, procesos y equipos tecnológicos.",
+    "descripcion": "Potenciamos su área tecnológica con herramientas modernas, soporte eficiente y control inteligente.",
+    "gestionInventarioTitle": "Gestión de Inventario TI",
+    "gestionInventarioDesc": "Administra equipos y activos con trazabilidad, ubicación y estados de mantenimiento.",
+    "documentacionTitle": "Documentación de Procesos",
+    "documentacionDesc": "Estandarizamos procedimientos, manuales y configuraciones para continuidad operativa.",
+    "reportesTitle": "Reportes y Métricas",
+    "reportesDesc": "Visualiza estadísticas, SLA y desempeño del área TI para tomar decisiones basadas en datos.",
+    "soporteMultiplataformaTitle": "Soporte Multiplataforma",
+    "soporteMultiplataformaDesc": "Atendemos hardware, software y redes desde una única plataforma integrada.",
+    "controlSeguridadTitle": "Control y Seguridad",
+    "controlSeguridadDesc": "Gestión de accesos, roles y registro de cambios para cumplimiento y trazabilidad.",
     "verMas": "Ver más información"
   },
   "heroSplit": {
     "subtitle": "Inventario Inteligente",
-    "title": "Control total de tus activos tecnológicos con Agente Profesional",
+    "title": "Control total de sus activos tecnológicos con Agente Profesional",
     "description": "Automatiza la recolección de hardware y software, mantén trazabilidad completa y obtén visibilidad en tiempo real de todos los activos TIC desde una sola plataforma centralizada.",
     "buttonText": "Solicitar demostración"
   },
   "heroSplitLeft": {
     "subtitle": "MESA DE AYUDA Y GESTIÓN DE INCIDENCIAS",
     "title": "Soporte técnico centralizado, organizado y trazable",
-    "description": "Gestiona eficientemente tus solicitudes de soporte con nuestra plataforma de mesa de ayuda, centralizando la gestión de incidencias, usuarios y reportes en una interfaz moderna y fácil de usar, mejorando tiempos de respuesta y satisfacción del cliente.",
+    "description": "Gestione eficientemente sus solicitudes de soporte con nuestra plataforma de mesa de ayuda, centralizando la gestión de incidencias, usuarios y reportes en una interfaz moderna y fácil de usar, mejorando tiempos de respuesta y satisfacción del cliente.",
     "buttonText": "Ver funcionalidades"
   },
   "imageCarousel": {
@@ -57,11 +68,11 @@
   "sectionSteps": {
     "titulo": "¿Cómo funciona?",
     "step1Title": "Diagnóstico",
-    "step1Desc": "Evaluamos tu infraestructura actual para identificar oportunidades de mejora.",
+    "step1Desc": "Evaluamos su infraestructura actual para identificar oportunidades de mejora.",
     "step2Title": "Implementación",
-    "step2Desc": "Configuramos la plataforma y agentes de monitoreo en tus equipos.",
+    "step2Desc": "Configuramos la plataforma y los agentes de monitoreo en sus equipos.",
     "step3Title": "Monitoreo",
-    "step3Desc": "Supervisamos 24/7 el rendimiento y la salud de tus activos tecnológicos.",
+    "step3Desc": "Supervisamos 24/7 el rendimiento y la salud de sus activos tecnológicos.",
     "step4Title": "Reportes",
     "step4Desc": "Recibes informes detallados con métricas y recomendaciones estratégicas."
   },
@@ -75,8 +86,21 @@
     "card3Title": "Información siempre actualizada",
     "card3Text": "Cada cambio en el equipo se sincroniza con nuestra plataforma, manteniendo el inventario actualizado en tiempo real.",
     "card4Title": "Integración directa con la plataforma",
-    "card4Text": "Toda la información recolectada se centraliza en tu plataforma de gestión para facilitar reportes y decisiones.",
-    "mensajeFinal": "Menos trabajo manual. Más control sobre tu infraestructura TI."
+    "card4Text": "Toda la información recolectada se centraliza en su plataforma de gestión para facilitar reportes y decisiones.",
+    "lead": "Controle, administre y analice su inventario TI en tiempo real con una solución centralizada, moderna y escalable.",
+    "installationTitle": "Instalación y puesta en marcha de la mesa de ayuda",
+    "installationText": "Realizamos un análisis previo de su operación y nos encargamos de instalar y configurar la mesa de ayuda: ajustamos flujos, migramos datos, configuramos plugins e integraciones (LDAP/AD), plantillas de correo, SLAs y roles, y validamos la operación junto al cliente.",
+    "backupTitle": "Backups semanales",
+    "backupText": "Generamos copias de seguridad quincenales de la base de datos, documentamos el proceso de restauración y entregamos los archivos al cliente para su custodia.",
+    "trainingTitle": "Capacitación al personal",
+    "trainingText": "Capacitamos a su personal en el uso de la mesa de ayuda: gestión de tickets, roles, flujos de trabajo, administración de inventario y buenas prácticas operativas.",
+    "demoTitle": "Demo gratuito",
+    "demoText": "Ofrecemos demo gratuito donde mostramos la gestión de tickets, creación/colaboración de técnicos, generación de reportes y cómo el sistema se adapta a sus procesos.",
+    "agentInstallTitle": "Instalación del agente de escaneo",
+    "agentInstallText": "Asistimos en la instalación y despliegue del agente de inventario en los equipos (instalación por lote), verificamos escaneos y conectividad con la plataforma.",
+    "inventoryOrganizationTitle": "Organización del inventario",
+    "inventoryOrganizationText": "Revisamos y estructuramos categorías, ubicaciones, responsables y políticas para un inventario consistente, con recomendaciones para etiquetado y ciclos de mantenimiento.",
+    "mensajeFinal": "Menos trabajo manual. Más control sobre su infraestructura TI."
   },
   "helpDeskVideo": {
     "titulo": "Conoce nuestra",
@@ -91,17 +115,21 @@
     "q1": "¿Qué es una mesa de ayuda?",
     "a1": "Es un sistema que centraliza todas las solicitudes de soporte técnico, permitiendo organizarlas, asignarlas y darles seguimiento de manera eficiente.",
     "q2": "¿La plataforma funciona en la nube?",
-    "a2": "Sí, puede implementarse en la nube o en servidores locales según las necesidades de tu empresa.",
+    "a2": "Sí, puede implementarse en la nube o en servidores locales según las necesidades de su empresa.",
     "q3": "¿Puedo gestionar inventario de equipos?",
     "a3": "Sí. La plataforma permite registrar equipos, licencias, responsables, historial de mantenimiento y más.",
     "q4": "¿Se pueden generar reportes?",
-    "a4": "Claro. Puedes visualizar métricas de tiempos de respuesta, tickets atendidos y rendimiento del área TI.",
+    "a4": "Claro. Puede visualizar métricas de tiempos de respuesta, tickets atendidos y rendimiento del área TI.",
     "q5": "¿Ofrecen soporte después de la implementación?",
-    "a5": "Sí, ofrecemos acompañamiento continuo, soporte técnico y mejoras según el crecimiento de tu operación."
+    "a5": "Sí, ofrecemos acompañamiento continuo, soporte técnico y mejoras según el crecimiento de su operación."
+    ,"q6": "¿Ustedes instalan la mesa de ayuda?",
+    "a6": "Sí. Instalamos y configuramos la mesa de ayuda, adaptándola a sus procesos, migramos datos y validamos la operación junto al cliente.",
+    "q7": "¿Generan backups y ayudan con el inventario?",
+    "a7": "Creamos backups periódicos de la base de datos, entregamos las copias y ayudamos a organizar el inventario de activos y roles responsables."
   },
   "contactForm": {
     "titulo": "Hablemos",
-    "descripcion": "Cuéntanos qué necesitas y nuestro equipo te responderá pronto.",
+    "descripcion": "Cuéntenos qué necesita y nuestro equipo le responderá pronto.",
     "nombreLabel": "Nombre completo",
     "emailLabel": "Correo electrónico",
     "mensajeLabel": "Mensaje",
@@ -117,8 +145,8 @@
     "seguros": "Datos seguros"
   },
   "finalCta": {
-    "titulo": "Lleva tu área TIC al siguiente nivel",
-    "descripcion": "Implementa una mesa de ayuda profesional hoy mismo.",
+    "titulo": "Lleve su área TIC al siguiente nivel",
+    "descripcion": "Implemente una mesa de ayuda profesional hoy mismo.",
     "boton": "Solicitar asesoría"
   },
   "products": {
@@ -134,7 +162,7 @@
       { "name": "Soporte y Mesa de Ayuda", "desc": "Gestión de tickets, incidencias y atención al cliente centralizada." }
     ],
     "solicitarBtn": "Solicitar",
-    "ctaTitulo": "¿Listo para llevar tu gestión al siguiente nivel?",
+    "ctaTitulo": "¿Listo para llevar su gestión al siguiente nivel?",
     "ctaBoton": "Ver planes de gestión IT"
   },
   "productModal": {
@@ -152,13 +180,13 @@
     "titulo": "¿Por qué elegirnos?",
     "descripcion": "Más que implementar herramientas, construimos soluciones tecnológicas sólidas que impulsan la eficiencia y el crecimiento empresarial.",
     "card1Title": "Seguridad Empresarial",
-    "card1Desc": "Implementamos soluciones seguras y confiables para proteger la información crítica de tu organización.",
+    "card1Desc": "Implementamos soluciones seguras y confiables para proteger la información crítica de su organización.",
     "card2Title": "Soporte Continuo",
     "card2Desc": "Acompañamiento técnico permanente para garantizar estabilidad y resolución rápida de incidentes.",
     "card3Title": "Implementación Profesional",
-    "card3Desc": "Configuraciones optimizadas y adaptadas a las necesidades reales de tu infraestructura.",
+    "card3Desc": "Configuraciones optimizadas y adaptadas a las necesidades reales de su infraestructura.",
     "card4Title": "Escalabilidad",
-    "card4Desc": "Soluciones preparadas para crecer junto con tu empresa sin perder rendimiento."
+    "card4Desc": "Soluciones preparadas para crecer junto con su empresa sin perder rendimiento."
   },
   "testimonials": {
     "titulo": "Lo que dicen nuestros clientes",
@@ -191,14 +219,14 @@
   },
   "onboarding": {
     "badge": "PROCESO DE ACTIVACIÓN",
-    "titulo": "¿Cómo empezamos a trabajar?",
-    "step1Title": "1. Diagnóstico Gratuito",
-    "step1Desc": "Realizamos un escaneo de tu red y equipos para identificar vulnerabilidades y puntos de mejora inmediata.",
-    "step2Title": "2. Implementación",
-    "step2Desc": "Instalamos nuestros agentes de monitoreo proactivo y configuramos el acceso a tu portal de soporte profesional.",
-    "step3Title": "3. Gestión Total",
-    "step3Desc": "¡Listo! Tu empresa queda bajo nuestra vigilancia 24/7. Nosotros nos encargamos de que la tecnología nunca falle.",
-    "footer": "* Implementación rápida: tu infraestructura lista en menos de 48 horas."
+    "titulo": "¿Cómo trabajamos con su empresa?",
+    "step1Title": "1. Análisis y diagnóstico",
+    "step1Desc": "Analizamos su empresa, procesos y arquitectura: escaneos de red y equipos, revisión de flujos operativos y detección de riesgos para diseñar la mejor solución.",
+    "step2Title": "2. Demo y validación",
+    "step2Desc": "Realizamos una demo gratuita donde mostramos la gestión de tickets, generación de reportes y el agente de inventario para validar cómo encaja con sus procesos.",
+    "step3Title": "3. Instalación y entrega operativa",
+    "step3Desc": "Instalamos la mesa de ayuda y el agente de inventario, configuramos accesos/llaves, integraciones (LDAP/AD), programamos backups quincenales y capacitamos a su equipo.",
+    "footer": "* Coordinamos migración, pruebas y entrega con soporte durante la puesta en marcha."
   },
   "techDifferentiator": {
     "badge": "NUESTRO DIFERENCIAL",
@@ -215,7 +243,7 @@
     "imgAlt": "Panel de control VisionWeb - Gestión profesional de infraestructura TI"
   },
   "comparativaTabla": {
-    "titulo": "Selecciona el plan ideal para tu ",
+    "titulo": "Selecciona el plan ideal para su ",
     "tituloGradient": "negocio",
     "plan1Title": "Plan Básico",
     "plan1Price": "$25.000",
@@ -236,7 +264,7 @@
   "savingsCalculator": {
     "badge": "CALCULADORA DE COSTOS",
     "titulo": "¿Cuántos equipos vamos a administrar?",
-    "descripcion": "Desliza para calcular tu inversión y ahorro proyectado.",
+    "descripcion": "Deslice para calcular su inversión y ahorro proyectado.",
     "cantidadLabel": "Cantidad de equipos",
     "cantidadTooltip": "Arrastra el control deslizante para ajustar la cantidad de equipos que necesitas administrar",
     "descuentoEscala": "✓ Descuento de escala aplicado",
@@ -251,11 +279,11 @@
     "mantenimiento": "Mantenimiento preventivo",
     "inventarioDigital": "Inventario digital real",
     "inversionMensual": "INVERSIÓN MENSUAL",
-    "tuAhorro": "TU AHORRO",
+    "tuAhorro": "SU AHORRO",
     "ahorroMensual": "AHORRO MENSUAL",
     "ahorroAnual": "AHORRO ANUAL",
     "boton": "ME INTERESA ESTE PRECIO",
-    "botonSubtexto": "Envía tus datos por WhatsApp y recibe una propuesta personalizada en menos de 1 hora."
+    "botonSubtexto": "Envíe sus datos por WhatsApp y reciba una propuesta personalizada en menos de 1 hora."
   },
   "login": {
     "visionWeb": "VisionWeb ",
@@ -293,19 +321,19 @@
   },
   "contactModal": {
     "titulo": "Contáctanos",
-    "descripcion": "Estamos listos para ayudarte a implementar soluciones empresariales Open Source en tu organización.",
+    "descripcion": "Estamos listos para ayudarle a implementar soluciones empresariales Open Source en su organización.",
     "whatsApp": "WhatsApp Empresarial",
     "cerrar": "Cerrar"
   },
   "seo": {
     "homeTitle": "VisionWeb System - Mesa de Ayuda y Gestión TI Profesional",
-    "homeDescription": "Centraliza el soporte técnico, gestiona activos tecnológicos y optimiza tu infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario.",
+    "homeDescription": "Centralice el soporte técnico, gestione activos tecnológicos y optimice su infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario.",
     "productsTitle": "Productos - Soluciones Profesionales | VisionWeb System",
     "productsDescription": "Descubre nuestra suite de soluciones profesionales: inventario, logística, reportes, comercial y soporte. Gestión empresarial integral.",
     "planesTitle": "Planes de Gestión IT | VisionWeb System",
-    "planesDescription": "Conoce nuestros planes de gestión de infraestructura TI. Soporte técnico profesional, inventario automatizado y monitoreo 24/7 para tu empresa.",
+    "planesDescription": "Conozca nuestros planes de gestión de infraestructura TI. Soporte técnico profesional, inventario automatizado y monitoreo 24/7 para su empresa.",
     "loginTitle": "Iniciar Sesión - Panel de Gestión | VisionWeb System",
-    "loginDescription": "Accede al panel de gestión VisionWeb para administrar tu infraestructura TI, tickets de soporte y activos tecnológicos.",
+    "loginDescription": "Acceda al panel de gestión VisionWeb para administrar su infraestructura TI, tickets de soporte y activos tecnológicos.",
     "errorTitle": "Página no encontrada - 404 | VisionWeb System",
     "errorDescription": "La página que buscas no existe. Regresa al inicio de VisionWeb para encontrar lo que necesitas.",
     "keywords": "mesa de ayuda, soporte técnico, gestión de activos TI, inventario tecnológico, help desk profesional, VisionWeb, gestión de infraestructura"
