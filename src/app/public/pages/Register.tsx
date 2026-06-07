@@ -3,6 +3,7 @@ import {
   Box,
   Typography,
   TextField,
+  MenuItem,
   Button,
   Stack,
   InputAdornment,
@@ -13,8 +14,11 @@ import {
   Grid,
 } from "@mui/material";
 import {
+  Badge as NameIcon,
   AlternateEmail as EmailIcon,
   LockOutlined as LockIcon,
+  PhoneIphoneOutlined as PhoneIcon,
+  CalendarMonthOutlined as DateIcon,
   Visibility,
   VisibilityOff,
   VerifiedUserOutlined as ShieldIcon,
@@ -25,8 +29,8 @@ import { useTranslation } from "react-i18next";
 import { jwtDecode } from "jwt-decode";
 import SEO from "../../shared/SEO";
 
-import { Acceso } from "../../models/Acess";
-import { AccesoService } from "../../services/AcessService";
+import { RegistroSesion } from "../../models/SessionRegister";
+import { RegistroService } from "../../services/RegistroService";
 import { useFormulario } from "../../utilities/hoks/useForm";
 import { crearMensaje } from "../../utilities/functions/messge";
 
@@ -40,19 +44,31 @@ interface TokenPayload {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const Sesion = () => {
+const Register = () => {
   const { t } = useTranslation();
   const [enProceso, setEnProceso] = useState(false);
   const [mostrarClave, setMostrarClave] = useState(false);
   const theme = useTheme();
   const navegacion = useNavigate();
 
-  const { correoUsuario, claveAcceso, dobleEnlace } = useFormulario<Acceso>(
-    new Acceso("", ""),
+  const {
+    nombreUsuario,
+    correoUsuario,
+    telefonoUsuario,
+    fechaNacimientoUsuario,
+    generoUsuario,
+    claveAcceso,
+    dobleEnlace,
+  } = useFormulario<RegistroSesion>(
+    new RegistroSesion("", "", 1, "", "", ""),
   );
 
   const formularioValido =
-    EMAIL_REGEX.test(correoUsuario.trim()) && claveAcceso.trim().length > 0;
+    nombreUsuario.trim().length > 0 &&
+    EMAIL_REGEX.test(correoUsuario.trim()) &&
+    telefonoUsuario.trim().length > 0 &&
+    fechaNacimientoUsuario.trim().length > 0 &&
+    claveAcceso.trim().length >= 8;
 
   const enviarFormulario = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,10 +76,14 @@ const Sesion = () => {
     setEnProceso(true);
 
     try {
-      const respuesta = await AccesoService.iniciarSesion({
+      const respuesta = await RegistroService.registrarUsuario({
+        nombreUsuario,
         correoUsuario,
+        telefonoUsuario,
+        fechaNacimientoUsuario,
+        generoUsuario: Number(generoUsuario),
         claveAcceso,
-      } as Acceso);
+      } as RegistroSesion);
 
       const token = respuesta?.tokenApp;
 
@@ -79,8 +99,12 @@ const Sesion = () => {
 
       navegacion("/dash", { replace: true });
     } catch (error: any) {
-      console.error("Login Error:", error);
-      crearMensaje("error", "Credenciales inválidas o error de conexión");
+      console.error("Register Error:", error);
+      const mensaje =
+        error?.message === "El usuario ya existe"
+          ? t("register.correoExistente")
+          : t("register.errorGenerico");
+      crearMensaje("error", mensaje);
     } finally {
       setEnProceso(false);
     }
@@ -89,10 +113,10 @@ const Sesion = () => {
   return (
     <Grid container sx={{ minHeight: "100vh" }}>
       <SEO
-        title={t("seo.loginTitle")}
-        description={t("seo.loginDescription")}
+        title={t("seo.registerTitle")}
+        description={t("seo.registerDescription")}
         keywords={t("seo.keywords")}
-        ogUrl="/login"
+        ogUrl="/registro"
       />
       <Grid
         size={{ xs: 0, md: 7 }}
@@ -140,7 +164,7 @@ const Sesion = () => {
         </Stack>
       </Grid>
 
-      {/* PANEL DERECHO (Login) */}
+      {/* PANEL DERECHO (Registro) */}
       <Grid
         size={{ xs: 12, md: 5 }}
         sx={{
@@ -153,25 +177,43 @@ const Sesion = () => {
       >
         <Paper
           elevation={0}
-          sx={{ width: "100%", maxWidth: 400, bgcolor: "transparent" }}
+          sx={{ width: "100%", maxWidth: 440, bgcolor: "transparent", py: { xs: 2, md: 0 } }}
         >
-          <Box sx={{ mb: 5 }}>
+          <Box sx={{ mb: 4 }}>
             <Typography
               variant="h3"
               fontWeight={900}
               sx={{ letterSpacing: -1, mb: 1 }}
             >
-              {t("login.ingresar")}
+              {t("register.titulo")}
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              {t("login.bienvenido")}
+              {t("register.subtitulo")}
             </Typography>
           </Box>
 
           <Box component="form" onSubmit={enviarFormulario} noValidate>
-            <Stack spacing={3}>
+            <Stack spacing={2.5}>
               <TextField
-                label={t("login.correoLabel")}
+                label={t("register.nombreLabel")}
+                name="nombreUsuario"
+                variant="filled"
+                value={nombreUsuario}
+                onChange={dobleEnlace}
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <NameIcon color="primary" />
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                  sx: { borderRadius: 2 },
+                }}
+              />
+
+              <TextField
+                label={t("register.correoLabel")}
                 name="correoUsuario"
                 type="email"
                 variant="filled"
@@ -189,14 +231,69 @@ const Sesion = () => {
                 }}
               />
 
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2.5}>
+                <TextField
+                  label={t("register.telefonoLabel")}
+                  name="telefonoUsuario"
+                  variant="filled"
+                  value={telefonoUsuario}
+                  onChange={dobleEnlace}
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PhoneIcon color="primary" />
+                      </InputAdornment>
+                    ),
+                    disableUnderline: true,
+                    sx: { borderRadius: 2 },
+                  }}
+                />
+
+                <TextField
+                  label={t("register.fechaNacimientoLabel")}
+                  name="fechaNacimientoUsuario"
+                  type="date"
+                  variant="filled"
+                  value={fechaNacimientoUsuario}
+                  onChange={dobleEnlace}
+                  fullWidth
+                  InputLabelProps={{ shrink: true }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <DateIcon color="primary" />
+                      </InputAdornment>
+                    ),
+                    disableUnderline: true,
+                    sx: { borderRadius: 2 },
+                  }}
+                />
+              </Stack>
+
               <TextField
-                label={t("login.contrasenaLabel")}
+                select
+                label={t("register.generoLabel")}
+                name="generoUsuario"
+                variant="filled"
+                value={generoUsuario}
+                onChange={dobleEnlace}
+                fullWidth
+                InputProps={{ disableUnderline: true, sx: { borderRadius: 2 } }}
+              >
+                <MenuItem value={1}>{t("register.generoMasculino")}</MenuItem>
+                <MenuItem value={2}>{t("register.generoFemenino")}</MenuItem>
+              </TextField>
+
+              <TextField
+                label={t("register.claveLabel")}
                 name="claveAcceso"
                 variant="filled"
                 type={mostrarClave ? "text" : "password"}
                 value={claveAcceso}
                 onChange={dobleEnlace}
                 fullWidth
+                helperText={t("register.claveAyuda")}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -230,14 +327,14 @@ const Sesion = () => {
                   boxShadow: `0 12px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
                 }}
               >
-                {enProceso ? t("login.autenticando") : t("login.entrarBtn")}
+                {enProceso ? t("register.registrando") : t("register.crearCuentaBtn")}
               </Button>
 
               <Typography variant="body2" color="text.secondary" textAlign="center">
-                {t("login.sinCuenta")}{" "}
+                {t("register.yaTieneCuenta")}{" "}
                 <Box
                   component="span"
-                  onClick={() => navegacion("/registro")}
+                  onClick={() => navegacion("/login")}
                   sx={{
                     color: theme.palette.primary.main,
                     fontWeight: 700,
@@ -245,7 +342,7 @@ const Sesion = () => {
                     "&:hover": { textDecoration: "underline" },
                   }}
                 >
-                  {t("login.crearCuenta")}
+                  {t("register.iniciarSesion")}
                 </Box>
               </Typography>
             </Stack>
@@ -256,4 +353,4 @@ const Sesion = () => {
   );
 };
 
-export default Sesion;
+export default Register;

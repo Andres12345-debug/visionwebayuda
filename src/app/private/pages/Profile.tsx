@@ -18,7 +18,7 @@ interface TokenPayload {
   nombre: string;
   rol: string;
   telefono: string;
-  acceso: string;
+  correo: string;
 }
 
 interface InfoItemProps {
@@ -93,7 +93,7 @@ const Profile = () => {
 
           <Stack spacing={2}>
             <InfoItem icon={<IdIcon color="primary" />} label="ID Usuario" value={datosUsuario.id} />
-            <InfoItem icon={<EmailIcon color="primary" />} label="Acceso" value={datosUsuario.acceso} />
+            <InfoItem icon={<EmailIcon color="primary" />} label="Correo" value={datosUsuario.correo} />
             <InfoItem icon={<PhoneIcon color="primary" />} label="Teléfono" value={datosUsuario.telefono} />
           </Stack>
 

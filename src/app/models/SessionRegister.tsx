@@ -1,29 +1,23 @@
 export class RegistroSesion{
-    public codRol: number;
     public nombreUsuario: string;
-    public fechaNacimientoUsuario: Date;
-    public telefonoUsuario: string;
+    public fechaNacimientoUsuario: string;
     public generoUsuario: number;
-    public nombreAcceso: string;
+    public telefonoUsuario: string;
+    public correoUsuario: string;
     public claveAcceso: string;
-    
-    constructor(cod: number,
-          nom: string,
-           fec: Date,
-           tel: string, 
+
+    constructor(nom: string,
+           fec: string,
            gen: number,
-           cla: string,
-           nomAcc: string
+           tel: string,
+           cor: string,
+           cla: string
             ) {
-        this.codRol = cod;
         this.nombreUsuario = nom;
         this.fechaNacimientoUsuario = fec;
-        this.telefonoUsuario = tel;
         this.generoUsuario = gen;
+        this.telefonoUsuario = tel;
+        this.correoUsuario = cor;
         this.claveAcceso = cla;
-        this.nombreAcceso = nomAcc;
       }
     }
-
-
-

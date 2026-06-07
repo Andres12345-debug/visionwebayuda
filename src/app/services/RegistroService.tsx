@@ -2,10 +2,10 @@ import { RegistroSesion } from "../models/SessionRegister";
 import { URLS } from "../utilities/domains/urls"
 
 export class RegistroService {
-    public static async iniciarSesion(objAcceso: RegistroSesion): Promise<any> {
+    public static async registrarUsuario(objRegistro: RegistroSesion): Promise<any> {
         const datosEnviar = {
             method: "POST",
-            body: JSON.stringify(objAcceso),
+            body: JSON.stringify(objRegistro),
             headers: { "Content-Type": "application/json; charset=UTF-8" }
         };
 
@@ -14,9 +14,9 @@ export class RegistroService {
 
         if (!respuesta.ok) {
             const errorData = await respuesta.json();
-            throw new Error(errorData.message || "Error en la autenticación");
+            throw new Error(errorData.message || "Error en el registro");
         }
 
         return respuesta.json();
-    }
+    }
 }

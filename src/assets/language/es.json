@@ -293,10 +293,31 @@
     "infraestructura": "Infraestructura de alta disponibilidad",
     "ingresar": "Ingresar",
     "bienvenido": "Bienvenido de nuevo.",
-    "usuarioLabel": "Usuario",
+    "correoLabel": "Correo electrónico",
     "contrasenaLabel": "Contraseña",
     "entrarBtn": "Entrar al Panel",
-    "autenticando": "Autenticando..."
+    "autenticando": "Autenticando...",
+    "sinCuenta": "¿No tienes una cuenta?",
+    "crearCuenta": "Crea una aquí"
+  },
+  "register": {
+    "titulo": "Crea tu cuenta",
+    "subtitulo": "Regístrate para acceder al panel de VisionWeb.",
+    "nombreLabel": "Nombre completo",
+    "correoLabel": "Correo electrónico",
+    "telefonoLabel": "Teléfono",
+    "fechaNacimientoLabel": "Fecha de nacimiento",
+    "generoLabel": "Género",
+    "generoMasculino": "Masculino",
+    "generoFemenino": "Femenino",
+    "claveLabel": "Contraseña",
+    "claveAyuda": "Mínimo 8 caracteres",
+    "crearCuentaBtn": "Crear cuenta",
+    "registrando": "Creando cuenta...",
+    "yaTieneCuenta": "¿Ya tienes una cuenta?",
+    "iniciarSesion": "Inicia sesión",
+    "correoExistente": "Ya existe una cuenta registrada con ese correo",
+    "errorGenerico": "No fue posible completar el registro. Verifica tus datos e intenta de nuevo"
   },
   "errorPage": {
     "titulo": "Página no encontrada",
@@ -334,6 +355,8 @@
     "planesDescription": "Conozca nuestros planes de gestión de infraestructura TI. Soporte técnico profesional, inventario automatizado y monitoreo 24/7 para su empresa.",
     "loginTitle": "Iniciar Sesión - Panel de Gestión | VisionWeb System",
     "loginDescription": "Acceda al panel de gestión VisionWeb para administrar su infraestructura TI, tickets de soporte y activos tecnológicos.",
+    "registerTitle": "Crear Cuenta - Panel de Gestión | VisionWeb System",
+    "registerDescription": "Regístrate en VisionWeb para acceder al panel de gestión de soporte técnico, activos tecnológicos e infraestructura TI.",
     "errorTitle": "Página no encontrada - 404 | VisionWeb System",
     "errorDescription": "La página que buscas no existe. Regresa al inicio de VisionWeb para encontrar lo que necesitas.",
     "keywords": "mesa de ayuda, soporte técnico, gestión de activos TI, inventario tecnológico, help desk profesional, VisionWeb, gestión de infraestructura"

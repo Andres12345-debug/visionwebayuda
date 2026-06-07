@@ -293,10 +293,31 @@
     "infraestructura": "High availability infrastructure",
     "ingresar": "Sign In",
     "bienvenido": "Welcome back.",
-    "usuarioLabel": "Username",
+    "correoLabel": "Email address",
     "contrasenaLabel": "Password",
     "entrarBtn": "Enter Dashboard",
-    "autenticando": "Authenticating..."
+    "autenticando": "Authenticating...",
+    "sinCuenta": "Don't have an account?",
+    "crearCuenta": "Create one here"
+  },
+  "register": {
+    "titulo": "Create your account",
+    "subtitulo": "Sign up to access the VisionWeb dashboard.",
+    "nombreLabel": "Full name",
+    "correoLabel": "Email address",
+    "telefonoLabel": "Phone",
+    "fechaNacimientoLabel": "Date of birth",
+    "generoLabel": "Gender",
+    "generoMasculino": "Male",
+    "generoFemenino": "Female",
+    "claveLabel": "Password",
+    "claveAyuda": "At least 8 characters",
+    "crearCuentaBtn": "Create account",
+    "registrando": "Creating account...",
+    "yaTieneCuenta": "Already have an account?",
+    "iniciarSesion": "Sign in",
+    "correoExistente": "An account with that email already exists",
+    "errorGenerico": "We couldn't complete the registration. Check your details and try again"
   },
   "errorPage": {
     "titulo": "Page not found",
@@ -334,6 +355,8 @@
     "planesDescription": "IT infrastructure management plans. Professional technical support, automated inventory, and 24/7 monitoring for your business.",
     "loginTitle": "Sign In - Management Panel | VisionWeb System",
     "loginDescription": "Access the VisionWeb management panel to manage your IT infrastructure, support tickets, and technology assets.",
+    "registerTitle": "Create Account - Management Panel | VisionWeb System",
+    "registerDescription": "Sign up for VisionWeb to access the support, technology assets, and IT infrastructure management dashboard.",
     "errorTitle": "Page not found - 404 | VisionWeb System",
     "errorDescription": "The page you are looking for does not exist. Return to VisionWeb home to find what you need.",
     "keywords": "help desk, technical support, IT asset management, technology inventory, professional help desk, VisionWeb, infrastructure management"

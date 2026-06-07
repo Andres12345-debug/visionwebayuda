@@ -10,6 +10,7 @@ const LazyWelcome = lazy(() => import("../app/public/pages/Welcome"));
 const LazyProducts = lazy(() => import("../app/public/pages/Products"));
 const LazyPlane = lazy(() => import("../app/public/pages/Plane"));
 const LazyLogin = lazy(() => import("../app/public/pages/Login"));
+const LazyRegister = lazy(() => import("../app/public/pages/Register"));
 
 
 export const MainRoute = () => {
@@ -29,6 +30,8 @@ export const MainRoute = () => {
             <Route path="plane" element={<LazyPlane />} />
             <Route path="login" element={<LazyLogin />} />
             <Route path="ingresar" element={<LazyLogin />} />
+            <Route path="registro" element={<LazyRegister />} />
+            <Route path="crear-cuenta" element={<LazyRegister />} />
           </Route>
           <Route element={<Vigilante />}>
             <Route path="/dash/*" element={<InternalRoute />} />
