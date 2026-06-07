@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconButton, Box, Tooltip } from "@mui/material";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import CloseIcon from "@mui/icons-material/Close";
@@ -6,6 +6,12 @@ import ChatbotDialog from "./ChatbotDialog";
 
 export const FloatingChatbot = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenRequest = () => setOpen(true);
+    window.addEventListener("open-vision-chat", handleOpenRequest);
+    return () => window.removeEventListener("open-vision-chat", handleOpenRequest);
+  }, []);
 
   return (
     <>
