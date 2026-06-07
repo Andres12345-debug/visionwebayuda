@@ -1,6 +1,7 @@
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import GradientText from "../ui/GradientText";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -46,16 +47,7 @@ export default function HeroSection() {
           }}
         >
           {t("sectionHeader.transformamos")}{" "}
-          <Box
-            component="span"
-            sx={{
-              background: "linear-gradient(90deg, #6366f1, #9333ea)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {t("sectionHeader.mesaDeAyuda")}
-          </Box>{" "}
+          <GradientText>{t("sectionHeader.mesaDeAyuda")}</GradientText>{" "}
           {t("sectionHeader.enUnSistema")}
 
         </Typography>

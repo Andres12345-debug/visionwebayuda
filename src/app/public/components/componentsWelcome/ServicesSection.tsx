@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import GradientText from "../ui/GradientText";
 
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
@@ -81,19 +82,9 @@ export default function ServicesSection() {
             }}
           >
             {t("servicesSection.titulo")}{" "}
-            <Box
-              component="span"
-              sx={{
-                background:
-                  "linear-gradient(90deg, #3b82f6, #a855f7)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-
-                filter: "saturate(1.4) contrast(1.1)",
-              }}
-            >
+            <GradientText gradient="linear-gradient(90deg, #3b82f6, #a855f7)">
               {t("servicesSection.tuAreaTIC")}
-            </Box>
+            </GradientText>
           </Typography>
 
           <Typography

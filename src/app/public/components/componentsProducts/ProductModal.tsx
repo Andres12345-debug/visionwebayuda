@@ -10,6 +10,7 @@ import {
     Chip,
     Stack,
 } from "@mui/material";
+import PrimaryButton from "../ui/PrimaryButton";
 import { useTranslation } from "react-i18next";
 import { SoftwareItem } from "./SoftwareCard";
 
@@ -117,22 +118,9 @@ export const ProductModal: React.FC<Props> = ({
                     {t("productModal.cerrar")}
                 </Button>
 
-                <Button
-                    variant="contained"
-                    sx={{
-                        borderRadius: 3,
-                        textTransform: "none",
-                        fontWeight: 700,
-                        px: 4,
-                        background: "linear-gradient(90deg, #6366f1, #9333ea)",
-                        boxShadow: "0 8px 20px rgba(99,102,241,0.3)",
-                        "&:hover": {
-                            background: "linear-gradient(90deg, #4f46e5, #7e22ce)",
-                        },
-                    }}
-                >
+                <PrimaryButton sx={{ borderRadius: 3, px: 4 }}>
                     {t("productModal.solicitarDemo")}
-                </Button>
+                </PrimaryButton>
             </DialogActions>
         </Dialog>
     );

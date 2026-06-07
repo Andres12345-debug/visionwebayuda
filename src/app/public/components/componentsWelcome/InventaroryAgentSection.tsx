@@ -2,6 +2,7 @@
 
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import GradientText from "../ui/GradientText";
 
 import ServiceCard from "../shared/ServiceCards";
 
@@ -73,21 +74,9 @@ export default function InventoryAgentSection() {
             }}
           >
             {t("inventoryAgent.titulo")} {" "}
-            <Box
-              component="span"
-              sx={{
-                background:
-                  "linear-gradient(90deg, #3b82f6, #8b5cf6)",
-
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-
-                filter:
-                  "saturate(1.4) contrast(1.1)",
-              }}
-            >
+            <GradientText gradient="linear-gradient(90deg, #3b82f6, #8b5cf6)">
               {t("inventoryAgent.tituloGradient")}
-            </Box>
+            </GradientText>
           </Typography>
 
           <Typography

@@ -2,10 +2,10 @@ import React from "react";
 import {
     Card,
     Typography,
-    Button,
     Box,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import PrimaryButton from "../ui/PrimaryButton";
 
 export interface SoftwareItem {
     id: number;
@@ -88,25 +88,13 @@ export const SoftwareCard: React.FC<Props> = ({ item, onClick }) => {
 
             {/* Botón con margen uniforme */}
             <Box sx={{ px: 4, pb: 4 }}>
-                <Button
-                    variant="contained"
+                <PrimaryButton
                     fullWidth
-                    onClick={(e) => {
-                        e.stopPropagation();
-                    }}
-                    sx={{
-                        borderRadius: 2,
-                        textTransform: "none",
-                        fontWeight: 700,
-                        py: 1.5,
-                        background: "linear-gradient(90deg, #6366f1, #9333ea)",
-                        "&:hover": {
-                            background: "linear-gradient(90deg, #4f46e5, #7e22ce)",
-                        },
-                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    sx={{ borderRadius: 2, py: 1.5 }}
                 >
                     {t("products.solicitarBtn")}
-                </Button>
+                </PrimaryButton>
             </Box>
         </Card>
     );

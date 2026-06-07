@@ -4,6 +4,7 @@ import { Box, Toolbar } from "@mui/material";
 import { Suspense } from "react";
 import SmallNav from "../../public/nav/SmallNav";
 import { FloatingWhatsApp } from "../../public/components/ui/FloatingWhatsApp";
+import { FloatingChatbot } from "../../public/components/ui/FloatingChatbot";
 import Footer from "../../public/footer/footer";
 
 export const MainLayout = () => {
@@ -24,6 +25,7 @@ export const MainLayout = () => {
           <Outlet />
         </Suspense>
 
+        <FloatingChatbot />
         <FloatingWhatsApp />
         <Footer />
       </Box>

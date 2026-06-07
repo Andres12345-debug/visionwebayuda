@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
+import GradientText from "../ui/GradientText";
 
 export default function HelpdeskVideoSection() {
   const theme = useTheme();
@@ -28,16 +29,7 @@ export default function HelpdeskVideoSection() {
           }}
         >
           {t("helpDeskVideo.titulo")}{" "}
-          <Box
-            component="span"
-            sx={{
-              background: "linear-gradient(90deg, #6366f1, #9333ea)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {t("helpDeskVideo.tituloGradient")}
-          </Box>{" "}
+          <GradientText>{t("helpDeskVideo.tituloGradient")}</GradientText>{" "}
           {t("helpDeskVideo.enAccion")}
         </Typography>
         <Typography

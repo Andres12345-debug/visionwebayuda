@@ -10,6 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { useTranslation } from "react-i18next";
+import GradientText from "../ui/GradientText";
 
 export default function FAQSection() {
   const theme = useTheme();
@@ -90,20 +91,7 @@ export default function FAQSection() {
             }}
           >
             {t("faqs.titulo")}{" "}
-            <Box
-              component="span"
-              sx={{
-                background:
-                  "linear-gradient(90deg, #6366f1, #9333ea)",
-
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-
-                filter: "saturate(1.3) contrast(1.05)",
-              }}
-            >
-              {t("faqs.tituloGradient")}
-            </Box>
+            <GradientText>{t("faqs.tituloGradient")}</GradientText>
           </Typography>
 
           <Typography
