@@ -17,7 +17,7 @@ import {
 import {
   AccountCircleOutlined as PersonIcon,
   AlternateEmail as MailIcon,
-  PeopleOutline as GroupIcon,
+  DesignServicesOutlined as ServicesIcon,
   LogoutRounded as LogoutIcon,
   DarkModeOutlined as DarkIcon,
   LightModeOutlined as LightIcon,
@@ -72,9 +72,11 @@ const UserMenu = () => {
   const menuItems = [
     { label: "Mi Perfil", Icon: PersonIcon, path: "profile" },
     ...(esAdministrador
-      ? [{ label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" }]
+      ? [
+          { label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" },
+          { label: "Servicios y contratos", Icon: ServicesIcon, path: "servicios" },
+        ]
       : []),
-    { label: "Gestión de Usuarios", Icon: GroupIcon, path: "clients" },
   ];
 
   return (

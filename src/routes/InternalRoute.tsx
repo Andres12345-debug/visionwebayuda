@@ -8,8 +8,8 @@ import { Boardboard } from "../app/private/pages/Boardboard";
 // Corrección de typos y organización
 const LazyError = lazy(() => import("../app/shared/Error"));
 const LazyProfile = lazy(() => import("../app/private/pages/Profile"));
-const LazyClients = lazy(() => import("../app/private/pages/ClientDashboard"));
 const LazyCorreos = lazy(() => import("../app/private/pages/EmailDashBoard"));
+const LazyServicios = lazy(() => import("../app/private/pages/ServiciosDashboard"));
 
 
 // Loader profesional para el Suspense
@@ -53,13 +53,16 @@ export const InternalRoute = () => {
             {/* Ruta: /prefijo/profile */}
             <Route path="profile" element={<LazyProfile />} />
 
-            {/* Ruta: /prefijo/clients */}
-            <Route path="clients" element={<LazyClients />} />
-
             {/* Ruta: /prefijo/correos — solo administradores */}
             <Route
               path="correos"
               element={esAdministrador() ? <LazyCorreos /> : <Navigate to="/dash" replace />}
+            />
+
+            {/* Ruta: /prefijo/servicios — solo administradores */}
+            <Route
+              path="servicios"
+              element={esAdministrador() ? <LazyServicios /> : <Navigate to="/dash" replace />}
             />
 
             {/* Atrapamos cualquier ruta no definida DENTRO del layout. 

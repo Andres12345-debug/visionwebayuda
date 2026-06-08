@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(findstr /s \"enviarFormulario\\\\|handleSubmit\\\\|onSubmit\" .)"
+      "Bash(findstr /s \"enviarFormulario\\\\|handleSubmit\\\\|onSubmit\" .)",
+      "Bash(rm \"src/app/models/Client.tsx\" \"src/app/services/client/ClienteService.ts\" \"src/app/private/pages/ClientDashboard.tsx\" \"src/app/public/components/modals/ClientsModals.tsx\")",
+      "Bash(rmdir \"src/app/services/client\")",
+      "Bash(git show *)",
+      "Read(//tmp/**)",
+      "Read(//c/tmp/**)"
     ]
   }
 }

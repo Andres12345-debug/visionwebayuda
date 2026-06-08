@@ -20,10 +20,20 @@ export const URLS = {
     ACTUALIZAR_USUARIO: "/privado/usuarios/update",
     ELIMINAR_USUARIO: "/privado/usuarios/delete",
 
-    LISTAR_CLIENTES: "/privado/clientes/todos",
-    CREAR_CLIENTES: "/privado/clientes/agregar",
-    ACTUALIZAR_CLIENTES: "/privado/clientes/actualizar",
-    ELIMINAR_CLIENTES: "/privado/clientes/delete",
+    /****CATÁLOGO DE SERVICIOS ************ */
+    LISTAR_SERVICIOS: "/privado/servicios/todos",
+    OBTENER_SERVICIO: "/privado/servicios",
+    CREAR_SERVICIO: "/privado/servicios/agregar",
+    ACTUALIZAR_SERVICIO: "/privado/servicios/actualizar",
+    ELIMINAR_SERVICIO: "/privado/servicios/delete",
+
+    /****CONTRATOS DE CLIENTE-SERVICIOS ************ */
+    LISTAR_CLIENTE_SERVICIOS: "/privado/cliente-servicios/todos",
+    MIS_CLIENTE_SERVICIOS: "/privado/cliente-servicios/mios",
+    OBTENER_CLIENTE_SERVICIO: "/privado/cliente-servicios",
+    CREAR_CLIENTE_SERVICIO: "/privado/cliente-servicios/agregar",
+    ACTUALIZAR_CLIENTE_SERVICIO: "/privado/cliente-servicios/actualizar",
+    ELIMINAR_CLIENTE_SERVICIO: "/privado/cliente-servicios/delete",
 
     /****SERVICIOS PRIVADOS PARA EL PERFIL ************ */
     LISTAR_PERFIL: "/privado/usuarios/perfil",
