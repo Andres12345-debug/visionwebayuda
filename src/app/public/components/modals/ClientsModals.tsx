@@ -1,18 +1,36 @@
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   Button,
-  TextField,
-  Stack,
   MenuItem,
-  CircularProgress
+  CircularProgress,
+  InputAdornment
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
-import { useState, useEffect } from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import BadgeIcon from "@mui/icons-material/Badge";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import BusinessIcon from "@mui/icons-material/Business";
+import StyleIcon from "@mui/icons-material/Style";
+
+import { ReactNode, useState, useEffect } from "react";
 import { Cliente } from "../../../models/Client";
 import { ClienteService } from "../../../services/client/ClienteService";
+import { BaseModal, ModalTextField } from "./AnswerEmail";
+
+const adornment = (icon: ReactNode) => ({
+  slotProps: {
+    input: {
+      startAdornment: (
+        <InputAdornment position="start">
+          {icon}
+        </InputAdornment>
+      )
+    }
+  }
+});
 
 interface Props {
   open: boolean;
@@ -131,130 +149,148 @@ export const ClienteModal = ({ open, onClose, cliente, onSuccess }: Props) => {
 
   return (
 
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
+    <BaseModal
+      open={open}
+      onClose={onClose}
+      title={cliente ? "Editar Cliente" : "Crear Cliente"}
+      maxWidth="md"
+      actions={
+        <>
+          <Button onClick={onClose}>
+            Cancelar
+          </Button>
 
-      <DialogTitle>
-        {cliente ? "Editar Cliente" : "Crear Cliente"}
-      </DialogTitle>
+          <Button
+            variant="contained"
+            onClick={guardar}
+            disabled={loading}
+          >
+            {loading ? <CircularProgress size={20}/> : "Guardar"}
+          </Button>
+        </>
+      }
+    >
 
-      <DialogContent>
+      <Grid container spacing={2.5}>
 
-        <Stack spacing={3} sx={{ mt: 2 }}>
-
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Nombre"
             value={form.nombreCliente}
             onChange={(e) => handleChange("nombreCliente", e.target.value)}
-            fullWidth
+            {...adornment(<PersonIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Apellido"
             value={form.apellidoCliente}
             onChange={(e) => handleChange("apellidoCliente", e.target.value)}
-            fullWidth
+            {...adornment(<PersonIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="NIT"
             value={form.nitCliente}
             onChange={(e) => handleChange("nitCliente", e.target.value)}
-            fullWidth
+            {...adornment(<BadgeIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Dirección"
             value={form.direccionCliente}
             onChange={(e) => handleChange("direccionCliente", e.target.value)}
-            fullWidth
+            {...adornment(<LocationOnIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Correo"
             type="email"
             value={form.correoCliente}
             onChange={(e) => handleChange("correoCliente", e.target.value)}
-            fullWidth
+            {...adornment(<EmailIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Teléfono"
             value={form.telefonoCliente}
             onChange={(e) => handleChange("telefonoCliente", e.target.value)}
-            fullWidth
+            {...adornment(<PhoneIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Teléfono Secundario"
             value={form.telefonoSecundarioCliente}
             onChange={(e) => handleChange("telefonoSecundarioCliente", e.target.value)}
-            fullWidth
+            {...adornment(<PhoneIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Ciudad"
             value={form.ciudadCliente}
             onChange={(e) => handleChange("ciudadCliente", e.target.value)}
-            fullWidth
+            {...adornment(<LocationCityIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Empresa"
             value={form.empresaCliente}
             onChange={(e) => handleChange("empresaCliente", e.target.value)}
-            fullWidth
+            {...adornment(<BusinessIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             label="Característica"
             value={form.caracteristicaCliente}
             onChange={(e) => handleChange("caracteristicaCliente", e.target.value)}
-            fullWidth
+            {...adornment(<StyleIcon color="action" />)}
           />
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             select
             label="Estado"
             value={form.estadoCliente}
             onChange={(e) => handleChange("estadoCliente", e.target.value)}
-            fullWidth
           >
             <MenuItem value="Activo">Activo</MenuItem>
             <MenuItem value="Inactivo">Inactivo</MenuItem>
-          </TextField>
+          </ModalTextField>
+        </Grid>
 
-          <TextField
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <ModalTextField
             select
             label="Género"
             value={form.generoUsuario}
             onChange={(e) => handleChange("generoUsuario", Number(e.target.value))}
-            fullWidth
           >
             <MenuItem value={1}>Masculino</MenuItem>
             <MenuItem value={2}>Femenino</MenuItem>
-          </TextField>
+          </ModalTextField>
+        </Grid>
 
-        </Stack>
+      </Grid>
 
-      </DialogContent>
-
-      <DialogActions>
-
-        <Button onClick={onClose}>
-          Cancelar
-        </Button>
-
-        <Button
-          variant="contained"
-          onClick={guardar}
-          disabled={loading}
-        >
-          {loading ? <CircularProgress size={20}/> : "Guardar"}
-        </Button>
-
-      </DialogActions>
-
-    </Dialog>
+    </BaseModal>
 
   );
 

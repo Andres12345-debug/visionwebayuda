@@ -9,9 +9,9 @@ export const URLS = {
     CONTACTO: "/publico/correos/contacto",
 
     /*** CORREOS ***/
-    LISTAR_CORREOS: "/publico/correos",
-    OBTENER_CORREO: "/publico/correos",
-    RESPONDER_CORREO: "/publico/correos/responder",
+    LISTAR_CORREOS: "/privado/correos",
+    OBTENER_CORREO: "/privado/correos",
+    RESPONDER_CORREO: "/privado/correos/responder",
 
 
     /****SERVICIOS PRIVADOS ************ */

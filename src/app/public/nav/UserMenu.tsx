@@ -67,9 +67,13 @@ const UserMenu = () => {
     handleClose();
   };
 
+  const esAdministrador = datosUsuario.rol?.toLowerCase().includes("admin") ?? false;
+
   const menuItems = [
     { label: "Mi Perfil", Icon: PersonIcon, path: "profile" },
-    { label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" },
+    ...(esAdministrador
+      ? [{ label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" }]
+      : []),
     { label: "Gestión de Usuarios", Icon: GroupIcon, path: "clients" },
   ];
 

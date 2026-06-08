@@ -1,5 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { jwtDecode } from "jwt-decode";
 import { LinearProgress, Box } from "@mui/material"; // Usamos MUI para un cargador decente
 import ScrollToTop from "../app/public/components/ScrollToTop";
 import { Boardboard } from "../app/private/pages/Boardboard";
@@ -7,8 +8,8 @@ import { Boardboard } from "../app/private/pages/Boardboard";
 // Corrección de typos y organización
 const LazyError = lazy(() => import("../app/shared/Error"));
 const LazyProfile = lazy(() => import("../app/private/pages/Profile"));
-const LazyDashboard = lazy(() => import("../app/private/pages/EmailDashBoard")); // Corregido 'dashboard'
-const LazyClients = lazy(() => import("../app/private/pages/ClientDashboard")); // Corregido 'dashboard'
+const LazyClients = lazy(() => import("../app/private/pages/ClientDashboard"));
+const LazyCorreos = lazy(() => import("../app/private/pages/EmailDashBoard"));
 
 
 // Loader profesional para el Suspense
@@ -17,6 +18,18 @@ const PageLoader = () => (
     <LinearProgress />
   </Box>
 );
+
+// La bandeja de correos solo está disponible para administradores
+const esAdministrador = () => {
+  const token = localStorage.getItem("TOKEN_AUTORIZACION");
+  if (!token) return false;
+  try {
+    const { rol } = jwtDecode<{ rol: string }>(token);
+    return rol?.toLowerCase().includes("admin") ?? false;
+  } catch {
+    return false;
+  }
+};
 
 export const InternalRoute = () => {
   return (
@@ -29,15 +42,25 @@ export const InternalRoute = () => {
               dentro de su JSX para renderizar las rutas hijas.
           */}
           <Route path="/" element={<Boardboard />}>
-            {/* Ruta por defecto al entrar al prefijo (ej: /dash/)
-             */}
-            <Route index element={<LazyDashboard />} />
+            {/* Ruta por defecto al entrar al prefijo (ej: /dash/):
+                administradores van directo a la bandeja de correos,
+                el resto va a su perfil */}
+            <Route
+              index
+              element={<Navigate to={esAdministrador() ? "correos" : "profile"} replace />}
+            />
 
             {/* Ruta: /prefijo/profile */}
             <Route path="profile" element={<LazyProfile />} />
 
             {/* Ruta: /prefijo/clients */}
             <Route path="clients" element={<LazyClients />} />
+
+            {/* Ruta: /prefijo/correos — solo administradores */}
+            <Route
+              path="correos"
+              element={esAdministrador() ? <LazyCorreos /> : <Navigate to="/dash" replace />}
+            />
 
             {/* Atrapamos cualquier ruta no definida DENTRO del layout. 
                 Si no existe, muestra el Error.

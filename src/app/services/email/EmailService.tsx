@@ -16,7 +16,7 @@ export class CorreoService {
 
       const data = await HttpClient.get<any[]>(
         URLS.URL_BASE + URLS.LISTAR_CORREOS,
-        false
+        true
       );
 
       return data.map(item => new Correo(
@@ -48,7 +48,7 @@ export class CorreoService {
 
       const item = await HttpClient.get<any>(
         URLS.URL_BASE + URLS.OBTENER_CORREO + `/${id}`,
-        false
+        true
       );
 
       return new Correo(
