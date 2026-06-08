@@ -306,6 +306,7 @@
     "nombreLabel": "Full name",
     "correoLabel": "Email address",
     "telefonoLabel": "Phone",
+    "empresaLabel": "Company (optional)",
     "fechaNacimientoLabel": "Date of birth",
     "generoLabel": "Gender",
     "generoMasculino": "Male",

@@ -306,6 +306,7 @@
     "nombreLabel": "Nombre completo",
     "correoLabel": "Correo electrónico",
     "telefonoLabel": "Teléfono",
+    "empresaLabel": "Empresa (opcional)",
     "fechaNacimientoLabel": "Fecha de nacimiento",
     "generoLabel": "Género",
     "generoMasculino": "Masculino",

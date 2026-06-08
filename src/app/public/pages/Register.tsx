@@ -19,6 +19,7 @@ import {
   LockOutlined as LockIcon,
   PhoneIphoneOutlined as PhoneIcon,
   CalendarMonthOutlined as DateIcon,
+  BusinessOutlined as CompanyIcon,
   Visibility,
   VisibilityOff,
   VerifiedUserOutlined as ShieldIcon,
@@ -55,12 +56,13 @@ const Register = () => {
     nombreUsuario,
     correoUsuario,
     telefonoUsuario,
+    empresaUsuario,
     fechaNacimientoUsuario,
     generoUsuario,
     claveAcceso,
     dobleEnlace,
   } = useFormulario<RegistroSesion>(
-    new RegistroSesion("", "", 1, "", "", ""),
+    new RegistroSesion("", "", 1, "", "", "", ""),
   );
 
   const formularioValido =
@@ -80,6 +82,7 @@ const Register = () => {
         nombreUsuario,
         correoUsuario,
         telefonoUsuario,
+        empresaUsuario: empresaUsuario?.trim() ? empresaUsuario : undefined,
         fechaNacimientoUsuario,
         generoUsuario: Number(generoUsuario),
         claveAcceso,
@@ -270,6 +273,24 @@ const Register = () => {
                   }}
                 />
               </Stack>
+
+              <TextField
+                label={t("register.empresaLabel")}
+                name="empresaUsuario"
+                variant="filled"
+                value={empresaUsuario ?? ""}
+                onChange={dobleEnlace}
+                fullWidth
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CompanyIcon color="primary" />
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                  sx: { borderRadius: 2 },
+                }}
+              />
 
               <TextField
                 select
