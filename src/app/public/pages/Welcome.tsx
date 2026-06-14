@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import SEO from "../../shared/SEO";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
