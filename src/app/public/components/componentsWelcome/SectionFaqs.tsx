@@ -192,7 +192,7 @@ export default function FAQSection() {
               >
                 <Typography
                   sx={{
-                    fontWeight: 800,
+                    fontWeight: 400,
                     lineHeight: 1.4,
 
                     fontSize: {

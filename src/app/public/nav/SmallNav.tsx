@@ -134,8 +134,11 @@ export default function Navbar() {
                 display: { xs: "none", sm: "inline-flex" },
                 background: "linear-gradient(90deg, #6366f1, #9333ea)",
                 color: "#fff",
+                transition: "all 0.3s ease",
                 "&:hover": {
                   background: "linear-gradient(90deg, #5558e6, #7e22ce)",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 6px 16px rgba(99,102,241,0.4)",
                 },
               }}
             >
@@ -144,7 +147,14 @@ export default function Navbar() {
             <IconButton
               component={Link}
               to="/login"
-              sx={{ display: { xs: "flex", sm: "none" } }}
+              sx={{
+                display: { xs: "flex", sm: "none" },
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "#6366f1",
+                  transform: "translateY(-2px)",
+                },
+              }}
               color="inherit"
             >
               <LoginIcon />
@@ -156,20 +166,43 @@ export default function Navbar() {
                 textTransform: "none",
                 borderRadius: 3,
                 display: { xs: "none", sm: "inline-flex" },
-                borderColor: mode === "dark" ? "rgba(255,255,255,0.3)" : "primary.main"
+                borderColor: mode === "dark" ? "rgba(255,255,255,0.3)" : "primary.main",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  borderColor: "#6366f1",
+                  backgroundColor: mode === "dark" ? "rgba(99,102,241,0.1)" : "rgba(99,102,241,0.05)",
+                  transform: "translateY(-2px)",
+                },
               }}
               onClick={toggleLanguage}
             >
               {i18n.language === "es" ? "EN" : "ES"}
             </Button>
 
-            <IconButton onClick={toggleTheme} color="inherit">
+            <IconButton
+              onClick={toggleTheme}
+              color="inherit"
+              sx={{
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: mode === "dark" ? "rgba(99,102,241,0.15)" : "rgba(99,102,241,0.08)",
+                  transform: "rotate(20deg)",
+                },
+              }}
+            >
               {mode === "light" ? <DarkMode /> : <LightMode />}
             </IconButton>
 
             <IconButton
               onClick={() => setDrawerOpen(true)}
-              sx={{ display: { xs: "flex", md: "none" } }}
+              sx={{
+                display: { xs: "flex", md: "none" },
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "#6366f1",
+                  transform: "translateY(-2px)",
+                },
+              }}
               color="inherit"
             >
               <MenuIcon />

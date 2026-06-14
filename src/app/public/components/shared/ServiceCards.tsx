@@ -1,5 +1,6 @@
 import { Card, CardContent, Box, Typography, useTheme } from "@mui/material";
 import { ReactNode } from "react";
+import ScrollReveal from "../ui/ScrollReveal";
 
 type ServiceCardProps = {
   icon: ReactNode;
@@ -18,6 +19,7 @@ export default function ServiceCard({
   const isDark = theme.palette.mode === "dark";
 
   return (
+    <ScrollReveal>
     <Card
       elevation={2}
       sx={{
@@ -132,5 +134,6 @@ export default function ServiceCard({
         </Typography>
       </CardContent>
     </Card>
+    </ScrollReveal>
   );
 }

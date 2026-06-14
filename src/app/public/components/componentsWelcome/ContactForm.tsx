@@ -64,7 +64,7 @@ export default function FormularioContacto() {
             sx={{
                 py: { xs: 8, md: 12 },
                 px: { xs: 2, md: 8 },
-                // APLICAMOS EL NEGRO PURO AQUÍ,                
+                backgroundColor: "background.default",
                 transition: "background-color 0.3s ease",
             }}
         >
@@ -76,6 +76,7 @@ export default function FormularioContacto() {
                     p: { xs: 4, md: 6 },
                     borderRadius: "24px",
                     backdropFilter: "blur(20px)",
+                    backgroundColor: isDark ? "#1e293b" : "#fff",
                 }}
             >
                 <Typography

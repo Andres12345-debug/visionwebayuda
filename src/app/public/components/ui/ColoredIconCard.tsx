@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Typography, Avatar, Paper } from "@mui/material";
+import ScrollReveal from "./ScrollReveal";
 
 export type ColoredIconCardProps = {
     icon: ReactNode;
@@ -12,6 +13,7 @@ export type ColoredIconCardProps = {
 
 export default function ColoredIconCard({ icon, title, desc, color, isDark, stepNumber }: ColoredIconCardProps) {
     return (
+        <ScrollReveal>
         <Paper
             elevation={0}
             sx={{
@@ -66,5 +68,6 @@ export default function ColoredIconCard({ icon, title, desc, color, isDark, step
                 </Typography>
             )}
         </Paper>
+        </ScrollReveal>
     );
 }

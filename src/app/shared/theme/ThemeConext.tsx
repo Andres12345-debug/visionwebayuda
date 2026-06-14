@@ -65,8 +65,19 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
           h1: { fontSize: '2.5rem', fontWeight: 700 },
           h4: { fontSize: '1.5rem', fontWeight: 500 },
           body1: { fontSize: '1rem', lineHeight: 1.6 },
-        }
-
+        },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              '*': {
+                transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease',
+              },
+              body: {
+                transition: 'background-color 0.3s ease, color 0.3s ease',
+              },
+            },
+          },
+        },
 
       }),
     [mode]

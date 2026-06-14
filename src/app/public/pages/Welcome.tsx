@@ -14,8 +14,6 @@ import FormularioContacto from "../components/componentsWelcome/ContactForm";
 
 const Welcome = () => {
         const { t } = useTranslation();
-        const theme = useTheme();
-        const isDark = theme.palette.mode === "dark";
 
 
     return (
