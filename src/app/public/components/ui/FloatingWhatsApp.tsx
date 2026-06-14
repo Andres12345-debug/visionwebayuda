@@ -1,14 +1,13 @@
 import { IconButton, Box } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const phoneNumber = "3007538453";
 
-const message =
-  "Hola, quiero asesoría sobre software empresarial Open Source.";
-
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
 export const FloatingWhatsApp = () => {
+  const { t } = useTranslation();
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(t("floatingWhatsApp.mensaje"))}`;
+
   return (
     <Box
       sx={{

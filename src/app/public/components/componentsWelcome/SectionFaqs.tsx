@@ -110,7 +110,7 @@ export default function FAQSection() {
           >
             {t(
               "faqs.subtitulo",
-              "Encuentra respuestas rápidas sobre nuestra plataforma, funcionalidades y servicios."
+              "Encuentre respuestas rápidas sobre nuestra plataforma, funcionalidades y servicios."
             )}
           </Typography>
         </Box>

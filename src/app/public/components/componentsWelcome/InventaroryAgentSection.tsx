@@ -90,7 +90,7 @@ export default function InventoryAgentSection() {
           >
             {t(
               "inventoryAgent.lead",
-              "Controla, administra y analiza tu inventario TI en tiempo real con una solución centralizada, moderna y escalable."
+              "Controle, administre y analice su inventario TI en tiempo real con una solución centralizada, moderna y escalable."
             )}
           </Typography>
         </Box>

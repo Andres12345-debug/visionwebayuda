@@ -18,7 +18,7 @@
   "servicesSection": {
     "titulo": "Services that transform",
     "tuAreaTIC": "your IT area",
-    "mesaDeAyudaProfesional": "Professional Help Desk",
+    "mesaDeAyudaProfesional": "Help Desk",
     "implementacionSoftware": "Software Implementation",
     "empresarialOS": "Enterprise Open Source",
     "mesaAyudaDesc": "Centralized management of technical support requests with full traceability and optimized response times.",
@@ -120,6 +120,7 @@
     "a3": "Yes. The platform allows you to register equipment, licenses, responsible parties, maintenance history and more.",
     "q4": "Can reports be generated?",
     "a4": "Of course. You can view metrics on response times, tickets attended and IT area performance.",
+    "subtitulo": "Find quick answers about our platform, features and services.",
     "q5": "Do you offer support after implementation?",
     "a5": "Yes, we offer continuous support, technical assistance and improvements as your operation grows."
     ,"q6": "Do you install the help desk?",
@@ -346,6 +347,25 @@
     "descripcion": "We are ready to help you implement Open Source enterprise solutions in your organization.",
     "whatsApp": "Business WhatsApp",
     "cerrar": "Close"
+  },
+  "hablaConVision": {
+    "titulo": "Talk to Vision",
+    "descripcion": "Get your questions answered instantly with our virtual assistant. Ask about help desk, IT inventory management or any other VisionWeb service.",
+    "boton": "Start conversation",
+    "previewHeader": "VisionWeb Assistant",
+    "previewQ1": "What does the help desk include?",
+    "previewA1": "We implement and support the help desk to manage tickets, incidents and cross-platform support. Would you like to know more?",
+    "previewQ2": "Yes, and the equipment inventory?"
+  },
+  "chatbot": {
+    "title": "VisionWeb Assistant",
+    "subtitle": "Powered by AI",
+    "welcome": "Hello! I'm VisionWeb's virtual assistant. How can I help you today? I can guide you on our help desk, IT inventory management or any other service.",
+    "placeholder": "Type your question...",
+    "typing": "Typing...",
+    "rateLimitError": "The service is receiving too many requests right now. Please wait a few seconds and try again.",
+    "genericError": "Sorry, an unexpected error occurred. Please try again.",
+    "tooltip": "Chat with us"
   },
   "seo": {
     "homeTitle": "VisionWeb System - Professional Help Desk & IT Management",

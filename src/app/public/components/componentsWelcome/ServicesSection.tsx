@@ -98,7 +98,7 @@ export default function ServicesSection() {
           >
             {t(
               "servicesSection.descripcion",
-              "Potenciamos tu área tecnológica con herramientas modernas, soporte eficiente y control inteligente."
+              "Potenciamos su área tecnológica con herramientas modernas, soporte eficiente y control inteligente."
             )}
           </Typography>
         </Box>

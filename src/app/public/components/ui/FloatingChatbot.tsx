@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { IconButton, Box, Tooltip } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import CloseIcon from "@mui/icons-material/Close";
 import ChatbotDialog from "./ChatbotDialog";
 
 export const FloatingChatbot = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export const FloatingChatbot = () => {
           zIndex: 2000,
         }}
       >
-        <Tooltip title={open ? "" : "Chatea con nosotros"} placement="left">
+        <Tooltip title={open ? "" : t("chatbot.tooltip")} placement="left">
           <IconButton
             onClick={() => setOpen((prev) => !prev)}
             sx={{

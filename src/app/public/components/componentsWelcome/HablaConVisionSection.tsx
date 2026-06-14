@@ -1,17 +1,19 @@
 import { Box, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import GradientText from "../ui/GradientText";
 import PrimaryButton from "../ui/PrimaryButton";
 
-const PREVIEW_MESSAGES = [
-  { role: "user" as const, text: "¿Qué incluye la mesa de ayuda?" },
-  { role: "model" as const, text: "Implementamos GLPI para gestionar tickets, incidentes y soporte multiplataforma. ¿Quieres que te cuente más?" },
-  { role: "user" as const, text: "Sí, ¿y el inventario de equipos?" },
-];
-
 export default function HablaConVisionSection() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+
+  const PREVIEW_MESSAGES = [
+    { role: "user" as const, text: t("hablaConVision.previewQ1") },
+    { role: "model" as const, text: t("hablaConVision.previewA1") },
+    { role: "user" as const, text: t("hablaConVision.previewQ2") },
+  ];
 
   const handleOpenChat = () => {
     window.dispatchEvent(new Event("open-vision-chat"));
@@ -40,7 +42,7 @@ export default function HablaConVisionSection() {
               color: "text.primary",
             }}
           >
-            <GradientText>Habla con Vision</GradientText>
+            <GradientText>{t("hablaConVision.titulo")}</GradientText>
           </Typography>
 
           <Typography
@@ -53,7 +55,7 @@ export default function HablaConVisionSection() {
               mx: { xs: "auto", md: 0 },
             }}
           >
-            Resuelve tus dudas al instante con nuestro asistente virtual. Pregúntale sobre mesa de ayuda, gestión de inventario TI o cualquier otro servicio de VisionWeb.
+            {t("hablaConVision.descripcion")}
           </Typography>
 
           <PrimaryButton
@@ -62,7 +64,7 @@ export default function HablaConVisionSection() {
             onClick={handleOpenChat}
             sx={{ px: 5, py: 1.6 }}
           >
-            Iniciar conversación
+            {t("hablaConVision.boton")}
           </PrimaryButton>
         </Box>
 
@@ -93,7 +95,7 @@ export default function HablaConVisionSection() {
           >
             <SmartToyIcon sx={{ color: "#fff", fontSize: 24 }} />
             <Typography sx={{ color: "#fff", fontWeight: 700, fontSize: "0.9rem" }}>
-              Asistente VisionWeb
+              {t("hablaConVision.previewHeader")}
             </Typography>
           </Box>
 

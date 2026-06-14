@@ -1,4 +1,5 @@
 import { Box, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SEO from "../../shared/SEO";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
 import HablaConVisionSection from "../components/componentsWelcome/HablaConVisionSection";
@@ -12,7 +13,8 @@ import InventoryAgentSection from "../components/componentsWelcome/InventaroryAg
 import FormularioContacto from "../components/componentsWelcome/ContactForm";
 
 const Welcome = () => {
-        const theme = useTheme();    
+        const { t } = useTranslation();
+        const theme = useTheme();
         const isDark = theme.palette.mode === "dark";
 
 
@@ -24,9 +26,9 @@ const Welcome = () => {
           : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)"
         }}>
             <SEO
-                title="VisionWeb System - Mesa de Ayuda y Gestión TI Profesional"
-                description="Centraliza el soporte técnico, gestiona activos tecnológicos y optimiza tu infraestructura TI con VisionWeb. Plataforma profesional de mesa de ayuda e inventario."
-                keywords="mesa de ayuda, gestión TI, soporte técnico, inventario tecnológico, help desk, activos TI, VisionWeb"
+                title={t("seo.homeTitle")}
+                description={t("seo.homeDescription")}
+                keywords={t("seo.keywords")}
                 ogUrl="/"
             />
             <SectionHeader />

@@ -173,7 +173,7 @@ export const ResponderCorreoModal = ({
   const enviarRespuesta = async () => {
 
     if (!asunto || !mensaje) {
-      alert("Debes completar todos los campos");
+      alert("Debe completar todos los campos");
       return;
     }
 
@@ -284,7 +284,7 @@ export const ResponderCorreoModal = ({
 
       <ModalTextField
         label="Asunto"
-        placeholder="Escribe el asunto del correo"
+        placeholder="Escriba el asunto del correo"
         value={asunto}
         onChange={(e) => setAsunto(e.target.value)}
         slotProps={{
@@ -303,7 +303,7 @@ export const ResponderCorreoModal = ({
 
       <ModalTextField
         label="Mensaje"
-        placeholder="Escribe tu respuesta..."
+        placeholder="Escriba su respuesta..."
         multiline
         rows={6}
         value={mensaje}

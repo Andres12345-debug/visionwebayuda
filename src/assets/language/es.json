@@ -10,7 +10,7 @@
   "sectionHeader": {
     "badge": "LLEVE SU EMPRESA AL SIGUIENTE NIVEL",
     "transformamos": "Transformamos su",
-    "mesaDeAyuda": "Mesa de ayuda Profesional",
+    "mesaDeAyuda": "Mesa de ayuda",
     "enUnSistema": "en un sistema profesional",
     "descripcion": "Centralice, organice y controle todo el soporte técnico y los activos tecnológicos de su empresa con una solución estructurada, medible y eficiente.",
     "solicitarAsesoria": "Solicitar asesoría"
@@ -18,7 +18,7 @@
   "servicesSection": {
     "titulo": "Servicios que transforman",
     "tuAreaTIC": "su área TIC",
-    "mesaDeAyudaProfesional": "Mesa de Ayuda Profesional",
+    "mesaDeAyudaProfesional": "Mesa de Ayuda",
     "implementacionSoftware": "Implementación de Software",
     "empresarialOS": "Empresarial Open Source",
     "mesaAyudaDesc": "Gestión centralizada de solicitudes de soporte técnico con trazabilidad completa y tiempos de respuesta optimizados.",
@@ -120,6 +120,7 @@
     "a3": "Sí. La plataforma permite registrar equipos, licencias, responsables, historial de mantenimiento y más.",
     "q4": "¿Se pueden generar reportes?",
     "a4": "Claro. Puede visualizar métricas de tiempos de respuesta, tickets atendidos y rendimiento del área TI.",
+    "subtitulo": "Encuentre respuestas rápidas sobre nuestra plataforma, funcionalidades y servicios.",
     "q5": "¿Ofrecen soporte después de la implementación?",
     "a5": "Sí, ofrecemos acompañamiento continuo, soporte técnico y mejoras según el crecimiento de su operación."
     ,"q6": "¿Ustedes instalan la mesa de ayuda?",
@@ -297,12 +298,12 @@
     "contrasenaLabel": "Contraseña",
     "entrarBtn": "Entrar al Panel",
     "autenticando": "Autenticando...",
-    "sinCuenta": "¿No tienes una cuenta?",
-    "crearCuenta": "Crea una aquí"
+    "sinCuenta": "¿No tiene una cuenta?",
+    "crearCuenta": "Cree una aquí"
   },
   "register": {
-    "titulo": "Crea tu cuenta",
-    "subtitulo": "Regístrate para acceder al panel de VisionWeb.",
+    "titulo": "Cree su cuenta",
+    "subtitulo": "Regístrese para acceder al panel de VisionWeb.",
     "nombreLabel": "Nombre completo",
     "correoLabel": "Correo electrónico",
     "telefonoLabel": "Teléfono",
@@ -315,10 +316,10 @@
     "claveAyuda": "Mínimo 8 caracteres",
     "crearCuentaBtn": "Crear cuenta",
     "registrando": "Creando cuenta...",
-    "yaTieneCuenta": "¿Ya tienes una cuenta?",
-    "iniciarSesion": "Inicia sesión",
+    "yaTieneCuenta": "¿Ya tiene una cuenta?",
+    "iniciarSesion": "Inicie sesión",
     "correoExistente": "Ya existe una cuenta registrada con ese correo",
-    "errorGenerico": "No fue posible completar el registro. Verifica tus datos e intenta de nuevo"
+    "errorGenerico": "No fue posible completar el registro. Verifique sus datos e intente de nuevo."
   },
   "errorPage": {
     "titulo": "Página no encontrada",
@@ -342,10 +343,29 @@
     "mensaje": "Hola, quiero asesoría sobre software empresarial Open Source."
   },
   "contactModal": {
-    "titulo": "Contáctanos",
+    "titulo": "Contáctenos",
     "descripcion": "Estamos listos para ayudarle a implementar soluciones empresariales Open Source en su organización.",
     "whatsApp": "WhatsApp Empresarial",
     "cerrar": "Cerrar"
+  },
+  "hablaConVision": {
+    "titulo": "Hable con Vision",
+    "descripcion": "Resuelva sus dudas al instante con nuestro asistente virtual. Pregúntele sobre mesa de ayuda, gestión de inventario TI o cualquier otro servicio de VisionWeb.",
+    "boton": "Iniciar conversación",
+    "previewHeader": "Asistente VisionWeb",
+    "previewQ1": "¿Qué incluye la mesa de ayuda?",
+    "previewA1": "Implementamos y damos soporte a la mesa de ayuda para gestionar tickets, incidentes y soporte multiplataforma. ¿Desea que le cuente más?",
+    "previewQ2": "Sí, ¿y el inventario de equipos?"
+  },
+  "chatbot": {
+    "title": "Asistente VisionWeb",
+    "subtitle": "Respondiendo con IA",
+    "welcome": "¡Hola! Soy el asistente virtual de VisionWeb. ¿En qué puedo ayudarle hoy? Puedo orientarle sobre nuestra mesa de ayuda, gestión de inventario TI o cualquier otro servicio.",
+    "placeholder": "Escriba su pregunta...",
+    "typing": "Escribiendo...",
+    "rateLimitError": "El servicio está recibiendo muchas solicitudes en este momento. Espere unos segundos e intente de nuevo.",
+    "genericError": "Lo siento, ocurrió un error inesperado. Por favor, intente de nuevo.",
+    "tooltip": "Chatee con nosotros"
   },
   "seo": {
     "homeTitle": "VisionWeb System - Mesa de Ayuda y Gestión TI Profesional",
@@ -357,7 +377,7 @@
     "loginTitle": "Iniciar Sesión - Panel de Gestión | VisionWeb System",
     "loginDescription": "Acceda al panel de gestión VisionWeb para administrar su infraestructura TI, tickets de soporte y activos tecnológicos.",
     "registerTitle": "Crear Cuenta - Panel de Gestión | VisionWeb System",
-    "registerDescription": "Regístrate en VisionWeb para acceder al panel de gestión de soporte técnico, activos tecnológicos e infraestructura TI.",
+    "registerDescription": "Regístrese en VisionWeb para acceder al panel de gestión de soporte técnico, activos tecnológicos e infraestructura TI.",
     "errorTitle": "Página no encontrada - 404 | VisionWeb System",
     "errorDescription": "La página que buscas no existe. Regresa al inicio de VisionWeb para encontrar lo que necesitas.",
     "keywords": "mesa de ayuda, soporte técnico, gestión de activos TI, inventario tecnológico, help desk profesional, VisionWeb, gestión de infraestructura"

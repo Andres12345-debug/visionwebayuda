@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SEO from "../../shared/SEO";
 import ProductsSection from "../components/componentsProducts/ProductsSection";
 import WhyChooseUs from "../components/componentsProducts/WhyChooseUs";
@@ -7,14 +8,14 @@ import ClientsSection from "../components/componentsProducts/ClientsSection";
 import MetricsSection from "../components/componentsProducts/MetricsSection";
 
 const Products = () => {
-
+    const { t } = useTranslation();
 
     return (
         <Box>
             <SEO
-                title="Productos - Soluciones GPLI | VisionWeb System"
-                description="Descubre nuestra suite de soluciones GPLI: inventario, logística, reportes, comercial y soporte. Gestión empresarial integral con tecnología profesional."
-                keywords="productos GPLI, soluciones empresariales, software inventario, gestión logística, reportes TI, software comercial, soporte técnico"
+                title={t("seo.productsTitle")}
+                description={t("seo.productsDescription")}
+                keywords={t("seo.keywords")}
                 ogUrl="/productos"
             />
             <ProductsSection />

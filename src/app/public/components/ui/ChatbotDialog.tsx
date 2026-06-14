@@ -7,6 +7,7 @@ import {
   CircularProgress,
   useTheme,
 } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from "@mui/icons-material/Close";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
@@ -17,14 +18,15 @@ type Props = {
   onClose: () => void;
 };
 
-const WELCOME: ChatMessage = {
-  role: "model",
-  text: "¡Hola! Soy el asistente virtual de VisionWeb. ¿En qué puedo ayudarte hoy? Puedo orientarte sobre nuestra mesa de ayuda, gestión de inventario TI o cualquier otro servicio.",
-};
-
 export default function ChatbotDialog({ open, onClose }: Props) {
+  const { t } = useTranslation();
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+
+  const WELCOME: ChatMessage = {
+    role: "model",
+    text: t("chatbot.welcome"),
+  };
 
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME]);
   const [input, setInput] = useState("");
@@ -50,8 +52,8 @@ export default function ChatbotDialog({ open, onClose }: Props) {
       setMessages((prev) => [...prev, { role: "model", text: reply }]);
     } catch (err) {
       const errorText = err instanceof RateLimitError
-        ? "El servicio está recibiendo muchas solicitudes en este momento. Espera unos segundos e intenta de nuevo."
-        : "Lo siento, ocurrió un error inesperado. Por favor intenta de nuevo.";
+        ? t("chatbot.rateLimitError")
+        : t("chatbot.genericError");
       setMessages((prev) => [...prev, { role: "model", text: errorText }]);
     } finally {
       setLoading(false);
@@ -100,10 +102,10 @@ export default function ChatbotDialog({ open, onClose }: Props) {
         <SmartToyIcon sx={{ color: "#fff", fontSize: 26 }} />
         <Box sx={{ flex: 1 }}>
           <Typography sx={{ color: "#fff", fontWeight: 700, fontSize: "0.95rem", lineHeight: 1.2 }}>
-            Asistente VisionWeb
+            {t("chatbot.title")}
           </Typography>
           <Typography sx={{ color: "rgba(255,255,255,0.75)", fontSize: "0.72rem" }}>
-            Respondiendo con IA · Gemini
+            {t("chatbot.subtitle")}
           </Typography>
         </Box>
         <IconButton onClick={onClose} size="small" sx={{ color: "#fff" }}>
@@ -188,7 +190,7 @@ export default function ChatbotDialog({ open, onClose }: Props) {
             >
               <CircularProgress size={14} sx={{ color: "#6366f1" }} />
               <Typography sx={{ fontSize: "0.82rem", color: isDark ? "#94a3b8" : "#64748b" }}>
-                Escribiendo...
+                {t("chatbot.typing")}
               </Typography>
             </Box>
           </Box>
@@ -214,7 +216,7 @@ export default function ChatbotDialog({ open, onClose }: Props) {
           multiline
           maxRows={3}
           size="small"
-          placeholder="Escribe tu pregunta..."
+          placeholder={t("chatbot.placeholder")}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}

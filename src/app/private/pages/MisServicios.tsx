@@ -62,7 +62,7 @@ const MisServicios = () => {
       setContratos(data);
     } catch (error) {
       console.error("Error cargando mis servicios", error);
-      setError("No se pudieron cargar tus servicios contratados.");
+      setError("No se pudieron cargar sus servicios contratados.");
     } finally {
       setCargando(false);
     }
@@ -84,7 +84,7 @@ const MisServicios = () => {
           Mis servicios
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Servicios y contratos asociados a tu cuenta
+          Servicios y contratos asociados a su cuenta
         </Typography>
       </Box>
 
@@ -96,7 +96,7 @@ const MisServicios = () => {
 
       {!error && contratos.length === 0 && (
         <Alert severity="info">
-          Aún no tienes servicios contratados.
+          Aún no tiene servicios contratados.
         </Alert>
       )}
 
