@@ -10,6 +10,7 @@ export const useFormulario = <T extends Object>(objetoInicial: T) => {
 
     return {
         objeto,
+        setObjeto,
         dobleEnlace,
         ...objeto
     }

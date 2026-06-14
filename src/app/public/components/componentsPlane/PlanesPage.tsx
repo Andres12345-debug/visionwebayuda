@@ -9,12 +9,7 @@ const PlanesPage = () => {
     const isDark = mode === 'dark';
 
     return (
-        <Box style={{
-            backgroundColor: isDark ? '#000000' : '#ffffff',
-            minHeight: '100vh',
-            transition: 'background-color 0.3s ease',
-            color: isDark ? '#fff' : '#000'
-        }}>
+        <Box>
             <OnboardingSteps />
             <TechDifferentiator />
 

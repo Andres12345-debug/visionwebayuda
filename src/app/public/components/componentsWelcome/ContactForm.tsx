@@ -18,11 +18,12 @@ import MessageIcon from "@mui/icons-material/Message";
 import SendIcon from "@mui/icons-material/Send";
 import { URLS } from "../../../utilities/domains/urls";
 import { HttpClient } from "../../../services/core/HttpClient";
+import { useFormulario } from "../../../utilities/hoks/useForm";
 
 export default function FormularioContacto() {
     const { t } = useTranslation();
 
-    const [form, setForm] = useState({
+    const { nombre, email, mensaje, objeto, setObjeto, dobleEnlace } = useFormulario({
         nombre: "",
         email: "",
         mensaje: ""
@@ -34,15 +35,8 @@ export default function FormularioContacto() {
     const theme = useTheme();
     const isDark = theme.palette.mode === "dark";
 
-    const manejarCambio = (e: any) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
-    };
-
     const enviarFormulario = async () => {
-        if (!form.nombre || !form.email || !form.mensaje) {
+        if (!nombre || !email || !mensaje) {
             setError(t("contactForm.errorCampos"));
             return;
         }
@@ -53,10 +47,10 @@ export default function FormularioContacto() {
 
         try {
             const url = URLS.URL_BASE + URLS.CONTACTO;
-            const resp = await HttpClient.post<any>(url, form);
+            const resp = await HttpClient.post<any>(url, objeto);
 
             setRespuesta(resp.mensaje);
-            setForm({ nombre: "", email: "", mensaje: "" });
+            setObjeto({ nombre: "", email: "", mensaje: "" });
 
         } catch (err) {
             setError(t("contactForm.errorEnvio"));
@@ -113,8 +107,8 @@ export default function FormularioContacto() {
 
                         label={t("contactForm.nombreLabel")}
                         name="nombre"
-                        value={form.nombre}
-                        onChange={manejarCambio}
+                        value={nombre}
+                        onChange={dobleEnlace}
                         fullWidth
                         variant="outlined"
                         InputProps={{
@@ -131,8 +125,8 @@ export default function FormularioContacto() {
                         label={t("contactForm.emailLabel")}
                         name="email"
                         type="email"
-                        value={form.email}
-                        onChange={manejarCambio}
+                        value={email}
+                        onChange={dobleEnlace}
                         fullWidth
                         variant="outlined"
                         InputProps={{
@@ -147,8 +141,8 @@ export default function FormularioContacto() {
                     <TextField
                         label={t("contactForm.mensajeLabel")}
                         name="mensaje"
-                        value={form.mensaje}
-                        onChange={manejarCambio}
+                        value={mensaje}
+                        onChange={dobleEnlace}
                         multiline
                         rows={4}
                         fullWidth

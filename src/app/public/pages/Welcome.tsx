@@ -19,12 +19,7 @@ const Welcome = () => {
 
 
     return (
-        <Box
-        sx={{
-             background: isDark
-          ? "linear-gradient(180deg, #000000 0%, #020617 100%)"
-          : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)"
-        }}>
+        <Box>
             <SEO
                 title={t("seo.homeTitle")}
                 description={t("seo.homeDescription")}

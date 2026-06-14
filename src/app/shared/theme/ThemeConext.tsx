@@ -51,6 +51,9 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
             secondary: mode === "light" ? "#322f3e" : "#fcfcfc",
             disabled: mode === "light" ? "#000000" : "#000000",
           },
+          background: {
+            default: mode === "dark" ? "#000000" : "#ffffff",
+          },
 
         },
         zIndex: {

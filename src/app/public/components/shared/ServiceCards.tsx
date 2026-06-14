@@ -15,6 +15,7 @@ export default function ServiceCard({
   minHeight = 280,
 }: ServiceCardProps) {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
   return (
     <Card
@@ -27,12 +28,12 @@ export default function ServiceCard({
         flexShrink: 0,
 
         borderRadius: 4,
-        border: `1px solid ${theme.palette.divider}`,
+        border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
 
         position: "relative",
         overflow: "hidden",
 
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: isDark ? "#1e293b" : "#fff",
 
         display: "flex",
         flexDirection: "column",

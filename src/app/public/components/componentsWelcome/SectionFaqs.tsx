@@ -55,11 +55,7 @@ export default function FAQSection() {
         mt: { xs: 4, md: 6 },
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 6 },
-        borderRadius: 4,
-        //background: isDark
-          //? "linear-gradient(180deg, #000000 0%, #020617 100%)"
-          //: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
-      }}
+        borderRadius: 4  }}
     >
       {/* CONTENEDOR CENTRAL */}
       <Box
