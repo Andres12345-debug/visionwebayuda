@@ -1,19 +1,12 @@
-import { jwtDecode } from "jwt-decode";
 import { Navigate, Outlet } from "react-router-dom";
+import { AuthService } from "../services/auth/AuthService";
 
-type rutasVigilante = {children?: any};
-export const Vigilante = ({children}: rutasVigilante) =>{
-    const token = localStorage.getItem("TOKEN_AUTORIZACION")
-    if(token){
-        try{
-            jwtDecode(token);
-        }catch(error){
-            return <Navigate to="/login"></Navigate>
-        }       
+type rutasVigilante = { children?: any };
 
-    }else{
-        return <Navigate to="/login"/>
-    }
-    return children ? children: <Outlet></Outlet>
+export const Vigilante = ({ children }: rutasVigilante) => {
+  if (!AuthService.estaAutenticado()) {
+    return <Navigate to="/login" />;
+  }
 
-}
+  return children ? children : <Outlet></Outlet>;
+};

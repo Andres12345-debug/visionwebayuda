@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
@@ -18,22 +18,17 @@ import {
   AccountCircleOutlined as PersonIcon,
   AlternateEmail as MailIcon,
   DesignServicesOutlined as ServicesIcon,
+  AssignmentOutlined as MisServiciosIcon,
   LogoutRounded as LogoutIcon,
   DarkModeOutlined as DarkIcon,
   LightModeOutlined as LightIcon,
 } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 
 // Usamos el hook que tú ya definiste en tu archivo de contexto
 import { useThemeContext } from "../../shared/theme/ThemeConext";
-
-interface UserToken {
-  nombre: string;
-  rol: string;
-  exp: number;
-}
+import { useAuth } from "../../utilities/hoks/useAuth";
 
 const UserMenu = () => {
   const navigate = useNavigate();
@@ -42,18 +37,10 @@ const UserMenu = () => {
   // Extraemos las funciones y el estado del contexto
   const { mode, toggleTheme } = useThemeContext();
 
+  const { usuario: datosUsuario, esAdministrador, esSupervisor, esCliente, cerrarSesion } = useAuth();
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
-  const datosUsuario = useMemo(() => {
-    const token = localStorage.getItem("TOKEN_AUTORIZACION");
-    if (!token) return null;
-    try {
-      return jwtDecode<UserToken>(token);
-    } catch {
-      return null;
-    }
-  }, []);
 
   if (!datosUsuario) return null;
 
@@ -62,20 +49,20 @@ const UserMenu = () => {
   const handleClose = () => setAnchorEl(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("TOKEN_AUTORIZACION");
-    navigate("/");
+    cerrarSesion("/");
     handleClose();
   };
-
-  const esAdministrador = datosUsuario.rol?.toLowerCase().includes("admin") ?? false;
 
   const menuItems = [
     { label: "Mi Perfil", Icon: PersonIcon, path: "profile" },
     ...(esAdministrador
-      ? [
-          { label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" },
-          { label: "Servicios y contratos", Icon: ServicesIcon, path: "servicios" },
-        ]
+      ? [{ label: "Bandeja de Entrada", Icon: MailIcon, path: "correos" }]
+      : []),
+    ...(esAdministrador || esSupervisor
+      ? [{ label: "Servicios y contratos", Icon: ServicesIcon, path: "servicios" }]
+      : []),
+    ...(esCliente
+      ? [{ label: "Mis servicios", Icon: MisServiciosIcon, path: "mis-servicios" }]
       : []),
   ];
 

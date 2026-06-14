@@ -17,7 +17,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import MessageIcon from "@mui/icons-material/Message";
 import SendIcon from "@mui/icons-material/Send";
 import { URLS } from "../../../utilities/domains/urls";
-import { ServicioPostPublica } from "../../../services/ServicioPostPublica";
+import { HttpClient } from "../../../services/core/HttpClient";
 
 export default function FormularioContacto() {
     const { t } = useTranslation();
@@ -53,7 +53,7 @@ export default function FormularioContacto() {
 
         try {
             const url = URLS.URL_BASE + URLS.CONTACTO;
-            const resp = await ServicioPostPublica.peticionPostPublica(url, form);
+            const resp = await HttpClient.post<any>(url, form);
 
             setRespuesta(resp.mensaje);
             setForm({ nombre: "", email: "", mensaje: "" });

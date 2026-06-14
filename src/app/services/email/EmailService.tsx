@@ -1,7 +1,6 @@
 // services/correoService.tsx
 
 import { HttpClient } from "../core/HttpClient";
-import { ServicioPost } from "../email/ServicePostEmail";
 import { URLS } from "../../utilities/domains/urls";
 import { Correo } from "../../models/Email";
 
@@ -82,14 +81,15 @@ export class CorreoService {
 
     try {
 
-      const resp = await ServicioPost.peticionPost(
+      const resp = await HttpClient.post<any>(
         URLS.URL_BASE + URLS.RESPONDER_CORREO,
         {
           id,
           email,
           asunto,
           mensaje
-        }
+        },
+        true
       );
 
       return resp;

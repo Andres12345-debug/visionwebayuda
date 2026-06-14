@@ -35,6 +35,7 @@ import {
 
 import { ServiciosService } from "../../services/servicios/ServiciosService";
 import { ClienteServiciosService } from "../../services/servicios/ClienteServiciosService";
+import { useAuth } from "../../utilities/hoks/useAuth";
 import { Servicio } from "../../models/Servicio";
 import { ClienteServicio } from "../../models/ClienteServicio";
 import { ServicioModal } from "../../public/components/modals/ServiciosModals";
@@ -58,6 +59,7 @@ const ServiciosDashboard = () => {
 
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { esAdministrador } = useAuth();
 
   const [tab, setTab] = useState(0);
 
@@ -374,19 +376,21 @@ const ServiciosDashboard = () => {
                             </IconButton>
                           </Tooltip>
 
-                          <Tooltip title="Eliminar servicio">
-                            <IconButton
-                              size="small"
-                              onClick={() => eliminarServicio(servicio)}
-                              sx={{
-                                bgcolor: alpha(theme.palette.error.main, 0.12),
-                                color: theme.palette.error.main,
-                                "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.2) }
-                              }}
-                            >
-                              <DeleteIcon fontSize="small" />
-                            </IconButton>
-                          </Tooltip>
+                          {esAdministrador && (
+                            <Tooltip title="Eliminar servicio">
+                              <IconButton
+                                size="small"
+                                onClick={() => eliminarServicio(servicio)}
+                                sx={{
+                                  bgcolor: alpha(theme.palette.error.main, 0.12),
+                                  color: theme.palette.error.main,
+                                  "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.2) }
+                                }}
+                              >
+                                <DeleteIcon fontSize="small" />
+                              </IconButton>
+                            </Tooltip>
+                          )}
 
                         </Stack>
                       </TableCell>
@@ -596,19 +600,21 @@ const ServiciosDashboard = () => {
                             </IconButton>
                           </Tooltip>
 
-                          <Tooltip title="Eliminar contrato">
-                            <IconButton
-                              size="small"
-                              onClick={() => eliminarContrato(contrato)}
-                              sx={{
-                                bgcolor: alpha(theme.palette.error.main, 0.12),
-                                color: theme.palette.error.main,
-                                "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.2) }
-                              }}
-                            >
-                              <DeleteIcon fontSize="small" />
-                            </IconButton>
-                          </Tooltip>
+                          {esAdministrador && (
+                            <Tooltip title="Eliminar contrato">
+                              <IconButton
+                                size="small"
+                                onClick={() => eliminarContrato(contrato)}
+                                sx={{
+                                  bgcolor: alpha(theme.palette.error.main, 0.12),
+                                  color: theme.palette.error.main,
+                                  "&:hover": { bgcolor: alpha(theme.palette.error.main, 0.2) }
+                                }}
+                              >
+                                <DeleteIcon fontSize="small" />
+                              </IconButton>
+                            </Tooltip>
+                          )}
 
                         </Stack>
                       </TableCell>

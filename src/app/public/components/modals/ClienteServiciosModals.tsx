@@ -20,7 +20,15 @@ import { ReactNode, useState, useEffect } from "react";
 import { ClienteServicio } from "../../../models/ClienteServicio";
 import { Servicio } from "../../../models/Servicio";
 import { ClienteServiciosService } from "../../../services/servicios/ClienteServiciosService";
+import { UserService } from "../../../services/user/UserService";
+import { ROLES } from "../../../utilities/domains/roles";
 import { BaseModal, ModalTextField } from "./AnswerEmail";
+
+interface ClienteOpcion {
+  codUsuario: number;
+  nombreUsuario: string;
+  correoUsuario: string;
+}
 
 const adornment = (icon: ReactNode, shrinkLabel: boolean = false) => ({
   slotProps: {
@@ -48,6 +56,27 @@ interface Props {
 export const ClienteServicioModal = ({ open, onClose, contrato, servicios, onSuccess }: Props) => {
 
   const [loading, setLoading] = useState(false);
+  const [clientes, setClientes] = useState<ClienteOpcion[]>([]);
+
+  useEffect(() => {
+
+    if (!open) return;
+
+    UserService.listarTodos()
+      .then((usuarios: any[]) => {
+        const soloClientes = usuarios
+          .filter((usuario) => usuario.codRolU?.nombreRol === ROLES.CLIENTE)
+          .map((usuario) => ({
+            codUsuario: usuario.codUsuario,
+            nombreUsuario: usuario.nombreUsuario,
+            correoUsuario: usuario.correoUsuario
+          }));
+
+        setClientes(soloClientes);
+      })
+      .catch((error) => console.error("Error cargando clientes:", error));
+
+  }, [open]);
 
   const [form, setForm] = useState({
     codUsuario: "",
@@ -164,13 +193,24 @@ export const ClienteServicioModal = ({ open, onClose, contrato, servicios, onSuc
 
         <Grid size={{ xs: 12, sm: 6 }}>
           <ModalTextField
-            label="Código de usuario (cliente)"
-            type="number"
-            helperText="Código del Usuario con rol clientes"
+            select
+            label="Cliente"
+            helperText="Usuarios con rol clientes"
             value={form.codUsuario}
             onChange={(e) => handleChange("codUsuario", e.target.value)}
             {...adornment(<PersonIcon color="action" />)}
-          />
+          >
+            {contrato && contrato.usuario && !clientes.some((cliente) => cliente.codUsuario === contrato.codUsuario) && (
+              <MenuItem value={String(contrato.codUsuario)}>
+                {contrato.usuario.nombreUsuario} ({contrato.usuario.correoUsuario})
+              </MenuItem>
+            )}
+            {clientes.map((cliente) => (
+              <MenuItem key={cliente.codUsuario} value={String(cliente.codUsuario)}>
+                {cliente.nombreUsuario} ({cliente.correoUsuario})
+              </MenuItem>
+            ))}
+          </ModalTextField>
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6 }}>

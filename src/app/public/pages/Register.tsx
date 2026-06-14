@@ -27,21 +27,13 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { jwtDecode } from "jwt-decode";
 import SEO from "../../shared/SEO";
 
 import { RegistroSesion } from "../../models/SessionRegister";
 import { RegistroService } from "../../services/RegistroService";
+import { AuthService } from "../../services/auth/AuthService";
 import { useFormulario } from "../../utilities/hoks/useForm";
 import { crearMensaje } from "../../utilities/functions/messge";
-
-interface TokenPayload {
-  id: number;
-  nombre: string;
-  rol: string;
-  telefono: string;
-  correo: string;
-}
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -94,9 +86,9 @@ const Register = () => {
         throw new Error("TOKEN_NOT_FOUND");
       }
 
-      const datosToken = jwtDecode<TokenPayload>(token);
+      const datosToken = AuthService.decodificarToken(token);
 
-      localStorage.setItem("TOKEN_AUTORIZACION", token);
+      AuthService.setToken(token);
 
       crearMensaje("success", `¡Bienvenido, ${datosToken.nombre}!`);
 

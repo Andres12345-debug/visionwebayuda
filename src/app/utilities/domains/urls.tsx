@@ -17,7 +17,7 @@ export const URLS = {
     /****SERVICIOS PRIVADOS ************ */
     LISTAR_USUARIOS: "/privado/usuarios/todos",
     CREAR_USUARIO: "/privado/usuarios/agregar",
-    ACTUALIZAR_USUARIO: "/privado/usuarios/update",
+    ACTUALIZAR_USUARIO: "/privado/usuarios/actualizar",
     ELIMINAR_USUARIO: "/privado/usuarios/delete",
 
     /****CATÁLOGO DE SERVICIOS ************ */
@@ -41,6 +41,6 @@ export const URLS = {
 
     LISTAR_ROLES: "/privado/roles/todos",
     CREAR_ROLES: "/privado/roles/agregar",
-    ACTUALIZAR_ROLES: "/privado/roles/update",
+    ACTUALIZAR_ROLES: "/privado/roles/actualizar",
     ELIMINAR_ROLES: "/privado/roles/delete"
 }

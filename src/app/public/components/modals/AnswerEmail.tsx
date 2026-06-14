@@ -181,17 +181,12 @@ export const ResponderCorreoModal = ({
 
       setLoading(true);
 
-      const resp = await CorreoService.responderCorreo(
+      await CorreoService.responderCorreo(
         id,
         email,
         asunto,
         mensaje
       );
-
-      if (resp?.success === false) {
-        alert("Error enviando respuesta");
-        return;
-      }
 
       alert("Respuesta enviada correctamente");
 

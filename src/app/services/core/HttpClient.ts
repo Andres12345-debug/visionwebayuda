@@ -1,3 +1,5 @@
+import { AuthService } from "../auth/AuthService";
+
 export class HttpClient {
 
   private static getHeaders(auth: boolean = false) {
@@ -8,7 +10,7 @@ export class HttpClient {
 
     if (auth) {
 
-      const token = localStorage.getItem("TOKEN_AUTORIZACION");
+      const token = AuthService.getToken();
 
       if (token) {
         headers["Authorization"] = `Bearer ${token}`;
@@ -17,6 +19,25 @@ export class HttpClient {
     }
 
     return headers;
+
+  }
+
+  private static async buildError(response: Response): Promise<Error> {
+
+    try {
+
+      const body = await response.json();
+      const mensaje = Array.isArray(body?.message) ? body.message.join(", ") : body?.message;
+
+      console.error("Error servidor:", body);
+
+      return new Error(mensaje || `Error HTTP ${response.status}`);
+
+    } catch {
+
+      return new Error(`Error HTTP ${response.status}`);
+
+    }
 
   }
 
@@ -31,11 +52,7 @@ export class HttpClient {
       });
 
       if (!response.ok) {
-
-        const text = await response.text();
-        console.error("Error servidor:", text);
-        throw new Error(`Error HTTP ${response.status}`);
-
+        throw await this.buildError(response);
       }
 
       return await response.json();
@@ -61,11 +78,7 @@ export class HttpClient {
       });
 
       if (!response.ok) {
-
-        const text = await response.text();
-        console.error("Error servidor:", text);
-        throw new Error(`Error HTTP ${response.status}`);
-
+        throw await this.buildError(response);
       }
 
       return await response.json();
@@ -91,11 +104,7 @@ export class HttpClient {
       });
 
       if (!response.ok) {
-
-        const text = await response.text();
-        console.error("Error servidor:", text);
-        throw new Error(`Error HTTP ${response.status}`);
-
+        throw await this.buildError(response);
       }
 
       return await response.json();
@@ -111,30 +120,26 @@ export class HttpClient {
 
   public static async delete<T>(url: string, auth: boolean = false): Promise<T> {
 
-  try {
+    try {
 
-    const response = await fetch(url, {
-      method: "DELETE",
-      headers: this.getHeaders(auth)
-    });
+      const response = await fetch(url, {
+        method: "DELETE",
+        headers: this.getHeaders(auth)
+      });
 
-    if (!response.ok) {
+      if (!response.ok) {
+        throw await this.buildError(response);
+      }
 
-      const text = await response.text();
-      console.error("Error servidor:", text);
-      throw new Error(`Error HTTP ${response.status}`);
+      return await response.json();
+
+    } catch (error) {
+
+      console.error("Error en HttpClient DELETE:", error);
+      throw error;
 
     }
 
-    return await response.json();
-
-  } catch (error) {
-
-    console.error("Error en HttpClient DELETE:", error);
-    throw error;
-
   }
-
-}
 
 }
