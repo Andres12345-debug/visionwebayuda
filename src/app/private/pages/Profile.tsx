@@ -33,11 +33,6 @@ interface InfoItemProps {
   value: string | number;
 }
 
-const generoLabel = (genero: number) => {
-  if (genero === 1) return "Masculino";
-  if (genero === 2) return "Femenino";
-  return "No especificado";
-};
 
 const formatFecha = (fecha: string) => {
   if (!fecha) return "-";
