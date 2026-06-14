@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PrimaryButton from "../ui/PrimaryButton";
@@ -7,7 +8,7 @@ type SectionHeroSplitBaseProps = {
   imageAlt: string;
   imagePosition?: "left" | "right";
   subtitle: string;
-  title: string;
+  title: ReactNode;
   description: string;
   buttonText: string;
   buttonLink?: string;

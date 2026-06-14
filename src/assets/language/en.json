@@ -40,12 +40,18 @@
   "heroSplit": {
     "subtitle": "Smart Inventory",
     "title": "Full control of your technology assets with Professional Agent",
+    "titlePart1": "Full control of your technology assets with ",
+    "titleHighlight": "Professional Agent",
+    "titlePart2": "",
     "description": "Automate hardware and software collection, maintain complete traceability and get real-time visibility of all ICT assets from a single centralized platform.",
     "buttonText": "Request a demo"
   },
   "heroSplitLeft": {
     "subtitle": "HELP DESK AND INCIDENT MANAGEMENT",
     "title": "Centralized, organized and traceable technical support",
+    "titlePart1": "",
+    "titleHighlight": "Centralized, organized and traceable",
+    "titlePart2": " technical support",
     "description": "Efficiently manage your support requests with our help desk platform, centralizing incident, user and report management in a modern, easy-to-use interface, improving response times and customer satisfaction.",
     "buttonText": "View features"
   },

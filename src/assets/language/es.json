@@ -40,12 +40,18 @@
   "heroSplit": {
     "subtitle": "Inventario Inteligente",
     "title": "Control total de sus activos tecnológicos con Agente Profesional",
+    "titlePart1": "Control total de sus activos tecnológicos con ",
+    "titleHighlight": "Agente Profesional",
+    "titlePart2": "",
     "description": "Automatiza la recolección de hardware y software, mantén trazabilidad completa y obtén visibilidad en tiempo real de todos los activos TIC desde una sola plataforma centralizada.",
     "buttonText": "Solicitar demostración"
   },
   "heroSplitLeft": {
     "subtitle": "MESA DE AYUDA Y GESTIÓN DE INCIDENCIAS",
     "title": "Soporte técnico centralizado, organizado y trazable",
+    "titlePart1": "",
+    "titleHighlight": "Soporte técnico centralizado",
+    "titlePart2": ", organizado y trazable",
     "description": "Gestione eficientemente sus solicitudes de soporte con nuestra plataforma de mesa de ayuda, centralizando la gestión de incidencias, usuarios y reportes en una interfaz moderna y fácil de usar, mejorando tiempos de respuesta y satisfacción del cliente.",
     "buttonText": "Ver funcionalidades"
   },
