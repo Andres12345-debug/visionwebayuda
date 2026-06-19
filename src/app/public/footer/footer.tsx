@@ -10,10 +10,15 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
+
+const CONTACT_EMAIL = "gerencia@visionstore.com";
+const WHATSAPP_NUMBER = "573007538453";
+const TELEGRAM_BOT_URL = "https://t.me/JuliCalendarBot";
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -22,7 +27,14 @@ const Footer = () => {
 
     const menuItems = [
         { text: t("footer.inicio"), path: "/" },
+        { text: t("footer.productos"), path: "/productos" },
         { text: t("footer.planes"), path: "/planDeGestion" },
+    ];
+
+    const socialLinks = [
+        { icon: <WhatsAppIcon />, link: `https://wa.me/${WHATSAPP_NUMBER}`, label: "WhatsApp" },
+        { icon: <TelegramIcon />, link: TELEGRAM_BOT_URL, label: "Telegram" },
+        { icon: <EmailIcon />, link: `mailto:${CONTACT_EMAIL}`, label: "Email" },
     ];
 
     return (
@@ -31,9 +43,9 @@ const Footer = () => {
             sx={{
                 py: { xs: 6, md: 10 },
                 position: "relative",
-               background: isDark
-          ? "linear-gradient(180deg, #000000 0%, #020617 100%)"
-          : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+                background: isDark
+                    ? "linear-gradient(180deg, #000000 0%, #020617 100%)"
+                    : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
                 borderTop: "1px solid",
                 borderColor: isDark
                     ? "rgba(255,255,255,0.05)"
@@ -52,18 +64,14 @@ const Footer = () => {
                     <Box sx={{ maxWidth: 350 }}>
                         <Typography
                             variant="h5"
-                            fontWeight={800}
+                            fontWeight={900}
+                            letterSpacing={1}
                             gutterBottom
-                            sx={{
-                                letterSpacing: "-0.5px",
-                                background: isDark
-                                    ? "linear-gradient(90deg, #fff 0%, #b8ae94 100%)"
-                                    : "linear-gradient(90deg, #0f172a 0%, #696247 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                            }}
                         >
-                            {t("footer.visionCode")}
+                            ViSion
+                            <Box component="span" sx={{ color: "#6366f1" }}>
+                                Web
+                            </Box>
                         </Typography>
 
                         <Typography
@@ -79,21 +87,19 @@ const Footer = () => {
                             spacing={2}
                             justifyContent={{ xs: "center", md: "flex-start" }}
                         >
-                            {[
-                                { icon: <FacebookIcon />, link: "#" },
-                                { icon: <LinkedInIcon />, link: "#" },
-                                { icon: <WhatsAppIcon />, link: "#" },
-                                { icon: <EmailIcon />, link: "mailto:Vision.code24@gmail.com" }
-                            ].map((social, index) => (
+                            {socialLinks.map((social) => (
                                 <IconButton
-                                    key={index}
+                                    key={social.label}
                                     href={social.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={social.label}
                                     sx={{
-                                        bgcolor: isDark ? "rgba(201, 21, 21, 0.03)" : "rgba(0,0,0,0.03)",
+                                        bgcolor: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
                                         color: "text.secondary",
                                         transition: "0.3s",
                                         "&:hover": {
-                                            bgcolor: "primary.main",
+                                            bgcolor: "#6366f1",
                                             color: "white",
                                             transform: "translateY(-3px)"
                                         }
@@ -122,7 +128,7 @@ const Footer = () => {
                                         fontSize: "0.95rem",
                                         transition: "0.2s",
                                         "&:hover": {
-                                            color: "primary.main",
+                                            color: "#6366f1",
                                             pl: 1
                                         }
                                     }}
@@ -134,22 +140,60 @@ const Footer = () => {
                     </Box>
 
                     {/* Contacto */}
-                    <Box sx={{ minWidth: 250 }}>
+                    <Box sx={{ minWidth: 260 }}>
                         <Typography variant="subtitle1" fontWeight={700} mb={3}>
                             {t("footer.contactoDirecto")}
                         </Typography>
 
-                        <Typography variant="body2" fontWeight={500}>
-                            {t("footer.direccion")}
-                        </Typography>
+                        <Stack spacing={1.5}>
+                            <Stack
+                                direction="row"
+                                spacing={1.2}
+                                alignItems="center"
+                                justifyContent={{ xs: "center", md: "flex-start" }}
+                            >
+                                <LocationOnIcon fontSize="small" sx={{ color: "#6366f1" }} />
+                                <Typography variant="body2" color="text.secondary">
+                                    {t("footer.direccion")}
+                                </Typography>
+                            </Stack>
 
-                        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                            Vision.code24@gmail.com
-                        </Typography>
+                            <Stack
+                                direction="row"
+                                spacing={1.2}
+                                alignItems="center"
+                                justifyContent={{ xs: "center", md: "flex-start" }}
+                            >
+                                <EmailIcon fontSize="small" sx={{ color: "#6366f1" }} />
+                                <Link
+                                    href={`mailto:${CONTACT_EMAIL}`}
+                                    underline="hover"
+                                    color="text.secondary"
+                                    variant="body2"
+                                >
+                                    {CONTACT_EMAIL}
+                                </Link>
+                            </Stack>
 
-                        <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                            +57 300 753 8453
-                        </Typography>
+                            <Stack
+                                direction="row"
+                                spacing={1.2}
+                                alignItems="center"
+                                justifyContent={{ xs: "center", md: "flex-start" }}
+                            >
+                                <PhoneIcon fontSize="small" sx={{ color: "#6366f1" }} />
+                                <Link
+                                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    underline="hover"
+                                    color="text.secondary"
+                                    variant="body2"
+                                >
+                                    +57 300 753 8453
+                                </Link>
+                            </Stack>
+                        </Stack>
                     </Box>
                 </Stack>
 

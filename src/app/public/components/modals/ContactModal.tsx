@@ -45,7 +45,7 @@ export const ContactModal = ({ open, onClose }: ContactModalProps) => {
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <EmailIcon color="primary" />
-          <Typography>vision.code24@gmail.com</Typography>
+          <Typography>gerencia@visionstore.com</Typography>
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
