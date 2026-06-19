@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import SmallNav from "../../public/nav/SmallNav";
 import { FloatingWhatsApp } from "../../public/components/ui/FloatingWhatsApp";
 import { FloatingChatbot } from "../../public/components/ui/FloatingChatbot";
+// import { FloatingTelegram } from "../../public/components/ui/FloatingTelegram"; // Disponible para reactivar más adelante
 import Footer from "../../public/footer/footer";
 
 export const MainLayout = () => {
@@ -27,6 +28,7 @@ export const MainLayout = () => {
 
         <FloatingChatbot />
         <FloatingWhatsApp />
+        {/* <FloatingTelegram /> */}
         <Footer />
       </Box>
     </Box>

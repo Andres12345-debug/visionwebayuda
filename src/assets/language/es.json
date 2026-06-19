@@ -348,6 +348,19 @@
   "floatingWhatsApp": {
     "mensaje": "Hola, quiero asesoría sobre software empresarial Open Source."
   },
+  "floatingTelegram": {
+    "etiqueta": "Chatea en Telegram",
+    "tooltip": "Habla con nuestro bot de Telegram"
+  },
+  "telegramSection": {
+    "titulo": "También estamos en Telegram",
+    "descripcion": "Pregúntale a nuestro bot de Telegram sobre la mesa de ayuda, gestión de inventario TI o cualquier otro servicio de VisionWeb, disponible las 24 horas desde tu app de Telegram.",
+    "boton": "Abrir en Telegram",
+    "previewHeader": "Bot VisionWeb",
+    "previewQ1": "¿Tienen un bot de Telegram?",
+    "previewA1": "¡Sí! Pregúntame lo que quieras sobre nuestros servicios, las 24 horas del día.",
+    "previewQ2": "Genial, ¿cómo lo encuentro?"
+  },
   "contactModal": {
     "titulo": "Contáctenos",
     "descripcion": "Estamos listos para ayudarle a implementar soluciones empresariales Open Source en su organización.",

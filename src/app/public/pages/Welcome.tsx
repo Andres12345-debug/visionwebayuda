@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import SEO from "../../shared/SEO";
 import SectionHeader from "../components/componentsWelcome/SectionHeader";
 import HablaConVisionSection from "../components/componentsWelcome/HablaConVisionSection";
+import TelegramSection from "../components/componentsWelcome/TelegramSection";
 import SectionHeroSplit from "../components/componentsWelcome/SectionHeroSplit";
 import SectionHeroSplitLeft from "../components/componentsWelcome/SectionHeroSplitLeft";
 import ServicesSection from "../components/componentsWelcome/ServicesSection";
@@ -31,6 +32,7 @@ const Welcome = () => {
             <InventoryAgentSection />            
             {/* <StepsSection /> */}            
             <HablaConVisionSection />
+            <TelegramSection />
             <FAQSection />
             <FormularioContacto />
         </Box>

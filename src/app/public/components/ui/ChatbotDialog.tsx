@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from "@mui/icons-material/Close";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
-import { sendChatMessage, ChatMessage, RateLimitError } from "../../../../services/geminiService";
+import { AsistenteService, ChatMessage, RateLimitError } from "../../../services/asistente/AsistenteService";
 
 type Props = {
   open: boolean;
@@ -48,7 +48,7 @@ export default function ChatbotDialog({ open, onClose }: Props) {
     setLoading(true);
 
     try {
-      const reply = await sendChatMessage(history, text);
+      const reply = await AsistenteService.preguntar(text, history);
       setMessages((prev) => [...prev, { role: "model", text: reply }]);
     } catch (err) {
       const errorText = err instanceof RateLimitError

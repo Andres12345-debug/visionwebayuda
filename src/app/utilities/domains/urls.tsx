@@ -7,6 +7,7 @@ export const URLS = {
     INICIAR_SESION: "/publico/accesos/signin",
     REGISTRO: "/publico/registros/user",
     CONTACTO: "/publico/correos/contacto",
+    PREGUNTAR_ASISTENTE: "/publico/asistente/pregunta",
 
     /*** CORREOS ***/
     LISTAR_CORREOS: "/privado/correos",
