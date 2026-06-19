@@ -1,8 +1,8 @@
 export const URLS = {
     //produccion
-    //URL_BASE: "https://visionbot-visionweb-backend.t0y4lz.easypanel.host",
+    //URL_BASE: "https://visionweb-visionweb.mqbbpj.easypanel.host/",
     //desarrollo
-    URL_BASE: "http://localhost:3550",
+    URL_BASE: "https://visionweb-visionweb.mqbbpj.easypanel.host",
 
     INICIAR_SESION: "/publico/accesos/signin",
     REGISTRO: "/publico/registros/user",
